@@ -1,52 +1,20 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Keto Diet
+## Aim of the website
+I hope to explain what Keto diet is about and show how effective and pleasurable it can be. I aim to encourage more people to try it. I am not a dietitian, but I have read a lot about Keto. I am on Keto 7 months and I want to share me experience. 
 
-Welcome USER_NAME,
+## Structure of the website
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+1. Results, what I have acheved being on Keto Diet
+2. How it works - Recipe for success
+3. Authorities - people that speak about Keto
+4. How to start on Keto
+5. Keto flu
+6. Am I in Keto - how to measure if you are in Ketosis
+7. Suplements
+8. Contact page - leave your contact details for dietitian to get back to you
 
-## Gitpod Reminders
+## Additional ideas for the website
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI you can use:
-
-`heroku login -i`
-
-If you have Multi-Factor Authentication (MFA) enabled then use the API key that was generated for you at [Heroku](https://dashboard.heroku.com/account) as your password.
-This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
----
-
-Happy coding!
+1. Add your Keto recipe - form for users to add their recipe
+2. Add your Keto success story - form for users to add their achevements
+3. Links to websites or youtube videos on Keto

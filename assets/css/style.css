@@ -1,4 +1,9 @@
 
+body {
+    background-color: whitesmoke;
+    color:slategrey;
+}
+
 /*styling of the welcome screens*/
 
 .welcome-container {

@@ -104,45 +104,32 @@ function calculateCorrectAnswer() {
     }
     
 }
-/**
- * Gets the current score from the DOM and increments it by 1
- */
-function incrementScore() {
-    let oldScore = parseInt(document.getElementById("score").innerText);
-    document.getElementById("score").innerText = ++oldScore;
-}
-/**
- * Gets the current tally of incorrect answers from the DOM and increments it by 1
- */
-function incrementWrongAnswer() {
-    let oldScore = parseInt(document.getElementById("incorrect").innerText);
-    document.getElementById("incorrect").innerText = ++oldScore;
-}
 
-function displayAdditionQuestion(operand1, operand2) {
-    
-    document.getElementById('operand1').textContent = operand1;
-    document.getElementById('operand2').textContent = operand2;
-    document.getElementById('operator').textContent = "+";
-}
 
-function displaySubtractQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
-    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
-    document.getElementById('operator').textContent = "-";
-}
-
-function displayMultiplyQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1;
-    document.getElementById('operand2').textContent = operand2;
-    document.getElementById('operator').textContent = "x";
+function displayWeightQuestion(answer1, answer2) {
+    document.getElementById('question').textContent = 'Do you want to Loose Weight?';  
+    document.getElementById('answer1').textContent = 'Male';
+    document.getElementById('answer2').textContent = 'Female';
 
 }
 
-function displayDivideQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1 * operand2;
-    document.getElementById('operand2').textContent = operand2;
-    document.getElementById('operator').textContent = "/";
+function displayExcerciseQuestion(answer1, answer2) {
+    document.getElementById('question').textContent = 'Do you want to Excercise More';  
+    document.getElementById('answer1').textContent = 'Yes';
+    document.getElementById('answer2').textContent = 'No';
+}
+
+function displayCaloriesQuestion(answer1, answer2) {
+    document.getElementById('question').textContent = 'Do you want to record every calorie you consume?';  
+    document.getElementById('answer1').textContent = 'Yes';
+    document.getElementById('answer2').textContent = 'No';
+
+}
+
+function displayDisplayCalculatorQuestion(answer1, answer2) {
+    document.getElementById('question').textContent = 'Click below to calculate your weight loss:';  
+    document.getElementById('answer1').textContent = 'I have a weight goal';
+    document.getElementById('answer2').textContent = 'I have a hard deadline';
 
 }
 

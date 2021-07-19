@@ -1,8 +1,9 @@
+
+/*styling of the welcome screens*/
+
 .welcome-container {
 
 }
-
-
 
 .big-welcome {
 
@@ -12,6 +13,16 @@ left: 12%;
 font-size: 5rem;
 }
 
-position: absolute;
-top: 40vh;
-left: 12vw;
+.answer-container {
+    font-size: 3rem;
+    position: absolute;
+    top:60%;
+    width: 100%;
+    text-align: center;
+}
+
+.my-col-6 {
+    display:inline;
+    width: 50%;
+    padding: 10vw;
+}

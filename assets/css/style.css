@@ -1,0 +1,17 @@
+.welcome-container {
+
+}
+
+
+
+.big-welcome {
+
+position: absolute;
+top: 40%;
+left: 12%;
+font-size: 5rem;
+}
+
+position: absolute;
+top: 40vh;
+left: 12vw;

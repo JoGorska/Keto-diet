@@ -8,58 +8,44 @@ document.addEventListener("DOMContentLoaded", function() {
     
     for(let thisDiv of allDivs) {
         button.addEventListener("click", function() {
-            if (this.getAttribute("data-type") === "submit") {
-                checkAnswer();
+            if (this.getAttribute("data-type") === "wrong-answer") {
+                console.log("wrong-aswer add function");
             } else {
-                let gameType = this.getAttribute("data-type");
-                runGame(gameType);
+                let questionType = this.getAttribute("data-type");
+                runGame(questionType);
             }
         })
     }
-    document.getElementById("answer-box").addEventListener("keydown", function(event) {
-        if (event.key ==="Enter") {
-            checkAnswer();
-        }
-
-    }
-    
-    )
-
-    runGame("addition");
+    runGame("weight");
 });
 /**
  * The main game "loop", called when the script is first loaded
  * and after the user's answer has been processed
  */
 
-function runGame(gameType) {
+function runGame(questionType) {
 
-    document.getElementById("answer-box").value = "";
-    document.getElementById("answer-box").focus();
+   
 
-    // Creates two random numbers 1 - 25
-    let num1 = Math.floor(Math.random() * 25) + 1;
-    let num2 = Math.floor(Math.random() * 25) + 1;
-
-    if (gameType === "addition") {
+    if (questionType === "weight") {
         displayAdditionQuestion(num1, num2);
-    } else if (gameType === "multiply") {
+    } else if (questionType === "excercise") {
         displayMultiplyQuestion(num1, num2);
 
-    } else if (gameType === "substract") {
+    } else if (questionType === "calories") {
         displaySubtractQuestion(num1, num2);
 
-    } else if (gameType === "division") {
+    } else if (questionType === "which-calculator") {
         displayDivideQuestion(num1, num2);
 
     } else {
-        alert(`unknown game type: ${gameType}`);
-        throw `Unknown game type: ${gameType}. Aborting!`;
+        alert(`unknown game type: ${questionType}`);
+        throw `Unknown game type: ${questionType}. Aborting!`;
     }
 }
 /**
  * Checks the answer against the first element in
- * the returned calculateCorrectAnswer array
+ * the returned loadNextQuestion array
  */
 
 function checkAnswer() {
@@ -79,13 +65,13 @@ function checkAnswer() {
 
     } else {
 
-        document.getElementById("answer1").addEventListener("click", calculateCorrectAnswer);
+        document.getElementById("answer1").addEventListener("click", loadNextQuestion);
             
     }
 }
     
     document.getElementById("answer1").addEventListener("click", );
-    let calculatedAnswer = calculateCorrectAnswer();
+    let calculatedAnswer = loadNextQuestion();
     let isCorrect = userAnswer === calculatedAnswer[0];
     let 
 
@@ -101,7 +87,7 @@ function checkAnswer() {
  * Gets the answers and the questions (plus, minus etc)
  * directly from the DOM, and returns new HTML.
  */
-function calculateCorrectAnswer() {
+function loadNextQuestion() {
 
     let answer1 = parseInt(document.getElementById('answer1').innerText);
     let answer2 = parseInt(document.getElementById('answer2').innerText);
@@ -150,7 +136,7 @@ function calculateCorrectAnswer() {
         return [
         document.getElementsByClassName("welcome-container")[0].innerHTML = `
         <div class="welcome-container">
-        <div id="question" class="big-welcome">Calculate what you can acheve with Keto Diet:</div>
+        <div data-type="which-calculator" id="question" class="big-welcome">Calculate what you can acheve with Keto Diet:</div>
         <div class="answer-container">
             <div data-type="target-weight" class="my-col-6" ><button id="answer1">How soon I can acheve my weight goal?</button></div>
             <div data-type="hard-deadline" class="my-col-6"><button id="answer2">How much I can loose untill my hard deadline?</button></div>

@@ -16,13 +16,21 @@
     <title>Change your Fuel</title>
 </head>
 <!--Main header-->
-<div>
-    <h1>Calculator</h1>
-    <h6>Choose from one of the options below to calculate how long will it take you to acheve the target weight or how much weight you can loose untill your target date</h6>
-</div>
+
+<div class="container">
+    <header>
+  
+        <div class="p-5 pb-md-4 mx-auto text-center">
+          <h1 id="booking" class="display-4 fw-normal border-top p-5 font-family-header border-success">Calculator</h1>
+          <p class="fs-5 text-muted pb-5 border-bottom border-success">Choose from one of the options below to calculate how long will it take you to acheve the target weight or how much weight you can loose untill your target date</p>
+        </div>
+    
+      </header>
+  </div>
+
 <!--Calculator Form-->
 <form action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
-    <div class="p-3 mb-3">
+    <div class="container p-3 mb-3">
         
         <!--Choose target weight or Target Date-->
         <div class="form-check">
@@ -52,30 +60,33 @@
         </div>
 
         <!--Choose between Impearial Units and Metric -->
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="unitsOfMeasure" id="imperial" >
-            <label class="form-check-label btn btn-outline-success" for="imperial">
-                Imperial Units
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="unitsOfMeasure" id="metric" checked requried>
-            <label class="form-check-label btn btn-outline-success" for="metric">
-                Metric
-            </label>
-        </div>
+        <fieldset>
+            <legend>Choose between Impearial Units and Metric</legend>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="unitsOfMeasure" id="imperial" >
+                <label class="form-check-label btn btn-outline-success" for="imperial">
+                    Imperial Units
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="unitsOfMeasure" id="metric" checked requried>
+                <label class="form-check-label btn btn-outline-success" for="metric">
+                    Metric
+                </label>
+            </div>
+       
+            <!--Current weight-->
+            <div class="mb-3">
+                <label for="currentWeight" class="form-label">Current Weight</label>
+                <input type="number" class="form-control" id="currentWeight" name="currentWeight" required>
+            </div>
 
-        <!--Current weight-->
-        <div class="mb-3">
-            <label for="currentWeight" class="form-label">Current Weight</label>
-            <input type="number" class="form-control" id="currentWeight" name="currentWeight" required>
-        </div>
-
-        <!--Target weight-->
-        <div class="mb-3">
-            <label for="targetWeight" class="form-label">Target Weight</label>
-            <input type="number" class="form-control" id="targetWeight"name="targetWeight" required>
-        </div>
+            <!--Target weight-->
+            <div class="mb-3">
+                <label for="targetWeight" class="form-label">Target Weight</label>
+                <input type="number" class="form-control" id="targetWeight"name="targetWeight" required>
+            </div>
+        </fieldset>
 
         <!--Hours of excercise per week-->
         <div class="mb-3">
@@ -107,7 +118,7 @@
 
 
         <button type="submit" class="btn btn-success">Submit</button>
-        
+        <button type="reset" class="btn btn-danger btn-sm my-input-50">Reset</button>
     </div>
   </form>
 

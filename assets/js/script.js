@@ -4,9 +4,9 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    let allDivs = document.getElementsByTagName("div");
+    let buttons = document.getElementsByTagName("div");
     
-    for(let thisDiv of allDivs) {
+    for(let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "wrong-answer") {
                 console.log("wrong-aswer add function");
@@ -28,19 +28,19 @@ function runGame(questionType) {
    
 
     if (questionType === "weight") {
-        displayAdditionQuestion(num1, num2);
+        displayWeightQuestion(answer1, answer2);
     } else if (questionType === "excercise") {
-        displayMultiplyQuestion(num1, num2);
+        displayExcerciseQuestion(answer1, answer2);
 
     } else if (questionType === "calories") {
-        displaySubtractQuestion(num1, num2);
+        displayCaloriesQuestion(answer1, answer2);
 
     } else if (questionType === "which-calculator") {
-        displayDivideQuestion(num1, num2);
+        displayCalculatorQuestion(answer1, answer2);
 
     } else {
-        alert(`unknown game type: ${questionType}`);
-        throw `Unknown game type: ${questionType}. Aborting!`;
+        alert(`unknown question type: ${questionType}`);
+        throw `Unknown question type: ${questionType}. Aborting!`;
     }
 }
 /**
@@ -57,13 +57,13 @@ function checkAnswer() {
             <div class="welcome-container">
             <div id="question" class="big-welcome">I need you to be honest with me</div>
             <div class="answer-container">
-                <button id="go-back">Go Back</button>
+                <button data-type="weight" id="go-back" >Go Back</button>
             </div>
             </div>
             `
             document.getElementById("go-back").addEventListener("click", runGame("weight"));
 
-    } else {
+   // } else {
 
         document.getElementById("answer1").addEventListener("click", loadNextQuestion);
             
@@ -99,8 +99,8 @@ function loadNextQuestion() {
             <div class="welcome-container">
             <div data-type="weight" id="question" class="big-welcome">Do you want to loose weight?</div>
             <div class="answer-container">
-                <div data-type="next-question" class="my-col-6" ><button id="answer1" data-type="male">Male</button></div>
-                <div data-type="next-question" class="my-col-6"><button id="answer2" data-type="female">Female</button></div>
+                <div class="my-col-6" ><button data-type="next-question" id="answer1" data-type="male">Male</button></div>
+                <div class="my-col-6"><button data-type="next-question" id="answer2" data-type="female">Female</button></div>
             </div>
             </div>
             `
@@ -112,8 +112,8 @@ function loadNextQuestion() {
             <div class="welcome-container">
             <div data-type="excercise" id="question" class="big-welcome">Do you want to excercise More?</div>
             <div class="answer-container">
-                <div data-type="wrong-answer" class="my-col-6" ><button id="answer1">Yes</button></div>
-                <div data-type="next-question" class="my-col-6"><button id="answer2">No</button></div>
+                <div class="my-col-6" ><button data-type="wrong-answer" id="answer1">Yes</button></div>
+                <div class="my-col-6"><button data-type="next-question" id="answer2">No</button></div>
             </div>
             </div>
             `
@@ -125,8 +125,8 @@ function loadNextQuestion() {
             <div class="welcome-container">
             <div data-type="calories" id="question" class="big-welcome">Do you want to calculate every Calorie you consume?</div>
             <div class="answer-container">
-                <div data-type="wrong-answer" class="my-col-6" ><button id="answer1">Yes</button></div>
-                <div data-type="next-question" class="my-col-6"><button id="answer2">No</button></div>
+                <div class="my-col-6" ><button data-type="wrong-answer" id="answer1">Yes</button></div>
+                <div class="my-col-6"><button data-type="next-question" id="answer2">No</button></div>
             </div>
             </div>
             `
@@ -138,8 +138,8 @@ function loadNextQuestion() {
         <div class="welcome-container">
         <div data-type="which-calculator" id="question" class="big-welcome">Calculate what you can acheve with Keto Diet:</div>
         <div class="answer-container">
-            <div data-type="target-weight" class="my-col-6" ><button id="answer1">How soon I can acheve my weight goal?</button></div>
-            <div data-type="hard-deadline" class="my-col-6"><button id="answer2">How much I can loose untill my hard deadline?</button></div>
+            <div class="my-col-6" ><button data-type="target-weight" id="answer1">How soon I can acheve my weight goal?</button></div>
+            <div class="my-col-6"><button data-type="hard-deadline" id="answer2">How much I can loose untill my hard deadline?</button></div>
         </div>
         </div>
         `

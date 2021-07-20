@@ -63,44 +63,102 @@ function runGame(gameType) {
  */
 
 function checkAnswer() {
-    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let answer1 = document.getElementById("answer1").innerText;
+    if (answer1 === "Yes") {
+        document.getElementById("answer1").addEventListener("click", hondestDiv);
+        function honestDiv() {
+            document.getElementsByClassName("welcome-container")[0].innerHTML = `
+            <div class="welcome-container">
+            <div id="question" class="big-welcome">I need you to be honest with me</div>
+            <div class="answer-container">
+                <button id="go-back">Go Back</button>
+            </div>
+            </div>
+            `
+            document.getElementById("go-back").addEventListener("click", runGame("weight"));
+    } else {
+            document.getElementById("answer1").addEventListener("click", calculateCorrectAnswer);
+            
+    }
+}
+    
+    document.getElementById("answer1").addEventListener("click", );
     let calculatedAnswer = calculateCorrectAnswer();
     let isCorrect = userAnswer === calculatedAnswer[0];
+    let 
+
 
     if (isCorrect) {
-            alert("Hey! You got it right! :D")
-            incrementScore();
+        console.log("correct answer, next question please");
     }else {
-        alert(`Awww... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
-        incrementWrongAnswer();
+        console.log("incorrect, get the honestDiv");
     }
     runGame(calculatedAnswer[1]);
 }
 /**
- * Gets the operands (the numbers) and the operator (plus, minus etc)
- * directly from the DOM, and returns the correct answer.
+ * Gets the answers and the questions (plus, minus etc)
+ * directly from the DOM, and returns new HTML.
  */
 function calculateCorrectAnswer() {
 
-    let operand1 = parseInt(document.getElementById('operand1').innerText);
-    let operand2 = parseInt(document.getElementById('operand2').innerText);
-    let operator = document.getElementById('operator').innerText;
+    let answer1 = parseInt(document.getElementById('answer1').innerText);
+    let answer2 = parseInt(document.getElementById('answer2').innerText);
+    let question = document.getElementById('question').innerText;
 
-    if (operator === "+") {
-        return [operand1 + operand2, "addition"];
+    if (question === 'Do you want to Loose Weight?') {
+        return [
+            document.getElementsByClassName("welcome-container")[0].innerHTML = `
+            <div class="welcome-container">
+            <div id="question" class="big-welcome">Do you want to loose weight?</div>
+            <div class="answer-container">
+                <div class="my-col-6" ><button id="answer1" data-type="male">Male</button></div>
+                <div class="my-col-6"><button id="answer2" data-type="female">Female</button></div>
+            </div>
+            </div>
+            `
+        ];
 
-    } else if (operator === "x") {
-        return [operand1 * operand2, "multiply"];
+    } else if (question === 'Do you want to excercise More') {
+        return [
+            document.getElementsByClassName("welcome-container")[0].innerHTML = `
+            <div class="welcome-container">
+            <div id="question" class="big-welcome">Do you want to excercise More?</div>
+            <div class="answer-container">
+                <div class="my-col-6" ><button id="answer1" data-type="male">Male</button></div>
+                <div class="my-col-6"><button id="answer2" data-type="female">Female</button></div>
+            </div>
+            </div>
+            `
+        ];
 
-    } else if (operator === "-") {
-        return [operand1 - operand2, "substract"];
+    } else if (question === 'Do you want to calculate every Calorie you consume?') {
+        return [
+            document.getElementsByClassName("welcome-container")[0].innerHTML = `
+            <div class="welcome-container">
+            <div id="question" class="big-welcome">Do you want to calculate every Calorie you consume?</div>
+            <div class="answer-container">
+                <div class="my-col-6" ><button id="answer1" data-type="male">Male</button></div>
+                <div class="my-col-6"><button id="answer2" data-type="female">Female</button></div>
+            </div>
+            </div>
+            `
+    ];
 
-    } else if (operator === "/") {
-        return [operand1 / operand2, "division"];
-
+    } else if (question === 'Calculate what you can acheve with Keto Diet:') {
+        return [
+        document.getElementsByClassName("welcome-container")[0].innerHTML = `
+        <div class="welcome-container">
+        <div id="question" class="big-welcome">Calculate what you can acheve with Keto Diet:</div>
+        <div class="answer-container">
+            <div class="my-col-6" ><button id="answer1" data-type="male">How soon I can acheve my weight goal?</button></div>
+            <div class="my-col-6"><button id="answer2" data-type="female">How much I can loose untill my hard deadline?</button></div>
+        </div>
+        </div>
+        `
+        ];
     } else {
-        alert(`Unimplemented operator ${operator}`);
-        throw `Unimplemented operator ${operator}, Aborting!`
+        alert(`Unimplemented question ${question}`);
+        throw `Unimplemented question ${question}, Aborting!`
     }
     
 }

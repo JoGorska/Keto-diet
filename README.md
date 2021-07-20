@@ -41,3 +41,6 @@ I hope to explain what Keto diet is about and show how effective and pleasurable
 4. As a user I want to know if the calculations are reliable. How did you come up with the numbers.
 5. As a user I want to know if I can sustain this weight loss.
 6. I'm not yet convinced to go Keto, but I want to learn more about sugar content and how to choose products with lower sugar content. 
+
+## Technologies used
+- bootstrap 5 

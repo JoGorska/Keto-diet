@@ -46,3 +46,5 @@ document.getElementById("yes-excercise").addEventListener("click", function(){
         </div>`
 }
 )
+// Calculator
+

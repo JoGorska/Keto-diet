@@ -4,7 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    let buttons = document.getElementsByTagName("div");
+    let buttons = document.getElementsByTagName("button");
     
     for(let button of buttons) {
         button.addEventListener("click", function() {
@@ -28,15 +28,15 @@ function runGame(questionType) {
    
 
     if (questionType === "weight") {
-        displayWeightQuestion(answer1, answer2);
+        displayWeightQuestion();
     } else if (questionType === "excercise") {
-        displayExcerciseQuestion(answer1, answer2);
+        displayExcerciseQuestion();
 
     } else if (questionType === "calories") {
-        displayCaloriesQuestion(answer1, answer2);
+        displayCaloriesQuestion();
 
     } else if (questionType === "which-calculator") {
-        displayCalculatorQuestion(answer1, answer2);
+        displayCalculatorQuestion();
 
     } else {
         alert(`unknown question type: ${questionType}`);
@@ -89,8 +89,6 @@ function checkAnswer() {
  */
 function loadNextQuestion() {
 
-    let answer1 = parseInt(document.getElementById('answer1').innerText);
-    let answer2 = parseInt(document.getElementById('answer2').innerText);
     let question = document.getElementById('question').innerText;
 
     if (question === 'Do you want to Loose Weight?') {
@@ -106,7 +104,7 @@ function loadNextQuestion() {
             `
         ];
 
-    } else if (question === 'Do you want to excercise More') {
+    } else if (question === "Do you want to excercise More?") {
         return [
             document.getElementsByClassName("welcome-container")[0].innerHTML = `
             <div class="welcome-container">
@@ -152,30 +150,56 @@ function loadNextQuestion() {
 }
 
 
-function displayWeightQuestion(answer1, answer2) {
-    document.getElementById('question').textContent = 'Do you want to Loose Weight?';  
-    document.getElementById('answer1').textContent = 'Male';
-    document.getElementById('answer2').textContent = 'Female';
+function displayWeightQuestion() {
+
+    document.getElementsByClassName("welcome-container")[0].innerHTML = `
+    <div class="welcome-container">
+    <div data-type="weight" id="question" class="big-welcome">Do you want to loose weight?</div>
+    <div class="answer-container">
+        <div class="my-col-6" ><button data-type="excercise" id="answer1" data-type="excercise"">Male</button></div>
+        <div class="my-col-6"><button data-type="excercise id="answer2" data-type="excercise">Female</button></div>
+    </div>
+    </div>
+    `
 
 }
 
-function displayExcerciseQuestion(answer1, answer2) {
-    document.getElementById('question').textContent = 'Do you want to Excercise More';  
-    document.getElementById('answer1').textContent = 'Yes';
-    document.getElementById('answer2').textContent = 'No';
+function displayExcerciseQuestion() {
+    document.getElementsByClassName("welcome-container")[0].innerHTML = `
+    <div class="welcome-container">
+    <div data-type="excercise" id="question" class="big-welcome">Do you want to excercise More?</div>
+    <div class="answer-container">
+        <div class="my-col-6" ><button data-type="wrong-answer" id="answer1">Yes</button></div>
+        <div class="my-col-6"><button data-type="calories" id="answer2">No</button></div>
+    </div>
+    </div>
+    `
 }
 
-function displayCaloriesQuestion(answer1, answer2) {
-    document.getElementById('question').textContent = 'Do you want to record every calorie you consume?';  
-    document.getElementById('answer1').textContent = 'Yes';
-    document.getElementById('answer2').textContent = 'No';
+function displayCaloriesQuestion() {
+    
+    document.getElementsByClassName("welcome-container")[0].innerHTML = `
+    <div class="welcome-container">
+    <div data-type="calories" id="question" class="big-welcome">Do you want to calculate every Calorie you consume?</div>
+    <div class="answer-container">
+        <div class="my-col-6" ><button data-type="wrong-answer" id="answer1">Yes</button></div>
+        <div class="my-col-6"><button data-type="which-calculator" id="answer2">No</button></div>
+    </div>
+    </div>
+    `
 
 }
 
-function displayDisplayCalculatorQuestion(answer1, answer2) {
-    document.getElementById('question').textContent = 'Click below to calculate your weight loss:';  
-    document.getElementById('answer1').textContent = 'I have a weight goal';
-    document.getElementById('answer2').textContent = 'I have a hard deadline';
+function displayDisplayCalculatorQuestion() {
+    document.getElementsByClassName("welcome-container")[0].innerHTML = `
+    <div class="welcome-container">
+    <div data-type="which-calculator" id="question" class="big-welcome">Calculate what you can acheve with Keto Diet:</div>
+    <div class="answer-container">
+        <div class="my-col-6" ><button data-type="target-weight" id="answer1">How soon I can acheve my weight goal?</button></div>
+        <div class="my-col-6"><button data-type="hard-deadline" id="answer2">How much I can loose untill my hard deadline?</button></div>
+    </div>
+    </div>
+    `
 
 }
 

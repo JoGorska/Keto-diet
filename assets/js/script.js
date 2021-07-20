@@ -4,9 +4,9 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    let buttons = document.getElementsByTagName("button");
+    let allDivs = document.getElementsByTagName("div");
     
-    for(let button of buttons) {
+    for(let thisDiv of allDivs) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "submit") {
                 checkAnswer();
@@ -76,8 +76,10 @@ function checkAnswer() {
             </div>
             `
             document.getElementById("go-back").addEventListener("click", runGame("weight"));
+
     } else {
-            document.getElementById("answer1").addEventListener("click", calculateCorrectAnswer);
+
+        document.getElementById("answer1").addEventListener("click", calculateCorrectAnswer);
             
     }
 }
@@ -109,10 +111,10 @@ function calculateCorrectAnswer() {
         return [
             document.getElementsByClassName("welcome-container")[0].innerHTML = `
             <div class="welcome-container">
-            <div id="question" class="big-welcome">Do you want to loose weight?</div>
+            <div data-type="weight" id="question" class="big-welcome">Do you want to loose weight?</div>
             <div class="answer-container">
-                <div class="my-col-6" ><button id="answer1" data-type="male">Male</button></div>
-                <div class="my-col-6"><button id="answer2" data-type="female">Female</button></div>
+                <div data-type="next-question" class="my-col-6" ><button id="answer1" data-type="male">Male</button></div>
+                <div data-type="next-question" class="my-col-6"><button id="answer2" data-type="female">Female</button></div>
             </div>
             </div>
             `
@@ -122,10 +124,10 @@ function calculateCorrectAnswer() {
         return [
             document.getElementsByClassName("welcome-container")[0].innerHTML = `
             <div class="welcome-container">
-            <div id="question" class="big-welcome">Do you want to excercise More?</div>
+            <div data-type="excercise" id="question" class="big-welcome">Do you want to excercise More?</div>
             <div class="answer-container">
-                <div class="my-col-6" ><button id="answer1" data-type="male">Male</button></div>
-                <div class="my-col-6"><button id="answer2" data-type="female">Female</button></div>
+                <div data-type="wrong-answer" class="my-col-6" ><button id="answer1">Yes</button></div>
+                <div data-type="next-question" class="my-col-6"><button id="answer2">No</button></div>
             </div>
             </div>
             `
@@ -135,10 +137,10 @@ function calculateCorrectAnswer() {
         return [
             document.getElementsByClassName("welcome-container")[0].innerHTML = `
             <div class="welcome-container">
-            <div id="question" class="big-welcome">Do you want to calculate every Calorie you consume?</div>
+            <div data-type="calories" id="question" class="big-welcome">Do you want to calculate every Calorie you consume?</div>
             <div class="answer-container">
-                <div class="my-col-6" ><button id="answer1" data-type="male">Male</button></div>
-                <div class="my-col-6"><button id="answer2" data-type="female">Female</button></div>
+                <div data-type="wrong-answer" class="my-col-6" ><button id="answer1">Yes</button></div>
+                <div data-type="next-question" class="my-col-6"><button id="answer2">No</button></div>
             </div>
             </div>
             `
@@ -150,8 +152,8 @@ function calculateCorrectAnswer() {
         <div class="welcome-container">
         <div id="question" class="big-welcome">Calculate what you can acheve with Keto Diet:</div>
         <div class="answer-container">
-            <div class="my-col-6" ><button id="answer1" data-type="male">How soon I can acheve my weight goal?</button></div>
-            <div class="my-col-6"><button id="answer2" data-type="female">How much I can loose untill my hard deadline?</button></div>
+            <div data-type="target-weight" class="my-col-6" ><button id="answer1">How soon I can acheve my weight goal?</button></div>
+            <div data-type="hard-deadline" class="my-col-6"><button id="answer2">How much I can loose untill my hard deadline?</button></div>
         </div>
         </div>
         `

@@ -16,49 +16,98 @@
     <title>Change your Fuel</title>
 </head>
 <!--Main header-->
-<h1>Calculator</h1>
-<h6>Choose from one of the options below to calculate how long will it take you to acheve the target weight or how much weight you can loose untill your target date</h6>
-
+<div>
+    <h1>Calculator</h1>
+    <h6>Choose from one of the options below to calculate how long will it take you to acheve the target weight or how much weight you can loose untill your target date</h6>
+</div>
 <!--Calculator Form-->
 <form action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
-    <div class="p-3">
+    <div class="p-3 mb-3">
         
         <!--Choose target weight or Target Date-->
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked requried>
-            <label class="form-check-label" for="flexRadioDefault1">
+            <input class="form-check-input " type="radio" name="target" id="targetWeight" checked requried>
+            <label class="form-check-label btn btn-outline-success" for="targetWeight">
                 Target Weight
             </label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-            <label class="form-check-label" for="flexRadioDefault2">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="target" id="targetDate">
+            <label class="form-check-label btn btn-outline-success" for="targetDate">
                 Target Date
             </label>
         </div>
 
+        <!--Name-->
         <div class="mb-3">
-        <label for="ipnutName" class="form-label">Name</label>
-        <input type="text" class="form-control" id="inputName" name="name">
+            <label for="ipnutName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputName" name="name" required>
         </div>
 
+        <!--Age-->
         <div class="mb-3">
-            <label for="ipnutAge" class="form-label">Age</label>
-            <input type="number" class="form-control" id="inputAge" name="name" aria-describedby="ageHelp">
+            <label for="inputAge" class="form-label">Age</label>
+            <input type="number" class="form-control" id="inputAge" min="18" max="110" name="name" aria-describedby="ageHelp" required>
             <div id="ageHelp" class="form-text">We'll never share your age with anyone else.</div>
-            </div>
+        </div>
 
+        <!--Choose between Impearial Units and Metric -->
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="unitsOfMeasure" id="imperial" >
+            <label class="form-check-label btn btn-outline-success" for="imperial">
+                Imperial Units
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="unitsOfMeasure" id="metric" checked requried>
+            <label class="form-check-label btn btn-outline-success" for="metric">
+                Metric
+            </label>
+        </div>
+
+        <!--Current weight-->
         <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Age</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+            <label for="currentWeight" class="form-label">Current Weight</label>
+            <input type="number" class="form-control" id="currentWeight" name="currentWeight" required>
         </div>
 
-        <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <!--Target weight-->
+        <div class="mb-3">
+            <label for="targetWeight" class="form-label">Target Weight</label>
+            <input type="number" class="form-control" id="targetWeight"name="targetWeight" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <!--Hours of excercise per week-->
+        <div class="mb-3">
+            <label for="excerciseHours" class="form-label">Hours of excercise per week</label>
+            <input type="number" class="form-control" id="excerciseHours" name="excerciseHours" required>
+        </div>
+
+        <label class="form-label" for="diet">Your current Diet</label>
+        <input class="form-control mb-3" type="text" name="breed" id="diet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
+
+        <datalist id="dietList">
+            <option>None</option>
+            <option>Keto</option>
+            <option>Low Carb</option>
+            <option>High Protein</option>
+            <option>Eat Less</option>
+            <option>Zryj Mniej</option>
+            <option>Noom</option>
+            <option>NHS program</option>
+            <option>Cabbage Soup Diet</option>
+            <option>Weight Watchers</option>
+            <option>Slimming World</option>
+            <option>Low Fat</option>
+            <option>My Own Diet</option>
+
+        </datalist>
+
+        <!--Buttons at the end of the page-->
+
+
+        <button type="submit" class="btn btn-success">Submit</button>
+        
     </div>
   </form>
 

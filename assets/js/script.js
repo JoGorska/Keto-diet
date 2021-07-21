@@ -45,39 +45,48 @@ document.getElementById('learn-more').addEventListener("click", function() {
               <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4"></p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                  <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Yes, no problem</button>
-                  <button type="button" class="btn btn-success btn-lg px-4">No, far too dificult</button>
+                  <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Yes</button>
+                  <button type="button" class="btn btn-success btn-lg px-4">No</button>
                 </div>
               </div>
             </div>`  
+            //new loop for buttons after HTML has been changed
+            let buttons = document.getElementsByTagName("button");
+            for(let button of buttons) {
+              button.addEventListener("click", function() {
 
-          } else if (this.innerHTML === "Yes, no problem") {
-            console.log("I clicked Yes, no problem");
+              if (this.innerHTML === "Yes") {
+                  console.log("I clicked Yes, no problem");
 
-            let mainContainer =document.getElementById("main-container");
-            //Calorie Question Yes, no problem response yet to be written
-            mainContainer.innerHTML = ''
-        
+                  let mainContainer =document.getElementById("main-container");
+                  //Calorie Question Yes, no problem response yet to be written
+                  mainContainer.innerHTML = ''
+            
 
-          } else if (this.innerHTML === "No, far too dificult") {
-            console.log("I clicked No, far too dificult");
+              } else if (this.innerHTML === "No") {
+                  console.log("I clicked No, far too dificult");
 
-            let mainContainer =document.getElementById("main-container");
-            //Calculator Question 
-            mainContainer.innerHTML = `
-        
-            <div class="px-4 py-5 my-5 text-center">
-              <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
-              <h1 id="calorie-question" class="display-5 fw-bold">Do you want to calculate Every calorie?</h1>
-              <div class="col-lg-6 mx-auto">
-                <p class="lead mb-4"></p>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                  <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Yes, no problem</button>
-                  <button type="button" class="btn btn-success btn-lg px-4">No, far too dificult</button>
-                </div>
-              </div>
-            </div>
-            `
+                  let mainContainer =document.getElementById("main-container");
+                  //Calculator Question 
+                  mainContainer.innerHTML = `
+              
+                  <div class="px-4 py-5 my-5 text-center">
+                    <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
+                    <h1 id="calorie-question" class="display-5 fw-bold">Calculator</h1>
+                    <div class="col-lg-6 mx-auto">
+                      <p class="lead mb-4"></p>
+                      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Target Weight</button>
+                        <button type="button" class="btn btn-success btn-lg px-4">Target Date</button>
+                      </div>
+                    </div>
+                  </div>
+                  `
+              } else {
+                  console.log("button unnknown")
+                }
+            })
+          }
         } else {
           console.log("button unnknown")
         }

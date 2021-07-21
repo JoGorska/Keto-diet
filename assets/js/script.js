@@ -5,7 +5,7 @@
 
 
 document.getElementById('learn-more').addEventListener("click", function() {
-    let mainContainer =document.getElementsByClassName("main-container")[0];
+    let mainContainer =document.getElementsById("main-container");
 
     mainContainer.innerHTML = `
 

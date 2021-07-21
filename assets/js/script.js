@@ -4,14 +4,16 @@
 // I need one function to replace HTML for male and female and two functions to pre fill the form in calculator 
 
 
-document.getElementById('learn-more').addEventListener("click", function() {
-    let mainContainer =document.getElementsById("main-container");
 
+document.getElementById('learn-more').addEventListener("click", function() {
+    let mainContainer =document.getElementById("main-container");
+    
+    //Excercise Question
     mainContainer.innerHTML = `
 
     <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="little logo" width="72" height="57">
-    <h1 class="display-5 fw-bold">Do you want to excercise more?</h1>
+    <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
+    <h1 id="excercise-question" class="display-5 fw-bold">Do you want to excercise More?</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4"></p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
@@ -21,7 +23,77 @@ document.getElementById('learn-more').addEventListener("click", function() {
     </div>
   </div>
   `
-})
+  //Loop through all buttons responding to yes and no
+
+  let buttons = document.getElementsByTagName("button");
+  for(let button of buttons) {
+    button.addEventListener("click", function() {
+        if (this.innerHTML === "Yes") {
+            console.log("I clicked Yes")
+            //Response to Yes answer, yet to be written
+
+        } else if (this.innerHTML === "No") {
+            console.log("I clicked No");
+
+            let mainContainer =document.getElementById("main-container");
+            //Calorie Question 
+            mainContainer.innerHTML = `
+        
+            <div class="px-4 py-5 my-5 text-center">
+              <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
+              <h1 id="calorie-question" class="display-5 fw-bold">Do you want to calculate Every calorie?</h1>
+              <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4"></p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                  <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Yes</button>
+                  <button type="button" class="btn btn-success btn-lg px-4">No</button>
+                </div>
+              </div>
+            </div>`  
+            //new loop for buttons after HTML has been changed
+            let buttons = document.getElementsByTagName("button");
+            for(let button of buttons) {
+              button.addEventListener("click", function() {
+
+              if (this.innerHTML === "Yes") {
+                  console.log("I clicked Yes, no problem");
+
+                  let mainContainer =document.getElementById("main-container");
+                  //Calorie Question Yes, no problem response yet to be written
+                  mainContainer.innerHTML = ''
+            
+
+              } else if (this.innerHTML === "No") {
+                  console.log("I clicked No, far too dificult");
+
+                  let mainContainer =document.getElementById("main-container");
+                  //Calculator Question 
+                  mainContainer.innerHTML = `
+              
+                  <div class="px-4 py-5 my-5 text-center">
+                    <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
+                    <h1 id="calorie-question" class="display-5 fw-bold">Calculator</h1>
+                    <div class="col-lg-6 mx-auto">
+                      <p class="lead mb-4"></p>
+                      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Target Weight</button>
+                        <button type="button" class="btn btn-success btn-lg px-4">Target Date</button>
+                      </div>
+                    </div>
+                  </div>
+                  `
+              } else {
+                  console.log("button unnknown")
+                }
+            })
+          }
+        } else {
+          console.log("button unnknown")
+        }
+
+    })
+  };
+});
 
 
 

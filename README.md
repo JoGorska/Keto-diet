@@ -44,3 +44,9 @@ I hope to explain what Keto diet is about and show how effective and pleasurable
 
 ## Technologies used
 - bootstrap 5 
+
+## Thanks to
+1. Cover design used for index.html
+Downloaded from Bootstrap examples. Authors Mark Otto, Jacob Thornton, and Bootstrap contributors. 
+
+        

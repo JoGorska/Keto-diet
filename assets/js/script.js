@@ -4,47 +4,26 @@
 // I need one function to replace HTML for male and female and two functions to pre fill the form in calculator 
 
 
-document.getElementById('male').addEventListener("click", function() {
-    let excerciseMoreVar =document.getElementsByClassName("welcome-container")[0];
+document.getElementById('learn-more').addEventListener("click", function() {
+    let mainContainer =document.getElementsByClassName("main-container")[0];
 
-    excerciseMoreVar.innerHTML = `
+    mainContainer.innerHTML = `
 
-        <div class="excercise-container">
-        <div class="big-welcome">Do you want to excercise More?</div>
-        <div class="answer-container">
-            <div id="yes-excercise" class="yes-answer my-col-6">Yes</div>
-            <div id="no-excercise" class="no-answer my-col-6">No</div>
-        </div>
-        </div>
-        `
+    <div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="little logo" width="72" height="57">
+    <h1 class="display-5 fw-bold">Do you want to excercise more?</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4"></p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Yes</button>
+        <button type="button" class="btn btn-success btn-lg px-4">No</button>
+      </div>
+    </div>
+  </div>
+  `
 })
 
-document.getElementById('female').addEventListener("click", function() {
-    let excerciseMoreVar =document.getElementsByClassName("welcome-container")[0];
 
-    excerciseMoreVar.innerHTML = `
 
-        <div class="excercise-container">
-        <div class="big-welcome">Do you want to excercise More?</div>
-        <div class="answer-container">
-            <div id="yes-excercise" class="yes-answer my-col-6">Yes</div>
-            <div id="no-excercise" class="no-answer my-col-6">No</div>
-        </div>
-        </div>
-        `
-
-        
-})
-
-document.getElementById("yes-excercise").addEventListener("click", function(){
-    console.log("inside honest function");
-        let honestDiv = document.getElementByClassName(`excercise-container`);
-        honestDiv.innerHTML = 
-        `<div class="answer-container">
-            <p>Please can you be honest with me?</p>
-            <button>Go Back</button>
-        </div>`
-}
-)
 // Calculator
 

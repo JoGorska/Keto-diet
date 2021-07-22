@@ -30,7 +30,48 @@ document.getElementById('learn-more').addEventListener("click", function() {
       button.addEventListener("click", function() {
         if (this.innerHTML === "Yes") {
             console.log("I clicked Yes")
-            //Response to Yes answer, yet to be written
+            //Small Modal with button to return back to Excercise Question
+            let mainContainer =document.getElementById("main-container");
+  
+            
+            mainContainer.innerHTML = `
+              <div class="h-100 p-5 bg-light border rounded-3 shadow-lg">
+                <h2>One step at the time!</h2>
+                <p>Change your fuel from carbs to fat first, than think of excercise.</p>
+                <button class="btn btn-outline-success" type="button">Go Back</button>
+              </div>`;
+              let buttons = document.getElementsByTagName("button");
+              for(let button of buttons) {
+                button.addEventListener("click", function() {
+                  if (this.innerHTML === "Go Back") {
+                    //Excercise Question
+                    mainContainer.innerHTML = `
+
+                      <div class="px-4 py-5 my-5 text-center">
+                        <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
+                        <h1 id="excercise-question" class="display-5 fw-bold">Do you want to excercise More?</h1>
+                        <div class="col-lg-6 mx-auto">
+                          <p class="lead mb-4"></p>
+                          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                            <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Yes</button>
+                            <button type="button" class="btn btn-success btn-lg px-4">No</button>
+                          </div>
+                        </div>
+                      </div>`
+                  } else {
+                    console.log("button unknown")
+                  }
+                })
+              }
+          
+                
+          
+              
+
+
+
+
+
 
         } else if (this.innerHTML === "No") {
             console.log("I clicked No");
@@ -56,21 +97,21 @@ document.getElementById('learn-more').addEventListener("click", function() {
             for(let button of buttons) {
               button.addEventListener("click", function() {
 
-              if (this.innerHTML === "Yes") {
-                console.log("I clicked Yes, to calorie count");
+                if (this.innerHTML === "Yes") {
+                  console.log("I clicked Yes, to calorie count");
 
-                let mainContainer =document.getElementById("main-container");
+                  let mainContainer =document.getElementById("main-container");
 
-                //Calorie Question Answer: Yes, response yet to be written
-                mainContainer.innerHTML = ''
-            
+                  //Calorie Question Answer: Yes, response yet to be written
+                  mainContainer.innerHTML = ''
+              
 
-              } else if (this.innerHTML === "No") {
-                console.log("I clicked No to calorie count");
+                } else if (this.innerHTML === "No") {
+                  console.log("I clicked No to calorie count");
 
-                let mainContainer =document.getElementById("main-container");
-                  //Calculator Question 
-                mainContainer.innerHTML = `
+                  let mainContainer =document.getElementById("main-container");
+                    //Calculator Question 
+                  mainContainer.innerHTML = `
                 
                     <div class="px-4 py-5 my-5 text-center">
                       <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
@@ -83,11 +124,11 @@ document.getElementById('learn-more').addEventListener("click", function() {
                         </div>
                       </div>
                     </div>`
-              } else {
-                  console.log("button unnknown")
-              };
-            });
-          }
+                } else {
+                    console.log("button unnknown")
+                };
+              });
+            } 
         } else {
           console.log("button unnknown")
         }

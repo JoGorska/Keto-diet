@@ -77,8 +77,8 @@ document.getElementById('learn-more').addEventListener("click", function() {
                       <div class="col-lg-6 mx-auto">
                         <p class="lead mb-4"></p>
                         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                          <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Target Weight</button>
-                          <button type="button" class="btn btn-success btn-lg px-4">Target Date</button>
+                          <a href="calculator.html"><button type="button" class="btn btn-danger btn-lg px-4 gap-3">Target Weight</button></a>
+                          <a href="calculator.html"><button type="button" class="btn btn-success btn-lg px-4">Target Date</button></a>
                         </div>
                       </div>
                     </div>`

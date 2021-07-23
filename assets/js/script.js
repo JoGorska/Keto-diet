@@ -165,7 +165,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
 </div>
 
 <!--Calculator Form-->
-<form action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
+<form id="calcFormTargetDate" action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
     <div class="container p-3 mb-3">
         
         <!--
@@ -297,7 +297,7 @@ function calcFormTargetWeightMetric() {
 </div>
 
 <!--Calculator Form-->
-<form action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
+<form id="calcFormTargetWeight" action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
     <div class="container p-3 mb-3">
         
         <!--
@@ -396,7 +396,7 @@ function calcFormTargetWeightMetric() {
         <div class="container-fluid text-center">
             <div class="row">
                <div class="col">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button id="submitButton" type="submit" class="btn btn-success">Submit</button>
                </div>
                <div class="col">
                 <button type="reset" class="btn btn-danger">Reset</button>
@@ -419,4 +419,42 @@ function removeClassH100() {
   body.classList.remove("text-center");
   body.classList.remove("d-flex");
   div.classList.remove("cover-container");
+};
+
+function addClassH100() {
+  let body = document.getElementsByTagName("body")[0];
+  let div = document.getElementsByTagName("div")[0];
+  body.classList.add("h-100");
+  body.classList.add("text-center");
+  body.classList.add("d-flex");
+  div.classList.add("cover-container");
 }
+
+
+//Calculator form validation with javascript - on input
+
+//Calculator form on submit
+document.getElementById("main-container").addEventListener("submit", function(event){
+  if(event.target.matches("#calcFormTargetDate")) {
+    
+    handleSubmit(event);
+    
+} else if (event.target.matches("#calcFormTargetWeight")) {
+  
+    handleSubmit(event);
+  
+}
+});
+
+
+
+function handleSubmit(event) {
+  event.preventDefault();
+  console.log("I prevented the form from being submitted");
+  addClassH100();
+  document.getElementById("main-container").innerHTML = 
+  `<p class="shadow-lg">I will let you know the results once I will get round to it...</p>`
+};
+
+
+

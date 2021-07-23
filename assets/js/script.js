@@ -95,16 +95,16 @@ document.getElementById('learn-more').addEventListener("click", function() {
     };
 });
 
-
+//////////////////////////////////////////////////////////////////Caclulator starts here///////////////////////////////////////////////////////////////////////////
 
 // Calculator
 
-//Event listeners to create calculator
-document.getElementById("calculator").addEventListener("click", calculatorTargetWeightMetric);
-//Event attached to the parent to target children
+///////////////////////////////////// to be deleted
+
+//
 // code from code pen, explained by Sean Young on Webinar 22/07/2021
 //https://codepen.io/seanyoung247/pen/qBmbZQK
-
+// commented out as I don't know how to give 2 different responses to two different buttons.
 //function testing(event) {
 //  if (this && event) console.log(`this.id = ${this.id}, event.target.id = ${event.target.id}`);
 //  return () => document.getElementById("main-container").innerHTML = `<div>ddddd</div>`
@@ -122,7 +122,15 @@ document.getElementById("calculator").addEventListener("click", calculatorTarget
   //document.getElementById("target-date").addEventListener("click", testing());
 //});
 
-// attaches event to parent
+/////////////////////////////////////////////////actual content of calculator starts here///////////////////////////////////////////////
+
+//Event listeners to create calculator
+document.getElementById("calculator").addEventListener("click", calculatorTargetWeightMetric);
+
+//Event attached to the parent to target children
+// code from code pen, explained by Sean Young on Webinar 22/07/2021
+//https://codepen.io/seanyoung247/pen/qBmbZQK
+
 document.getElementById("main-container").addEventListener("click", function(event){
   if(event.target.matches("button")) {
     event.target.innerHTML = "Target Weight";

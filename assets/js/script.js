@@ -6,7 +6,7 @@
 
 
 document.getElementById('learn-more').addEventListener("click", function() {
-  let mainContainer =document.getElementById("main-container");
+  let mainContainer = document.getElementById("main-container");
   
   //Excercise Question
   mainContainer.innerHTML = `
@@ -101,11 +101,28 @@ document.getElementById('learn-more').addEventListener("click", function() {
 
 //Event listeners to create calculator
 document.getElementById("calculator").addEventListener("click", calculatorTargetWeightMetric);
-
+document.getElementById("main-container").addEventListener("click", function(){
+  if(event.target.matches("button")) {
+    event.target.innerHTML("Target Weight");
+    calculatorTargetWeightMetric();
+    
+  }
+} else {
+  event.target.innerHTML("Target Date");
+  calculatorTargetDateMetric();
+}
+})
 
 /**
  * Main function to create calculator for Target Weight option with Metric measures
  */
 function calculatorTargetWeightMetric() {
   console.log("create the calculator target weight in metric measures")
+};
+
+/**
+ * Main function to create calculator for Target Date option with Metric measures
+ */
+ function calculatorTargetDatetMetric() {
+  console.log("create the calculator target date in metric measures")
 };

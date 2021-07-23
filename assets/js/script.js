@@ -175,9 +175,9 @@ document.getElementById("main-container").addEventListener("click", function(eve
 
         <div class="text-center bs-component mb-3">
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="target" id="targetWeight" autocomplete="off" checked required>
+              <input type="radio" class="btn-check" name="target" id="targetWeight" autocomplete="off" >
               <label class="btn btn-outline-success" for="targetWeight">Target Weight</label>
-              <input type="radio" class="btn-check" name="target" id="targetDate" autocomplete="off">
+              <input type="radio" class="btn-check" name="target" id="targetDate" autocomplete="off" checked required>
               <label class="btn btn-outline-success" for="targetDate">Target Date</label>
             </div>
         </div>
@@ -214,7 +214,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
             </div>
             
             <!--Current weight for metric measures-->
-            <div class="container">
+            <div id="swapMeasures" class="container">
                 <div class="mb-3">
                   <label for="currentWeightKg" class="form-label">Current Weight</label>
                   <input type="number" class="form-control" id="currentWeightKg" name="currentWeightKg" placeholder="kg">
@@ -239,8 +239,8 @@ document.getElementById("main-container").addEventListener("click", function(eve
             <input type="number" class="form-control" id="excerciseHours" name="excerciseHours" required>
         </div>
 
-        <label class="form-label" for="diet">Your current Diet</label>
-        <input class="form-control mb-3" type="text" name="breed" id="diet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
+        <label class="form-label" for="inputDiet">Your current Diet</label>
+        <input class="form-control mb-3" type="text" name="inputDiet" id="inputDiet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
 
         <datalist id="dietList">
             <option>None</option>
@@ -346,7 +346,7 @@ function calcFormTargetWeightMetric() {
             </div>
                        
             <!--Current weight for metric measures-->
-            <div class="container">
+            <div id="swapMeasures" class="container">
                 <div class="mb-3">
                     <label for="currentWeightKg" class="form-label">Current Weight</label>
                     <input type="number" class="form-control" id="currentWeightKg" name="currentWeightKg" placeholder="kg">
@@ -371,8 +371,8 @@ function calcFormTargetWeightMetric() {
             <input type="number" class="form-control" id="excerciseHours" name="excerciseHours" required>
         </div>
 
-        <label class="form-label" for="diet">Your current Diet</label>
-        <input class="form-control mb-3" type="text" name="breed" id="diet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
+        <label class="form-label" for="inputDiet">Your current Diet</label>
+        <input class="form-control mb-3" type="text" name="inputDiet" id="inputDiet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
 
         <datalist id="dietList">
             <option>None</option>
@@ -430,14 +430,53 @@ function addClassH100() {
   div.classList.add("cover-container");
 }
 
+//event listener to replace Metric with imperial and the other way arround
+document.getElementById("main-container").addEventListener("change", function(event){
+  if(event.target.matches("#imperial")) {
+    
+    console.log("I will change form to Imperial")
+  } else if (event.target.matches("#metric")){
+    console.log("I will change form to Metric")
+    changeFormToMetric();
+  }
+});
 
-//Calculator form validation with javascript - on input
+
+
+
+//Calculator form validation with javascript - on input for each field regardles which form it is
+//https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/
+
+document.getElementById("main-container").addEventListener("input", function(event){
+  if(event.target.matches("#inputName")) {
+    console.log(`${event.target.value}`)
+    let inputName = event.target.value
+    var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+    var inputNameResult = AZRegex.test(inputName);
+    if (inputNameResult == false) {
+      alert("please put only letters")
+      return false;
+    };
+  } else if (event.target.matches("inputDiet"))
+  console.log(`${event.target.value}`)
+  let inputName = event.target.value
+  var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+  var inputNameResult = AZRegex.test(inputName);
+  if (inputNameResult == false) {
+    alert("please put only letters")
+    return false;
+  };
+
+});
+  
 
 //Calculator form on submit
+
 document.getElementById("main-container").addEventListener("submit", function(event){
   if(event.target.matches("#calcFormTargetDate")) {
+   
     
-    handleSubmitTargetDate(event);
+    handleSubmitTargetDate(event)
     
 } else if (event.target.matches("#calcFormTargetWeight")) {
   
@@ -451,6 +490,8 @@ document.getElementById("main-container").addEventListener("submit", function(ev
 function handleSubmitTargetDate(event) {
   event.preventDefault();
   console.log("I prevented the form from being submitted");
+  
+  validateForm()
   addClassH100();
   document.getElementById("main-container").innerHTML = 
   `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how much weight you will loose untill target date</p>`
@@ -464,3 +505,13 @@ function handleSubmitTargetWeight(event) {
   `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how long will it take you to acheve your target weight</p>`
 };
 
+function validateForm(){
+  let form = document.getElementById("calcFormTargetDate");
+  let inputName = form.element["inputName"]
+  let inputAge = form.element["inputAge"]
+  if (inputName !== isNan) {
+    console.log("change me into letters")
+  } else {
+    console.log("give me results of calculations")
+  }
+}

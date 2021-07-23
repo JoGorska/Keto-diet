@@ -77,8 +77,8 @@ document.getElementById('learn-more').addEventListener("click", function() {
                       <div class="col-lg-6 mx-auto">
                         <p class="lead mb-4">See what you can acheve by changing your fuel from carbohydrates to fat (yes FAT)</p>
                         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                          <a href="calculator.html"><button type="button" class="btn btn-danger btn-lg px-4 gap-3">Target Weight</button></a>
-                          <a href="calculator.html"><button type="button" class="btn btn-success btn-lg px-4">Target Date</button></a>
+                          <button type="button" class="btn btn-danger btn-lg px-4 gap-3">Target Weight</button>
+                          <button type="button" class="btn btn-success btn-lg px-4">Target Date</button>
                         </div>
                       </div>
                     </div>`
@@ -102,16 +102,16 @@ document.getElementById('learn-more').addEventListener("click", function() {
 //Event listeners to create calculator
 document.getElementById("calculator").addEventListener("click", calculatorTargetWeightMetric);
 document.getElementById("main-container").addEventListener("click", function(){
-  if(event.target.matches("button")) {
-    event.target.innerHTML("Target Weight");
+  if("click".target.matches("button")) {
+    "click".target.innerHTML("Target Weight");
     calculatorTargetWeightMetric();
     
-  }
+  
 } else {
-  event.target.innerHTML("Target Date");
+  "click".target.innerHTML("Target Date");
   calculatorTargetDateMetric();
 }
-})
+});
 
 /**
  * Main function to create calculator for Target Weight option with Metric measures

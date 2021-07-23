@@ -99,3 +99,13 @@ document.getElementById('learn-more').addEventListener("click", function() {
 
 // Calculator
 
+//Event listeners to create calculator
+document.getElementById("calculator").addEventListener("click", calculatorTargetWeightMetric);
+
+
+/**
+ * Main function to create calculator for Target Weight option with Metric measures
+ */
+function calculatorTargetWeightMetric() {
+  console.log("create the calculator target weight in metric measures")
+};

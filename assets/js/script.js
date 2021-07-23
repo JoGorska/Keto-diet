@@ -239,8 +239,8 @@ document.getElementById("main-container").addEventListener("click", function(eve
             <input type="number" class="form-control" id="excerciseHours" name="excerciseHours" required>
         </div>
 
-        <label class="form-label" for="diet">Your current Diet</label>
-        <input class="form-control mb-3" type="text" name="breed" id="diet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
+        <label class="form-label" for="inputDiet">Your current Diet</label>
+        <input class="form-control mb-3" type="text" name="inputDiet" id="inputDiet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
 
         <datalist id="dietList">
             <option>None</option>
@@ -371,8 +371,8 @@ function calcFormTargetWeightMetric() {
             <input type="number" class="form-control" id="excerciseHours" name="excerciseHours" required>
         </div>
 
-        <label class="form-label" for="diet">Your current Diet</label>
-        <input class="form-control mb-3" type="text" name="breed" id="diet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
+        <label class="form-label" for="inputDiet">Your current Diet</label>
+        <input class="form-control mb-3" type="text" name="inputDiet" id="inputDiet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
 
         <datalist id="dietList">
             <option>None</option>
@@ -437,17 +437,26 @@ function addClassH100() {
 document.getElementById("main-container").addEventListener("input", function(event){
   if(event.target.matches("#inputName")) {
     console.log(`${event.target.value}`)
-   
-    if(event.target.value === isNaN) {
-      
-      console.log("change me to green")
+    let inputName = event.target.value
+    var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+    var inputNameResult = AZRegex.test(inputName);
+    if (inputNameResult == false) {
+      alert("please put only letters")
+      return false;
+    };
+  } else if (event.target.matches("inputDiet"))
+  console.log(`${event.target.value}`)
+  let inputName = event.target.value
+  var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+  var inputNameResult = AZRegex.test(inputName);
+  if (inputNameResult == false) {
+    alert("please put only letters")
+    return false;
+  };
 
-    } else {
-      console.log("change to letters")
-    }
-  }
 });
   
+
 //Calculator form on submit
 
 document.getElementById("main-container").addEventListener("submit", function(event){

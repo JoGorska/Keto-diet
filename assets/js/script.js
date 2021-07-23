@@ -135,15 +135,15 @@ document.getElementById("main-container").addEventListener("click", function(eve
   if(event.target.matches("#target-weight")) {
     
     calculatorTargetWeightMetric();
-    removeClassH100()
-  
-} else {
+    
+} else if (event.target.matches("#target-date")) {
   
   calculatorTargetDatetMetric();
+  
 }
 });
 
-//Second attempt on event 
+// Functions to create calculator
 
 /**
  * Main function to create calculator for Target Date option with Metric measures
@@ -159,7 +159,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
 
 
 function calculatorTargetWeightMetric() {
-  
+  removeClassH100();
   return (
   document.getElementById("main-container").innerHTML = 
 `
@@ -314,9 +314,14 @@ function calculatorTargetWeightMetric() {
 };
 ////////////////////////////////////////////styling functions///////////////////////////////////////////////
 /**
- * function to remove h-100 from body element, this h-100 is only needed for welcome questions
+ * function to remove classes from body and div elements, to display caclulator form correctly on full width of the page
  */
 
 function removeClassH100() {
-  document.getElementsByTagName("body")[0].classList.remove("h-100")
+  let body = document.getElementsByTagName("body")[0];
+  let div = document.getElementsByTagName("div")[0];
+  body.classList.remove("h-100");
+  body.classList.remove("text-center");
+  body.classList.remove("d-flex");
+  div.classList.remove("cover-container");
 }

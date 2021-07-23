@@ -5,15 +5,10 @@ body {
   
 }
 
-
 .my-text-shadow {
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5) !important;
 }
 /*styling of the welcome screens*/
-
-.welcome-container {
-
-}
 
 .big-welcome {
 

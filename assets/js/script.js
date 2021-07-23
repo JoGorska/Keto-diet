@@ -214,7 +214,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
             </div>
             
             <!--Current weight for metric measures-->
-            <div class="container">
+            <div id="swapMeasures" class="container">
                 <div class="mb-3">
                   <label for="currentWeightKg" class="form-label">Current Weight</label>
                   <input type="number" class="form-control" id="currentWeightKg" name="currentWeightKg" placeholder="kg">
@@ -346,7 +346,7 @@ function calcFormTargetWeightMetric() {
             </div>
                        
             <!--Current weight for metric measures-->
-            <div class="container">
+            <div id="swapMeasures" class="container">
                 <div class="mb-3">
                     <label for="currentWeightKg" class="form-label">Current Weight</label>
                     <input type="number" class="form-control" id="currentWeightKg" name="currentWeightKg" placeholder="kg">
@@ -429,6 +429,19 @@ function addClassH100() {
   body.classList.add("d-flex");
   div.classList.add("cover-container");
 }
+
+//event listener to replace Metric with imperial and the other way arround
+document.getElementById("main-container").addEventListener("change", function(event){
+  if(event.target.matches("#imperial")) {
+    
+    console.log("I will change form to Imperial")
+  } else if (event.target.matches("#metric")){
+    console.log("I will change form to Metric")
+    changeFormToMetric();
+  }
+});
+
+
 
 
 //Calculator form validation with javascript - on input for each field regardles which form it is

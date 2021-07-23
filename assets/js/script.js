@@ -149,8 +149,160 @@ document.getElementById("main-container").addEventListener("click", function(eve
  * Main function to create calculator for Target Date option with Metric measures
  */
  function calculatorTargetDatetMetric() {
+  removeClassH100();
    return (
-  console.log("create the calculator target date in metric measures"))
+    document.getElementById("main-container").innerHTML = `
+    
+<!--Whole Calculator with the header goes to script.js to be disected to two versions target weight and target date-->
+<div class="container">
+      
+    <div class="p-5 pb-md-4 mx-auto text-center">
+        <h1 id="booking" class="display-4 fw-normal border-top p-5 font-family-header border-success">Calculator</h1>
+        <p class="fs-5 text-muted pb-5 border-bottom border-success">Choose from one of the options below to calculate how long will it take you to acheve the target weight or how much weight you can loose untill your target date</p>
+    </div>
+        
+</div>
+
+<!--Calculator Form-->
+<form action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
+    <div class="container p-3 mb-3">
+        
+        <!--
+        Choose Target Weight or Target Date
+        Button group copied from Bootswatch and applied bootsstrap and bootstwatch styling
+        -->
+
+        <div class="text-center bs-component mb-3">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="target" id="targetWeight" autocomplete="off" checked required>
+              <label class="btn btn-outline-success" for="targetWeight">Target Weight</label>
+              <input type="radio" class="btn-check" name="target" id="targetDate" autocomplete="off">
+              <label class="btn btn-outline-success" for="targetDate">Target Date</label>
+            </div>
+        </div>
+
+        <!--Name-->
+        <div class="mb-3">
+            <label for="ipnutName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="inputName" name="name" required>
+        </div>
+
+        <!--Age-->
+        <div class="mb-3">
+            <label for="inputAge" class="form-label">Age</label>
+            <input type="number" class="form-control" id="inputAge" min="18" max="110" name="name" aria-describedby="ageHelp" required>
+            <div id="ageHelp" class="form-text">We'll never share your age with anyone else.</div>
+        </div>
+
+        <!--
+        Choose Imperial Measures and Metric
+        Button group copied from Bootswatch and applied bootsstrap and bootstwatch styling
+        -->
+            
+        <fieldset>
+            <legend class="text-center mb-5">Choose between Impearial Units and Metric</legend>
+            
+            <!--button group code copied from bootswatch and applied styling from bootswatch and bootstrap-->
+            <div class="text-center bs-component mb-3">
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="unitsOfMeasure" id="imperial" autocomplete="off">
+                    <label class="btn btn-outline-success" for="imperial">Imperial Units</label>
+                    <input type="radio" class="btn-check" name="unitsOfMeasure" id="metric" autocomplete="off" checked="" required>
+                    <label class="btn btn-outline-success" for="metric">Metric</label>
+                </div>
+            </div>
+            
+            <!-------------------------------The whole lot for imperial measures only put it to javascript -------------->
+            <div class="container">
+                <!--Current weight imperial-->
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="currentWeight" class="form-label">Current Weight</label>
+                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Stone" required>
+                    </div>
+                    <div class="col">
+                        <label for="currentWeight" class="form-label">Current Weight</label>
+                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Pounds">
+                    </div>
+                </div>
+                <!--Target weight imperial-->
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="currentWeight" class="form-label">Target Weight</label>
+                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Stone" required>
+                    </div>
+                    <div class="col">
+                        <label for="currentWeight" class="form-label">Target Weight</label>
+                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Pounds">
+                    </div>
+                </div>
+                <!--Height imperial-->
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="currentWeight" class="form-label">Height</label>
+                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Feet" required>
+                    </div>
+                    <div class="col">
+                        <label for="currentHeight" class="form-label">Height</label>
+                        <input type="number" class="form-control" id="currentHeight" name="currentHeight" placeholder="Inches">
+                    </div>
+                </div>
+            </div>
+            <!---------------------------------The whole lot for metric measures to be put to javascript --------------->
+            <!--Current weight for metric measures-->
+            <div class="container">
+                <div class="mb-3">
+                    <label for="currentWeightKg" class="form-label">Current Weight</label>
+                    <input type="number" class="form-control" id="currentWeightKg" name="currentWeightKg" placeholder="kg">
+                </div>
+                <!--Target weight for metric-->
+                <div class="mb-3">
+                    <label for="targetWeightKg" class="form-label">Target Weight</label>
+                    <input type="number" class="form-control" id="targetWeightKg" name="targetWeightKg" placeholder="kg" required>
+                </div>
+                <!--height for metric-->
+            <div class="mb-3">
+                <label for="heightM" class="form-label">Height</label>
+                <input type="number" class="form-control" id="heightM" name="heightM" placeholder="cm" required>
+            </div>
+            </div>
+            
+        </fieldset>
+
+        <!--Hours of excercise per week-->
+        <div class="mb-3">
+            <label for="excerciseHours" class="form-label">Hours of excercise per week</label>
+            <input type="number" class="form-control" id="excerciseHours" name="excerciseHours" required>
+        </div>
+
+        <label class="form-label" for="diet">Your current Diet</label>
+        <input class="form-control mb-3" type="text" name="breed" id="diet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
+
+        <datalist id="dietList">
+            <option>None</option>
+            <option>Keto</option>
+            <option>Low Carb</option>
+            <option>High Protein</option>
+            <option>Eat Less</option>
+            <option>Zryj Mniej</option>
+            <option>Noom</option>
+            <option>NHS program</option>
+            <option>Cabbage Soup Diet</option>
+            <option>Weight Watchers</option>
+            <option>Slimming World</option>
+            <option>Low Fat</option>
+            <option>My Own Diet</option>
+
+        </datalist>
+
+        <!--Buttons at the end of the page-->
+
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+  </form>
+    
+  `)
 };
 
 /**

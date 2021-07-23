@@ -433,6 +433,21 @@ function addClassH100() {
 
 //Calculator form validation with javascript - on input for each field regardles which form it is
 
+document.getElementById("main-container").addEventListener("input", function(event){
+  if(event.target.matches("#inputName")) {
+   
+    if(this !== isNaN) {
+      console.log("change to letters")
+    
+    
+    
+    } else if (event.target.matches("#calcFormTargetWeight")) {
+  
+    
+  
+    }
+  }
+});
 
 
 

@@ -125,7 +125,7 @@ document.getElementById('learn-more').addEventListener("click", function() {
 /////////////////////////////////////////////////actual content of calculator starts here///////////////////////////////////////////////
 
 //Event listeners to create calculator
-document.getElementById("calculator").addEventListener("click", calculatorTargetWeightMetric);
+document.getElementById("calculator").addEventListener("click", calcFormTargetWeightMetric);
 
 //Event attached to the parent to target children
 // code from code pen, explained by Sean Young on Webinar 22/07/2021
@@ -134,11 +134,11 @@ document.getElementById("calculator").addEventListener("click", calculatorTarget
 document.getElementById("main-container").addEventListener("click", function(event){
   if(event.target.matches("#target-weight")) {
     
-    calculatorTargetWeightMetric();
+    calcFormTargetWeightMetric();
     
 } else if (event.target.matches("#target-date")) {
   
-  calculatorTargetDatetMetric();
+  calcFormTargetDatetMetric();
   
 }
 });
@@ -148,7 +148,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
 /**
  * Main function to create calculator for Target Date option with Metric measures
  */
- function calculatorTargetDatetMetric() {
+ function calcFormTargetDatetMetric() {
   removeClassH100();
    return (
     document.getElementById("main-container").innerHTML = `
@@ -310,7 +310,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
  */
 
 
-function calculatorTargetWeightMetric() {
+function calcFormTargetWeightMetric() {
   removeClassH100();
   return (
   document.getElementById("main-container").innerHTML = 

@@ -286,8 +286,8 @@ function calcFormTargetWeightMetric() {
   removeClassH100();
   return (
   document.getElementById("main-container").innerHTML = 
-`
-  <div class="container">
+
+`  <div class="container">
       
     <div class="p-5 pb-md-4 mx-auto text-center">
         <h1 id="booking" class="display-4 fw-normal border-top p-5 font-family-header border-success">Calculator</h1>
@@ -344,44 +344,7 @@ function calcFormTargetWeightMetric() {
                     <label class="btn btn-outline-success" for="metric">Metric</label>
                 </div>
             </div>
-            
-            <!-------------------------------The whole lot for imperial measures only put it to javascript -------------->
-            <div class="container">
-                <!--Current weight imperial-->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Stone" required>
-                    </div>
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Pounds">
-                    </div>
-                </div>
-                <!--Target weight imperial-->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Stone" required>
-                    </div>
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Pounds">
-                    </div>
-                </div>
-                <!--Height imperial-->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Feet" required>
-                    </div>
-                    <div class="col">
-                        <label for="currentHeight" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="currentHeight" name="currentHeight" placeholder="Inches">
-                    </div>
-                </div>
-            </div>
-            <!---------------------------------The whole lot for metric measures to be put to javascript --------------->
+                       
             <!--Current weight for metric measures-->
             <div class="container">
                 <div class="mb-3">
@@ -394,10 +357,10 @@ function calcFormTargetWeightMetric() {
                     <input type="number" class="form-control" id="targetWeightKg" name="targetWeightKg" placeholder="kg" required>
                 </div>
                 <!--height for metric-->
-            <div class="mb-3">
-                <label for="heightM" class="form-label">Height</label>
-                <input type="number" class="form-control" id="heightM" name="heightM" placeholder="cm" required>
-            </div>
+              <div class="mb-3">
+                  <label for="heightM" class="form-label">Height</label>
+                  <input type="number" class="form-control" id="heightM" name="heightM" placeholder="cm" required>
+              </div>
             </div>
             
         </fieldset>
@@ -429,9 +392,17 @@ function calcFormTargetWeightMetric() {
         </datalist>
 
         <!--Buttons at the end of the page-->
-
-        <button type="submit" class="btn btn-success">Submit</button>
-        <button type="reset" class="btn btn-danger">Reset</button>
+      
+        <div class="container-fluid text-center">
+            <div class="row">
+               <div class="col">
+                    <button type="submit" class="btn btn-success">Submit</button>
+               </div>
+               <div class="col">
+                <button type="reset" class="btn btn-danger">Reset</button>
+               </div> 
+            </div>
+        </div>
     </div>
   </form>
 `)

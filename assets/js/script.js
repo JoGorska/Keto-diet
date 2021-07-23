@@ -437,24 +437,30 @@ function addClassH100() {
 document.getElementById("main-container").addEventListener("submit", function(event){
   if(event.target.matches("#calcFormTargetDate")) {
     
-    handleSubmit(event);
+    handleSubmitTargetDate(event);
     
 } else if (event.target.matches("#calcFormTargetWeight")) {
   
-    handleSubmit(event);
+    handleSubmitTargetWeight(event);
   
 }
 });
 
 
 
-function handleSubmit(event) {
+function handleSubmitTargetDate(event) {
   event.preventDefault();
   console.log("I prevented the form from being submitted");
   addClassH100();
   document.getElementById("main-container").innerHTML = 
-  `<p class="shadow-lg">I will let you know the results once I will get round to it...</p>`
+  `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how much weight you will loose untill target date</p>`
 };
 
-
+function handleSubmitTargetWeight(event) {
+  event.preventDefault();
+  console.log("I prevented the form from being submitted");
+  addClassH100();
+  document.getElementById("main-container").innerHTML = 
+  `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how long will it take you to acheve your target weight</p>`
+};
 

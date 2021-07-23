@@ -146,14 +146,15 @@ document.getElementById("main-container").addEventListener("click", function(eve
 // Functions to create calculator
 
 /**
- * Main function to create calculator for Target Date option with Metric measures
+ * Main function to create calculator form for Target Date option with Metric measures
  */
  function calcFormTargetDatetMetric() {
   removeClassH100();
    return (
-    document.getElementById("main-container").innerHTML = `
-    
-<!--Whole Calculator with the header goes to script.js to be disected to two versions target weight and target date-->
+    document.getElementById("main-container").innerHTML = 
+ // full HTML of the calculator goes into main-container
+ //BUG ??? need to add nav bar because it displays home...   
+`
 <div class="container">
       
     <div class="p-5 pb-md-4 mx-auto text-center">
@@ -212,59 +213,22 @@ document.getElementById("main-container").addEventListener("click", function(eve
                 </div>
             </div>
             
-            <!-------------------------------The whole lot for imperial measures only put it to javascript -------------->
-            <div class="container">
-                <!--Current weight imperial-->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Stone" required>
-                    </div>
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Pounds">
-                    </div>
-                </div>
-                <!--Target weight imperial-->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Stone" required>
-                    </div>
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Pounds">
-                    </div>
-                </div>
-                <!--Height imperial-->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="currentWeight" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Feet" required>
-                    </div>
-                    <div class="col">
-                        <label for="currentHeight" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="currentHeight" name="currentHeight" placeholder="Inches">
-                    </div>
-                </div>
-            </div>
-            <!---------------------------------The whole lot for metric measures to be put to javascript --------------->
             <!--Current weight for metric measures-->
             <div class="container">
                 <div class="mb-3">
-                    <label for="currentWeightKg" class="form-label">Current Weight</label>
-                    <input type="number" class="form-control" id="currentWeightKg" name="currentWeightKg" placeholder="kg">
+                  <label for="currentWeightKg" class="form-label">Current Weight</label>
+                  <input type="number" class="form-control" id="currentWeightKg" name="currentWeightKg" placeholder="kg">
                 </div>
-                <!--Target weight for metric-->
+                <!--Target date for metric-->
                 <div class="mb-3">
-                    <label for="targetWeightKg" class="form-label">Target Weight</label>
-                    <input type="number" class="form-control" id="targetWeightKg" name="targetWeightKg" placeholder="kg" required>
+                  <label for="targetDatetKg" class="form-label">Target Date</label>
+                  <input type="date" class="form-control" id="targetDatetKg" name="targetDatetKg" required>
                 </div>
                 <!--height for metric-->
-            <div class="mb-3">
+              <div class="mb-3">
                 <label for="heightM" class="form-label">Height</label>
                 <input type="number" class="form-control" id="heightM" name="heightM" placeholder="cm" required>
-            </div>
+              </div>
             </div>
             
         </fieldset>
@@ -296,9 +260,17 @@ document.getElementById("main-container").addEventListener("click", function(eve
         </datalist>
 
         <!--Buttons at the end of the page-->
-
-        <button type="submit" class="btn btn-success">Submit</button>
-        <button type="reset" class="btn btn-danger">Reset</button>
+      
+        <div class="container-fluid text-center">
+            <div class="row">
+               <div class="col">
+                    <button type="submit" class="btn btn-success">Submit</button>
+               </div>
+               <div class="col">
+                <button type="reset" class="btn btn-danger">Reset</button>
+               </div> 
+            </div>
+        </div>
     </div>
   </form>
     
@@ -306,7 +278,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
 };
 
 /**
- * Main function to create calculator for Target Weight option with Metric measures
+ * Main function to create calculator form for Target Weight option with Metric measures
  */
 
 

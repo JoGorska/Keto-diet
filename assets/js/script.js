@@ -105,35 +105,35 @@ document.getElementById("calculator").addEventListener("click", calculatorTarget
 // code from code pen, explained by Sean Young on Webinar 22/07/2021
 //https://codepen.io/seanyoung247/pen/qBmbZQK
 
-function testing(event) {
-  if (this && event) console.log(`this.id = ${this.id}, event.target.id = ${event.target.id}`);
-  return () => document.getElementById("main-container").innerHTML = `<div>ddddd</div>`
+//function testing(event) {
+//  if (this && event) console.log(`this.id = ${this.id}, event.target.id = ${event.target.id}`);
+//  return () => document.getElementById("main-container").innerHTML = `<div>ddddd</div>`
 
-}
+//}
 
 
 
 // Dynamic event attachement
-document.getElementById("main-container").addEventListener("click", function() {
+//document.getElementById("main-container").addEventListener("click", function() {
   // Attaches the testing function as an event listener on button click
-  document.getElementById("target-weight").addEventListener("click", testing());
+  //document.getElementById("target-weight").addEventListener("click", testing());
   
   // Attaches the testing function to the  button
-  document.getElementById("target-date").addEventListener("click", testing());
-});
+  //document.getElementById("target-date").addEventListener("click", testing());
+//});
 
-
-//document.getElementById("main-container").addEventListener("click", function(){
-//  if("click".target.matches("button")) {
-//    "click".target.innerHTML("Target Weight");
-//    calculatorTargetWeightMetric();
+// attaches event to parent
+document.getElementById("main-container").addEventListener("click", function(event){
+  if(event.target.matches("button")) {
+    event.target.innerHTML = "Target Weight";
+    calculatorTargetWeightMetric();
     
   
-//} else {
-//  "click".target.innerHTML("Target Date");
-//  calculatorTargetDateMetric();
-//}
-//});
+} else {
+  event.target.innerHTML = "Target Date";
+  calculatorTargetDateMetric();
+}
+});
 
 //Second attempt on event 
 

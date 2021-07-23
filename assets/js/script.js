@@ -432,26 +432,24 @@ function addClassH100() {
 
 
 //Calculator form validation with javascript - on input for each field regardles which form it is
+//https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/
 
 document.getElementById("main-container").addEventListener("input", function(event){
   if(event.target.matches("#inputName")) {
+    console.log(`${event.target.value}`)
    
-    if(this !== isNaN) {
+    if(event.target.value === isNaN) {
+      
+      console.log("change me to green")
+
+    } else {
       console.log("change to letters")
-    
-    
-    
-    } else if (event.target.matches("#calcFormTargetWeight")) {
-  
-    
-  
     }
   }
 });
-
-
-
+  
 //Calculator form on submit
+
 document.getElementById("main-container").addEventListener("submit", function(event){
   if(event.target.matches("#calcFormTargetDate")) {
    

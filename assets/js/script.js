@@ -453,27 +453,29 @@ document.getElementById("main-container").addEventListener("change", function(ev
 
 //??? pops alert every time you write in any field
 
-document.getElementById("main-container").addEventListener("input", function(event){
-  if(event.target.matches("#inputName")) {
-    console.log(`${event.target.value}`)
-    let inputName = event.target.value
-    var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
-    var inputNameResult = AZRegex.test(inputName);
-    if (inputNameResult == false) {
-      console.log("function validating on input for input name field")
-      return false;
-    };
-  } else if (event.target.matches("#inputDiet"))
-  console.log(`${event.target.value}`)
-  let inputName = event.target.value
-  var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
-  var inputNameResult = AZRegex.test(inputName);
-  if (inputNameResult == false) {
-    console.log("function validating on input for input diet field")
-    return false;
-  };
 
-});
+
+//document.getElementById("main-container").addEventListener("input", function(event){
+//  if(event.target.matches("#inputName")) {
+//    console.log(`${event.target.value}`)
+//    let inputName = event.target.value
+//    var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+//    var inputNameResult = AZRegex.test(inputName);
+//    if (inputNameResult == false) {
+//      console.log("function validating on input for input name field")
+//      return false;
+//    };
+//  } else if (event.target.matches("#inputDiet"))
+//  console.log(`${event.target.value}`)
+//  let inputName = event.target.value
+//  var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+//  var inputNameResult = AZRegex.test(inputName);
+//  if (inputNameResult == false) {
+//    console.log("function validating on input for input diet field")
+//    return false;
+//  };
+//
+//});
   
 
 //Calculator form on submit
@@ -520,13 +522,20 @@ function validateForm(){
         if (input.id === "inputName") {
             console.log(`I have the righ input field to validate - target date input field ${input.id} and I can check if your value ${input.value} is matching my validation function`)
             //Alert message to review your answer
-            
-                    
-        } else if (input.id === "inputAge") {
-            console.log("I have the right form to validate - target weight form");
+            var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+            let inputNameValue = input.value;
+            var inputNameResult = AZRegex.test(inputNameValue);
 
-        };
-      
+            if (inputNameResult == false) {
+                console.log(`flase result of testing the value ${inputNameResult}`)
+                                
+            } else {
+                console.log(`All good to go value ok, tested ${inputNameResult}`);
+
+            };
+
+          }
+
     };
   };
 

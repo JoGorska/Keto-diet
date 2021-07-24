@@ -12,8 +12,42 @@ I hope to explain what Keto diet is about and show how effective and pleasurable
     - kg / m 
 4. Contact page to request contact with dietitian / life coach
 
+## Styling
+The general style of the website is light and airy, images used are light and colors are chosen in light spectrum. As a contrast for user interactions I use green as refference to avocado and red as a warning or as a sign of negative reaction. Since I used Bootstrap's classess to style the whole page my intervention in css was not needed in most places. It would also be very difficult to over ride Boootstrap's classess as they use !Important. I have decided to have minimal intervenction in the styling due to this difficulty. 
+
+
+
+1. Bootstrap provided me with clear responsive design, nice to look at and easy to interact with for the user. 
+2. Bootswatch - Morph - modified Bootstrap's style, adding those big buttons with a shadow.
+3. following the style of those buttons I created nav bar
+4. Fonts 
+    - headers I have chosen a few fonts to test. I wanted them to reflect the style of the buttons that I have from Bootswatch Morph.  
+    - plain text - simple font easy to read
+
+To be used later - choose later
+
+Initial prefference: Baumans,  Nova Mono, Kodchasan
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Baumans&family=Gochi+Hand&family=Knewave&family=Kodchasan:wght@200&family=Nova+Mono&family=Permanent+Marker&family=Rock+Salt&family=Ruslan+Display&display=swap" rel="stylesheet">
+CSS rules to specify families
+
+font-family: 'Aclonica', sans-serif;
+font-family: 'Baumans', cursive;
+font-family: 'Gochi Hand', cursive;
+font-family: 'Knewave', cursive;
+font-family: 'Kodchasan', sans-serif;
+font-family: 'Nova Mono', monospace;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Rock Salt', cursive;
+font-family: 'Ruslan Display', cursive;
+
 ## Bugs
-1. I started with creating calculator.html as a page holding calculator form with the intention (once the form is completed) to copy the code into script.js. 
+1. Problem with editing Calculator Form
+
+I started with creating calculator.html as a page holding calculator form with the intention (once the form is completed) to copy the code into script.js. 
 
 My Initial idea was to create whole calculator form with JavaScript, this was as a result of a click of a button on nav bar or in welcome questions. This gave great control to what goes into the form. I have managed to create two independent versions of the form. 
 
@@ -21,7 +55,7 @@ Unfortunately having a hudge block of html inside script.js was causing difficul
     - If I decided to make changes to some part of calcualtor form - I had to edit both versions of the calculator
     - when it came to editing html inside script.js I had to remove back ticks every time so I see HTML correctly in color and it did not have emmet abbreviations inside script.js. I often ended up writing the code in calculator.html and transfering it inside script.js.
     - upon suggestion of my mentor Felippe I have removed the main calculator form from script.js and restored links to oryginal
-Many of the event listeners were created with the thought of calculator coming from javascript, since they still worked for calculator.html. They will be edited and simplified if time allows before submitting the project. 
+Many of the event listeners were created with the thought of calculator coming from javascript, since they still worked for calculator.html. They will be edited and simplified if time allows before submitting the project. ????
 
 
 ## Previous project (to be deleted)
@@ -60,5 +94,12 @@ Many of the event listeners were created with the thought of calculator coming f
 ## Thanks to
 1. Cover design used for index.html
 Downloaded from Bootstrap examples. Authors Mark Otto, Jacob Thornton, and Bootstrap contributors. 
+2. Webinar ??? for javascript
+3. Webinar for git hub
+4. Brian and David for advice during hackaton on branches and pull requests
+3. Mentor
+
+
+## Joanna - remember to find all ??? signs in all files (readme as well)
 
         

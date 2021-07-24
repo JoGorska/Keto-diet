@@ -524,7 +524,7 @@ function validateForm(){
             let inputNameValue = input.value;
             var inputNameResult = AZRegex.test(inputNameValue);
 
-            if (inputNameResult == false) {
+            if (inputNameResult === false) {
               //to input html to div holding name input need for loop to find the right div
               let divs = document.getElementsByTagName("div")
                 for(let div of divs ){

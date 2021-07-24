@@ -10,6 +10,18 @@ I hope to explain what Keto diet is about and show how effective and pleasurable
 3. Accomodatig different measures
     - imperial measures
     - kg / m 
+4. Contact page to request contact with dietitian / life coach
+
+## Bugs
+1. I started with creating calculator.html as a page holding calculator form with the intention (once the form is completed) to copy the code into script.js. 
+
+My Initial idea was to create whole calculator form with JavaScript, this was as a result of a click of a button on nav bar or in welcome questions. This gave great control to what goes into the form. I have managed to create two independent versions of the form. 
+
+Unfortunately having a hudge block of html inside script.js was causing difficulty. 
+    - If I decided to make changes to some part of calcualtor form - I had to edit both versions of the calculator
+    - when it came to editing html inside script.js I had to remove back ticks every time so I see HTML correctly in color and it did not have emmet abbreviations inside script.js. I often ended up writing the code in calculator.html and transfering it inside script.js.
+    - upon suggestion of my mentor Felippe I have removed the main calculator form from script.js and restored links to oryginal
+Many of the event listeners were created with the thought of calculator coming from javascript, since they still worked for calculator.html. They will be edited and simplified if time allows before submitting the project. 
 
 
 ## Previous project (to be deleted)

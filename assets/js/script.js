@@ -183,7 +183,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
         </div>
 
         <!--Name-->
-        <div class="mb-3">
+        <div id="inputNameDiv" class="mb-3">
             <label for="ipnutName" class="form-label">Name</label>
             <input type="text" class="form-control" id="inputName" name="name" required>
         </div>
@@ -315,7 +315,7 @@ function calcFormTargetWeightMetric() {
         </div>
 
         <!--Name-->
-        <div class="mb-3">
+        <div id="inputNameDiv" class="mb-3">
             <label for="ipnutName" class="form-label">Name</label>
             <input type="text" class="form-control" id="inputName" name="name" required>
         </div>
@@ -501,9 +501,7 @@ function handleSubmitTargetDate(event) {
   
   validateForm()
   addClassH100();
-  document.getElementById("main-container").innerHTML = 
-  `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how much weight you will loose untill target date</p>`
-};
+  };
 
 function handleSubmitTargetWeight(event) {
   event.preventDefault();
@@ -527,12 +525,25 @@ function validateForm(){
             var inputNameResult = AZRegex.test(inputNameValue);
 
             if (inputNameResult == false) {
+              //to input html to div holding name input need for loop to find the right div
+              let divs = document.getElementsByTagName("div")
+                for(let div of divs ){
+                if (div.id === inputNameDiv) {
+                  this.innerHTML = 
+                  `
+                    <label for="ipnutName" class="form-label">Name</label>
+                    <input type="text" class="form-control is-invalid" id="inputName" name="name" required value="${inputNameValue}">
+                    <div id="ageHelp" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
+                  `
+                }
+              }
+
                 console.log(`flase result of testing the value ${inputNameResult}`)
                                 
             } else {
-                console.log(`All good to go value ok, tested ${inputNameResult}`);
-
-            };
+                console.log(`All good to go value ok, create variable: ${input.value} will be used to calculate final result of calcuation`);
+                
+              };
 
           }
 

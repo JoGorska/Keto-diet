@@ -74,6 +74,13 @@
             <input type="text" class="form-control" id="inputName" name="name" required>
         </div>
 
+        <!--Name input field when input is wrong-->
+        <div class="mb-3">
+            <label for="ipnutName" class="form-label">Name</label>
+            <input type="text" class="form-control is-invalid" id="inputName" name="name" required>
+            <div id="ageHelp" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
+        </div>
+
         <!--Age-->
         <div class="mb-3">
             <label for="inputAge" class="form-label">Age</label>

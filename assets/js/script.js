@@ -433,19 +433,25 @@ function addClassH100() {
 //event listener to replace Metric with imperial and the other way arround
 document.getElementById("main-container").addEventListener("change", function(event){
   if(event.target.matches("#imperial")) {
-    
+    event.target.matches("#swapMeasures").innerHTML = "<p>ddddddddd</p>"
+
     console.log("I will change form to Imperial")
   } else if (event.target.matches("#metric")){
     console.log("I will change form to Metric")
-    changeFormToMetric();
+    
   }
 });
+
+//event listener to replace target date for with target weight and the other way arround
+//??? please write it here
 
 
 
 
 //Calculator form validation with javascript - on input for each field regardles which form it is
 //https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/
+
+//??? pops alert every time you write in any field
 
 document.getElementById("main-container").addEventListener("input", function(event){
   if(event.target.matches("#inputName")) {
@@ -454,16 +460,16 @@ document.getElementById("main-container").addEventListener("input", function(eve
     var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
     var inputNameResult = AZRegex.test(inputName);
     if (inputNameResult == false) {
-      alert("please put only letters")
+      console.log("function validating on input for input name field")
       return false;
     };
-  } else if (event.target.matches("inputDiet"))
+  } else if (event.target.matches("#inputDiet"))
   console.log(`${event.target.value}`)
   let inputName = event.target.value
   var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
   var inputNameResult = AZRegex.test(inputName);
   if (inputNameResult == false) {
-    alert("please put only letters")
+    console.log("function validating on input for input diet field")
     return false;
   };
 
@@ -504,14 +510,32 @@ function handleSubmitTargetWeight(event) {
   document.getElementById("main-container").innerHTML = 
   `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how long will it take you to acheve your target weight</p>`
 };
-
+/////function to validate form ON SUBMIT before calculating the result. loop works, gives 11 undefined, but I want to capture this input field with a specific id
 function validateForm(){
-  let form = document.getElementById("calcFormTargetDate");
-  let inputName = form.element["inputName"]
-  let inputAge = form.element["inputAge"]
-  if (inputName !== isNan) {
-    console.log("change me into letters")
-  } else {
-    console.log("give me results of calculations")
-  }
-}
+
+  let inputs = document.getElementsByTagName("input");
+    for(let input of inputs) {
+      
+       
+        if (input.id === "inputName") {
+            console.log(`I have the righ input field to validate - target date input field ${input.id} and I can check if your value ${input.value} is matching my validation function`)
+            //Alert message to review your answer
+            
+                    
+        } else if (input.id === "inputAge") {
+            console.log("I have the right form to validate - target weight form");
+
+        };
+      
+    };
+  };
+
+  //let form = document.getElementById("calcFormTargetDate");
+  //let inputName = form.element["inputName"].value
+  //let inputAge = form.element["inputAge"]
+  //if (inputName !== isNan) {
+  //  console.log("change me into letters")
+  //} else {
+  //  console.log("give me results of calculations")
+  //}
+//}

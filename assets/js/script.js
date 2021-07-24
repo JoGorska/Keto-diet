@@ -442,11 +442,16 @@ document.getElementById("main-container").addEventListener("change", function(ev
   }
 });
 
+//event listener to replace target date for with target weight and the other way arround
+//??? please write it here
+
 
 
 
 //Calculator form validation with javascript - on input for each field regardles which form it is
 //https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/
+
+//??? pops alert every time you write in any field
 
 document.getElementById("main-container").addEventListener("input", function(event){
   if(event.target.matches("#inputName")) {
@@ -455,16 +460,16 @@ document.getElementById("main-container").addEventListener("input", function(eve
     var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
     var inputNameResult = AZRegex.test(inputName);
     if (inputNameResult == false) {
-      alert("please put only letters")
+      console.log("function validating on input for input name field")
       return false;
     };
-  } else if (event.target.matches("inputDiet"))
+  } else if (event.target.matches("#inputDiet"))
   console.log(`${event.target.value}`)
   let inputName = event.target.value
   var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
   var inputNameResult = AZRegex.test(inputName);
   if (inputNameResult == false) {
-    alert("please put only letters")
+    console.log("function validating on input for input diet field")
     return false;
   };
 
@@ -505,10 +510,10 @@ function handleSubmitTargetWeight(event) {
   document.getElementById("main-container").innerHTML = 
   `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how long will it take you to acheve your target weight</p>`
 };
-
+/////function to validate form before calculating the result. if statement doesn't work!
 function validateForm(){
   let form = document.getElementById("calcFormTargetDate");
-  let inputName = form.element["inputName"]
+  let inputName = form.element["inputName"].value
   let inputAge = form.element["inputAge"]
   if (inputName !== isNan) {
     console.log("change me into letters")

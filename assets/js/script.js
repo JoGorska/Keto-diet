@@ -183,7 +183,7 @@ document.getElementById("main-container").addEventListener("click", function(eve
         </div>
 
         <!--Name-->
-        <div class="mb-3">
+        <div id="inputNameDiv" class="mb-3">
             <label for="ipnutName" class="form-label">Name</label>
             <input type="text" class="form-control" id="inputName" name="name" required>
         </div>
@@ -315,7 +315,7 @@ function calcFormTargetWeightMetric() {
         </div>
 
         <!--Name-->
-        <div class="mb-3">
+        <div id="inputNameDiv" class="mb-3">
             <label for="ipnutName" class="form-label">Name</label>
             <input type="text" class="form-control" id="inputName" name="name" required>
         </div>
@@ -453,27 +453,29 @@ document.getElementById("main-container").addEventListener("change", function(ev
 
 //??? pops alert every time you write in any field
 
-document.getElementById("main-container").addEventListener("input", function(event){
-  if(event.target.matches("#inputName")) {
-    console.log(`${event.target.value}`)
-    let inputName = event.target.value
-    var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
-    var inputNameResult = AZRegex.test(inputName);
-    if (inputNameResult == false) {
-      console.log("function validating on input for input name field")
-      return false;
-    };
-  } else if (event.target.matches("#inputDiet"))
-  console.log(`${event.target.value}`)
-  let inputName = event.target.value
-  var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
-  var inputNameResult = AZRegex.test(inputName);
-  if (inputNameResult == false) {
-    console.log("function validating on input for input diet field")
-    return false;
-  };
 
-});
+
+//document.getElementById("main-container").addEventListener("input", function(event){
+//  if(event.target.matches("#inputName")) {
+//    console.log(`${event.target.value}`)
+//    let inputName = event.target.value
+//    var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+//    var inputNameResult = AZRegex.test(inputName);
+//    if (inputNameResult == false) {
+//      console.log("function validating on input for input name field")
+//      return false;
+//    };
+//  } else if (event.target.matches("#inputDiet"))
+//  console.log(`${event.target.value}`)
+//  let inputName = event.target.value
+//  var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+//  var inputNameResult = AZRegex.test(inputName);
+//  if (inputNameResult == false) {
+//    console.log("function validating on input for input diet field")
+//    return false;
+//  };
+//
+//});
   
 
 //Calculator form on submit
@@ -499,9 +501,7 @@ function handleSubmitTargetDate(event) {
   
   validateForm()
   addClassH100();
-  document.getElementById("main-container").innerHTML = 
-  `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how much weight you will loose untill target date</p>`
-};
+  };
 
 function handleSubmitTargetWeight(event) {
   event.preventDefault();
@@ -520,13 +520,33 @@ function validateForm(){
         if (input.id === "inputName") {
             console.log(`I have the righ input field to validate - target date input field ${input.id} and I can check if your value ${input.value} is matching my validation function`)
             //Alert message to review your answer
-            
-                    
-        } else if (input.id === "inputAge") {
-            console.log("I have the right form to validate - target weight form");
+            var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+            let inputNameValue = input.value;
+            var inputNameResult = AZRegex.test(inputNameValue);
 
-        };
-      
+            if (inputNameResult == false) {
+              //to input html to div holding name input need for loop to find the right div
+              let divs = document.getElementsByTagName("div")
+                for(let div of divs ){
+                if (div.id === inputNameDiv) {
+                  this.innerHTML = 
+                  `
+                    <label for="ipnutName" class="form-label">Name</label>
+                    <input type="text" class="form-control is-invalid" id="inputName" name="name" required value="${inputNameValue}">
+                    <div id="ageHelp" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
+                  `
+                }
+              }
+
+                console.log(`flase result of testing the value ${inputNameResult}`)
+                                
+            } else {
+                console.log(`All good to go value ok, create variable: ${input.value} will be used to calculate final result of calcuation`);
+                
+              };
+
+          }
+
     };
   };
 

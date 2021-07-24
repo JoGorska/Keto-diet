@@ -510,14 +510,32 @@ function handleSubmitTargetWeight(event) {
   document.getElementById("main-container").innerHTML = 
   `<p class="shadow-lg">I will let you know the results once I will get round to it...You have submitted data to calculate how long will it take you to acheve your target weight</p>`
 };
-/////function to validate form before calculating the result. if statement doesn't work!
+/////function to validate form ON SUBMIT before calculating the result. loop works, gives 11 undefined, but I want to capture this input field with a specific id
 function validateForm(){
-  let form = document.getElementById("calcFormTargetDate");
-  let inputName = form.element["inputName"].value
-  let inputAge = form.element["inputAge"]
-  if (inputName !== isNan) {
-    console.log("change me into letters")
-  } else {
-    console.log("give me results of calculations")
-  }
-}
+
+  let inputs = document.getElementsByTagName("input");
+    for(let input of inputs) {
+      
+       
+        if (input.id === "inputName") {
+            console.log(`I have the righ input field to validate - target date input field ${input.id} and I can check if your value ${input.value} is matching my validation function`)
+            //Alert message to review your answer
+            
+                    
+        } else if (input.id === "inputAge") {
+            console.log("I have the right form to validate - target weight form");
+
+        };
+      
+    };
+  };
+
+  //let form = document.getElementById("calcFormTargetDate");
+  //let inputName = form.element["inputName"].value
+  //let inputAge = form.element["inputAge"]
+  //if (inputName !== isNan) {
+  //  console.log("change me into letters")
+  //} else {
+  //  console.log("give me results of calculations")
+  //}
+//}

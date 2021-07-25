@@ -92,17 +92,7 @@ function addClassH100() {
   div.classList.add("cover-container");
 }
 
-//event listener to replace Metric with imperial and the other way arround
-document.getElementById("main-container").addEventListener("change", function(event){
-  if(event.target.matches("#imperial")) {
-    event.target.matches("#swapMeasures").innerHTML = "<p>ddddddddd</p>"
 
-    console.log("I will change form to Imperial")
-  } else if (event.target.matches("#metric")){
-    console.log("I will change form to Metric")
-    
-  }
-});
 
 //event listener to replace target date for with target weight and the other way arround
 //??? please write it here

@@ -1,33 +1,6 @@
 
-body {
-    background-color: whitesmoke;
-    color:slategrey;
-  
-}
-
 .my-text-shadow {
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5) !important;
 }
-/*styling of the welcome screens*/
 
-.big-welcome {
 
-position: absolute;
-top: 40%;
-left: 12%;
-font-size: 5rem;
-}
-
-.answer-container {
-    font-size: 3rem;
-    position: absolute;
-    top:60%;
-    width: 100%;
-    text-align: center;
-}
-
-.my-col-6 {
-    display:inline;
-    width: 50%;
-    padding: 10vw;
-}

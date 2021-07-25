@@ -99,14 +99,15 @@
         <!--Age-->
         <div class="mb-3">
             <label for="input-age" class="form-label">Age</label>
-            <input type="number" class="form-control" id="input-age" min="18" max="110" name="name" aria-describedby="age-help" required>
+            <input type="number" class="form-control" id="input-age" min="18" max="110" name="input-age" aria-describedby="age-help" required>
             <div id="age-help" class="form-text">We'll never share your age with anyone else.</div>
         </div>
 
         <!--Target Date - made invisible when it first loads-->
         <div id="div-target-date" class="mb-3">
             <label for="target-date" class="form-label">Target Date</label>
-            <input type="date" class="form-control" id="target-date" name="target-date" required>
+            <input type="date" class="form-control" id="target-date" name="target-date" aria-describedby="date-help" required>
+            <div id="date-help" class="form-text">We can estimate the results for dates further than a month from today</div>
         </div>
 
         <!--
@@ -115,11 +116,11 @@
         button group copied from Bootswatch and applied bootsstrap and bootstwatch styling
         preselected metric when it first loads
         -->
-            
         <fieldset>
             <legend class="text-center mb-5">Choose between Imperial Units and Metric</legend>
-            
+                        
             <!--button group code copied from bootswatch and applied styling from bootswatch and bootstrap-->
+     
             <div class="text-center bs-component mb-3">
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                     <input type="radio" class="btn-check" name="units-of-measure" id="imperial" autocomplete="off">
@@ -194,33 +195,33 @@
             </div>
             
         </fieldset>
-
+   
         <!--Hours of excercise per week-->
         <div class="mb-3">
-            <label for="excerciseHours" class="form-label">Hours of excercise per week</label>
-            <input type="number" class="form-control" id="excerciseHours" name="excerciseHours" required>
+            <label for="excercise-hours" class="form-label">Hours of excercise per week</label>
+            <input type="number" class="form-control" id="excercise-hours" name="excercise-hours" required>
         </div>
+        <div class="mb-3">
+            <label class="form-label" for="inputDiet">Your current Diet</label>
+            <input class="form-control mb-3" type="text" name="diet" id="inputDiet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
 
-        <label class="form-label" for="inputDiet">Your current Diet</label>
-        <input class="form-control mb-3" type="text" name="diet" id="inputDiet" list="dietList" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
+            <datalist id="dietList">
+                <option>None</option>
+                <option>Keto</option>
+                <option>Low Carb</option>
+                <option>High Protein</option>
+                <option>Eat Less</option>
+                <option>Zryj Mniej</option>
+                <option>Noom</option>
+                <option>NHS program</option>
+                <option>Cabbage Soup Diet</option>
+                <option>Weight Watchers</option>
+                <option>Slimming World</option>
+                <option>Low Fat</option>
+                <option>My Own Diet</option>
 
-        <datalist id="dietList">
-            <option>None</option>
-            <option>Keto</option>
-            <option>Low Carb</option>
-            <option>High Protein</option>
-            <option>Eat Less</option>
-            <option>Zryj Mniej</option>
-            <option>Noom</option>
-            <option>NHS program</option>
-            <option>Cabbage Soup Diet</option>
-            <option>Weight Watchers</option>
-            <option>Slimming World</option>
-            <option>Low Fat</option>
-            <option>My Own Diet</option>
-
-        </datalist>
-
+            </datalist>
+        </div>  
         <!--Buttons at the end of the page-->
         <div class="container-fluid text-center">
             <div class="row">

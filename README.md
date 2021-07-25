@@ -64,7 +64,9 @@ I reaserched for HTML naming conventions fount and [this article](https://course
 
 Throught all articles one imporant message is repeated - is to be consistent within the document. The choise of convention can be personal prefference or prefference of the employer or cooworkers. The consistency is the key. 
 
-I corrected all ID to follow kebab-casing convention mentioned in [this article](https://courses.cs.washington.edu/courses/cse154/17au/styleguide/html-css/naming-conventions-html.html).. 
+I corrected all ID to follow kebab-casing convention mentioned in [this article](https://courses.cs.washington.edu/courses/cse154/17au/styleguide/html-css/naming-conventions-html.html).
+
+3. After the two above decisions have been implemented the script.js required to be re done in calculator form part of this file. The new event listeners will target the input fields directly, which would make JavaScript code easier to read and maintain, without having to look through multiple loops.
 
 ## Previous project (to be deleted)
 

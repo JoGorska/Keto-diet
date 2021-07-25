@@ -95,3 +95,5 @@ document.getElementById('learn-more').addEventListener("click", function() {
 
 // Calculator
 
+//Radio Button - choose between Target Weight and Target Date
+

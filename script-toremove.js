@@ -14,6 +14,13 @@
 
 
 /////////////////////////////////////////////////actual content of calculator starts here///////////////////////////////////////////////
+//ready html for changes when incorrect answer
+<!--to be used in Javascript add input class="is-invalid" and help field class = "invalid-feedback" example how to change display for name when fails validation-->
+<div id="inputNameDiv" class="mb-3">
+    <label for="input-name" class="form-label">Name</label>
+    <input type="text" class="form-control is-invalid" id="input-name" name="name" aria-describedby="age-help" required>
+    <div id="age-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
+</div>
 
 //Event listeners to create calculator
 document.getElementById("calculator").addEventListener("click", calcFormTargetWeightMetric);

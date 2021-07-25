@@ -29,13 +29,19 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
 
     
   } else if (event.target.matches("#imperial")){
+    //make invisible
+    document.getElementById("div-all-metric").classList.add("my-invisible")
+    //make visible
+    document.getElementById("div-all-imperial").classList.remove("my-invisible")
 
-    
     console.log("I will change form to Imperial")
     
   
   } else if (event.target.matches("#metric")){
-    
+    //make visible
+    document.getElementById("div-all-metric").classList.remove("my-invisible")
+    //make invisible
+    document.getElementById("div-all-imperial").classList.add("my-invisible")
     console.log("I will change form to Metric")
   
   } else {

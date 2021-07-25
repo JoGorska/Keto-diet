@@ -9,18 +9,15 @@ var enquiry = document.getElementById("enquiry")
 
 document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
-//functions validating particular property of the input field
+//variables creating tests for test function
 
-var inputRequired = ""
+const inputRequired = ""
+
+const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
+
+const maxLenght = 160
 
 
-function validateLenght() {
-
-}
-
-function validateOnlyLetters () {
-
-}
 
 function highlightErrors() {
     console.log("I will add or remove classess")
@@ -28,7 +25,7 @@ function highlightErrors() {
 }
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
-function validateResultContactName(contactName) {
+function validateResultContactName() {
     if(this.value !== inputRequired) {
 
         console.log(`display ${this.value}`)

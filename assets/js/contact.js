@@ -9,18 +9,21 @@ document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContac
 
 function handleContactSubmit(event) {
     event.preventDefault();
-    if (contactFormValidation() == false) {
+    if (allValidationResults() == false) {
         highlightErrors()
 
     } else {
         console.log("all good to go")
-        FormData.submit()
+        document.getElementsByTagName("FORM")[0].submit()
     }
 
 }
 
 function validateIfEmpty () {
     this.value = ""
+}
+function highlightErrors() {
+    console.log("I will add or remove classess")
 }
 
 function validateLenght() {
@@ -32,15 +35,31 @@ function validateOnlyLetters () {
 }
 
 //functions to validate each input field
-function validateContactName () {
+function validateResultContactName() {
+    if(contactName.value === validateIfEmpty) {
+        highlightErrors()
+
+    } else {
+        console.log("failed individual validation")
+        return(false);
+        
+    };
     
-}
+};
+
+
 
 //function to check if all validations passed
-function contactFormValidation() {
-
+function allValidationResults() {
+    if (validateResultContactName() == true) {
+        console.log("passed all validation results")
+        return(true)
+        
+    } else {
+        console.log("failed all validation results")
+        return(false)
+        
+    }
 }
 
-function highlightErrors() {
-    console.log("I will add or remove classess")
-}
+

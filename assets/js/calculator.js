@@ -35,4 +35,9 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
   }
 });
 
+//guidance to handle submit and validation javascripttutorial.net/javascript-dom/javascript-form-validation/
+/**
+ * Function to handle submit
+ */
+
 

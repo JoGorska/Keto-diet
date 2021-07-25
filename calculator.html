@@ -74,10 +74,23 @@
             <input type="text" class="form-control" id="inputName" name="name" required>
         </div>
 
-        <!----------------to be used in Javascript add input class="is-invalid and help field class = invalid-feedback" --example how to change display for name when fails validation-->
+        <!--Gender-->
+        <div class="mb-3">
+            <label for="select-gender" class="form-label">Gender</label>
+            <select class="form-select" aria-label="select-gender" id="select-gender" aria-describedby="gender-help">
+                <option selected>Open this select menu</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                <option value="Preffer not to say">Preffer not to say</option>
+            </select>
+            <div id="gender-help">However we aim to be inclusive, some parts of the results will depend on male or female gender.</div>
+        </div>
+
+        <!--to be used in Javascript add input class="is-invalid" and help field class = "invalid-feedback" example how to change display for name when fails validation-->
         <div id="inputNameDiv" class="mb-3">
             <label for="input-name" class="form-label">Name</label>
-            <input type="text" class="form-control is-invalid" id="input-name" name="name" aria-describedby="age-help." required>
+            <input type="text" class="form-control is-invalid" id="input-name" name="name" aria-describedby="age-help" required>
             <div id="age-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
         </div>
 

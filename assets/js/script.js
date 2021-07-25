@@ -97,7 +97,7 @@ document.getElementById('learn-more').addEventListener("click", function() {
 
 //Radio Buttons event listeners
 
-document.getElementsByClassName(form)[0].addEventListener("change", function(event){
+document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
   if(event.target.matches("#targetDate")) {
     console.log("make target date invisible and make target weight apear")
 

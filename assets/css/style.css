@@ -1,6 +1,24 @@
 
+/*My classess created be applied where needed to override Bootstrap's styling*/
+
 .my-text-shadow {
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5) !important;
 }
 
+/* to be experimented with
+https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
+#example1 {
+        box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
+      }
+
+/*My classess to be used to hide elements when the page first load*/
+
+.my-visible {
+    visibility: visible;
+  }
+
+.my-invisible {
+    visibility: hidden;
+    position: absolute;
+  }

@@ -88,7 +88,7 @@
             </select>
             <div id="gender-help" class="form-text">However we aim to be inclusive, some parts of the results will depend on male or female gender.</div>
         </div>
-        
+
         <!--Age-->
         <div class="mb-3">
             <label for="input-age" class="form-label">Age</label>
@@ -97,7 +97,7 @@
         </div>
 
         <!--Target Date - made invisible when it first loads-->
-        <div id="div-target-date" class="mb-3">
+        <div id="div-target-date" class="my-invisible mb-3">
             <label for="target-date" class="form-label">Target Date</label>
             <input type="date" class="form-control" id="target-date" name="target-date" aria-describedby="date-help" required>
             <div id="date-help" class="form-text">We can estimate the results for dates further than a month from today</div>
@@ -125,7 +125,7 @@
             </div>
             
             <!--imperial measures input fields - made invisible when it first loads-->
-            <div id="div-all-imp" class="container">
+            <div id="div-all-imp" class="my-invisible container">
                 <!--Current weight imperial-->
                 <div class="row mb-3">
                     <div class="col">
@@ -194,7 +194,7 @@
             <label for="excercise-hours" class="form-label">Hours of excercise per week</label>
             <input type="number" class="form-control" id="excercise-hours" name="excercise-hours" required>
         </div>
-        <div class="mb-3">
+        <div class="mb-5">
             <label class="form-label" for="input-diet">Your current Diet</label>
             <input class="form-control mb-3" type="text" name="diet" id="input-diet" list="diet-list" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
 
@@ -216,7 +216,7 @@
             </datalist>
         </div>  
         <!--Buttons at the end of the page-->
-        <div class="container-fluid text-center">
+        <div class="container-fluid text-center mt-5">
             <div class="row">
                <div class="col">
                     <button type="submit" class="btn btn-success">Submit</button>

@@ -7,7 +7,7 @@
 
 //Radio Buttons event listeners
 
-document.getElementsByTagName("from")[0].addEventListener("change", function(event){
+document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
   if(event.target.matches("#targetDate")) {
     console.log("make target date invisible and make target weight apear")
 

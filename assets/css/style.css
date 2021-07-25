@@ -14,9 +14,6 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
 /*My classess to be used to hide elements when the page first load*/
 
-.my-visible {
-    visibility: visible;
-  }
 
 .my-invisible {
     visibility: hidden;

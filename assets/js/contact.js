@@ -5,19 +5,11 @@ var email = document.getElementById("email")
 var telephone = document.getElementById("telephone")
 var enquiry = document.getElementById("enquiry")
 
+//event listener for "submit"
+
 document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
-function handleContactSubmit(event) {
-    event.preventDefault();
-    if (allValidationResults() == false) {
-        highlightErrors()
-
-    } else {
-        console.log("all good to go")
-        document.getElementsByTagName("FORM")[0].submit()
-    }
-
-}
+//functions validating particular property of the input field
 
 function validateIfEmpty () {
     this.value = ""
@@ -34,7 +26,7 @@ function validateOnlyLetters () {
 
 }
 
-//functions to validate each input field
+//functions to display result of the validation of each particular field, returns true or highlights the input field red
 function validateResultContactName() {
     if(contactName.value === validateIfEmpty) {
         highlightErrors()
@@ -49,7 +41,8 @@ function validateResultContactName() {
 
 
 
-//function to check if all validations passed
+//function to check if each validation result, for each input field is true
+
 function allValidationResults() {
     if (validateResultContactName() == true) {
         console.log("passed all validation results")
@@ -62,4 +55,15 @@ function allValidationResults() {
     }
 }
 
+//Main function to handle submit event
+function handleContactSubmit(event) {
+    event.preventDefault();
+    if (allValidationResults() == false) {
+        console.log("display whole form with highlited fields in red")
 
+    } else {
+        console.log("all good to go")
+        document.getElementsByTagName("FORM")[0].submit()
+    }
+
+}

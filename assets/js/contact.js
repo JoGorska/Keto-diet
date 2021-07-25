@@ -11,12 +11,8 @@ document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContac
 
 //functions validating particular property of the input field
 
-function validateIfEmpty () {
-    this.value = ""
-}
-function highlightErrors() {
-    console.log("I will add or remove classess")
-}
+var inputRequired = ""
+
 
 function validateLenght() {
 
@@ -26,13 +22,22 @@ function validateOnlyLetters () {
 
 }
 
+function highlightErrors() {
+    console.log("I will add or remove classess")
+    this.classList.add("bg-danger")
+}
+
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
-function validateResultContactName() {
-    if(contactName.value === validateIfEmpty) {
-        highlightErrors()
+function validateResultContactName(contactName) {
+    if(this.value !== inputRequired) {
+
+        console.log(`display ${this.value}`)
+        
+        return(true)
 
     } else {
         console.log("failed individual validation")
+        highlightErrors()
         return(false);
         
     };
@@ -67,3 +72,4 @@ function handleContactSubmit(event) {
     }
 
 }
+

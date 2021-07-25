@@ -1,5 +1,7 @@
 
 //Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
+// code from code pen, explained by Sean Young on Webinar 22/07/2021
+//https://codepen.io/seanyoung247/pen/qBmbZQK
 
 document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
   if(event.target.matches("#radio-target-date")) {

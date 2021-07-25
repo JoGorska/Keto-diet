@@ -68,6 +68,33 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 
 3. After the two above decisions have been implemented the script.js required to be re done in calculator form part of this file. The new event listeners will target the input fields directly, which would make JavaScript code easier to read and maintain, without having to look through multiple loops.
 
+4. Validation on input
+
+    - initial idea taken from [this page](https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/), unfortunately it was validating any field, not the field with said id. I could not get it to work correctly. This code was written when the html structure of the page was different, therefore it reffers to id that no longer exists.
+
+        `document.getElementById("main-container").addEventListener("input", function(event){
+        if(event.target.matches("#inputName")) {
+            console.log(`${event.target.value}`)
+            let inputName = event.target.value
+            var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+            var inputNameResult = AZRegex.test(inputName);
+            if (inputNameResult == false) {
+            console.log("function validating on input for input name field")
+            return false;
+            };
+        } else if (event.target.matches("#inputDiet"))
+        console.log(`${event.target.value}`)
+        let inputName = event.target.value
+        var AZRegex = /^[a-zA-Z.,'/ -/]*$/;
+        var inputNameResult = AZRegex.test(inputName);
+        if (inputNameResult == false) {
+            console.log("function validating on input for input diet field")
+            return false;
+        };
+
+        });`
+  
+    - 
 ## Previous project (to be deleted)
 
 1. Results, what I have acheved being on Keto Diet
@@ -105,10 +132,12 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 1. Cover design used for index.html
 Downloaded from Bootstrap examples. Authors Mark Otto, Jacob Thornton, and Bootstrap contributors. 
 2. Webinar ??? for javascript
+//Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
+// code from code pen, explained by Sean Young on Webinar 22/07/2021
+//https://codepen.io/seanyoung247/pen/qBmbZQK
 3. Webinar for git hub
 4. Brian and David for advice during hackaton on branches and pull requests
 3. Mentor
-
 
 ## Joanna - remember to find all ??? signs in all files (readme as well)
 

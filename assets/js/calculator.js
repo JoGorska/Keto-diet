@@ -1,11 +1,5 @@
 
-
-
-//////////////////////////////////////////////////////////////////Caclulator starts here///////////////////////////////////////////////////////////////////////////
-
-// Calculator
-
-//Radio Buttons event listeners
+//Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
 
 document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
   if(event.target.matches("#radio-target-date")) {
@@ -14,10 +8,7 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
     //make invisible
     document.getElementById("div-target-metric").classList.add("my-invisible")
     document.getElementById("div-target-imperial").classList.add("my-invisible")
-    
-    console.log("make target weight invisible and make target date apear")
-
-    
+       
   } else if (event.target.matches("#radio-target-weight")){
     //make invisible
     document.getElementById("div-target-date").classList.add("my-invisible")
@@ -25,40 +16,21 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
     document.getElementById("div-target-metric").classList.remove("my-invisible")
     document.getElementById("div-target-imperial").classList.remove("my-invisible")
     
-    console.log("make target date invisible and make target weight apear")
-
-    
   } else if (event.target.matches("#imperial")){
     //make invisible
     document.getElementById("div-all-metric").classList.add("my-invisible")
     //make visible
     document.getElementById("div-all-imperial").classList.remove("my-invisible")
-
-    console.log("I will change form to Imperial")
-    
   
   } else if (event.target.matches("#metric")){
     //make visible
     document.getElementById("div-all-metric").classList.remove("my-invisible")
     //make invisible
     document.getElementById("div-all-imperial").classList.add("my-invisible")
-    console.log("I will change form to Metric")
-  
+
   } else {
     console.log("radio button unknown")
-    
   }
 });
 
-//universal function to make things visible
-//function removeClass(invisible) {
-//  this.classList.remove("invisible");
-//}
-//universal function to make things invisible
 
-//function addClass(invisible) {
- // this.classList.add("invisible");
-//}
-// choose between Target Weight and Target Date
-
-//event listener to replace Metric with imperial and the other way arround

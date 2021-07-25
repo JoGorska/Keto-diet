@@ -57,6 +57,14 @@ Unfortunately having a hudge block of html inside script.js was causing difficul
     - upon suggestion of my mentor Felippe I have removed the main calculator form from script.js and restored links to oryginal
 Many of the event listeners were created with the thought of calculator coming from javascript, since they still worked for calculator.html. They will be edited and simplified if time allows before submitting the project. ????
 
+2. Naming conventions (id in html)
+Forms copied from Bootstrap had classess using "-" and id using camel cases. Due to complexity of the form, I decided to unify conventions. 
+
+I reaserched for HTML naming conventions fount and [this article](https://courses.cs.washington.edu/courses/cse154/17au/styleguide/html-css/naming-conventions-html.html). After further reaserch I have found that W3schools use camel casing, examples of this are shown in [this article](https://www.w3schools.com/html/html_id.asp). Further reading provided [this article](https://stackoverflow.com/questions/6028211/what-is-the-standard-naming-convention-for-html-css-ids-and-classes) in stackoverflow.
+
+Throught all articles one imporant message is repeated - is to be consistent within the document. The choise of convention can be personal prefference or prefference of the employer or cooworkers. The consistency is the key. 
+
+I corrected all ID to follow W3schools convention with camel casing. 
 
 ## Previous project (to be deleted)
 

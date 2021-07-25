@@ -104,8 +104,10 @@
         </div>
 
         <!--
-        Choose Imperial Measures and Metric
+        Choose 
+        Imperial Measures or Metric
         Button group copied from Bootswatch and applied bootsstrap and bootstwatch styling
+        preselected metric when it first loads
         -->
             
         <fieldset>
@@ -122,8 +124,8 @@
                 </div>
             </div>
             
-            <!-------------------------------The whole lot for imperial measures only put it to javascript -------------->
-            <div id="impMeasures" class="container">
+            <!--imperial measures input fields - made invisible when it first loads-->
+            <div id="div-all-imp" class="container">
                 <!--Current weight imperial-->
                 <div class="row mb-3">
                     <div class="col">
@@ -159,27 +161,29 @@
                 </div>
                         <!--Waist line imperial-->
                 <div class="mb-3">
-                    <label for="inputWaist" class="form-label">Waist</label>
-                    <input type="number" class="form-control" id="inputWaist" name="name" aria-describedby="waistHelp" placeholder="Inches" required>
+                    <label for="waist-inches" class="form-label">Waist</label>
+                    <input type="number" class="form-control" id="waist-inches" name="name" aria-describedby="waist-inches" placeholder="Inches" required>
                     <div id="waistHelp" class="form-text">Find the bottom of your ribs and the top of your hips. Wrap a tape measure around your waist midway between these points. Breathe out naturally before taking the measurement.</div>
                 </div>
             </div>
-            <!---------------------------------The whole lot for metric measures to be put to javascript --------------->
-            <!--Current weight for metric measures-->
-            <div id="swapMeasures" class="container">
+
+            <!--metric measures input fields - made invisible when radio button selects imperial-->
+
+            <div id="div-all-metric" class="container">
+                <!--Current weight for metric measures-->
                 <div class="mb-3">
-                    <label for="currentWeightKg" class="form-label">Current Weight</label>
-                    <input type="number" class="form-control" id="currentWeightKg" name="currentWeightKg" placeholder="kg">
+                    <label for="current-weight-kg" class="form-label">Current Weight</label>
+                    <input type="number" class="form-control" id="current-weight-kg" name="current-weight-kg" placeholder="kg">
                 </div>
                 <!--Target weight for metric-->
                 <div class="mb-3">
-                    <label for="targetWeightKg" class="form-label">Target Weight</label>
-                    <input type="number" class="form-control" id="targetWeightKg" name="targetWeightKg" placeholder="kg" required>
+                    <label for="target-weight-kg" class="form-label">Target Weight</label>
+                    <input type="number" class="form-control" id="target-weight-kg" name="targetWeightKg" placeholder="kg" required>
                 </div>
                 <!--height for metric-->
             <div class="mb-3">
-                <label for="heightM" class="form-label">Height</label>
-                <input type="number" class="form-control" id="heightM" name="heightM" placeholder="cm" required>
+                <label for="height-cm" class="form-label">Height</label>
+                <input type="number" class="form-control" id="height-cm" name="height-cm" placeholder="cm" required>
             </div>
             </div>
             

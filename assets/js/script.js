@@ -19,7 +19,7 @@ document.getElementById('learn-more').addEventListener("click", function() {
       </div>
     </div>`
     
-  //Loop through all buttons responding to yes and no
+  //Loop through all buttons responding to yes and no, loop inside loop once HTML was replaced.  
 
   let buttons = document.getElementsByTagName("button");
     for(let button of buttons) {

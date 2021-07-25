@@ -29,15 +29,7 @@
 
 
 ////////////////////////////////////////////styling functions///////////////////////////////////////////////
-/**
- * function to remove classes from body and div elements, to display caclulator form correctly on full width of the page
- */
 
-
-
-
-//event listener to replace target date for with target weight and the other way arround
-//??? please write it here
 
 
 

@@ -74,18 +74,18 @@
             <input type="text" class="form-control" id="inputName" name="name" required>
         </div>
 
-        <!--Name input field when input is wrong-->
+        <!----------------to be used in Javascript add input class="is-invalid and help field class = invalid-feedback" --example how to change display for name when fails validation-->
         <div id="inputNameDiv" class="mb-3">
-            <label for="ipnutName" class="form-label">Name</label>
-            <input type="text" class="form-control is-invalid" id="inputName" name="name" required>
-            <div id="ageHelp" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
+            <label for="input-name" class="form-label">Name</label>
+            <input type="text" class="form-control is-invalid" id="input-name" name="name" aria-describedby="age-help." required>
+            <div id="age-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
         </div>
 
         <!--Age-->
         <div class="mb-3">
-            <label for="inputAge" class="form-label">Age</label>
-            <input type="number" class="form-control" id="inputAge" min="18" max="110" name="name" aria-describedby="ageHelp" required>
-            <div id="ageHelp" class="form-text">We'll never share your age with anyone else.</div>
+            <label for="input-age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="input-age" min="18" max="110" name="name" aria-describedby="age-help" required>
+            <div id="age-help" class="form-text">We'll never share your age with anyone else.</div>
         </div>
 
         <!--
@@ -94,52 +94,59 @@
         -->
             
         <fieldset>
-            <legend class="text-center mb-5">Choose between Impearial Units and Metric</legend>
+            <legend class="text-center mb-5">Choose between Imperial Units and Metric</legend>
             
             <!--button group code copied from bootswatch and applied styling from bootswatch and bootstrap-->
             <div class="text-center bs-component mb-3">
                 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="unitsOfMeasure" id="imperial" autocomplete="off">
+                    <input type="radio" class="btn-check" name="units-of-measure" id="imperial" autocomplete="off">
                     <label class="btn btn-outline-success" for="imperial">Imperial Units</label>
-                    <input type="radio" class="btn-check" name="unitsOfMeasure" id="metric" autocomplete="off" checked="" required>
+
+                    <input type="radio" class="btn-check" name="units-of-measure" id="metric" autocomplete="off" checked="" required>
                     <label class="btn btn-outline-success" for="metric">Metric</label>
                 </div>
             </div>
             
             <!-------------------------------The whole lot for imperial measures only put it to javascript -------------->
-            <div id="swapMeasures" class="container">
+            <div id="impMeasures" class="container">
                 <!--Current weight imperial-->
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="currentWeight" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Stone" required>
+                        <label for="current-wieght-stone" class="form-label">Current Weight</label>
+                        <input type="number" class="form-control" id="current-wieght-stone" name="current-wieght-stone" placeholder="Stone" required>
                     </div>
                     <div class="col">
-                        <label for="currentWeight" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Pounds">
+                        <label for="current-weight-pounds" class="form-label">Current Weight</label>
+                        <input type="number" class="form-control" id="current-weight-pounds" name="current-weight-pounds" placeholder="Pounds">
                     </div>
                 </div>
                 <!--Target weight imperial-->
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="currentWeight" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Stone" required>
+                        <label for="target-weight-stone" class="form-label">Target Weight</label>
+                        <input type="number" class="form-control" id="target-weight-stone" name="target-weight-stone" placeholder="Stone" required>
                     </div>
                     <div class="col">
-                        <label for="currentWeight" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Pounds">
+                        <label for="target-weight-pounds" class="form-label">Target Weight</label>
+                        <input type="number" class="form-control" id="target-weight-pounds" name="target-weight-pounds" placeholder="Pounds">
                     </div>
                 </div>
                 <!--Height imperial-->
                 <div class="row mb-3">
                     <div class="col">
-                        <label for="currentWeight" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="currentWeight" name="currentWeight" placeholder="Feet" required>
+                        <label for="height-feet" class="form-label">Height</label>
+                        <input type="number" class="form-control" id="height-feet" name="height-feet" placeholder="Feet" required>
                     </div>
                     <div class="col">
-                        <label for="currentHeight" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="currentHeight" name="currentHeight" placeholder="Inches">
+                        <label for="height-inches" class="form-label">Height</label>
+                        <input type="number" class="form-control" id="height-inches" name="height-inches" placeholder="Inches">
                     </div>
+                </div>
+                        <!--Waist line imperial-->
+                <div class="mb-3">
+                    <label for="inputWaist" class="form-label">Waist</label>
+                    <input type="number" class="form-control" id="inputWaist" name="name" aria-describedby="waistHelp" placeholder="Inches" required>
+                    <div id="waistHelp" class="form-text">Find the bottom of your ribs and the top of your hips. Wrap a tape measure around your waist midway between these points. Breathe out naturally before taking the measurement.</div>
                 </div>
             </div>
             <!---------------------------------The whole lot for metric measures to be put to javascript --------------->

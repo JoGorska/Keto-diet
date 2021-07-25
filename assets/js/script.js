@@ -1,11 +1,12 @@
 
 //Welcome Questions - interactions with the user
-
-document.getElementById('learn-more').addEventListener("click", function() {
-  let mainContainer = document.getElementById("main-container");
+ 
+document.getElementById('main-container').addEventListener("click", function(event){
+  if(event.target.matches("#learn-more") {
+    
   
   //Excercise Question
-  mainContainer.innerHTML = `
+  document.getElementById('main-container').innerHTML = `
 
     <div class="px-4 py-5 my-5 text-center">
       <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
@@ -18,6 +19,28 @@ document.getElementById('learn-more').addEventListener("click", function() {
         </div>
       </div>
     </div>`
+
+    
+  } else if (event.target.matches("#targetWeight")){
+    console.log("make target weight invisible and make target date apear")
+
+    
+  } else if (event.target.matches("#imperial")){
+    console.log("I will change form to Metric")
+    
+  
+  } else if (event.target.matches("#metric")){
+    console.log("I will change form to Imperial")
+    
+  
+  } else {
+    console.log("radio button unknown")
+    
+  }
+});
+
+document.getElementById('learn-more').addEventListener("click", function() {
+  
     
   //Loop through all buttons responding to yes and no, loop inside loop once HTML was replaced.  
 
@@ -97,7 +120,7 @@ document.getElementById('learn-more').addEventListener("click", function() {
 
 //Radio Buttons event listeners
 
-document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
+document.getElementsByTagName("from")[0].addEventListener("change", function(event){
   if(event.target.matches("#targetDate")) {
     console.log("make target date invisible and make target weight apear")
 

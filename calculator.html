@@ -63,10 +63,10 @@
 
         <div class="text-center bs-component mb-3">
             <div class="btn-group" role="group" aria-label="Target Weight or Target Date radio button">
-              <input type="radio" class="btn-check" name="target" id="targetWeight" autocomplete="off" checked required>
-              <label class="btn btn-outline-success" for="targetWeight">Target Weight</label>
-              <input type="radio" class="btn-check" name="target" id="targetDate" autocomplete="off">
-              <label class="btn btn-outline-success" for="targetDate">Target Date</label>
+              <input type="radio" class="btn-check" name="target" id="radio-target-weight" autocomplete="off" checked required>
+              <label class="btn btn-outline-success" for="radio-target-weight">Target Weight</label>
+              <input type="radio" class="btn-check" name="target" id="radio-target-date" autocomplete="off">
+              <label class="btn btn-outline-success" for="radio-target-date">Target Date</label>
             </div>
         </div>
 
@@ -138,7 +138,7 @@
                     </div>
                 </div>
                 <!--Target weight imperial-->
-                <div class="row mb-3">
+                <div id="div-target-imperial" class="row mb-3">
                     <div class="col">
                         <label for="target-weight-stone" class="form-label">Target Weight</label>
                         <input type="number" class="form-control" id="target-weight-stone" name="target-weight-stone" placeholder="Stone" required>
@@ -176,7 +176,7 @@
                     <input type="number" class="form-control" id="current-weight-kg" name="current-weight-kg" placeholder="kg">
                 </div>
                 <!--Target weight for metric-->
-                <div class="mb-3">
+                <div id="div-target-metric" class="mb-3">
                     <label for="target-weight-kg" class="form-label">Target Weight</label>
                     <input type="number" class="form-control" id="target-weight-kg" name="targetWeightKg" placeholder="kg" required>
                 </div>

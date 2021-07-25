@@ -92,6 +92,8 @@ function addClassH100() {
   div.classList.add("cover-container");
 }
 
+function addClass(invisible);
+this.classList.add("invisible")
 
 
 //event listener to replace target date for with target weight and the other way arround

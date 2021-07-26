@@ -1,6 +1,6 @@
 //declare variables for each input field
 
-var contactName = document.getElementById("contact-name")
+//var contactName = document.getElementById("contact-name")
 var email = document.getElementById("email")
 var telephone = document.getElementById("telephone")
 var enquiry = document.getElementById("enquiry")
@@ -17,24 +17,28 @@ const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
 
 const maxLenght = 160;
 
-
-
-function highlightErrors() {
-    console.log("I will add or remove classess")
-    this.classList.add("bg-danger")
-}
+/**
+ * Universal function to highlight errors in a form, once the field failed validation on submit
+ * and it doesn't work!!!
+ */
+ //function highlightErrors() {
+//    console.log("I will add or remove classess")
+//    this.classList.add("bg-danger")
+//}
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 function validateResultContactName() {
-    if(this.value !== inputRequired) {
-
-        console.log(`display ${this.value}`)
+    
+    if(document.getElementById("contact-name").value !== inputRequired) {
+        let contactName = document.getElementById("contact-name");
+        console.log(`display ${contactName.value}`)
         
         return(true)
 
     } else {
         console.log("failed individual validation")
-        highlightErrors()
+        document.getElementById("contact-name").classList.add("bg-danger")
+        
         return(false);
         
     };
@@ -42,6 +46,10 @@ function validateResultContactName() {
 };
 
 
+function highlightErrors() {
+    console.log("I will add or remove classess")
+   this.classList.add("bg-danger")
+}
 
 //function to check if each validation result, for each input field is true
 

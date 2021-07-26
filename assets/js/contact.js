@@ -11,11 +11,11 @@ document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContac
 
 //variables creating tests for test function
 
-const inputRequired = ""
+const inputRequired = "";
 
 const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
 
-const maxLenght = 160
+const maxLenght = 160;
 
 
 

@@ -1,10 +1,10 @@
 //declare variables for each input field
 
-//var contactName = document.getElementById("contact-name")
-var email = document.getElementById("email");
-var telephone = document.getElementById("telephone");
-var enquiry = document.getElementById("enquiry");
-var contactForm = document.getElementsByTagName("FORM")[0];
+const contactName = document.getElementById("contact-name")
+const email = document.getElementById("email");
+const telephone = document.getElementById("telephone");
+const enquiry = document.getElementById("enquiry");
+const contactForm = document.getElementsByTagName("FORM")[0];
 
 //event listener for "submit"
 
@@ -30,21 +30,25 @@ const maxLenght = 160;
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 function validateResultContactName() {
     
-    if(document.getElementById("contact-name").value !== inputRequired) {
-        let contactName = document.getElementById("contact-name");
+    if(contactName.value !== inputRequired) {
+        //contactName = document.getElementById("contact-name");
         console.log(`display ${contactName.value}`)
         
         return(true)
 
     } else {
+        
         console.log("failed individual validation")
         contactName.classList.add("is-invalid");
         contactName.setAttribute("aria-describedby", "contact-name-help");
+        let nextSibling = document.getElementsByTagName("LABEL")[1];
         let errorDiv = 
         `<div id="contact-name-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
         `
-        function insertAfter()
-
+        function insertAfter(errorDiv, contactName) {
+            contactName.contactForm.errorDiv.insertAfter(errorDiv, contactName.nextSibling)
+        };
+        insertAfter(errorDiv, contactName);
         return(false);
         
     };

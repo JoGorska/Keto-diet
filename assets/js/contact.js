@@ -1,9 +1,10 @@
 //declare variables for each input field
 
 //var contactName = document.getElementById("contact-name")
-var email = document.getElementById("email")
-var telephone = document.getElementById("telephone")
-var enquiry = document.getElementById("enquiry")
+var email = document.getElementById("email");
+var telephone = document.getElementById("telephone");
+var enquiry = document.getElementById("enquiry");
+var contactForm = document.getElementsByTagName("FORM")[0];
 
 //event listener for "submit"
 
@@ -37,8 +38,13 @@ function validateResultContactName() {
 
     } else {
         console.log("failed individual validation")
-        document.getElementById("contact-name").classList.add("bg-danger")
-        
+        contactName.classList.add("is-invalid");
+        contactName.setAttribute("aria-describedby", "contact-name-help");
+        let errorDiv = 
+        `<div id="contact-name-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
+        `
+        function insertAfter()
+
         return(false);
         
     };

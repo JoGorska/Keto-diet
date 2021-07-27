@@ -42,13 +42,12 @@ function validateResultContactName() {
         contactName.classList.add("is-invalid");
         contactName.setAttribute("aria-describedby", "contact-name-help");
         let nextSibling = document.getElementsByTagName("LABEL")[1];
-        let errorDiv = 
+        let errorDiv = document.createElement("div")
+        errorDiv.innerHTML = 
         `<div id="contact-name-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
         `
-        function insertAfter(errorDiv, contactName) {
-            contactName.contactForm.errorDiv.insertAfter(errorDiv, contactName.nextSibling)
-        };
-        insertAfter(errorDiv, contactName);
+
+        nextSibling.insertBefore(errorDiv.innerHTML, nextSibling);
         return(false);
         
     };

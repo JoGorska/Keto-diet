@@ -1,9 +1,10 @@
 //declare variables for each input field
 
-//var contactName = document.getElementById("contact-name")
-var email = document.getElementById("email")
-var telephone = document.getElementById("telephone")
-var enquiry = document.getElementById("enquiry")
+const contactName = document.getElementById("contact-name")
+const email = document.getElementById("email");
+const telephone = document.getElementById("telephone");
+const enquiry = document.getElementById("enquiry");
+const contactForm = document.getElementsByTagName("FORM")[0];
 
 //event listener for "submit"
 
@@ -11,11 +12,77 @@ document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContac
 
 //variables creating tests for test function
 
-const inputRequired = "";
-
 const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
 
-const maxLenght = 160;
+const min = 3;
+
+const maxLength50 = 50;
+
+const maxLength300 = 300;
+
+//Functions to test each property
+
+/**
+ * Function to test if the input value is empty
+ * @returns 
+ */
+
+function isEmpty(contactName) {
+    let length = contactName.value.length;
+
+    if (length === "") {
+        return true;
+    } else {
+        return false;
+    };
+
+};
+
+/**
+ * Universal function to test the length between 3 and 50 input field value
+ * ??? I'm not sure how to fill in the below fields 
+ * @param {3, 50} 
+ * @returns true
+ */
+function minMax300() {
+    let mylength = this.value.length;
+
+    if (mylength < min) {
+        return false;
+     } else if (mylength > maxLength300) {
+        return false;
+     } else {
+        return true;
+     };
+};
+
+/**
+ * Universal function to test the length between 3 and 50 input field value
+ * ??? I'm not sure how to fill in the below fields 
+ * @param {3, 50} 
+ * @returns true
+ */
+ function minMax50() {
+    let mylength = this.value.length;
+
+    if (mylength < min) {
+        return false;
+     } else if (mylength > maxLength50) {
+        return false;
+     } else {
+        return true;
+     };
+};
+
+/**
+ * universal function testing any field if they contain letters and chosen characters only, 
+ * 
+ */
+
+ function containsLetters() {
+    let value = this.value
+    return regexLetters.test(value);
+};
 
 /**
  * Universal function to highlight errors in a form, once the field failed validation on submit
@@ -27,29 +94,47 @@ const maxLenght = 160;
 //}
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
+
+/**
+ * Function to validate Contact Name.
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
 function validateResultContactName() {
+  
+    if(!isEmpty(contactName)) {
+        console.log("failed individual validation on input Required")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    }else if (!minMax50(contactName)) {
+        console.log("failed individual validation on min or max Length")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    } else if (!containsLetters(contactName)) {
     
-    if(document.getElementById("contact-name").value !== inputRequired) {
-        let contactName = document.getElementById("contact-name");
-        console.log(`display ${contactName.value}`)
-        
-        return(true)
+        console.log("failed individual validation on regex")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);  
 
     } else {
-        console.log("failed individual validation")
-        document.getElementById("contact-name").classList.add("bg-danger")
-        
-        return(false);
-        
+      
+        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(contactName.value.length);
+        return(true)
+
+
+
     };
     
 };
 
 
-function highlightErrors() {
-    console.log("I will add or remove classess")
-   this.classList.add("bg-danger")
-}
 
 //function to check if each validation result, for each input field is true
 

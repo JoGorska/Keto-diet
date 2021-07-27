@@ -85,7 +85,7 @@ function validateForm(){
                   this.innerHTML = 
                   `
                     <label for="ipnutName" class="form-label">Name</label>
-                    <input type="text" class="form-control is-invalid" id="inputName" name="name" required value="${inputNameValue}">
+                    <input type="text" class="form-control is-invalid" id="inputName" name="name">
                     <div id="ageHelp" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
                   `
                 }

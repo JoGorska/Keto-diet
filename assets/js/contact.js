@@ -16,7 +16,11 @@ const inputRequired = "";
 
 const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
 
-const maxLenght = 160;
+const minLength2 = 2;
+
+const maxLength50 = 50;
+
+const maxLength160 = 160
 
 /**
  * Universal function to highlight errors in a form, once the field failed validation on submit
@@ -29,11 +33,15 @@ const maxLenght = 160;
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 function validateResultContactName() {
-    
+  
     if(contactName.value !== inputRequired) {
-        //contactName = document.getElementById("contact-name");
-        console.log(`display ${contactName.value}`)
-        
+        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(contactName.value.length);
+        return(true)
+
+    }else if(contactName.value.length > minLength2) {
+        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(contactName.value.length);
         return(true)
 
     } else {

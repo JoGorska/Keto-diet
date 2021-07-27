@@ -12,8 +12,6 @@ document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContac
 
 //variables creating tests for test function
 
-const inputRequired = "";
-
 const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
 
 const min = 3;
@@ -23,14 +21,21 @@ const maxLength50 = 50;
 const maxLength300 = 300;
 
 /**
- * universal function testing any field if they contain letters and chosen characters only, 
- * 
+ * Function to test if the input value is empty, when user did not write anything in the field
+ * @returns 
  */
 
-function containsLetters() {
-    let value = this.value
-    return regexLetters.test(value);
+function isEmpty(contactName) {
+    let length = contactName.value.length;
+
+    if (length === "") {
+        return true;
+    } else {
+        return false;
+    };
+
 };
+
 /**
  * Function to test the length between 3 and 50 for contact Name input field value
  * ??? I'm not sure how to fill in the below fields
@@ -38,7 +43,7 @@ function containsLetters() {
  * @returns true
  */
 function minMax50(contactName) {
-    let length = contactName.value.length
+    let length = contactName.value.length;
 
     if (length < min) {
         return false;
@@ -49,7 +54,15 @@ function minMax50(contactName) {
      };
 };
 
+/**
+ * universal function testing any field if they contain letters and chosen characters only, 
+ * 
+ */
 
+ function containsLetters() {
+    let value = this.value
+    return regexLetters.test(value);
+};
 
 /**
  * Universal function to highlight errors in a form, once the field failed validation on submit
@@ -70,26 +83,17 @@ function minMax50(contactName) {
 
 function validateResultContactName() {
   
-    if(contactName.value == inputRequired) {
+    if(!isEmpty(contactName)) {
         console.log("failed individual validation on input Required")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
 
     }else if (!minMax50(contactName)) {
-        console.log("failed individual validation on min Length")
+        console.log("failed individual validation on min or max Length")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
-
-    }else if (contactName.value.length > maxLength50) {
-        console.log("failed individual validation on max Length")
-        contactName.classList.add("is-invalid", "border", "border-danger");
-
-        return(false);
-
-    }else if (contactName.value.length > maxLength50) {
-
 
     } else if (!containsLetters(contactName)) {
     

@@ -39,15 +39,8 @@ function validateResultContactName() {
     } else {
         
         console.log("failed individual validation")
-        contactName.classList.add("is-invalid");
-        contactName.setAttribute("aria-describedby", "contact-name-help");
-        let nextSibling = document.getElementsByTagName("LABEL")[1];
-        let errorDiv = document.createElement("div")
-        errorDiv.innerHTML = 
-        `<div id="contact-name-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
-        `
+        contactName.classList.add("is-invalid", "border", "border-danger");
 
-        nextSibling.insertBefore(errorDiv.innerHTML, nextSibling);
         return(false);
         
     };

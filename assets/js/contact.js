@@ -16,7 +16,7 @@ const inputRequired = "";
 
 const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
 
-const minLength2 = 2;
+const minLength3 = 3;
 
 const maxLength50 = 50;
 
@@ -34,23 +34,27 @@ const maxLength160 = 160
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 function validateResultContactName() {
   
-    if(contactName.value !== inputRequired) {
-        console.log(`I have passed through validation and my value is: ${contactName.value}`)
-        console.log(contactName.value.length);
-        return(true)
-
-    }else if(contactName.value.length > minLength2) {
-        console.log(`I have passed through validation and my value is: ${contactName.value}`)
-        console.log(contactName.value.length);
-        return(true)
-
-    } else {
-        
-        console.log("failed individual validation")
+    if(contactName.value == inputRequired) {
+        console.log("failed individual validation on input Required")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
+
+    }else if(contactName.value.length < minLength3) {
+        console.log("failed individual validation on min Length")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    } else {
+           
         
+        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(contactName.value.length);
+        return(true)
+
+
+
     };
     
 };

@@ -20,7 +20,13 @@ const minLength3 = 3;
 
 const maxLength50 = 50;
 
-const maxLength160 = 160
+const maxLength160 = 160;
+
+function containsLetters() {
+    let contactNameValue = contactName.value
+    return regexLetters.test(contactNameValue);
+}
+
 
 /**
  * Universal function to highlight errors in a form, once the field failed validation on submit
@@ -32,6 +38,13 @@ const maxLength160 = 160
 //}
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
+
+/**
+ * Function to validate Contact Name.
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
 function validateResultContactName() {
   
     if(contactName.value == inputRequired) {
@@ -40,15 +53,30 @@ function validateResultContactName() {
 
         return(false);
 
-    }else if(contactName.value.length < minLength3) {
+    }else if (contactName.value.length < minLength3) {
         console.log("failed individual validation on min Length")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
 
+    }else if (contactName.value.length > maxLength50) {
+        console.log("failed individual validation on max Length")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    }else if (contactName.value.length > maxLength50) {
+
+
+    } else if (!containsLetters()) {
+    
+        console.log("failed individual validation on regex")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);  
+
     } else {
-           
-        
+      
         console.log(`I have passed through validation and my value is: ${contactName.value}`)
         console.log(contactName.value.length);
         return(true)

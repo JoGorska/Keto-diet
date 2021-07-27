@@ -20,8 +20,10 @@ const maxLength50 = 50;
 
 const maxLength300 = 300;
 
+//Functions to test each property
+
 /**
- * Function to test if the input value is empty, when user did not write anything in the field
+ * Function to test if the input value is empty
  * @returns 
  */
 
@@ -37,17 +39,35 @@ function isEmpty(contactName) {
 };
 
 /**
- * Function to test the length between 3 and 50 for contact Name input field value
- * ??? I'm not sure how to fill in the below fields
- * @param {3, 50} contactName 
+ * Universal function to test the length between 3 and 50 input field value
+ * ??? I'm not sure how to fill in the below fields 
+ * @param {3, 50} 
  * @returns true
  */
-function minMax50(contactName) {
-    let length = contactName.value.length;
+function minMax300() {
+    let mylength = this.value.length;
 
-    if (length < min) {
+    if (mylength < min) {
         return false;
-     } else if (length > maxLength50) {
+     } else if (mylength > maxLength300) {
+        return false;
+     } else {
+        return true;
+     };
+};
+
+/**
+ * Universal function to test the length between 3 and 50 input field value
+ * ??? I'm not sure how to fill in the below fields 
+ * @param {3, 50} 
+ * @returns true
+ */
+ function minMax50() {
+    let mylength = this.value.length;
+
+    if (mylength < min) {
+        return false;
+     } else if (mylength > maxLength50) {
         return false;
      } else {
         return true;

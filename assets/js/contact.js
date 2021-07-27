@@ -16,16 +16,39 @@ const inputRequired = "";
 
 const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
 
-const minLength3 = 3;
+const min = 3;
 
 const maxLength50 = 50;
 
-const maxLength160 = 160;
+const maxLength300 = 300;
+
+/**
+ * universal function testing any field if they contain letters and chosen characters only, 
+ * 
+ */
 
 function containsLetters() {
-    let contactNameValue = contactName.value
-    return regexLetters.test(contactNameValue);
-}
+    let value = this.value
+    return regexLetters.test(value);
+};
+/**
+ * Function to test the length between 3 and 50 for contact Name input field value
+ * ??? I'm not sure how to fill in the below fields
+ * @param {3, 50} contactName 
+ * @returns true
+ */
+function minMax50(contactName) {
+    let length = contactName.value.length
+
+    if (length < min) {
+        return false;
+     } else if (length > maxLength50) {
+        return false;
+     } else {
+        return true;
+     };
+};
+
 
 
 /**
@@ -53,7 +76,7 @@ function validateResultContactName() {
 
         return(false);
 
-    }else if (contactName.value.length < minLength3) {
+    }else if (!minMax50(contactName)) {
         console.log("failed individual validation on min Length")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
@@ -68,7 +91,7 @@ function validateResultContactName() {
     }else if (contactName.value.length > maxLength50) {
 
 
-    } else if (!containsLetters()) {
+    } else if (!containsLetters(contactName)) {
     
         console.log("failed individual validation on regex")
         contactName.classList.add("is-invalid", "border", "border-danger");
@@ -88,10 +111,6 @@ function validateResultContactName() {
 };
 
 
-function highlightErrors() {
-    console.log("I will add or remove classess")
-   this.classList.add("bg-danger")
-}
 
 //function to check if each validation result, for each input field is true
 

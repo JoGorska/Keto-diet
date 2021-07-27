@@ -13,6 +13,8 @@ document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContac
 //variables creating tests for test function
 
 const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
+// make regex for eamil
+const regexEmail = /^[a-z][A-Z].,'\.-\ ]*$/;
 
 const min = 3;
 
@@ -101,7 +103,48 @@ function minMax300() {
  * and displays line of text with detailed information why it failed
  */
 
-function validateResultContactName() {
+function validateResultEmail() {
+  
+    if(!isEmpty(email)) {
+        console.log("failed individual validation on input Required")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    }else if (!minMax50(email)) {
+        console.log("failed individual validation on min or max Length")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+// make regex for email
+    } else if (!containsLetters(contactName)) {
+    
+        console.log("failed individual validation on regex")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);  
+
+    } else {
+      
+        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(contactName.value.length);
+        return(true)
+
+
+
+    };
+    
+};
+
+
+/**
+ * Function to validate email.
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
+
+ function validateResultContactName() {
   
     if(!isEmpty(contactName)) {
         console.log("failed individual validation on input Required")
@@ -133,8 +176,6 @@ function validateResultContactName() {
     };
     
 };
-
-
 
 //function to check if each validation result, for each input field is true
 

@@ -1,3 +1,9 @@
+
+
+//guidance to handle submit and validation javascripttutorial.net/javascript-dom/javascript-form-validation
+
+
+
 //declare variables for each input field
 
 const contactName = document.getElementById("contact-name")
@@ -12,9 +18,10 @@ document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContac
 
 //variables creating tests for test function
 
-const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
-// make regex for eamil
-const regexEmail = /^[a-z][A-Z].,'\.-\ ]*$/;
+const regexLetters = /^[a-zA-Z ]\,'\.\-\' *$/;
+
+// regex email copied from javascripttutorial.net/javascript-dom/javascript-form-validation
+const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const min = 3;
 

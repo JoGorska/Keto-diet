@@ -37,9 +37,9 @@ const maxLength300 = 300;
  */
 
 function isEmpty(contactName) {
-    let length = contactName.value.length;
+    let value = contactName.value;
 
-    if (length === "") {
+    if (value === "") {
         return true;
     } else {
         return false;
@@ -71,8 +71,8 @@ function minMax300() {
  * @param {3, 50} 
  * @returns true
  */
- function minMax50() {
-    let mylength = this.value.length;
+function minMax50() {
+    let mylength = contactName.value.length;
 
     if (mylength < min) {
         return false;
@@ -110,7 +110,47 @@ function minMax300() {
  * and displays line of text with detailed information why it failed
  */
 
-function validateResultEmail() {
+
+ function validateResultContactName() {
+  
+    if(isEmpty(contactName)) {
+        console.log("failed individual validation on input Required")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    }else if (!minMax50(contactName)) {
+        console.log("failed individual validation on min or max Length")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    } else if (!containsLetters(contactName)) {
+    
+        console.log("failed individual validation on regex")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);  
+
+    } else {
+      
+        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(contactName.value.length);
+        return(true)
+
+
+
+    };
+    
+};
+/**
+ * Function to validate email.
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
+
+ function validateResultEmail() {
   
     if(!isEmpty(email)) {
         console.log("failed individual validation on input Required")
@@ -143,46 +183,6 @@ function validateResultEmail() {
     
 };
 
-
-/**
- * Function to validate email.
- * Returns true or false, if false - changes the look of the input field 
- * and displays line of text with detailed information why it failed
- */
-
-
- function validateResultContactName() {
-  
-    if(!isEmpty(contactName)) {
-        console.log("failed individual validation on input Required")
-        contactName.classList.add("is-invalid", "border", "border-danger");
-
-        return(false);
-
-    }else if (!minMax50(contactName)) {
-        console.log("failed individual validation on min or max Length")
-        contactName.classList.add("is-invalid", "border", "border-danger");
-
-        return(false);
-
-    } else if (!containsLetters(contactName)) {
-    
-        console.log("failed individual validation on regex")
-        contactName.classList.add("is-invalid", "border", "border-danger");
-
-        return(false);  
-
-    } else {
-      
-        console.log(`I have passed through validation and my value is: ${contactName.value}`)
-        console.log(contactName.value.length);
-        return(true)
-
-
-
-    };
-    
-};
 
 //function to check if each validation result, for each input field is true
 

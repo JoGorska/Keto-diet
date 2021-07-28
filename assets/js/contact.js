@@ -185,7 +185,7 @@ function correctEmail(email) {
 
     } else {
       
-        console.log(`email - I have passed through validation and my value is: ${contactName.value}`)
+        console.log(`email - I have passed through validation and my value is: ${email.value}`)
         console.log(contactName.value.length);
         return(true)
 
@@ -199,17 +199,17 @@ function correctEmail(email) {
 //function to check if each validation result, for each input field is true
 
 function allValidationResults() {
-    if (validateResultContactName() == true) {
-        console.log("name passed all validation results")
-        return(true)
+    if (validateResultContactName() == false) {
+        console.log("name failed all validation results")
+        return(false)
     
-    } else if (validateResultEmail() == true) {
-        console.log("email passed all validation results")
-        return(true)
+    } else if (validateResultEmail() == false) {
+        console.log("email failed all validation results")
+        return(false)
         
     } else {
-        console.log("failed all validation results")
-        return(false)
+        console.log("all fields passed all validation results")
+        return(true)
         
     }
 }

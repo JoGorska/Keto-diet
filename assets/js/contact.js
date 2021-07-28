@@ -17,8 +17,10 @@ const contactForm = document.getElementsByTagName("FORM")[0];
 document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
 //variables creating tests for test function
-
-const regexLetters = /^[a-zA-Z ]\,'\.\-\' *$/;
+//const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
+//const regexLetters = /^[a-zA-Z ]\,'\.\-\' *$/;
+//const regexLetters = /[a-zA-Z ]\,'\.\-\'/g
+const regexLetters = /[a-zA-Z \,'\.\-\']/g
 
 // regex email copied from javascripttutorial.net/javascript-dom/javascript-form-validation
 const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -71,25 +73,28 @@ function minMax300() {
  * @param {3, 50} 
  * @returns true
  */
-function minMax50() {
-    let mylength = contactName.value.length;
+function minMax50(contactName) {
 
-    if (mylength < min) {
+    let myLength = contactName.value.length;
+
+    if (myLength < min) {
         return false;
-     } else if (mylength > maxLength50) {
+     } else if (myLength > maxLength50) {
         return false;
      } else {
         return true;
      };
+     
 };
 
 /**
- * universal function testing any field if they contain letters and chosen characters only, 
+ *  function testing any field if they contain letters and chosen characters only, 
  * 
  */
 
- function containsLetters() {
-    let value = this.value
+ function containsLetters(contactName) {
+    let value = contactName.value
+    console.log(value)
     return regexLetters.test(value);
 };
 

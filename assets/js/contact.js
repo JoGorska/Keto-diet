@@ -16,10 +16,8 @@ const contactForm = document.getElementsByTagName("FORM")[0];
 
 document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
-//variables creating tests for test function
-//const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
-//const regexLetters = /^[a-zA-Z ]\,'\.\-\' *$/;
-//const regexLetters = /[a-zA-Z ]\,'\.\-\'/g
+//variables creating tests for test function, edited and designed in https://regexr.com/
+
 const regexLetters = /[a-zA-Z \,'\.\-\']/g
 
 // regex email copied from javascripttutorial.net/javascript-dom/javascript-form-validation
@@ -48,6 +46,8 @@ function isEmpty(contactName) {
     };
 
 };
+
+
 
 /**
  * Universal function to test the length between 3 and 50 input field value
@@ -98,6 +98,11 @@ function minMax50(contactName) {
     return regexLetters.test(value);
 };
 
+function correctEmail(email) {
+    let value = email.value
+    console.log(value)
+    return regexEmail.test(value);
+};
 /**
  * Universal function to highlight errors in a form, once the field failed validation on submit
  * and it doesn't work!!!
@@ -119,27 +124,27 @@ function minMax50(contactName) {
  function validateResultContactName() {
   
     if(isEmpty(contactName)) {
-        console.log("failed individual validation on input Required")
+        console.log("name - failed validation if it's empty")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
 
     }else if (!minMax50(contactName)) {
-        console.log("failed individual validation on min or max Length")
+        console.log("name - failed individual validation on min or max Length")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
 
     } else if (!containsLetters(contactName)) {
     
-        console.log("failed individual validation on regex")
+        console.log("name - failed individual validation on regex")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);  
 
     } else {
       
-        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(`name input field passed validation and name value is: ${contactName.value}`)
         console.log(contactName.value.length);
         return(true)
 
@@ -155,30 +160,32 @@ function minMax50(contactName) {
  */
 
 
+
+
  function validateResultEmail() {
   
-    if(!isEmpty(email)) {
-        console.log("failed individual validation on input Required")
+    if(email.value.length < 3) {
+        console.log("email - failed validation on input required ")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
 
-    }else if (!minMax50(email)) {
-        console.log("failed individual validation on min or max Length")
+    }else if (email.value.length > 50) {
+        console.log("email - failed individual validation on min or max Length")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
-// make regex for email
-    } else if (!containsLetters(contactName)) {
+
+    } else if (!correctEmail(email)) {
     
-        console.log("failed individual validation on regex")
+        console.log("email - failed individual validation on regex")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);  
 
     } else {
       
-        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(`email - I have passed through validation and my value is: ${contactName.value}`)
         console.log(contactName.value.length);
         return(true)
 
@@ -193,7 +200,11 @@ function minMax50(contactName) {
 
 function allValidationResults() {
     if (validateResultContactName() == true) {
-        console.log("passed all validation results")
+        console.log("name passed all validation results")
+        return(true)
+    
+    } else if (validateResultEmail() == true) {
+        console.log("email passed all validation results")
         return(true)
         
     } else {

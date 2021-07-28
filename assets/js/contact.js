@@ -1,3 +1,9 @@
+
+
+//guidance to handle submit and validation javascripttutorial.net/javascript-dom/javascript-form-validation
+
+
+
 //declare variables for each input field
 
 const contactName = document.getElementById("contact-name")
@@ -10,9 +16,12 @@ const contactForm = document.getElementsByTagName("FORM")[0];
 
 document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
-//variables creating tests for test function
+//variables creating tests for test function, edited and designed in https://regexr.com/
 
-const regexLetters = /^[a-z][A-Z].,'\.-\ ]*$/;
+const regexLetters = /[a-zA-Z \,'\.\-\']/g
+
+// regex email copied from javascripttutorial.net/javascript-dom/javascript-form-validation
+const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const min = 3;
 
@@ -28,15 +37,17 @@ const maxLength300 = 300;
  */
 
 function isEmpty(contactName) {
-    let length = contactName.value.length;
+    let value = contactName.value;
 
-    if (length === "") {
+    if (value === "") {
         return true;
     } else {
         return false;
     };
 
 };
+
+
 
 /**
  * Universal function to test the length between 3 and 50 input field value
@@ -62,28 +73,36 @@ function minMax300() {
  * @param {3, 50} 
  * @returns true
  */
- function minMax50() {
-    let mylength = this.value.length;
+function minMax50(contactName) {
 
-    if (mylength < min) {
+    let myLength = contactName.value.length;
+
+    if (myLength < min) {
         return false;
-     } else if (mylength > maxLength50) {
+     } else if (myLength > maxLength50) {
         return false;
      } else {
         return true;
      };
+     
 };
 
 /**
- * universal function testing any field if they contain letters and chosen characters only, 
+ *  function testing any field if they contain letters and chosen characters only, 
  * 
  */
 
- function containsLetters() {
-    let value = this.value
+ function containsLetters(contactName) {
+    let value = contactName.value
+    console.log(value)
     return regexLetters.test(value);
 };
 
+function correctEmail(email) {
+    let value = email.value
+    console.log(value)
+    return regexEmail.test(value);
+};
 /**
  * Universal function to highlight errors in a form, once the field failed validation on submit
  * and it doesn't work!!!
@@ -101,30 +120,72 @@ function minMax300() {
  * and displays line of text with detailed information why it failed
  */
 
-function validateResultContactName() {
+
+ function validateResultContactName() {
   
-    if(!isEmpty(contactName)) {
-        console.log("failed individual validation on input Required")
+    if(isEmpty(contactName)) {
+        console.log("name - failed validation if it's empty")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
 
     }else if (!minMax50(contactName)) {
-        console.log("failed individual validation on min or max Length")
+        console.log("name - failed individual validation on min or max Length")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);
 
     } else if (!containsLetters(contactName)) {
     
-        console.log("failed individual validation on regex")
+        console.log("name - failed individual validation on regex")
         contactName.classList.add("is-invalid", "border", "border-danger");
 
         return(false);  
 
     } else {
       
-        console.log(`I have passed through validation and my value is: ${contactName.value}`)
+        console.log(`name input field passed validation and name value is: ${contactName.value}`)
+        console.log(contactName.value.length);
+        return(true)
+
+
+
+    };
+    
+};
+/**
+ * Function to validate email.
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
+
+
+
+ function validateResultEmail() {
+  
+    if(email.value.length < 3) {
+        console.log("email - failed validation on input required ")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    }else if (email.value.length > 50) {
+        console.log("email - failed individual validation on min or max Length")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);
+
+    } else if (!correctEmail(email)) {
+    
+        console.log("email - failed individual validation on regex")
+        contactName.classList.add("is-invalid", "border", "border-danger");
+
+        return(false);  
+
+    } else {
+      
+        console.log(`email - I have passed through validation and my value is: ${email.value}`)
         console.log(contactName.value.length);
         return(true)
 
@@ -135,17 +196,20 @@ function validateResultContactName() {
 };
 
 
-
 //function to check if each validation result, for each input field is true
 
 function allValidationResults() {
-    if (validateResultContactName() == true) {
-        console.log("passed all validation results")
-        return(true)
+    if (validateResultContactName() == false) {
+        console.log("name failed all validation results")
+        return(false)
+    
+    } else if (validateResultEmail() == false) {
+        console.log("email failed all validation results")
+        return(false)
         
     } else {
-        console.log("failed all validation results")
-        return(false)
+        console.log("all fields passed all validation results")
+        return(true)
         
     }
 }

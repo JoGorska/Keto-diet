@@ -94,7 +94,7 @@ function minMax50(contactName) {
 };
 
 /**
- *  function testing any field if they contain letters and chosen characters only, 
+ *  functions testing particular field if they are in line with Regex
  * 
  */
 
@@ -108,6 +108,12 @@ function correctEmail(email) {
     let value = email.value
     console.log(value)
     return regexEmail.test(value);
+};
+
+function correctTelephone(telephone) {
+    let value = telephone.value
+    console.log(value)
+    return regexTelephone.test(value);
 };
 /**
  * Universal function to highlight errors in a form, once the field failed validation on submit
@@ -231,39 +237,39 @@ function correctEmail(email) {
  function validateResultTelephone() {
   
     if(telephone.value === "") {
-        console.log("telephone - failed validation on input required ")
+        console.log("telephone - failed validation on input required ");
         telephone.classList.add("is-invalid");
-        document.getElementById("telephone-help").innerHTML = "This field is required"
+        document.getElementById("telephone-help").innerHTML = "This field is required";
         return(false);
 
     }else if (telephone.value.length < 3) {
-        console.log("telephone - failed individual validation on min or max Length")
+        console.log("telephone - failed individual validation on min or max Length");
         telephone.classList.add("is-invalid");
-        document.getElementById("telephone-help").innerHTML = "Telephone number too short, please enter valid UK number containing 11 digits"
+        document.getElementById("telephone-help").innerHTML = "Telephone number too short, please enter valid UK number containing 11 digits";
         return(false);
      
     
     
     }else if (telephone.value.length > 50) {
-        console.log("telephone - failed individual validation on min or max Length")
+        console.log("telephone - failed individual validation on min or max Length");
         telephone.classList.add("is-invalid");
-        document.getElementById("telephone-help").innerHTML = "Telephone number too long, please enter valid UK number containing 11 digits."
+        document.getElementById("telephone-help").innerHTML = "Telephone number too long, please enter valid UK number containing 11 digits.";
 
         return(false);
 
     } else if (!correctTelephone(telephone)) {
     
-        console.log("email - failed individual validation on regex")
-        email.classList.add("is-invalid");
-        document.getElementById("telephone-help").innerHTML = "Please enter valid UK number containing 11 digits."
+        console.log("telephone - failed individual validation on regex");
+        telephone.classList.add("is-invalid");
+        document.getElementById("telephone-help").innerHTML = "Please enter valid UK number containing 11 digits.";
 
         return(false);  
 
     } else {
       
-        console.log(`email - I have passed through validation and my value is: ${email.value} and my length ${email.value.length}`)
+        console.log(`telephone - I have passed through validation and my value is: ${telephone.value} and my length ${telephone.value.length}`);
 
-        return(true)
+        return(true);
 
 
 
@@ -272,34 +278,44 @@ function correctEmail(email) {
 };
 
 
-//function to check if each validation result, for each input field is true
+/**
+ * Function to check if each validation result, for each input field is false
+*/
 
 function allValidationResults() {
     if (validateResultContactName() == false) {
-        console.log("name failed all validation results")
-        return(false)
+        console.log("name failed all validation results");
+        return(false);
     
     } else if (validateResultEmail() == false) {
-        console.log("email failed all validation results")
-        return(false)
+        console.log("email failed all validation results");
+        return(false);
+
+    } else if (validateResultTelephone() == false) {
+        console.log("telephone failed all validation results");
+        return(false);
+
         
     } else {
-        console.log("all fields passed all validation results")
-        return(true)
+        console.log("all fields passed all validation results");
+        return(true);
         
     }
 }
 
-//Main function to handle submit event
+/**
+ * Main function to handle submit event
+ */
+
 function handleContactSubmit(event) {
     event.preventDefault();
     if (allValidationResults() == false) {
-        console.log("display whole form with highlited fields in red")
+        console.log("display whole form with highlited fields in red");
 
     } else {
-        console.log("all good to go")
-        document.getElementsByTagName("FORM")[0].submit()
-    }
+        console.log("all good to go");
+        document.getElementsByTagName("FORM")[0].submit();
+    };
 
 }
 

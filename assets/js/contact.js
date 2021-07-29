@@ -401,9 +401,17 @@ function handleContactSubmit(event) {
         document.getElementsByTagName("FORM")[0].submit();
     };
 
-}
-////////////////////////////////////////////https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
-//might need removing, gives unpredictable results
+};
+
+// debounce and instant feedback on input copied from the below link
+//https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
+
+/**
+ * Function to delay response
+ * @param {*} fn 
+ * @param {*} delay 500
+ * @returns 
+ */
 
 const debounce = (fn, delay = 500) => {
     let timeoutId;
@@ -418,6 +426,10 @@ const debounce = (fn, delay = 500) => {
         }, delay);
     };
 };
+
+/**
+ * Gives instant feedback on input with the delay set above
+ */
 
 contactForm.addEventListener ('input', debounce(function (e) {
     switch (e.target.id) {

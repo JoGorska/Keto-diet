@@ -383,4 +383,36 @@ function handleContactSubmit(event) {
     };
 
 }
+////////////////////////////////////////////https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
+//might need removing, gives unpredictable results
 
+const debounce = (fn, delay = 500) => {
+    let timeoutId;
+    return (...args) => {
+        // cancel the previous timer
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        // setup a new timer
+        timeoutId = setTimeout(() => {
+            fn.apply(null, args)
+        }, delay);
+    };
+};
+
+contactForm.addEventListener ('input', debounce(function (e) {
+    switch (e.target.id) {
+        case 'name':
+            validateResultContactName();
+            break;
+        case 'email':
+            validateResultEmail();
+            break;
+        case 'telephone':
+            validateResultTelephone();
+            break;
+        case 'enquiry':
+            validateResultEnquiry();
+            break;
+    }
+}));

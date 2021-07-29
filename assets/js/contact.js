@@ -320,10 +320,10 @@ function correctTelephone(telephone) {
      
     
     
-    } else if (enquiry.value.length > 300) {
+    } else if (enquiry.value.length > 400) {
         enquiry.classList.add("is-invalid");
         enquiry.setAttribute("aria-describedby", "enquiry-help");
-        document.getElementById("email-help").innerHTML = "Message too long. Please use maximum 300 characters.";
+        divEnquiryHelp.innerHTML = "Message too long. Please use maximum 400 characters.";
         divEnquiryHelp.classList.remove("my-invisible");
 
         return(false);

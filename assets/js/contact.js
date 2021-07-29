@@ -173,12 +173,10 @@ function correctTelephone(telephone) {
         console.log(`name input field passed validation and name value is: ${contactName.value}`)
         console.log(contactName.value.length);
         return(true);
-
-
-
     };
     
 };
+
 /**
  * Function to validate email.
  * Returns true or false, if false - changes the look of the input field 
@@ -295,6 +293,54 @@ function correctTelephone(telephone) {
 
 
 /**
+ * Function to validate email.
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
+
+
+
+ function validateResultEnquiry() {
+    let divEnquiryHelp = document.getElementById("enquiry-help");
+
+    if(enquiry.value === "") {
+        enquiry.classList.add("is-invalid");
+        enquiry.setAttribute("aria-describedby", "enquiry-help");
+        divEnquiryHelp.innerHTML = "This field is required"
+        divEnquiryHelp.classList.remove("my-invisible");
+        return(false);
+
+    } else if (enquiry.value.length < 3) {
+        enquiry.classList.add("is-invalid");
+        enquiry.setAttribute("aria-describedby", "enquiry-help");
+        divEnquiryHelp.innerHTML = "Message too short"
+        divEnquiryHelp.classList.remove("my-invisible");
+        return(false);
+     
+    
+    
+    } else if (enquiry.value.length > 300) {
+        enquiry.classList.add("is-invalid");
+        enquiry.setAttribute("aria-describedby", "enquiry-help");
+        document.getElementById("email-help").innerHTML = "Message too long. Please use maximum 300 characters.";
+        divEnquiryHelp.classList.remove("my-invisible");
+
+        return(false);
+
+    } else {
+      
+        console.log(`enquiry - I have passed through validation and my value is: ${enquiry.value} and my length ${enquiry.value.length}`)
+
+        return(true)
+
+    };
+    
+};
+
+
+
+/**
  * Function to check if each validation result, for each input field is false
 */
 
@@ -310,7 +356,10 @@ function allValidationResults() {
     } else if (validateResultTelephone() == false) {
         console.log("telephone failed all validation results");
         return(false);
-
+        
+    } else if (validateResultEnquiry() == false) {
+        console.log("enquiry failed all validation results");
+        return(false);
         
     } else {
         console.log("all fields passed all validation results");

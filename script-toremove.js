@@ -22,7 +22,9 @@
     <div id="age-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
 </div>
 
-
+aria-describedby="enquiry-help"
+aria-describedby="telephone-help"
+aria-describedby="email-help" 
 
 
 

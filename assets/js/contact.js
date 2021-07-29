@@ -124,14 +124,16 @@ function correctEmail(email) {
  function validateResultContactName() {
   
     if(isEmpty(contactName)) {
-        console.log("name - failed validation if it's empty")
+        console.log("name - failed validation if it's empty");
         contactName.classList.add("is-invalid", "border", "border-danger");
+        document.getElementById("contact-name-help").innerHTML = "This field is required";
 
         return(false);
 
     }else if (!minMax50(contactName)) {
         console.log("name - failed individual validation on min or max Length")
         contactName.classList.add("is-invalid", "border", "border-danger");
+        document.getElementById("contact-name-help").innerHTML = "The name can be min 2 and max 50 characters long";
 
         return(false);
 
@@ -139,6 +141,7 @@ function correctEmail(email) {
     
         console.log("name - failed individual validation on regex")
         contactName.classList.add("is-invalid", "border", "border-danger");
+        document.getElementById("contact-name-help").innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
 
         return(false);  
 
@@ -164,29 +167,38 @@ function correctEmail(email) {
 
  function validateResultEmail() {
   
-    if(email.value.length < 3) {
+    if(email.value === "") {
         console.log("email - failed validation on input required ")
-        contactName.classList.add("is-invalid", "border", "border-danger");
-
+        email.classList.add("is-invalid", "border", "border-danger");
+        document.getElementById("email-help").innerHTML = "This field is required"
         return(false);
 
+    }else if (email.value.length < 3) {
+        console.log("email - failed individual validation on min or max Length")
+        email.classList.add("is-invalid", "border", "border-danger");
+        document.getElementById("email-help").innerHTML = "Email too short"
+        return(false);
+     
+    
+    
     }else if (email.value.length > 50) {
         console.log("email - failed individual validation on min or max Length")
-        contactName.classList.add("is-invalid", "border", "border-danger");
+        email.classList.add("is-invalid", "border", "border-danger");
+        document.getElementById("email-help").innerHTML = "Email too long"
 
         return(false);
 
     } else if (!correctEmail(email)) {
     
         console.log("email - failed individual validation on regex")
-        contactName.classList.add("is-invalid", "border", "border-danger");
+        email.classList.add("is-invalid", "border", "border-danger");
 
         return(false);  
 
     } else {
       
         console.log(`email - I have passed through validation and my value is: ${email.value}`)
-        console.log(contactName.value.length);
+
         return(true)
 
 

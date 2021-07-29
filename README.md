@@ -94,7 +94,8 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 
         });`
   
-    - 
+5. When validating contact form using bootstrap's classess to display error message, for some reason error message was showing under each field, even if only one field failed validation. Resolved problem by adding my-invisible class to each field and removing aria-describedby. This way the div would be invisible for screen readers, this would only apear after error occurs. Failing validation removes my-invisible class and adds aria-describedby. 
+
 ## Previous project (to be deleted)
 
 1. Results, what I have acheved being on Keto Diet

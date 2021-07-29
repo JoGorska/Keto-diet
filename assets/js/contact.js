@@ -172,6 +172,9 @@ function correctTelephone(telephone) {
       
         console.log(`name input field passed validation and name value is: ${contactName.value}`)
         console.log(contactName.value.length);
+        contactName.classList.remove("is-invalid");
+        contactName.removeAttribute("aria-describedby", "contact-name-help");
+        divContactNameHelp.classList.add("my-invisible");
         return(true);
     };
     
@@ -228,6 +231,9 @@ function correctTelephone(telephone) {
     } else {
       
         console.log(`email - I have passed through validation and my value is: ${email.value} and my length ${email.value.length}`)
+        email.classList.remove("is-invalid");
+        email.removeAttribute("aria-describedby", "email-help");
+        divEmailHelp.classList.add("my-invisible");
 
         return(true)
 
@@ -331,7 +337,9 @@ function correctTelephone(telephone) {
     } else {
       
         console.log(`enquiry - I have passed through validation and my value is: ${enquiry.value} and my length ${enquiry.value.length}`)
-
+        enquiry.classList.remove("is-invalid");
+        enquiry.removeAttribute("aria-describedby", "enquiry-help");
+        divEnquiryHelp.classList.add("my-invisible");
         return(true)
 
     };

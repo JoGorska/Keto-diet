@@ -134,30 +134,37 @@ function correctTelephone(telephone) {
 
 
  function validateResultContactName() {
-  
+    let divContactNameHelp = document.getElementById("contact-name-help");
     if(isEmpty(contactName)) {
         console.log("name - failed validation if it's empty");
         contactName.classList.add("is-invalid");
-        contactName.setAttribute("aria-describedby", "contact-name-help")
+        contactName.setAttribute("aria-describedby", "contact-name-help");
+
         //ivisible div, that is aria-describedby label for error becomes visible
-        let divContactNameHelp = document.getElementById("contact-name-help");
+        
         divContactNameHelp.innerHTML = "This field is required";
         divContactNameHelp.classList.remove("my-invisible");
 
         return(false);
 
     }else if (!minMax50(contactName)) {
-        console.log("name - failed individual validation on min or max Length")
+        console.log("name - failed individual validation on min or max Length");
         contactName.classList.add("is-invalid");
-        document.getElementById("contact-name-help").innerHTML = "The name can be min 2 and max 50 characters long";
-
+        contactName.setAttribute("aria-describedby", "contact-name-help");
+        //error description
+        divContactNameHelp.classList.remove("my-invisible");
+        divContactNameHelp.innerHTML = "The name can be min 2 and max 50 characters long";
+        
         return(false);
 
     } else if (!containsLetters(contactName)) {
     
-        console.log("name - failed individual validation on regex")
+        console.log("name - failed individual validation on regex");
         contactName.classList.add("is-invalid");
-        document.getElementById("contact-name-help").innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
+        contactName.setAttribute("aria-describedby", "contact-name-help");
+        //error description
+        divContactNameHelp.classList.remove("my-invisible");
+        divContactNameHelp.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
 
         return(false);  
 
@@ -165,7 +172,7 @@ function correctTelephone(telephone) {
       
         console.log(`name input field passed validation and name value is: ${contactName.value}`)
         console.log(contactName.value.length);
-        return(true)
+        return(true);
 
 
 
@@ -182,32 +189,41 @@ function correctTelephone(telephone) {
 
 
  function validateResultEmail() {
-  
+    let divEmailHelp = document.getElementById("email-help");
     if(email.value === "") {
-        console.log("email - failed validation on input required ")
+        console.log("email - failed validation on input required ");
         email.classList.add("is-invalid");
-        document.getElementById("email-help").innerHTML = "This field is required"
+        email.setAttribute("aria-describedby", "email-help");
+        divEmailHelp.innerHTML = "This field is required"
+        divEmailHelp.classList.remove("my-invisible");
         return(false);
 
     }else if (email.value.length < 3) {
-        console.log("email - failed individual validation on min or max Length")
+        console.log("email - failed individual validation on min or max Length");
         email.classList.add("is-invalid");
-        document.getElementById("email-help").innerHTML = "Email too short"
+        email.setAttribute("aria-describedby", "email-help");
+        divEmailHelp.innerHTML = "Email too short"
+        divEmailHelp.classList.remove("my-invisible");
         return(false);
      
     
     
     }else if (email.value.length > 50) {
-        console.log("email - failed individual validation on min or max Length")
+        console.log("email - failed individual validation on min or max Length");
         email.classList.add("is-invalid");
-        document.getElementById("email-help").innerHTML = "Email too long"
+        email.setAttribute("aria-describedby", "email-help");
+        document.getElementById("email-help").innerHTML = "Email too long";
+        divEmailHelp.classList.remove("my-invisible");
 
         return(false);
 
     } else if (!correctEmail(email)) {
     
-        console.log("email - failed individual validation on regex")
+        console.log("email - failed individual validation on regex");
         email.classList.add("is-invalid");
+        email.setAttribute("aria-describedby", "email-help");
+        document.getElementById("email-help").innerHTML = "Please enter email in correct format for example email@domain.co.uk";
+        divEmailHelp.classList.remove("my-invisible");
 
         return(false);  
 

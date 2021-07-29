@@ -255,39 +255,50 @@ function correctTelephone(telephone) {
 
 
  function validateResultTelephone() {
-  
+    let telephoneHelp = document.getElementById("telephone-help");
+
     if(telephone.value === "") {
         console.log("telephone - failed validation on input required ");
         telephone.classList.add("is-invalid");
-        document.getElementById("telephone-help").innerHTML = "This field is required";
+        telephone.setAttribute("aria-describedby", "telephone-help");
+        telephoneHelp.innerHTML = "This field is required";
+        telephoneHelp.classList.add("my-invisible");
         return(false);
 
     }else if (telephone.value.length < 3) {
         console.log("telephone - failed individual validation on min or max Length");
         telephone.classList.add("is-invalid");
-        document.getElementById("telephone-help").innerHTML = "Telephone number too short, please enter valid UK number containing 11 digits";
+        telephone.setAttribute("aria-describedby", "telephone-help");
+        telephoneHelp.innerHTML = "Telephone number too short, please enter valid UK number containing 11 digits";
+        telephoneHelp.classList.add("my-invisible");
         return(false);
      
     
     
-    }else if (telephone.value.length > 50) {
+    }else if (telephone.value.length > 11) {
         console.log("telephone - failed individual validation on min or max Length");
         telephone.classList.add("is-invalid");
-        document.getElementById("telephone-help").innerHTML = "Telephone number too long, please enter valid UK number containing 11 digits.";
-
+        telephone.setAttribute("aria-describedby", "telephone-help");
+        telephoneHelp.innerHTML = "Telephone number too long, please enter valid UK number containing 11 digits.";
+        telephoneHelp.classList.add("my-invisible");
         return(false);
 
     } else if (!correctTelephone(telephone)) {
     
         console.log("telephone - failed individual validation on regex");
         telephone.classList.add("is-invalid");
-        document.getElementById("telephone-help").innerHTML = "Please enter valid UK number containing 11 digits.";
+        telephone.setAttribute("aria-describedby", "telephone-help");
+        telephoneHelp.innerHTML = "Please enter valid UK number containing 11 digits.";
+        telephoneHelp.classList.add("my-invisible");
 
         return(false);  
 
     } else {
       
         console.log(`telephone - I have passed through validation and my value is: ${telephone.value} and my length ${telephone.value.length}`);
+        telephone.classList.remove("is-invalid");
+        telephone.removeAttribute("aria-describedby", "telephone-help");
+        telephoneHelp.classList.remove("my-invisible");
 
         return(true);
 
@@ -410,7 +421,7 @@ const debounce = (fn, delay = 500) => {
 
 contactForm.addEventListener ('input', debounce(function (e) {
     switch (e.target.id) {
-        case 'name':
+        case 'contact-name':
             validateResultContactName();
             break;
         case 'email':

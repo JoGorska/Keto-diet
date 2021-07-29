@@ -16,12 +16,18 @@ const contactForm = document.getElementsByTagName("FORM")[0];
 
 document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
-//variables creating tests for test function, edited and designed in https://regexr.com/
+//variables creating tests for test function, edited and designed in https://regexr.com/ enabling names with a dash, space or apostrophe, dot or a coma and a space. 
 
 const regexLetters = /[a-zA-Z \,'\.\-\']/g
 
 // regex email copied from javascripttutorial.net/javascript-dom/javascript-form-validation
+
 const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+// regex for UK phone number in any format copied from
+//https://stackoverflow.com/questions/11518035/regular-expression-for-gb-based-and-only-numeric-phone-number
+
+const regexTelephone = /^(?:(?:\(?(?:0(?:0|11)\)?[\s-]?\(?|\+)44\)?[\s-]?(?:\(?0\)?[\s-]?)?)|(?:\(?0))(?:(?:\d{5}\)?[\s-]?\d{4,5})|(?:\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3}))|(?:\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4})|(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}))(?:[\s-]?(?:x|ext\.?|\#)\d{3,4})?$/;
 
 const min = 3;
 
@@ -196,6 +202,60 @@ function correctEmail(email) {
     
         console.log("email - failed individual validation on regex")
         email.classList.add("is-invalid");
+
+        return(false);  
+
+    } else {
+      
+        console.log(`email - I have passed through validation and my value is: ${email.value} and my length ${email.value.length}`)
+
+        return(true)
+
+
+
+    };
+    
+};
+
+
+
+/**
+ * Function to validate telephone number.
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
+
+
+
+ function validateResultTelephone() {
+  
+    if(telephone.value === "") {
+        console.log("telephone - failed validation on input required ")
+        telephone.classList.add("is-invalid");
+        document.getElementById("telephone-help").innerHTML = "This field is required"
+        return(false);
+
+    }else if (telephone.value.length < 3) {
+        console.log("telephone - failed individual validation on min or max Length")
+        telephone.classList.add("is-invalid");
+        document.getElementById("telephone-help").innerHTML = "Telephone number too short, please enter valid UK number containing 11 digits"
+        return(false);
+     
+    
+    
+    }else if (telephone.value.length > 50) {
+        console.log("telephone - failed individual validation on min or max Length")
+        telephone.classList.add("is-invalid");
+        document.getElementById("telephone-help").innerHTML = "Telephone number too long, please enter valid UK number containing 11 digits."
+
+        return(false);
+
+    } else if (!correctTelephone(telephone)) {
+    
+        console.log("email - failed individual validation on regex")
+        email.classList.add("is-invalid");
+        document.getElementById("telephone-help").innerHTML = "Please enter valid UK number containing 11 digits."
 
         return(false);  
 

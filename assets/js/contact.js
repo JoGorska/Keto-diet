@@ -4,7 +4,7 @@
 
 
 
-//declare variables for each input field
+//declare variables for each input field and the contact Form itself
 
 const contactName = document.getElementById("contact-name")
 const email = document.getElementById("email");

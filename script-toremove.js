@@ -14,31 +14,10 @@
 
 
 /////////////////////////////////////////////////actual content of calculator starts here///////////////////////////////////////////////
-//ready html for changes when incorrect answer
-<!--to be used in Javascript add input class="is-invalid" and help field class = "invalid-feedback" example how to change display for name when fails validation-->
-<div id="inputNameDiv" class="mb-3">
-    <label for="input-name" class="form-label">Name</label>
-    <input type="text" class="form-control is-invalid" id="input-name" name="name" aria-describedby="age-help" required></input>
-    <div id="age-help" class="invalid-feedback">Please use only letters and special characters in the Name field</div>
-</div>
-
-aria-describedby="enquiry-help"
-aria-describedby="telephone-help"
-aria-describedby="email-help" 
-
-
-
-
-
-////////////////////////////////////////////styling functions///////////////////////////////////////////////
-
-
 
 
 
 //Calculator form validation with javascript - on input for each field regardles which form it is
-
-
 
 //event listener for submit with two different functions for two forms - target date and target weight
 

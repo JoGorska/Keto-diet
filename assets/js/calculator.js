@@ -191,3 +191,52 @@ function validateResultName() {
 };
 
 
+
+/**
+ * Function to show the result of valiation on Age
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
+ function validateResultAge() {
+  
+  if(inputAge.value === "") {
+
+    helpAge.innerHTML = "This field is required"
+    
+    inputAge.classList.add("is-invalid");
+    inputAge.setAttribute("aria-describedby", "name-help");
+    helpAge.classList.remove("my-invisible");
+    return(false);
+
+  }else if (inputAge.value < 19) {
+
+    helpAge.innerHTML = "Our calculator is only able to give results for adults";
+
+    inputAge.classList.add("is-invalid");
+    inputAge.setAttribute("aria-describedby", "name-help");
+    helpAge.classList.remove("my-invisible");
+    return(false);
+
+  }else if (inputAge.value > 120) {
+
+    helpAge.innerHTML = "Please enter your age correctly";
+
+    inputAge.classList.add("is-invalid");
+    inputAge.setAttribute("aria-describedby", "name-help");
+    helpAge.classList.remove("my-invisible");
+    return(false);
+
+  } else {
+    
+      console.log(`name - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
+      inputAge.classList.remove("is-invalid");
+      inputAge.removeAttribute("aria-describedby", "email-help");
+      helpAge.classList.add("my-invisible");
+
+      return(true)
+
+  };
+  
+};
+

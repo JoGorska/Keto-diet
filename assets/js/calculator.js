@@ -272,7 +272,7 @@ function validateResultName() {
     helpTargetDate.classList.remove("my-invisible");
     return(false);
 
-
+// add test to input target date only month ahead
   } else if (!correctDate(targetDate)) {
   
     targetDate.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
@@ -293,4 +293,53 @@ function validateResultName() {
 
   };
   
+};
+
+
+/**
+ * Function to check if each validation result, for each input field is false
+*/
+
+function allValidationResults() {
+  if (validateResultName() == false) {
+      console.log("name failed all validation results");
+      return(false);
+  
+  } else if (validateResultGender() == false) {
+      console.log("email failed all validation results");
+      return(false);
+
+  } else if (validateResultAge() == false) {
+      console.log("telephone failed all validation results");
+      return(false);
+      
+  } else if (validateResultTargetDate() == false) {
+      console.log("enquiry failed all validation results");
+      return(false);
+      
+  } else {
+      console.log("all fields passed all validation results");
+      return(true);
+      
+  };
+};
+
+//event listener for "submit"
+
+document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
+
+/**
+ * Main function to handle submit event
+ */
+
+ function handleContactSubmit(event) {
+  event.preventDefault();
+  if (allValidationResults() == false) {
+      console.log("display whole form with highlited fields in red");
+
+  } else {
+      console.log("all good to go");
+      document.getElementsByTagName("FORM")[0].submit();
+  };
+
 };

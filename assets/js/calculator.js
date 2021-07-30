@@ -159,3 +159,35 @@ function validateResultName() {
   
 };
 
+
+/**
+ * Function to show the result of valiation on gender select field
+ * Returns true or false, if false - changes the look of the select field 
+ * and displays line of text with detailed information why it failed
+ */
+
+ function validateResultGender() {
+  
+  if(selectGender.value === "") {
+
+    helpGender.innerHTML = "This field is required"
+    
+    selectGender.classList.add("is-invalid");
+    selectGender.setAttribute("aria-describedby", "name-help");
+    helpGender.classList.remove("my-invisible");
+    return(false);
+
+    } else {
+    
+      console.log(`name - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
+      selectGender.classList.remove("is-invalid");
+      selectGender.removeAttribute("aria-describedby", "email-help");
+      helpGender.classList.add("my-invisible");
+
+      return(true)
+
+  };
+  
+};
+
+

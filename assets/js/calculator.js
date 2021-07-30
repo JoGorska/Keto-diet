@@ -42,7 +42,7 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
 //declare variables for each input field and the contact Form itself
 const calulatorForm = document.getElementsByTagName("FORM")[0];
 
-const name = document.getElementById("name");
+const inputName = document.getElementById("name");
 const selectGender = document.getElementById("select-gender");
 const age = document.getElementById("input-age");
 const targetDate = document.getElementById("target-date");
@@ -82,11 +82,59 @@ const regexLetters = /[a-zA-Z \,'\.\-\']/g;
  * 
  */
 
-function containsLetters(name) {
-  let value = name.value
+function containsLetters(inputName) {
+  let value = inputName.value
   console.log(value)
   return regexLetters.test(value);
 };
 
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
+
+/**
+ * Function to show the result of valiation on name input field
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
+function validateResultName() {
+  let helpName = document.getElementById("name-help");
+  if(inputName.value === "") {
+
+    helpName.innerHTML = "This field is required"
+    
+    inputName.classList.add("is-invalid");
+    inputName.setAttribute("aria-describedby", "name-help");
+    helpName.classList.remove("my-invisible");
+    return(false);
+
+  }else if (inputName.value.length > 50) {
+
+    helpName.innerHTML = "Name too long";
+
+    inputName.classList.add("is-invalid");
+    inputName.setAttribute("aria-describedby", "name-help");
+    helpName.classList.remove("my-invisible");
+    return(false);
+
+  } else if (!containsLetters(inputName)) {
+  
+    inputName.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
+
+    inputName.classList.add("is-invalid");
+    inputName.setAttribute("aria-describedby", "name-help");
+    helpName.classList.remove("my-invisible");
+    return(false);
+
+  } else {
+    
+      console.log(`name - I have passed through validation and my value is: ${inputName.value} and my length ${inputName.value.length}`)
+      inputName.classList.remove("is-invalid");
+      inputName.removeAttribute("aria-describedby", "email-help");
+      helpName.classList.add("my-invisible");
+
+      return(true)
+
+  };
+  
+};

@@ -74,7 +74,7 @@
         <!--Name-->
         <div id="div-name" class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+            <input type="text" class="form-control" id="name" name="name">
             <div id="name-help" class="form-text my-invisible"></div>
         </div>
 
@@ -94,14 +94,14 @@
         <!--Age-->
         <div class="mb-3">
             <label for="input-age" class="form-label">Age</label>
-            <input type="number" class="form-control" id="input-age" min="18" max="110" name="input-age" aria-describedby="age-help" required>
+            <input type="number" class="form-control" id="input-age" min="18" max="110" name="input-age" aria-describedby="age-help">
             <div id="age-help" class="form-text">We'll never share your age with anyone else.</div>
         </div>
 
         <!--Target Date - made invisible when it first loads-->
         <div id="div-target-date" class="my-invisible mb-3">
             <label for="target-date" class="form-label">Target Date</label>
-            <input type="date" class="form-control" id="target-date" name="target-date" aria-describedby="date-help" required>
+            <input type="date" class="form-control" id="target-date" name="target-date" aria-describedby="date-help">
             <div id="date-help" class="form-text">We can estimate the results for dates further than a month from today</div>
         </div>
 
@@ -132,7 +132,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="current-wieght-stone" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="current-wieght-stone" name="current-wieght-stone" placeholder="Stone" required>
+                        <input type="number" class="form-control" id="current-wieght-stone" name="current-wieght-stone" placeholder="Stone">
                         <div id="current-weight-stone-help" class="form-text my-invisible"></div>
                     </div>
                     <div class="col">
@@ -145,7 +145,7 @@
                 <div id="div-target-imperial" class="row mb-3">
                     <div class="col">
                         <label for="target-weight-stone" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="target-weight-stone" name="target-weight-stone" placeholder="Stone" required>
+                        <input type="number" class="form-control" id="target-weight-stone" name="target-weight-stone" placeholder="Stone">
                         <div id="target-weight-stone-help" class="form-text my-invisible"></div>
                     </div>
                     <div class="col">
@@ -158,7 +158,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label for="height-feet" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="height-feet" name="height-feet" placeholder="Feet" required>
+                        <input type="number" class="form-control" id="height-feet" name="height-feet" placeholder="Feet">
                         <div id="height-feet-help" class="form-text my-invisible"></div>
                     </div>
                     <div class="col">
@@ -170,7 +170,7 @@
                         <!--Waist line imperial-->
                 <div class="mb-3">
                     <label for="waist-inches" class="form-label">Waist</label>
-                    <input type="number" class="form-control" id="waist-inches" name="name" aria-describedby="waist-inches-help" placeholder="Inches" required>
+                    <input type="number" class="form-control" id="waist-inches" name="name" aria-describedby="waist-inches-help" placeholder="Inches">
                     <div id="waist-inches-help" class="form-text">Find the bottom of your ribs and the top of your hips. Wrap a tape measure around your waist midway between these points. Breathe out naturally before taking the measurement.</div>
                 </div>
             </div>
@@ -187,19 +187,19 @@
                 <!--Target weight for metric-->
                 <div id="div-target-metric" class="mb-3">
                     <label for="target-weight-kg" class="form-label">Target Weight</label>
-                    <input type="number" class="form-control" id="target-weight-kg" name="targetWeightKg" placeholder="kg" required>
+                    <input type="number" class="form-control" id="target-weight-kg" name="targetWeightKg" placeholder="kg">
                     <div id="target-weight-kg-help" class="form-text my-invisible"></div>
                 </div>
                 <!--height for metric-->
                 <div class="mb-3">
                     <label for="height-cm" class="form-label">Height</label>
-                    <input type="number" class="form-control" id="height-cm" name="height-cm" placeholder="cm" required>
+                    <input type="number" class="form-control" id="height-cm" name="height-cm" placeholder="cm">
                     <div id="height-cm-help" class="form-text my-invisible"></div>
                 </div>
                 <!--Waist line metric-->
                 <div class="mb-3">
                     <label for="waist-cm" class="form-label">Waist</label>
-                    <input type="number" class="form-control" id="waist-cm" name="name" aria-describedby="waist-cm-help" placeholder="cm" required>
+                    <input type="number" class="form-control" id="waist-cm" name="name" aria-describedby="waist-cm-help" placeholder="cm">
                     <div id="waist-cm-help" class="form-text">Find the bottom of your ribs and the top of your hips. Wrap a tape measure around your waist midway between these points. Breathe out naturally before taking the measurement.</div>
                 </div>
             </div>
@@ -209,12 +209,12 @@
         <!--Hours of excercise per week-->
         <div class="mb-3">
             <label for="excercise-hours" class="form-label">Hours of excercise per week</label>
-            <input type="number" class="form-control" id="excercise-hours" name="excercise-hours" required>
+            <input type="number" class="form-control" id="excercise-hours" name="excercise-hours">
             <div id="excercise-hours-help" class="form-text my-invisible"></div>
         </div>
         <div class="mb-5">
             <label class="form-label" for="input-diet">Your current Diet</label>
-            <input class="form-control mb-3" type="text" name="diet" id="input-diet" list="diet-list" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" required>
+            <input class="form-control mb-3" type="text" name="diet" id="input-diet" list="diet-list" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160">
             <div id="input-diet-help" class="form-text my-invisible"></div>
             <datalist id="diet-list">
                 <option>None</option>

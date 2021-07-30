@@ -326,20 +326,20 @@ function allValidationResults() {
 
 //event listener for "submit"
 
-document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
+calulatorForm.addEventListener("submit", handleCalculatorSubmit);
 
 /**
  * Main function to handle submit event
  */
 
- function handleContactSubmit(event) {
+ function handleCalculatorSubmit(event) {
   event.preventDefault();
   if (allValidationResults() == false) {
       console.log("display whole form with highlited fields in red");
 
   } else {
       console.log("all good to go");
-      document.getElementsByTagName("FORM")[0].submit();
+      calulatorForm.submit();
   };
 
 };

@@ -59,3 +59,10 @@ const heightCm = document.getElementById("height-cm");
 const waistCm = document.getElementById("waist-cm");
 const excerciseHours = document.getElementById("excercise-hours");
 const diet = document.getElementById("input-diet");
+
+// Radio button variables
+const radioTargetWeight = document.getElementById("radio-target-weight");
+const radioTargetDate = document.getElementById("radio-target-date");
+
+const radioImperial = document.getElementById("imperial");
+const radioMetric = document.getElementById("metric");

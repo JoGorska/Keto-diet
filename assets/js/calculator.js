@@ -135,11 +135,12 @@ function validateResultName() {
   
   if(inputName.value === "") {
 
-    helpName.innerHTML = "This field is required"
+    helpName.innerHTML = "This field is required";
     
     inputName.classList.add("is-invalid");
     inputName.setAttribute("aria-describedby", "name-help");
     helpName.classList.remove("my-invisible");
+    helpName.classList.add("invalid-feedback");
     return(false);
 
   }else if (inputName.value.length > 50) {
@@ -149,15 +150,17 @@ function validateResultName() {
     inputName.classList.add("is-invalid");
     inputName.setAttribute("aria-describedby", "name-help");
     helpName.classList.remove("my-invisible");
+    helpName.classList.add("invalid-feedback");
     return(false);
 
   } else if (!containsLetters(inputName)) {
   
-    inputName.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
+    helpName.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
 
     inputName.classList.add("is-invalid");
     inputName.setAttribute("aria-describedby", "name-help");
     helpName.classList.remove("my-invisible");
+    helpName.classList.add("invalid-feedback");
     return(false);
 
   } else {
@@ -166,6 +169,7 @@ function validateResultName() {
       inputName.classList.remove("is-invalid");
       inputName.removeAttribute("aria-describedby", "email-help");
       helpName.classList.add("my-invisible");
+      helpName.classList.remove("invalid-feedback");
 
       return(true)
 
@@ -313,9 +317,9 @@ function allValidationResults() {
       console.log("telephone failed all validation results");
       return(false);
       
-  } else if (validateResultTargetDate() == false) {
-      console.log("enquiry failed all validation results");
-      return(false);
+//  } else if (validateResultTargetDate() == false) {
+//      console.log("target date failed all validation results");
+ //     return(false);
       
   } else {
       console.log("all fields passed all validation results");

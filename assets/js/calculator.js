@@ -44,7 +44,7 @@ const calulatorForm = document.getElementsByTagName("FORM")[0];
 
 const inputName = document.getElementById("name");
 const selectGender = document.getElementById("select-gender");
-const age = document.getElementById("input-age");
+const inputAge = document.getElementById("input-age");
 const targetDate = document.getElementById("target-date");
 const currentWeightStone = document.getElementById("current-wieght-stone");
 const currentWeightPounds = document.getElementById("current-weight-pounds");
@@ -59,6 +59,26 @@ const heightCm = document.getElementById("height-cm");
 const waistCm = document.getElementById("waist-cm");
 const excerciseHours = document.getElementById("excercise-hours");
 const diet = document.getElementById("input-diet");
+
+//declare variables for each help field that will hold the error message
+const helpName = document.getElementById("name-help");
+const helpGender = document.getElementById("gender-help");
+const helpAge = document.getElementById("age-help");
+const helpTargetDate = document.getElementById("date-help");
+const helpCurrentWeightStone = document.getElementById("current-wieght-stone-help");
+const helpCurrentWeightPounds = document.getElementById("current-weight-pounds-help");
+const helpTargetWeightStone = document.getElementById("target-weight-stone-help");
+const helpTargetWeightPounds = document.getElementById("target-weight-pounds-help");
+const helpHeightFeet = document.getElementById("height-feet-help");
+const helpHeightInches = document.getElementById("height-inches-help");
+const helpWaistInches = document.getElementById("waist-inches-help");
+const helpCurrentWeightKg = document.getElementById("current-weight-kg-help");
+const helpTargetWeightKg = document.getElementById("target-weight-kg-help");
+const helpHeightCm = document.getElementById("height-cm-help");
+const helpWaistCm = document.getElementById("waist-cm-help");
+const helpExcerciseHours = document.getElementById("excercise-hours-help");
+const helpDiet = document.getElementById("input-diet-help");
+
 
 // Radio button variables
 const radioTargetWeight = document.getElementById("radio-target-weight");
@@ -98,7 +118,7 @@ function containsLetters(inputName) {
  */
 
 function validateResultName() {
-  let helpName = document.getElementById("name-help");
+  
   if(inputName.value === "") {
 
     helpName.innerHTML = "This field is required"
@@ -138,3 +158,4 @@ function validateResultName() {
   };
   
 };
+

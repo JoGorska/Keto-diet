@@ -6,11 +6,12 @@
 
 //declare variables for each input field and the contact Form itself
 
+const contactForm = document.getElementsByTagName("FORM")[0];
 const contactName = document.getElementById("contact-name")
 const email = document.getElementById("email");
 const telephone = document.getElementById("telephone");
 const enquiry = document.getElementById("enquiry");
-const contactForm = document.getElementsByTagName("FORM")[0];
+
 
 //event listener for "submit"
 

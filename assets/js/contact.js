@@ -13,9 +13,7 @@ const telephone = document.getElementById("telephone");
 const enquiry = document.getElementById("enquiry");
 
 
-//event listener for "submit"
 
-document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
 //variables creating tests for test function, edited and designed in https://regexr.com/ enabling names with a dash, space or apostrophe, dot or a coma and a space. 
 
@@ -387,6 +385,11 @@ function allValidationResults() {
         
     }
 }
+
+
+//event listener for "submit"
+
+document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
 /**
  * Main function to handle submit event

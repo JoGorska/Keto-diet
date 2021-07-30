@@ -66,3 +66,27 @@ const radioTargetDate = document.getElementById("radio-target-date");
 
 const radioImperial = document.getElementById("imperial");
 const radioMetric = document.getElementById("metric");
+
+//Regex 
+
+//Regex testing if the input field contains letters and a few chosen characters 
+
+const regexLetters = /[a-zA-Z \,'\.\-\']/g;
+
+
+
+//functions testing if particular field is in line with Regex
+
+/**
+ *  Function testing if name input field contains letters and chosen special characters
+ * 
+ */
+
+function containsLetters(name) {
+  let value = name.value
+  console.log(value)
+  return regexLetters.test(value);
+};
+
+
+//functions to display result of the validation of each particular field, returns true or highlights the input field red

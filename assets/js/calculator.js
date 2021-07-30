@@ -31,7 +31,7 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
     document.getElementById("div-all-imperial").classList.add("my-invisible")
 
   } else {
-    console.log("radio button unknown")
+    console.log("event 'change' on unknown field")
   }
 });
 
@@ -93,7 +93,11 @@ const radioMetric = document.getElementById("metric");
 
 const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 
+// Regex testing if the date input field is correct copied from 
+// https://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy-with-leap-year-support
 
+const regexDate = 
+/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
 
 //functions testing if particular field is in line with Regex
 
@@ -108,6 +112,16 @@ function containsLetters(inputName) {
   return regexLetters.test(value);
 };
 
+/**
+ *  Function testing if date input field matches the regex
+ * 
+ */
+
+ function corectDate(targetDate) {
+  let value = targetDate.value
+  console.log(value)
+  return regexLetters.test(value);
+};
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
@@ -179,7 +193,7 @@ function validateResultName() {
 
     } else {
     
-      console.log(`name - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
+      console.log(`Gender - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
       selectGender.classList.remove("is-invalid");
       selectGender.removeAttribute("aria-describedby", "email-help");
       helpGender.classList.add("my-invisible");
@@ -229,7 +243,7 @@ function validateResultName() {
 
   } else {
     
-      console.log(`name - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
+      console.log(`Age - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
       inputAge.classList.remove("is-invalid");
       inputAge.removeAttribute("aria-describedby", "email-help");
       helpAge.classList.add("my-invisible");
@@ -240,3 +254,43 @@ function validateResultName() {
   
 };
 
+
+/**
+ * Function to show the result of valiation on name input field
+ * Returns true or false, if false - changes the look of the input field 
+ * and displays line of text with detailed information why it failed
+ */
+
+ function validateResultTargetDate() {
+  
+  if(targetDate.value === "") {
+
+    helpTargetDate.innerHTML = "This field is required"
+    
+    targetDate.classList.add("is-invalid");
+    targetDate.setAttribute("aria-describedby", "name-help");
+    helpTargetDate.classList.remove("my-invisible");
+    return(false);
+
+
+  } else if (!correctDate(targetDate)) {
+  
+    targetDate.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
+
+    targetDate.classList.add("is-invalid");
+    targetDate.setAttribute("aria-describedby", "name-help");
+    helpTargetDate.classList.remove("my-invisible");
+    return(false);
+
+  } else {
+    
+      console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
+      targetDate.classList.remove("is-invalid");
+      targetDate.removeAttribute("aria-describedby", "email-help");
+      helpTargetDate.classList.add("my-invisible");
+
+      return(true)
+
+  };
+  
+};

@@ -78,17 +78,27 @@ function containsLetters(inputName) {
 
 /**
  * function testing if the date entered is after today
- * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
+ * https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript?rq=1
  * 
- * ??? NOT WORKING 
+ * 
  * @returns 
  */
 
-//function afterToday(targetDate) {
-//  targetDateValue = targetDate.value;
-//  console.log(targetDateValue.valueOf())
-//  return new Date(targetDate).valueOf() > new Date().valueOf();
-//}
+ var todayDate = new Date().toISOString().slice(0, 10);
+
+function beforeToday (userInputDate, todayDate) {
+  
+  console.log (targetDate.value);
+  console.log(userInputDate);
+  console.log(todayDate);
+  if (targetDate.value <= todayDate) {
+
+    return false
+
+  } else {
+    return true
+  };
+};
 
 /**
  * Function testing if date input is month ahead the curent date
@@ -361,8 +371,13 @@ function validateResultName() {
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
     
-      let dateString = targetDate.value.toString();
-      console.log(dateString);
+    //  let dateString = targetDate.value.toString();
+    //  console.log(dateString);
+    } else if (!beforeToday (targetDate.value, todayDate)) {
+      console.log("failed validation on beforeToday")
+      return (false);
+
+    
     } else if (!monthDifference(targetDate)) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";

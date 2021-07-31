@@ -414,3 +414,49 @@ calulatorForm.addEventListener("submit", handleCalculatorSubmit);
   };
 
 };
+
+
+// debounce and instant feedback on input copied from the below link
+//https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
+
+/**
+ * Function to delay response
+ * @param {*} fn 
+ * @param {*} delay 500
+ * @returns 
+ */
+
+ const debounce = (fn, delay = 500) => {
+  let timeoutId;
+  return (...args) => {
+      // cancel the previous timer
+      if (timeoutId) {
+          clearTimeout(timeoutId);
+      }
+      // setup a new timer
+      timeoutId = setTimeout(() => {
+          fn.apply(null, args)
+      }, delay);
+  };
+};
+
+/**
+* Gives instant feedback on input with the delay set above
+*/
+
+calculatorForm.addEventListener ('input', debounce(function (e) {
+  switch (e.target.id) {
+      case 'name':
+        validateResultName();
+          break;
+      case 'select-gender':
+        validateResultGender();
+          break;
+      case 'input-age':
+        validateResultAge();
+          break;
+      case 'target-date':
+        validateResultTargetDate();
+          break;
+  }
+}));

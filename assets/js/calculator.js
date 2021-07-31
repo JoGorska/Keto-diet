@@ -186,13 +186,14 @@ function validateResultName() {
 
  function validateResultGender() {
   
-  if(selectGender.value === "") {
+  if(selectGender.value === "Please choose from one of the options") {
 
     helpGender.innerHTML = "This field is required"
     
     selectGender.classList.add("is-invalid");
     selectGender.setAttribute("aria-describedby", "name-help");
     helpGender.classList.remove("my-invisible");
+    helpGender.classList.add("invalid-feedback");
     return(false);
 
     } else {
@@ -218,22 +219,34 @@ function validateResultName() {
 
  function validateResultAge() {
   
-  if(inputAge.value === "") {
+  if (inputAge.value == 0) {
 
     helpAge.innerHTML = "This field is required"
     
     inputAge.classList.add("is-invalid");
     inputAge.setAttribute("aria-describedby", "name-help");
     helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
     return(false);
 
-  }else if (inputAge.value < 19) {
+  } else if (inputAge.value === "") {
+
+      helpAge.innerHTML = "This field is required"
+      
+      inputAge.classList.add("is-invalid");
+      inputAge.setAttribute("aria-describedby", "name-help");
+      helpAge.classList.remove("my-invisible");
+      helpAge.classList.add("invalid-feedback");
+      return(false);
+
+  } else if (inputAge.value < 19 && inputAge.value > 0) {
 
     helpAge.innerHTML = "Our calculator is only able to give results for adults";
 
     inputAge.classList.add("is-invalid");
     inputAge.setAttribute("aria-describedby", "name-help");
     helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
     return(false);
 
   }else if (inputAge.value > 120) {
@@ -243,6 +256,7 @@ function validateResultName() {
     inputAge.classList.add("is-invalid");
     inputAge.setAttribute("aria-describedby", "name-help");
     helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
     return(false);
 
   } else {
@@ -251,6 +265,7 @@ function validateResultName() {
       inputAge.classList.remove("is-invalid");
       inputAge.removeAttribute("aria-describedby", "email-help");
       helpAge.classList.add("my-invisible");
+      helpAge.classList.remove("invalid-feedback");
 
       return(true)
 
@@ -310,11 +325,11 @@ function allValidationResults() {
       return(false);
   
   } else if (validateResultGender() == false) {
-      console.log("email failed all validation results");
+      console.log("gender failed all validation results");
       return(false);
 
   } else if (validateResultAge() == false) {
-      console.log("telephone failed all validation results");
+      console.log("age failed all validation results");
       return(false);
       
 //  } else if (validateResultTargetDate() == false) {

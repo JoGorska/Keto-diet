@@ -4,17 +4,16 @@
 
 
 
-//declare variables for each input field
+//declare variables for each input field and the contact Form itself
 
+const contactForm = document.getElementsByTagName("FORM")[0];
 const contactName = document.getElementById("contact-name")
 const email = document.getElementById("email");
 const telephone = document.getElementById("telephone");
 const enquiry = document.getElementById("enquiry");
-const contactForm = document.getElementsByTagName("FORM")[0];
 
-//event listener for "submit"
 
-document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
+
 
 //variables creating tests for test function, edited and designed in https://regexr.com/ enabling names with a dash, space or apostrophe, dot or a coma and a space. 
 
@@ -386,6 +385,11 @@ function allValidationResults() {
         
     }
 }
+
+
+//event listener for "submit"
+
+document.getElementsByTagName("FORM")[0].addEventListener("submit", handleContactSubmit);
 
 /**
  * Main function to handle submit event

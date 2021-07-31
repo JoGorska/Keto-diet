@@ -109,21 +109,14 @@ const regexDate =
  */
 
 function containsLetters(inputName) {
-  let value = inputName.value
-  console.log(value)
-  return regexLetters.test(value);
+  let valueLetters = inputName.value
+  console.log(valueLetters)
+  return regexLetters.test(valueLetters);
 };
 
-/**
- *  Function testing if date input field matches the regex
- * 
- */
 
- function corectDate(targetDate) {
-  let value = targetDate.value
-  console.log(value)
-  return regexLetters.test(value);
-};
+
+
 
 
 // test if value is integer ??? doesnt' work
@@ -132,6 +125,55 @@ function testIsInteger () {
   let valueAge = inputAge.value;
   Number.isInteger(valueAge);
 };
+
+
+/**
+ *  Function testing if date input field matches the regex
+ * ??? doesn't work - lets incorrect year to be put in
+ * 
+ */
+
+ function correctDate(targetDate) {
+  let valueDate = targetDate.value
+  console.log(valueDate)
+  return regexDate.test(valueDate);
+};
+
+/**
+ * function testing if the date entered is after today
+ * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
+ * @returns 
+ */
+
+function afterToday(targetDate) {
+  console.log(Date(targetDate).valueOf())
+  return new Date(targetDate).valueOf() > new Date().valueOf();
+}
+
+
+/**
+ * Function testing if date input is month ahead the curent date
+ * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
+ * @returns 
+ */
+
+ function monthDifference() {
+  pickedDate = targetDate.value;
+  todaysDate = new Date();
+  todaysDate.setHours(0, 0, 0, 0);
+  dateDifference = Math.abs(Number(todaysDate) - pickedDate);
+  //30 Days=2592000000ms
+  if (dateDifference < 2592000000) {
+    console.log("date is less than month difference from current date")  
+    return false;
+      
+  } else {
+      console.log("date is more than a month difference from current date")
+      return true;
+  }
+}
+
+
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
 /**
@@ -323,10 +365,10 @@ function validateResultName() {
 
       return(false);
 
-  // add test to input target date only month ahead
-    } else if (!correctDate(targetDate)) {
+  
+    } else if (correctDate(targetDate)) {
     
-      targetDate.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
+      helpTargetDate.innerHTML = "The date needs to match the pattern dd/mm/yyyy";
 
       targetDate.classList.add("is-invalid");
       targetDate.setAttribute("aria-describedby", "date-help");
@@ -334,6 +376,28 @@ function validateResultName() {
       helpTargetDate.classList.add("invalid-feedback");
 
       return(false);
+
+    } else if (!afterToday(targetDate)) {
+    
+      helpTargetDate.innerHTML = "The date can't be earlier than today";
+
+      targetDate.classList.add("is-invalid");
+      targetDate.setAttribute("aria-describedby", "date-help");
+      helpTargetDate.classList.remove("my-invisible");
+      helpTargetDate.classList.add("invalid-feedback");
+
+      return(false);      
+
+//    } else if (!monthDifference(targetDate)) {
+//    
+//      targetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
+//
+//      targetDate.classList.add("is-invalid");
+//      targetDate.setAttribute("aria-describedby", "date-help");
+//      helpTargetDate.classList.remove("my-invisible");
+//      helpTargetDate.classList.add("invalid-feedback");
+
+//      return(false);
 
     } else {
       

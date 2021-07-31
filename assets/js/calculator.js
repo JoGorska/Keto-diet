@@ -1,39 +1,5 @@
 
-//Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
-// code from code pen, explained by Sean Young on Webinar 22/07/2021
-//https://codepen.io/seanyoung247/pen/qBmbZQK
 
-document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
-  if(event.target.matches("#radio-target-date")) {
-    //make visible
-    document.getElementById("div-target-date").classList.remove("my-invisible")
-    //make invisible
-    document.getElementById("div-target-metric").classList.add("my-invisible")
-    document.getElementById("div-target-imperial").classList.add("my-invisible")
-       
-  } else if (event.target.matches("#radio-target-weight")){
-    //make invisible
-    document.getElementById("div-target-date").classList.add("my-invisible")
-    //make visible
-    document.getElementById("div-target-metric").classList.remove("my-invisible")
-    document.getElementById("div-target-imperial").classList.remove("my-invisible")
-    
-  } else if (event.target.matches("#imperial")){
-    //make invisible
-    document.getElementById("div-all-metric").classList.add("my-invisible")
-    //make visible
-    document.getElementById("div-all-imperial").classList.remove("my-invisible")
-  
-  } else if (event.target.matches("#metric")){
-    //make visible
-    document.getElementById("div-all-metric").classList.remove("my-invisible")
-    //make invisible
-    document.getElementById("div-all-imperial").classList.add("my-invisible")
-
-  } else {
-    console.log("event 'change' on unknown field")
-  }
-});
 
 //guidance to handle submit and validation javascripttutorial.net/javascript-dom/javascript-form-validation/
 //I followed logic created in contact.js and adjusted them to the needs of calculator form
@@ -86,6 +52,8 @@ const radioTargetDate = document.getElementById("radio-target-date");
 
 const radioImperial = document.getElementById("imperial");
 const radioMetric = document.getElementById("metric");
+
+
 
 //Regex 
 
@@ -211,6 +179,29 @@ function removeErrorValidation(targetNodeInput, targetNodeHelp) {
   addClass("my-invisible", targetNodeHelp);
   removeClass("invalid-feedback", targetNodeHelp);
 };
+
+//Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
+// code from code pen, explained by Sean Young on Webinar 22/07/2021
+//https://codepen.io/seanyoung247/pen/qBmbZQK
+
+const divTargetDate = document.getElementById("div-target-date");
+const divTargetMetric = document.getElementById("div-target-metric");
+const divTargetImperial = document.getElementById("div-target-imperial");
+const divAllMetric = document.getElementById("div-all-metric");
+const divAllImperial = document.getElementById("div-all-imperial");
+
+
+function toggleRadioButton(visibleDiv1, visibleDiv2, invisibleDiv1, invisibleDiv2) {
+  removeClass("my-invisible", visibleDiv1);
+  removeClass("my-invisible", visibleDiv2);
+  addClass("my-invisible", invisibleDiv1);
+  addClass("my-invisible", invisibleDiv2);
+};
+
+radioTargetDate.addEventListener("change", toggleRadioButton(divTargetDate, divTargetDate, divTargetMetric, divTargetImperial));
+radioTargetWeight.addEventListener("change", toggleRadioButton(divTargetMetric, divTargetImperial, divTargetDate, divTargetDate));
+radioImperial.addEventListener("change", toggleRadioButton(divAllImperial, divAllImperial, divAllMetric, divAllMetric));
+radioMetric.addEventListener("change", toggleRadioButton(divAllMetric, divAllMetric, divAllImperial, divAllImperial));
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
@@ -444,7 +435,7 @@ calulatorForm.addEventListener("submit", handleCalculatorSubmit);
 * Gives instant feedback on input with the delay set above
 */
 
-calculatorForm.addEventListener ('input', debounce(function (e) {
+calulatorForm.addEventListener ('input', debounce(function (e) {
   switch (e.target.id) {
       case 'name':
         validateResultName();

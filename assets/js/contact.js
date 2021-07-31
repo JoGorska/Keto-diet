@@ -334,16 +334,6 @@ function correctTelephone(telephone) {
         divEnquiryHelp.classList.remove("my-invisible");
         return(false);
      
-    
-    
-    } else if (enquiry.value.length > 400) {
-        enquiry.classList.add("is-invalid");
-        enquiry.setAttribute("aria-describedby", "enquiry-help");
-        divEnquiryHelp.innerHTML = "Message too long. Please use maximum 400 characters.";
-        divEnquiryHelp.classList.remove("my-invisible");
-
-        return(false);
-
     } else {
       
         console.log(`enquiry - I have passed through validation and my value is: ${enquiry.value} and my length ${enquiry.value.length}`)

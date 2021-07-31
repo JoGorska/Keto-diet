@@ -114,18 +114,12 @@ function containsLetters(inputName) {
   return regexLetters.test(valueLetters);
 };
 
-
-
-
-
-
 // test if value is integer ??? doesnt' work
 
 function testIsInteger () {
   let valueAge = inputAge.value;
   Number.isInteger(valueAge);
 };
-
 
 /**
  *  Function testing if date input field matches the regex
@@ -146,9 +140,12 @@ function testIsInteger () {
  */
 
 function afterToday(targetDate) {
-  console.log(Date(targetDate).valueOf())
+  targetDateValue = targetDate.value;
+  console.log(targetDateValue.valueOf())
   return new Date(targetDate).valueOf() > new Date().valueOf();
 }
+
+
 
 
 /**
@@ -159,6 +156,7 @@ function afterToday(targetDate) {
 
  function monthDifference() {
   pickedDate = targetDate.value;
+  console.log(pickedDate)
   todaysDate = new Date();
   todaysDate.setHours(0, 0, 0, 0);
   dateDifference = Math.abs(Number(todaysDate) - pickedDate);
@@ -388,16 +386,16 @@ function validateResultName() {
 
       return(false);      
 
-//    } else if (!monthDifference(targetDate)) {
-//    
-//      targetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
-//
-//      targetDate.classList.add("is-invalid");
-//      targetDate.setAttribute("aria-describedby", "date-help");
-//      helpTargetDate.classList.remove("my-invisible");
-//      helpTargetDate.classList.add("invalid-feedback");
+    } else if (!monthDifference(targetDate)) {
+    
+      helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
 
-//      return(false);
+      targetDate.classList.add("is-invalid");
+      targetDate.setAttribute("aria-describedby", "date-help");
+      helpTargetDate.classList.remove("my-invisible");
+      helpTargetDate.classList.add("invalid-feedback");
+
+      return(false);
 
     } else {
       

@@ -233,7 +233,7 @@ function validateResultName() {
     helpAge.innerHTML = "This field is required"
     
     inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "name-help");
+    inputAge.setAttribute("aria-describedby", "age-help");
     helpAge.classList.remove("my-invisible");
     helpAge.classList.add("invalid-feedback");
     return(false);
@@ -243,7 +243,7 @@ function validateResultName() {
       helpAge.innerHTML = "This field is required"
       
       inputAge.classList.add("is-invalid");
-      inputAge.setAttribute("aria-describedby", "name-help");
+      inputAge.setAttribute("aria-describedby", "age-help");
       helpAge.classList.remove("my-invisible");
       helpAge.classList.add("invalid-feedback");
       return(false);
@@ -253,37 +253,37 @@ function validateResultName() {
     helpAge.innerHTML = "Our calculator is only able to give results for adults";
 
     inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "name-help");
+    inputAge.setAttribute("aria-describedby", "age-help");
     helpAge.classList.remove("my-invisible");
     helpAge.classList.add("invalid-feedback");
     return(false);
 
-  }else if (inputAge.value > 120) {
+  } else if (inputAge.value > 120) {
 
     helpAge.innerHTML = "Please enter your age correctly";
 
     inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "name-help");
+    inputAge.setAttribute("aria-describedby", "age-help");
     helpAge.classList.remove("my-invisible");
     helpAge.classList.add("invalid-feedback");
     return(false);
 
-  }else if (inputAge.value < 0) {
+  } else if (inputAge.value < 0) {
 
     helpAge.innerHTML = "We do not accept minus values for age";
 
     inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "name-help");
+    inputAge.setAttribute("aria-describedby", "age-help");
     helpAge.classList.remove("my-invisible");
     helpAge.classList.add("invalid-feedback");
     return(false);
 // ??? this one doesnt work, html validates if integer
-  }else if (!testIsInteger()) {
+  } else if (!testIsInteger()) {
     console.log("I tested if integer")
     helpAge.innerHTML = "We can accept only full numbers for age.";
 
     inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "name-help");
+    inputAge.setAttribute("aria-describedby", "age-help");
     helpAge.classList.remove("my-invisible");
     helpAge.classList.add("invalid-feedback");
     return(false);
@@ -293,7 +293,7 @@ function validateResultName() {
     
       console.log(`Age - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
       inputAge.classList.remove("is-invalid");
-      inputAge.removeAttribute("aria-describedby", "email-help");
+      inputAge.removeAttribute("aria-describedby", "age-help");
       helpAge.classList.add("my-invisible");
       helpAge.classList.remove("invalid-feedback");
 
@@ -311,37 +311,46 @@ function validateResultName() {
  */
 
  function validateResultTargetDate() {
-  
-  if(targetDate.value === "") {
 
-    helpTargetDate.innerHTML = "This field is required"
+  if (radioTargetDate.checked) {
+  
+    if (targetDate.value === "") {
+
+      helpTargetDate.innerHTML = "This field is required"
+      
+      targetDate.classList.add("is-invalid");
+      targetDate.setAttribute("aria-describedby", "date-help");
+      helpTargetDate.classList.remove("my-invisible");
+      return(false);
+
+  // add test to input target date only month ahead
+    } else if (!correctDate(targetDate)) {
     
-    targetDate.classList.add("is-invalid");
-    targetDate.setAttribute("aria-describedby", "name-help");
-    helpTargetDate.classList.remove("my-invisible");
-    return(false);
+      targetDate.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
 
-// add test to input target date only month ahead
-  } else if (!correctDate(targetDate)) {
-  
-    targetDate.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
+      targetDate.classList.add("is-invalid");
+      targetDate.setAttribute("aria-describedby", "date-help");
+      helpTargetDate.classList.remove("my-invisible");
+      return(false);
 
-    targetDate.classList.add("is-invalid");
-    targetDate.setAttribute("aria-describedby", "name-help");
-    helpTargetDate.classList.remove("my-invisible");
-    return(false);
+    } else {
+      
+        console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
+        targetDate.classList.remove("is-invalid");
+        targetDate.removeAttribute("aria-describedby", "date-help");
+        helpTargetDate.classList.add("my-invisible");
 
+        return(true)
+
+    };
   } else {
-    
-      console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
-      targetDate.classList.remove("is-invalid");
-      targetDate.removeAttribute("aria-describedby", "email-help");
-      helpTargetDate.classList.add("my-invisible");
+    console.log(`target Date - the radio button for date is off, `)
+    targetDate.classList.remove("is-invalid");
+    targetDate.removeAttribute("aria-describedby", "date-help");
+    helpTargetDate.classList.add("my-invisible");
 
-      return(true)
-
-  };
-  
+    return(true)
+  }
 };
 
 

@@ -102,7 +102,13 @@ function beforeToday () {
   };
 };
 
-
+function monthAhead () {
+  if ((targetDate.value.replace(/-/g, '') - todayString) < 100) {
+  return false
+} else {
+ return true
+}
+}
 /**
  * Function testing if date input is month ahead the curent date
  * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
@@ -381,7 +387,7 @@ function validateResultName() {
       return (false);
 
     
-    } else if (!monthDifference(targetDate)) {
+    } else if (!monthAhead()) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
       displayErrorValidation(targetDate, helpTargetDate);

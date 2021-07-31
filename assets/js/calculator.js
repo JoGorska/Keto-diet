@@ -114,13 +114,6 @@ function containsLetters(inputName) {
   return regexLetters.test(valueLetters);
 };
 
-// test if value is integer ??? doesnt' work
-
-function testIsInteger () {
-  let valueAge = inputAge.value;
-  Number.isInteger(valueAge);
-};
-
 /**
  *  Function testing if date input field matches the regex
  * ??? doesn't work - lets incorrect year to be put in
@@ -315,17 +308,6 @@ function validateResultName() {
     helpAge.classList.remove("my-invisible");
     helpAge.classList.add("invalid-feedback");
     return(false);
-// ??? this one doesnt work, html validates if integer
-  } else if (testIsInteger()) {
-    console.log("I tested if integer")
-    helpAge.innerHTML = "We can accept only full numbers for age.";
-
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
-    return(false);
-
 
   } else {
     

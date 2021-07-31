@@ -143,6 +143,27 @@ function afterToday(targetDate) {
   }
 }
 
+function addClass(className, targetNode) {
+  targetNode.classList.add(className);
+}
+
+function removeClass(className, targetNode){
+  targetNode.classList.remove(className);
+}
+
+function setAtribute(atributeName, atributeValue, targetNode) {
+  targetNode.setAttribute(atributeName, atributeValue);
+}
+
+function displayErrorValidation(targetNodeInput, targetNodeHelp) {
+
+  addClass("is-invalid",targetNodeInput);
+  setAtribute("aria-describedby", "name-help", targetNodeInput);
+  removeClass("my-invisible", targetNodeHelp);
+  addClass("invalid-feedback", targetNodeHelp);
+
+};
+
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
@@ -157,31 +178,23 @@ function validateResultName() {
   if(inputName.value === "") {
 
     helpName.innerHTML = "This field is required";
+
+    displayErrorValidation(inputName, helpName)
     
-    inputName.classList.add("is-invalid");
-    inputName.setAttribute("aria-describedby", "name-help");
-    helpName.classList.remove("my-invisible");
-    helpName.classList.add("invalid-feedback");
     return(false);
 
   }else if (inputName.value.length > 50) {
 
     helpName.innerHTML = "Name too long";
 
-    inputName.classList.add("is-invalid");
-    inputName.setAttribute("aria-describedby", "name-help");
-    helpName.classList.remove("my-invisible");
-    helpName.classList.add("invalid-feedback");
+    displayErrorValidation(inputName, helpName)
     return(false);
 
   } else if (!containsLetters(inputName)) {
   
     helpName.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
 
-    inputName.classList.add("is-invalid");
-    inputName.setAttribute("aria-describedby", "name-help");
-    helpName.classList.remove("my-invisible");
-    helpName.classList.add("invalid-feedback");
+    displayErrorValidation(inputName, helpName)
     return(false);
 
   } else {

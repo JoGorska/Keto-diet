@@ -176,7 +176,7 @@ function validateResultName() {
     
       console.log(`name - I have passed through validation and my value is: ${inputName.value} and my length ${inputName.value.length}`)
       inputName.classList.remove("is-invalid");
-      inputName.removeAttribute("aria-describedby", "email-help");
+      inputName.removeAttribute("aria-describedby", "name-help");
       helpName.classList.add("my-invisible");
       helpName.classList.remove("invalid-feedback");
 
@@ -200,7 +200,7 @@ function validateResultName() {
     helpGender.innerHTML = "This field is required"
     
     selectGender.classList.add("is-invalid");
-    selectGender.setAttribute("aria-describedby", "name-help");
+    selectGender.setAttribute("aria-describedby", "gender-help");
     helpGender.classList.remove("my-invisible");
     helpGender.classList.add("invalid-feedback");
     return(false);
@@ -209,7 +209,7 @@ function validateResultName() {
     
       console.log(`Gender - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
       selectGender.classList.remove("is-invalid");
-      selectGender.removeAttribute("aria-describedby", "email-help");
+      selectGender.removeAttribute("aria-describedby", "gender-help");
       helpGender.classList.add("my-invisible");
 
       return(true)
@@ -217,8 +217,6 @@ function validateResultName() {
   };
   
 };
-
-
 
 /**
  * Function to show the result of valiation on Age
@@ -278,7 +276,7 @@ function validateResultName() {
     helpAge.classList.add("invalid-feedback");
     return(false);
 // ??? this one doesnt work, html validates if integer
-  } else if (!testIsInteger()) {
+  } else if (testIsInteger()) {
     console.log("I tested if integer")
     helpAge.innerHTML = "We can accept only full numbers for age.";
 
@@ -321,6 +319,8 @@ function validateResultName() {
       targetDate.classList.add("is-invalid");
       targetDate.setAttribute("aria-describedby", "date-help");
       helpTargetDate.classList.remove("my-invisible");
+      helpTargetDate.classList.add("invalid-feedback");
+
       return(false);
 
   // add test to input target date only month ahead
@@ -331,6 +331,8 @@ function validateResultName() {
       targetDate.classList.add("is-invalid");
       targetDate.setAttribute("aria-describedby", "date-help");
       helpTargetDate.classList.remove("my-invisible");
+      helpTargetDate.classList.add("invalid-feedback");
+
       return(false);
 
     } else {
@@ -339,6 +341,7 @@ function validateResultName() {
         targetDate.classList.remove("is-invalid");
         targetDate.removeAttribute("aria-describedby", "date-help");
         helpTargetDate.classList.add("my-invisible");
+        helpTargetDate.classList.add("invalid-feedback");
 
         return(true)
 
@@ -348,6 +351,7 @@ function validateResultName() {
     targetDate.classList.remove("is-invalid");
     targetDate.removeAttribute("aria-describedby", "date-help");
     helpTargetDate.classList.add("my-invisible");
+    helpTargetDate.classList.remove("invalid-feedback");
 
     return(true)
   }
@@ -371,9 +375,9 @@ function allValidationResults() {
       console.log("age failed all validation results");
       return(false);
       
-//  } else if (validateResultTargetDate() == false) {
-//      console.log("target date failed all validation results");
- //     return(false);
+ } else if (validateResultTargetDate() == false) {
+      console.log("target date failed all validation results");
+      return(false);
       
   } else {
       console.log("all fields passed all validation results");

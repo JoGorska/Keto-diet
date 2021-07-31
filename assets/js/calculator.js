@@ -99,6 +99,8 @@ const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 const regexDate = 
 /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
 
+
+
 //functions testing if particular field is in line with Regex
 
 /**
@@ -123,6 +125,13 @@ function containsLetters(inputName) {
   return regexLetters.test(value);
 };
 
+
+// test if value is integer ??? doesnt' work
+
+function testIsInteger () {
+  let valueAge = inputAge.value;
+  Number.isInteger(valueAge);
+};
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
 /**
@@ -258,6 +267,27 @@ function validateResultName() {
     helpAge.classList.remove("my-invisible");
     helpAge.classList.add("invalid-feedback");
     return(false);
+
+  }else if (inputAge.value < 0) {
+
+    helpAge.innerHTML = "We do not accept minus values for age";
+
+    inputAge.classList.add("is-invalid");
+    inputAge.setAttribute("aria-describedby", "name-help");
+    helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
+    return(false);
+// ??? this one doesnt work, html validates if integer
+  }else if (!testIsInteger()) {
+    console.log("I tested if integer")
+    helpAge.innerHTML = "We can accept only full numbers for age.";
+
+    inputAge.classList.add("is-invalid");
+    inputAge.setAttribute("aria-describedby", "name-help");
+    helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
+    return(false);
+
 
   } else {
     

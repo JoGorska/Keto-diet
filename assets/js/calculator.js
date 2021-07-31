@@ -77,7 +77,7 @@ function containsLetters(inputName) {
 /**
 
 /**
- * function testing if the date entered is after today
+ * function testing if the target date has been set for a day in the past or for today
  * https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript?rq=1
  * 
  * 
@@ -85,12 +85,14 @@ function containsLetters(inputName) {
  */
 
  var todayDate = new Date().toISOString().slice(0, 10);
-
-function beforeToday (userInputDate, todayDate) {
+ var d = (new Date()).toString().split(' ').splice(1,3).join(' ');
+ var todayString = todayDate.replace(/-/g, '');
+ var targetString = targetDate.value.replace(/-/g, '');
+function beforeToday () {
   
-  console.log (targetDate.value);
-  console.log(userInputDate);
-  console.log(todayDate);
+  console.log (targetDate.value.replace(/-/g, '') - todayString);
+  console.log(todayString);
+  console.log(targetString);
   if (targetDate.value <= todayDate) {
 
     return false
@@ -100,6 +102,7 @@ function beforeToday (userInputDate, todayDate) {
   };
 };
 
+
 /**
  * Function testing if date input is month ahead the curent date
  * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
@@ -107,22 +110,22 @@ function beforeToday (userInputDate, todayDate) {
  * @returns 
  */
 
- function monthDifference() {
-  pickedDate = targetDate.value;
-  console.log(pickedDate)
-  todaysDate = new Date();
-  todaysDate.setHours(0, 0, 0, 0);
-  dateDifference = Math.abs(Number(todaysDate) - pickedDate);
+ //function monthDifference() {
+ // pickedDate = targetDate.value;
+ // console.log(pickedDate)
+ // todaysDate = new Date();
+ // todaysDate.setHours(0, 0, 0, 0);
+ // dateDifference = Math.abs(Number(todaysDate) - pickedDate);
   //30 Days=2592000000ms
-  if (dateDifference < 2592000000) {
-    console.log("date is less than month difference from current date")  
-    return false;
+ // if (dateDifference < 2592000000) {
+ //   console.log("date is less than month difference from current date")  
+ //   return false;
       
-  } else {
-      console.log("date is more than a month difference from current date")
-      return true;
-  }
-}
+ // } else {
+ //     console.log("date is more than a month difference from current date")
+ //     return true;
+ // }
+//}
 
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
 
@@ -373,7 +376,7 @@ function validateResultName() {
     
     //  let dateString = targetDate.value.toString();
     //  console.log(dateString);
-    } else if (!beforeToday (targetDate.value, todayDate)) {
+    } else if (!beforeToday()) {
       console.log("failed validation on beforeToday")
       return (false);
 

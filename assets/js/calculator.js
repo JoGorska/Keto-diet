@@ -99,6 +99,8 @@ const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 const regexDate = 
 /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
 
+
+
 //functions testing if particular field is in line with Regex
 
 /**
@@ -107,21 +109,70 @@ const regexDate =
  */
 
 function containsLetters(inputName) {
-  let value = inputName.value
-  console.log(value)
-  return regexLetters.test(value);
+  let valueLetters = inputName.value
+  console.log(valueLetters)
+  return regexLetters.test(valueLetters);
 };
+
+
+
+
+
+
+// test if value is integer ??? doesnt' work
+
+function testIsInteger () {
+  let valueAge = inputAge.value;
+  Number.isInteger(valueAge);
+};
+
 
 /**
  *  Function testing if date input field matches the regex
+ * ??? doesn't work - lets incorrect year to be put in
  * 
  */
 
- function corectDate(targetDate) {
-  let value = targetDate.value
-  console.log(value)
-  return regexLetters.test(value);
+ function correctDate(targetDate) {
+  let valueDate = targetDate.value
+  console.log(valueDate)
+  return regexDate.test(valueDate);
 };
+
+/**
+ * function testing if the date entered is after today
+ * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
+ * @returns 
+ */
+
+function afterToday(targetDate) {
+  console.log(Date(targetDate).valueOf())
+  return new Date(targetDate).valueOf() > new Date().valueOf();
+}
+
+
+/**
+ * Function testing if date input is month ahead the curent date
+ * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
+ * @returns 
+ */
+
+ function monthDifference() {
+  pickedDate = targetDate.value;
+  todaysDate = new Date();
+  todaysDate.setHours(0, 0, 0, 0);
+  dateDifference = Math.abs(Number(todaysDate) - pickedDate);
+  //30 Days=2592000000ms
+  if (dateDifference < 2592000000) {
+    console.log("date is less than month difference from current date")  
+    return false;
+      
+  } else {
+      console.log("date is more than a month difference from current date")
+      return true;
+  }
+}
+
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
@@ -167,7 +218,7 @@ function validateResultName() {
     
       console.log(`name - I have passed through validation and my value is: ${inputName.value} and my length ${inputName.value.length}`)
       inputName.classList.remove("is-invalid");
-      inputName.removeAttribute("aria-describedby", "email-help");
+      inputName.removeAttribute("aria-describedby", "name-help");
       helpName.classList.add("my-invisible");
       helpName.classList.remove("invalid-feedback");
 
@@ -186,20 +237,21 @@ function validateResultName() {
 
  function validateResultGender() {
   
-  if(selectGender.value === "") {
+  if(selectGender.value === "Please choose from one of the options") {
 
     helpGender.innerHTML = "This field is required"
     
     selectGender.classList.add("is-invalid");
-    selectGender.setAttribute("aria-describedby", "name-help");
+    selectGender.setAttribute("aria-describedby", "gender-help");
     helpGender.classList.remove("my-invisible");
+    helpGender.classList.add("invalid-feedback");
     return(false);
 
     } else {
     
       console.log(`Gender - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
       selectGender.classList.remove("is-invalid");
-      selectGender.removeAttribute("aria-describedby", "email-help");
+      selectGender.removeAttribute("aria-describedby", "gender-help");
       helpGender.classList.add("my-invisible");
 
       return(true)
@@ -207,8 +259,6 @@ function validateResultName() {
   };
   
 };
-
-
 
 /**
  * Function to show the result of valiation on Age
@@ -218,39 +268,74 @@ function validateResultName() {
 
  function validateResultAge() {
   
-  if(inputAge.value === "") {
+  if (inputAge.value == 0) {
 
     helpAge.innerHTML = "This field is required"
     
     inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "name-help");
+    inputAge.setAttribute("aria-describedby", "age-help");
     helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
     return(false);
 
-  }else if (inputAge.value < 19) {
+  } else if (inputAge.value === "") {
+
+      helpAge.innerHTML = "This field is required"
+      
+      inputAge.classList.add("is-invalid");
+      inputAge.setAttribute("aria-describedby", "age-help");
+      helpAge.classList.remove("my-invisible");
+      helpAge.classList.add("invalid-feedback");
+      return(false);
+
+  } else if (inputAge.value < 19 && inputAge.value > 0) {
 
     helpAge.innerHTML = "Our calculator is only able to give results for adults";
 
     inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "name-help");
+    inputAge.setAttribute("aria-describedby", "age-help");
     helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
     return(false);
 
-  }else if (inputAge.value > 120) {
+  } else if (inputAge.value > 120) {
 
     helpAge.innerHTML = "Please enter your age correctly";
 
     inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "name-help");
+    inputAge.setAttribute("aria-describedby", "age-help");
     helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
     return(false);
+
+  } else if (inputAge.value < 0) {
+
+    helpAge.innerHTML = "We do not accept minus values for age";
+
+    inputAge.classList.add("is-invalid");
+    inputAge.setAttribute("aria-describedby", "age-help");
+    helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
+    return(false);
+// ??? this one doesnt work, html validates if integer
+  } else if (testIsInteger()) {
+    console.log("I tested if integer")
+    helpAge.innerHTML = "We can accept only full numbers for age.";
+
+    inputAge.classList.add("is-invalid");
+    inputAge.setAttribute("aria-describedby", "age-help");
+    helpAge.classList.remove("my-invisible");
+    helpAge.classList.add("invalid-feedback");
+    return(false);
+
 
   } else {
     
       console.log(`Age - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
       inputAge.classList.remove("is-invalid");
-      inputAge.removeAttribute("aria-describedby", "email-help");
+      inputAge.removeAttribute("aria-describedby", "age-help");
       helpAge.classList.add("my-invisible");
+      helpAge.classList.remove("invalid-feedback");
 
       return(true)
 
@@ -266,37 +351,74 @@ function validateResultName() {
  */
 
  function validateResultTargetDate() {
-  
-  if(targetDate.value === "") {
 
-    helpTargetDate.innerHTML = "This field is required"
+  if (radioTargetDate.checked) {
+  
+    if (targetDate.value === "") {
+
+      helpTargetDate.innerHTML = "This field is required"
+      
+      targetDate.classList.add("is-invalid");
+      targetDate.setAttribute("aria-describedby", "date-help");
+      helpTargetDate.classList.remove("my-invisible");
+      helpTargetDate.classList.add("invalid-feedback");
+
+      return(false);
+
+  
+    } else if (correctDate(targetDate)) {
     
-    targetDate.classList.add("is-invalid");
-    targetDate.setAttribute("aria-describedby", "name-help");
-    helpTargetDate.classList.remove("my-invisible");
-    return(false);
+      helpTargetDate.innerHTML = "The date needs to match the pattern dd/mm/yyyy";
 
-// add test to input target date only month ahead
-  } else if (!correctDate(targetDate)) {
-  
-    targetDate.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
+      targetDate.classList.add("is-invalid");
+      targetDate.setAttribute("aria-describedby", "date-help");
+      helpTargetDate.classList.remove("my-invisible");
+      helpTargetDate.classList.add("invalid-feedback");
 
-    targetDate.classList.add("is-invalid");
-    targetDate.setAttribute("aria-describedby", "name-help");
-    helpTargetDate.classList.remove("my-invisible");
-    return(false);
+      return(false);
 
+    } else if (!afterToday(targetDate)) {
+    
+      helpTargetDate.innerHTML = "The date can't be earlier than today";
+
+      targetDate.classList.add("is-invalid");
+      targetDate.setAttribute("aria-describedby", "date-help");
+      helpTargetDate.classList.remove("my-invisible");
+      helpTargetDate.classList.add("invalid-feedback");
+
+      return(false);      
+
+//    } else if (!monthDifference(targetDate)) {
+//    
+//      targetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
+//
+//      targetDate.classList.add("is-invalid");
+//      targetDate.setAttribute("aria-describedby", "date-help");
+//      helpTargetDate.classList.remove("my-invisible");
+//      helpTargetDate.classList.add("invalid-feedback");
+
+//      return(false);
+
+    } else {
+      
+        console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
+        targetDate.classList.remove("is-invalid");
+        targetDate.removeAttribute("aria-describedby", "date-help");
+        helpTargetDate.classList.add("my-invisible");
+        helpTargetDate.classList.add("invalid-feedback");
+
+        return(true)
+
+    };
   } else {
-    
-      console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
-      targetDate.classList.remove("is-invalid");
-      targetDate.removeAttribute("aria-describedby", "email-help");
-      helpTargetDate.classList.add("my-invisible");
+    console.log(`target Date - the radio button for date is off, `)
+    targetDate.classList.remove("is-invalid");
+    targetDate.removeAttribute("aria-describedby", "date-help");
+    helpTargetDate.classList.add("my-invisible");
+    helpTargetDate.classList.remove("invalid-feedback");
 
-      return(true)
-
-  };
-  
+    return(true)
+  }
 };
 
 
@@ -310,16 +432,16 @@ function allValidationResults() {
       return(false);
   
   } else if (validateResultGender() == false) {
-      console.log("email failed all validation results");
+      console.log("gender failed all validation results");
       return(false);
 
   } else if (validateResultAge() == false) {
-      console.log("telephone failed all validation results");
+      console.log("age failed all validation results");
       return(false);
       
-//  } else if (validateResultTargetDate() == false) {
-//      console.log("target date failed all validation results");
- //     return(false);
+ } else if (validateResultTargetDate() == false) {
+      console.log("target date failed all validation results");
+      return(false);
       
   } else {
       console.log("all fields passed all validation results");

@@ -93,14 +93,6 @@ const radioMetric = document.getElementById("metric");
 
 const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 
-// Regex testing if the date input field is correct copied from 
-// https://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy-with-leap-year-support
-
-const regexDate = 
-/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
-
-
-
 //functions testing if particular field is in line with Regex
 
 /**
@@ -115,16 +107,6 @@ function containsLetters(inputName) {
 };
 
 /**
- *  Function testing if date input field matches the regex
- * ??? doesn't work - lets incorrect year to be put in
- * 
- */
-
- function correctDate(targetDate) {
-  let valueDate = targetDate.value
-  console.log(valueDate)
-  return regexDate.test(valueDate);
-};
 
 /**
  * function testing if the date entered is after today
@@ -137,9 +119,6 @@ function afterToday(targetDate) {
   console.log(targetDateValue.valueOf())
   return new Date(targetDate).valueOf() > new Date().valueOf();
 }
-
-
-
 
 /**
  * Function testing if date input is month ahead the curent date
@@ -338,18 +317,6 @@ function validateResultName() {
 
       helpTargetDate.innerHTML = "This field is required"
       
-      targetDate.classList.add("is-invalid");
-      targetDate.setAttribute("aria-describedby", "date-help");
-      helpTargetDate.classList.remove("my-invisible");
-      helpTargetDate.classList.add("invalid-feedback");
-
-      return(false);
-
-  
-    } else if (correctDate(targetDate)) {
-    
-      helpTargetDate.innerHTML = "The date needs to match the pattern dd/mm/yyyy";
-
       targetDate.classList.add("is-invalid");
       targetDate.setAttribute("aria-describedby", "date-help");
       helpTargetDate.classList.remove("my-invisible");

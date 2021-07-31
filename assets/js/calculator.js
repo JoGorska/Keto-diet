@@ -349,19 +349,20 @@ function validateResultName() {
  function validateResultTargetDate() {
 
   if (radioTargetDate.checked) {
-  
+
     if (targetDate.value === "") {
 
       helpTargetDate.innerHTML = "This field is required"
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 
-//    } else if (!afterToday(targetDate)) {
-//    
-//      helpTargetDate.innerHTML = "The date can't be earlier than today";
-//      displayErrorValidation(targetDate, helpTargetDate);
-//      return(false);      
-//
+    } else if (targetDate.value.length > 10) {
+      helpTargetDate.innerHTML = "Date contains too many digits, please check the date"
+      displayErrorValidation(targetDate, helpTargetDate);
+      return(false);
+    
+      let dateString = targetDate.value.toString();
+      console.log(dateString);
     } else if (!monthDifference(targetDate)) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";

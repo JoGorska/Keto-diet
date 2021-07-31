@@ -79,18 +79,21 @@ function containsLetters(inputName) {
 /**
  * function testing if the date entered is after today
  * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
+ * 
+ * ??? NOT WORKING 
  * @returns 
  */
 
-function afterToday(targetDate) {
-  targetDateValue = targetDate.value;
-  console.log(targetDateValue.valueOf())
-  return new Date(targetDate).valueOf() > new Date().valueOf();
-}
+//function afterToday(targetDate) {
+//  targetDateValue = targetDate.value;
+//  console.log(targetDateValue.valueOf())
+//  return new Date(targetDate).valueOf() > new Date().valueOf();
+//}
 
 /**
  * Function testing if date input is month ahead the curent date
  * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
+ * ??? NOT WORKING
  * @returns 
  */
 
@@ -110,7 +113,9 @@ function afterToday(targetDate) {
       return true;
   }
 }
+
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
+
 /**
  * Function to add class
  * @param {*} className 
@@ -180,11 +185,6 @@ function removeErrorValidation(targetNodeInput, targetNodeHelp) {
   removeClass("invalid-feedback", targetNodeHelp);
 };
 
-//Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
-// code from code pen, explained by Sean Young on Webinar 22/07/2021
-//https://codepen.io/seanyoung247/pen/qBmbZQK
-
-
 
 /**
  * Function to swap the visibility of the divs when radio button is changed
@@ -198,6 +198,11 @@ function radioButtonSwap(visibleDiv, invisibleDiv) {
   addClass("my-invisible", invisibleDiv);
 }
 
+/**
+ * Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
+ * code from code pen, explained by Sean Young on Webinar 22/07/2021
+ * https://codepen.io/seanyoung247/pen/qBmbZQK
+ */
 
 document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
   let divTargetDate = document.getElementById("div-target-date");
@@ -351,12 +356,12 @@ function validateResultName() {
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 
-    } else if (!afterToday(targetDate)) {
-    
-      helpTargetDate.innerHTML = "The date can't be earlier than today";
-      displayErrorValidation(targetDate, helpTargetDate);
-      return(false);      
-
+//    } else if (!afterToday(targetDate)) {
+//    
+//      helpTargetDate.innerHTML = "The date can't be earlier than today";
+//      displayErrorValidation(targetDate, helpTargetDate);
+//      return(false);      
+//
     } else if (!monthDifference(targetDate)) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";

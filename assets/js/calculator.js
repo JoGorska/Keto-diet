@@ -184,25 +184,45 @@ function removeErrorValidation(targetNodeInput, targetNodeHelp) {
 // code from code pen, explained by Sean Young on Webinar 22/07/2021
 //https://codepen.io/seanyoung247/pen/qBmbZQK
 
-const divTargetDate = document.getElementById("div-target-date");
-const divTargetMetric = document.getElementById("div-target-metric");
-const divTargetImperial = document.getElementById("div-target-imperial");
-const divAllMetric = document.getElementById("div-all-metric");
-const divAllImperial = document.getElementById("div-all-imperial");
 
 
-function toggleRadioButton(visibleDiv1, visibleDiv2, invisibleDiv1, invisibleDiv2) {
-  removeClass("my-invisible", visibleDiv1);
-  removeClass("my-invisible", visibleDiv2);
-  addClass("my-invisible", invisibleDiv1);
-  addClass("my-invisible", invisibleDiv2);
-};
+/**
+ * Function to swap the visibility of the divs when radio button is changed
+ * makes one div visible and another invisible
+ * @param {*} visibleDiv 
+ * @param {*} invisibleDiv 
+ */
 
-radioTargetDate.addEventListener("change", toggleRadioButton(divTargetDate, divTargetDate, divTargetMetric, divTargetImperial));
-radioTargetWeight.addEventListener("change", toggleRadioButton(divTargetMetric, divTargetImperial, divTargetDate, divTargetDate));
-radioImperial.addEventListener("change", toggleRadioButton(divAllImperial, divAllImperial, divAllMetric, divAllMetric));
-radioMetric.addEventListener("change", toggleRadioButton(divAllMetric, divAllMetric, divAllImperial, divAllImperial));
+function radioButtonSwap(visibleDiv, invisibleDiv) {
+  removeClass("my-invisible", visibleDiv);
+  addClass("my-invisible", invisibleDiv);
+}
 
+
+document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
+  let divTargetDate = document.getElementById("div-target-date");
+  let divTargetMetric = document.getElementById("div-target-metric");
+  let divTargetImperial = document.getElementById("div-target-imperial");
+  let divAllMetric = document.getElementById("div-all-metric");
+  let divAllImperial = document.getElementById("div-all-imperial");
+
+    if(event.target.matches("#radio-target-date")) {
+    radioButtonSwap(divTargetDate, divTargetMetric);
+    addClass("my-invisible", divTargetImperial);
+
+  } else if (event.target.matches("#radio-target-weight")){
+    radioButtonSwap(divTargetMetric, divTargetDate);
+    removeClass("my-invisible", divTargetImperial)
+    
+  } else if (event.target.matches("#imperial")){
+    radioButtonSwap(divAllImperial, divAllMetric)
+  
+  } else if (event.target.matches("#metric")){
+    radioButtonSwap(divAllMetric, divAllImperial)
+  }
+});
+
+  
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
 /**

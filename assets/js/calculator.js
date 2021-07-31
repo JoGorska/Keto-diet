@@ -93,14 +93,6 @@ const radioMetric = document.getElementById("metric");
 
 const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 
-// Regex testing if the date input field is correct copied from 
-// https://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy-with-leap-year-support
-
-const regexDate = 
-/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
-
-
-
 //functions testing if particular field is in line with Regex
 
 /**
@@ -114,30 +106,7 @@ function containsLetters(inputName) {
   return regexLetters.test(valueLetters);
 };
 
-
-
-
-
-
-// test if value is integer ??? doesnt' work
-
-function testIsInteger () {
-  let valueAge = inputAge.value;
-  Number.isInteger(valueAge);
-};
-
-
 /**
- *  Function testing if date input field matches the regex
- * ??? doesn't work - lets incorrect year to be put in
- * 
- */
-
- function correctDate(targetDate) {
-  let valueDate = targetDate.value
-  console.log(valueDate)
-  return regexDate.test(valueDate);
-};
 
 /**
  * function testing if the date entered is after today
@@ -146,10 +115,10 @@ function testIsInteger () {
  */
 
 function afterToday(targetDate) {
-  console.log(Date(targetDate).valueOf())
+  targetDateValue = targetDate.value;
+  console.log(targetDateValue.valueOf())
   return new Date(targetDate).valueOf() > new Date().valueOf();
 }
-
 
 /**
  * Function testing if date input is month ahead the curent date
@@ -159,6 +128,7 @@ function afterToday(targetDate) {
 
  function monthDifference() {
   pickedDate = targetDate.value;
+  console.log(pickedDate)
   todaysDate = new Date();
   todaysDate.setHours(0, 0, 0, 0);
   dateDifference = Math.abs(Number(todaysDate) - pickedDate);
@@ -172,6 +142,27 @@ function afterToday(targetDate) {
       return true;
   }
 }
+
+function addClass(className, targetNode) {
+  targetNode.classList.add(className);
+}
+
+function removeClass(className, targetNode){
+  targetNode.classList.remove(className);
+}
+
+function setAtribute(atributeName, atributeValue, targetNode) {
+  targetNode.setAttribute(atributeName, atributeValue);
+}
+
+function displayErrorValidation(targetNodeInput, targetNodeHelp) {
+
+  addClass("is-invalid",targetNodeInput);
+  setAtribute("aria-describedby", "name-help", targetNodeInput);
+  removeClass("my-invisible", targetNodeHelp);
+  addClass("invalid-feedback", targetNodeHelp);
+
+};
 
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
@@ -187,31 +178,23 @@ function validateResultName() {
   if(inputName.value === "") {
 
     helpName.innerHTML = "This field is required";
+
+    displayErrorValidation(inputName, helpName)
     
-    inputName.classList.add("is-invalid");
-    inputName.setAttribute("aria-describedby", "name-help");
-    helpName.classList.remove("my-invisible");
-    helpName.classList.add("invalid-feedback");
     return(false);
 
   }else if (inputName.value.length > 50) {
 
     helpName.innerHTML = "Name too long";
 
-    inputName.classList.add("is-invalid");
-    inputName.setAttribute("aria-describedby", "name-help");
-    helpName.classList.remove("my-invisible");
-    helpName.classList.add("invalid-feedback");
+    displayErrorValidation(inputName, helpName)
     return(false);
 
   } else if (!containsLetters(inputName)) {
   
     helpName.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
 
-    inputName.classList.add("is-invalid");
-    inputName.setAttribute("aria-describedby", "name-help");
-    helpName.classList.remove("my-invisible");
-    helpName.classList.add("invalid-feedback");
+    displayErrorValidation(inputName, helpName)
     return(false);
 
   } else {
@@ -317,17 +300,6 @@ function validateResultName() {
     helpAge.classList.remove("my-invisible");
     helpAge.classList.add("invalid-feedback");
     return(false);
-// ??? this one doesnt work, html validates if integer
-  } else if (testIsInteger()) {
-    console.log("I tested if integer")
-    helpAge.innerHTML = "We can accept only full numbers for age.";
-
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
-    return(false);
-
 
   } else {
     
@@ -365,18 +337,6 @@ function validateResultName() {
 
       return(false);
 
-  
-    } else if (correctDate(targetDate)) {
-    
-      helpTargetDate.innerHTML = "The date needs to match the pattern dd/mm/yyyy";
-
-      targetDate.classList.add("is-invalid");
-      targetDate.setAttribute("aria-describedby", "date-help");
-      helpTargetDate.classList.remove("my-invisible");
-      helpTargetDate.classList.add("invalid-feedback");
-
-      return(false);
-
     } else if (!afterToday(targetDate)) {
     
       helpTargetDate.innerHTML = "The date can't be earlier than today";
@@ -388,16 +348,16 @@ function validateResultName() {
 
       return(false);      
 
-//    } else if (!monthDifference(targetDate)) {
-//    
-//      targetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
-//
-//      targetDate.classList.add("is-invalid");
-//      targetDate.setAttribute("aria-describedby", "date-help");
-//      helpTargetDate.classList.remove("my-invisible");
-//      helpTargetDate.classList.add("invalid-feedback");
+    } else if (!monthDifference(targetDate)) {
+    
+      helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
 
-//      return(false);
+      targetDate.classList.add("is-invalid");
+      targetDate.setAttribute("aria-describedby", "date-help");
+      helpTargetDate.classList.remove("my-invisible");
+      helpTargetDate.classList.add("invalid-feedback");
+
+      return(false);
 
     } else {
       

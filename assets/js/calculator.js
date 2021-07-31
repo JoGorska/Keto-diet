@@ -323,9 +323,11 @@ function validateResultName() {
 
 
 /**
- * Function to show the result of valiation on name input field
+ * Function to show the result of valiation on target date input field
+ * checks first if the radio button has been set to target date, than
  * Returns true or false, if false - changes the look of the input field 
- * and displays line of text with detailed information why it failed
+ * and displays line of text with detailed information why it failed validation
+ * 
  */
 
  function validateResultTargetDate() {
@@ -335,56 +337,33 @@ function validateResultName() {
     if (targetDate.value === "") {
 
       helpTargetDate.innerHTML = "This field is required"
-      
-      targetDate.classList.add("is-invalid");
-      targetDate.setAttribute("aria-describedby", "date-help");
-      helpTargetDate.classList.remove("my-invisible");
-      helpTargetDate.classList.add("invalid-feedback");
-
+      displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 
     } else if (!afterToday(targetDate)) {
     
       helpTargetDate.innerHTML = "The date can't be earlier than today";
-
-      targetDate.classList.add("is-invalid");
-      targetDate.setAttribute("aria-describedby", "date-help");
-      helpTargetDate.classList.remove("my-invisible");
-      helpTargetDate.classList.add("invalid-feedback");
-
+      displayErrorValidation(targetDate, helpTargetDate);
       return(false);      
 
     } else if (!monthDifference(targetDate)) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
-
-      targetDate.classList.add("is-invalid");
-      targetDate.setAttribute("aria-describedby", "date-help");
-      helpTargetDate.classList.remove("my-invisible");
-      helpTargetDate.classList.add("invalid-feedback");
-
+      displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 
     } else {
       
-        console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
-        targetDate.classList.remove("is-invalid");
-        targetDate.removeAttribute("aria-describedby", "date-help");
-        helpTargetDate.classList.add("my-invisible");
-        helpTargetDate.classList.add("invalid-feedback");
-
-        return(true)
+      console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
+      removeErrorValidation(targetDate, helpTargetDate);
+      return(true);
 
     };
   } else {
     console.log(`target Date - the radio button for date is off, `)
-    targetDate.classList.remove("is-invalid");
-    targetDate.removeAttribute("aria-describedby", "date-help");
-    helpTargetDate.classList.add("my-invisible");
-    helpTargetDate.classList.remove("invalid-feedback");
-
-    return(true)
-  }
+    removeErrorValidation(targetDate, helpTargetDate);
+    return(true);
+  };
 };
 
 
@@ -427,7 +406,7 @@ calulatorForm.addEventListener("submit", handleCalculatorSubmit);
  function handleCalculatorSubmit(event) {
   event.preventDefault();
   if (allValidationResults() == false) {
-      console.log("display whole form with highlited fields in red");
+      console.log("stay on the page calculator form");
 
   } else {
       console.log("all good to go");

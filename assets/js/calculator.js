@@ -142,18 +142,51 @@ function afterToday(targetDate) {
       return true;
   }
 }
-
+// functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
+/**
+ * Function to add class
+ * @param {*} className 
+ * @param {*} targetNode 
+ */
 function addClass(className, targetNode) {
   targetNode.classList.add(className);
-}
+};
+
+/**
+ * Function to remove class
+ * @param {*} className 
+ * @param {*} targetNode 
+ */
 
 function removeClass(className, targetNode){
   targetNode.classList.remove(className);
-}
+};
+
+/**
+ * Function to set attribute
+ * @param {*} className 
+ * @param {*} targetNode 
+ */
 
 function setAtribute(atributeName, atributeValue, targetNode) {
   targetNode.setAttribute(atributeName, atributeValue);
-}
+};
+/**
+ * Function to remove attribute
+ * @param {*} atributeName 
+ * @param {*} atributeValue 
+ * @param {*} targetNode 
+ */
+function removeAtribute(atributeName, atributeValue, targetNode) {
+  targetNode.removeAttribute(atributeName, atributeValue);
+};
+
+/**
+ * Function to display Error after validation has been failed
+ * makes div with help message visible and in red, input's border is red and red icon with exclamation mark is displayed in input field
+ * @param {*} targetNodeInput 
+ * @param {*} targetNodeHelp 
+ */
 
 function displayErrorValidation(targetNodeInput, targetNodeHelp) {
 
@@ -164,6 +197,20 @@ function displayErrorValidation(targetNodeInput, targetNodeHelp) {
 
 };
 
+/**
+ * Function to remove display Error after validation has been passed
+ * makes div with help message invisible, input border comes back to standard and icon with exclamation mark disapears
+ * @param {*} targetNodeInput 
+ * @param {*} targetNodeHelp 
+ */
+
+function removeErrorValidation(targetNodeInput, targetNodeHelp) {
+
+  removeClass("is-invalid",targetNodeInput);
+  removeAtribute("aria-describedby", "name-help", targetNodeInput);
+  addClass("my-invisible", targetNodeHelp);
+  removeClass("invalid-feedback", targetNodeHelp);
+};
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
@@ -176,36 +223,26 @@ function displayErrorValidation(targetNodeInput, targetNodeHelp) {
 function validateResultName() {
   
   if(inputName.value === "") {
-
     helpName.innerHTML = "This field is required";
-
-    displayErrorValidation(inputName, helpName)
-    
+    displayErrorValidation(inputName, helpName)    
     return(false);
 
-  }else if (inputName.value.length > 50) {
-
+  } else if (inputName.value.length > 50) {
     helpName.innerHTML = "Name too long";
-
     displayErrorValidation(inputName, helpName)
     return(false);
 
   } else if (!containsLetters(inputName)) {
   
     helpName.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
-
     displayErrorValidation(inputName, helpName)
     return(false);
 
   } else {
     
-      console.log(`name - I have passed through validation and my value is: ${inputName.value} and my length ${inputName.value.length}`)
-      inputName.classList.remove("is-invalid");
-      inputName.removeAttribute("aria-describedby", "name-help");
-      helpName.classList.add("my-invisible");
-      helpName.classList.remove("invalid-feedback");
-
-      return(true)
+    console.log(`name - I have passed through validation and my value is: ${inputName.value} and my length ${inputName.value.length}`)
+    removeErrorValidation(inputName, helpName)
+    return(true)
 
   };
   
@@ -223,21 +260,14 @@ function validateResultName() {
   if(selectGender.value === "Please choose from one of the options") {
 
     helpGender.innerHTML = "This field is required"
-    
-    selectGender.classList.add("is-invalid");
-    selectGender.setAttribute("aria-describedby", "gender-help");
-    helpGender.classList.remove("my-invisible");
-    helpGender.classList.add("invalid-feedback");
+    displayErrorValidation(selectGender, helpGender);
     return(false);
 
-    } else {
-    
-      console.log(`Gender - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
-      selectGender.classList.remove("is-invalid");
-      selectGender.removeAttribute("aria-describedby", "gender-help");
-      helpGender.classList.add("my-invisible");
-
-      return(true)
+  } else {
+  
+    console.log(`Gender - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
+    removeErrorValidation(selectGender, helpGender);
+    return(true)
 
   };
   
@@ -254,62 +284,38 @@ function validateResultName() {
   if (inputAge.value == 0) {
 
     helpAge.innerHTML = "This field is required"
-    
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
+    displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else if (inputAge.value === "") {
 
       helpAge.innerHTML = "This field is required"
-      
-      inputAge.classList.add("is-invalid");
-      inputAge.setAttribute("aria-describedby", "age-help");
-      helpAge.classList.remove("my-invisible");
-      helpAge.classList.add("invalid-feedback");
+      displayErrorValidation(inputAge, helpAge);
       return(false);
 
   } else if (inputAge.value < 19 && inputAge.value > 0) {
 
     helpAge.innerHTML = "Our calculator is only able to give results for adults";
-
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
+    displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else if (inputAge.value > 120) {
 
     helpAge.innerHTML = "Please enter your age correctly";
-
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
+    displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else if (inputAge.value < 0) {
 
     helpAge.innerHTML = "We do not accept minus values for age";
-
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
+    displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else {
     
-      console.log(`Age - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
-      inputAge.classList.remove("is-invalid");
-      inputAge.removeAttribute("aria-describedby", "age-help");
-      helpAge.classList.add("my-invisible");
-      helpAge.classList.remove("invalid-feedback");
-
-      return(true)
+    console.log(`Age - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
+    removeErrorValidation(inputAge, helpAge);
+    return(true)
 
   };
   

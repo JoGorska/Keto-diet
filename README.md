@@ -96,6 +96,12 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
   
 5. When validating contact form using bootstrap's classess to display error message, for some reason error message was showing under each field, even if only one field failed validation. Resolved problem by adding my-invisible class to each field and removing aria-describedby. This way the div would be invisible for screen readers, this would only apear after error occurs. Failing validation removes my-invisible class and adds aria-describedby. 
 
+6. Problem with validating if the date is month ahead of today. 
+    - I tried to convert both dates - today and target date to miliseconds from 1970 but the html input "targetDate" was not converting to miliseconds as it only displays date without time
+    - I tired to change both dates to string of numbers without seperators, this was working fine, untill you try to compare the dates from the end and begginng of the following year. 
+    - Different browsers will give me a different input on html date input field, so if I found solution to converting target Date it might not work on various browsers
+    
+
 ## Previous project (to be deleted)
 
 1. Results, what I have acheved being on Keto Diet

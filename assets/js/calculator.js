@@ -101,14 +101,14 @@ function beforeToday () {
     return true
   };
 };
-
-function monthAhead () {
-  if ((targetDate.value.replace(/-/g, '') - todayString) < 100) {
-  return false
-} else {
- return true
-}
-}
+// gives incorrect results when the dates are end of year and beggining of year
+//function monthAhead () {
+//  if ((targetDate.value.replace(/-/g, '') - todayString) < 100) {
+//  return false
+//} else {
+// return true
+//}
+//}
 /**
  * Function testing if date input is month ahead the curent date
  * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
@@ -131,6 +131,18 @@ function monthAhead () {
  //     console.log("date is more than a month difference from current date")
  //     return true;
  // }
+//}
+
+// doesn't work as not able to convert html input to time without being given time
+
+//function monthDifference () {
+//  var todayInMs = new Date();
+//  todayInMs = todayInMs.getTime()
+//  console.log(todayInMs)
+//  console.log(targetDate.value)
+//  var targetInMs = targetDate.value
+//  targetInMs = targetInMs.getTime()
+//  console.log(targetInMs)
 //}
 
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
@@ -387,7 +399,7 @@ function validateResultName() {
       return (false);
 
     
-    } else if (!monthAhead()) {
+    } else if (!monthDifference()) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
       displayErrorValidation(targetDate, helpTargetDate);

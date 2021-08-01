@@ -102,19 +102,40 @@ function beforeToday () {
  * @returns true or false
  */
 
-function monthLater () {
-  
-  var todayInMs = new Date();
-  var targetInMs = targetDate.valueAsNumber;
-  const monthInMs = 2629800000;
 
+function monthLater () {
+  let todayInMs = new Date().getTime();
+  let targetInMs = targetDate.valueAsNumber;
+  let monthInMs = 2629800000;
+  
   if ((targetInMs-todayInMs) < monthInMs) {
+    console.log(todayInMs)
     console.log(`target is closer than a month ahead of today ${targetInMs-todayInMs}`);
     return false;
   } else {
-    console.log(`target is futher than a mont ahead of today ${targetInMs-todayInMs}`);
+    console.log(`target is futher than a month ahead of today ${targetInMs-todayInMs}`);
+    console.log(todayInMs)
+    console.log(targetDate.valueAsNumber)
     return true;
 
+  };
+};
+/**
+ * function to check if the target year is less than a year from Today
+ * @returns 
+ */
+
+function lessThanAYear () {
+  let todayInMs = new Date().getTime();
+  let targetInMs = targetDate.valueAsNumber;
+  let monthInMs = 2629800000;
+
+  if ((targetInMs-todayInMs > (12 * monthInMs))) {
+    console.log("Date is further than a year from today");
+    return false;
+  } else {
+    console.log("Date is closer than a year from today");
+    return true;
   };
 };
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
@@ -372,6 +393,12 @@ function validateResultName() {
     } else if (!monthLater()) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
+      displayErrorValidation(targetDate, helpTargetDate);
+      return(false);
+
+    } else if (!lessThanAYear()) {
+    
+      helpTargetDate.innerHTML = "Please set your target within 12 months from today, it is good to plan short term goals and revise once they are acheved";
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 

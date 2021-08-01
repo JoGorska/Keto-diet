@@ -1,39 +1,5 @@
 
-//Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
-// code from code pen, explained by Sean Young on Webinar 22/07/2021
-//https://codepen.io/seanyoung247/pen/qBmbZQK
 
-document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
-  if(event.target.matches("#radio-target-date")) {
-    //make visible
-    document.getElementById("div-target-date").classList.remove("my-invisible")
-    //make invisible
-    document.getElementById("div-target-metric").classList.add("my-invisible")
-    document.getElementById("div-target-imperial").classList.add("my-invisible")
-       
-  } else if (event.target.matches("#radio-target-weight")){
-    //make invisible
-    document.getElementById("div-target-date").classList.add("my-invisible")
-    //make visible
-    document.getElementById("div-target-metric").classList.remove("my-invisible")
-    document.getElementById("div-target-imperial").classList.remove("my-invisible")
-    
-  } else if (event.target.matches("#imperial")){
-    //make invisible
-    document.getElementById("div-all-metric").classList.add("my-invisible")
-    //make visible
-    document.getElementById("div-all-imperial").classList.remove("my-invisible")
-  
-  } else if (event.target.matches("#metric")){
-    //make visible
-    document.getElementById("div-all-metric").classList.remove("my-invisible")
-    //make invisible
-    document.getElementById("div-all-imperial").classList.add("my-invisible")
-
-  } else {
-    console.log("event 'change' on unknown field")
-  }
-});
 
 //guidance to handle submit and validation javascripttutorial.net/javascript-dom/javascript-form-validation/
 //I followed logic created in contact.js and adjusted them to the needs of calculator form
@@ -87,73 +53,116 @@ const radioTargetDate = document.getElementById("radio-target-date");
 const radioImperial = document.getElementById("imperial");
 const radioMetric = document.getElementById("metric");
 
-//Regex 
-
 //Regex testing if the input field contains letters and a few chosen characters 
 
 const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 
-//functions testing if particular field is in line with Regex
-
 /**
  *  Function testing if name input field contains letters and chosen special characters
- * 
+ *  function testing if particular field is in line with Regex
  */
 
 function containsLetters(inputName) {
-  let valueLetters = inputName.value
-  console.log(valueLetters)
+  let valueLetters = inputName.value;
+  console.log(valueLetters);
   return regexLetters.test(valueLetters);
 };
 
 /**
 
 /**
- * function testing if the date entered is after today
- * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
+ * function testing if the target date has been set for a day in the past or for today
+ * https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript?rq=1
+ * 
+ * 
  * @returns 
  */
 
-function afterToday(targetDate) {
-  targetDateValue = targetDate.value;
-  console.log(targetDateValue.valueOf())
-  return new Date(targetDate).valueOf() > new Date().valueOf();
-}
+ var todayDate = new Date().toISOString().slice(0, 10);
+ var d = (new Date()).toString().split(' ').splice(1,3).join(' ');
+ var todayString = todayDate.replace(/-/g, '');
+ var targetString = targetDate.value.replace(/-/g, '');
+function beforeToday () {
+  
+  console.log (targetDate.value.replace(/-/g, '') - todayString);
+  console.log(todayString);
+  console.log(targetString);
+  if (targetDate.value <= todayDate) {
+
+    return false;
+
+  } else {
+    return true;
+  };
+};
 
 /**
- * Function testing if date input is month ahead the curent date
- * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
- * @returns 
+ * Function to test if the target date is further than a month ahead
+ * both dates: today and target date are converted to miliseconds from Unix timestamp is the time elapsed since the 1, Jan 1970 00:00:00 UTC,
+ * @returns true or false
  */
 
- function monthDifference() {
-  pickedDate = targetDate.value;
-  console.log(pickedDate)
-  todaysDate = new Date();
-  todaysDate.setHours(0, 0, 0, 0);
-  dateDifference = Math.abs(Number(todaysDate) - pickedDate);
-  //30 Days=2592000000ms
-  if (dateDifference < 2592000000) {
-    console.log("date is less than month difference from current date")  
-    return false;
-      
-  } else {
-      console.log("date is more than a month difference from current date")
-      return true;
-  }
-}
+function monthLater () {
+  
+  var todayInMs = new Date();
+  var targetInMs = targetDate.valueAsNumber;
+  const monthInMs = 2629800000;
 
+  if ((targetInMs-todayInMs) < monthInMs) {
+    console.log(`target is closer than a month ahead of today ${targetInMs-todayInMs}`);
+    return false;
+  } else {
+    console.log(`target is futher than a mont ahead of today ${targetInMs-todayInMs}`);
+    return true;
+
+  };
+};
+// functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
+
+/**
+ * Function to add class
+ * @param {*} className 
+ * @param {*} targetNode 
+ */
 function addClass(className, targetNode) {
   targetNode.classList.add(className);
-}
+};
+
+/**
+ * Function to remove class
+ * @param {*} className 
+ * @param {*} targetNode 
+ */
 
 function removeClass(className, targetNode){
   targetNode.classList.remove(className);
-}
+};
+
+/**
+ * Function to set attribute
+ * @param {*} className 
+ * @param {*} targetNode 
+ */
 
 function setAtribute(atributeName, atributeValue, targetNode) {
   targetNode.setAttribute(atributeName, atributeValue);
-}
+};
+/**
+ * Function to remove attribute
+ * @param {*} atributeName 
+ * @param {*} atributeValue 
+ * @param {*} targetNode 
+ */
+function removeAtribute(atributeName, atributeValue, targetNode) {
+  targetNode.removeAttribute(atributeName, atributeValue);
+};
+
+/**
+ * Function to display Error after validation has been failed
+ * makes div with help message visible and in red, input's border is red and red icon with exclamation mark is displayed in input field
+ * @param {*} targetNodeInput 
+ * @param {*} targetNodeHelp 
+ */
 
 function displayErrorValidation(targetNodeInput, targetNodeHelp) {
 
@@ -164,7 +173,64 @@ function displayErrorValidation(targetNodeInput, targetNodeHelp) {
 
 };
 
+/**
+ * Function to remove display Error after validation has been passed
+ * makes div with help message invisible, input border comes back to standard and icon with exclamation mark disapears
+ * @param {*} targetNodeInput 
+ * @param {*} targetNodeHelp 
+ */
 
+function removeErrorValidation(targetNodeInput, targetNodeHelp) {
+
+  removeClass("is-invalid",targetNodeInput);
+  removeAtribute("aria-describedby", "name-help", targetNodeInput);
+  addClass("my-invisible", targetNodeHelp);
+  removeClass("invalid-feedback", targetNodeHelp);
+};
+
+
+/**
+ * Function to swap the visibility of the divs when radio button is changed
+ * makes one div visible and another invisible
+ * @param {*} visibleDiv 
+ * @param {*} invisibleDiv 
+ */
+
+function radioButtonSwap(visibleDiv, invisibleDiv) {
+  removeClass("my-invisible", visibleDiv);
+  addClass("my-invisible", invisibleDiv);
+}
+
+/**
+ * Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
+ * code from code pen, explained by Sean Young on Webinar 22/07/2021
+ * https://codepen.io/seanyoung247/pen/qBmbZQK
+ */
+
+document.getElementsByTagName("FORM")[0].addEventListener("change", function(event){
+  let divTargetDate = document.getElementById("div-target-date");
+  let divTargetMetric = document.getElementById("div-target-metric");
+  let divTargetImperial = document.getElementById("div-target-imperial");
+  let divAllMetric = document.getElementById("div-all-metric");
+  let divAllImperial = document.getElementById("div-all-imperial");
+
+  if(event.target.matches("#radio-target-date")) {
+    radioButtonSwap(divTargetDate, divTargetMetric);
+    addClass("my-invisible", divTargetImperial);
+
+  } else if (event.target.matches("#radio-target-weight")){
+    radioButtonSwap(divTargetMetric, divTargetDate);
+    removeClass("my-invisible", divTargetImperial);
+    
+  } else if (event.target.matches("#imperial")){
+    radioButtonSwap(divAllImperial, divAllMetric);
+  
+  } else if (event.target.matches("#metric")){
+    radioButtonSwap(divAllMetric, divAllImperial);
+  }
+});
+
+  
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 
 /**
@@ -176,36 +242,26 @@ function displayErrorValidation(targetNodeInput, targetNodeHelp) {
 function validateResultName() {
   
   if(inputName.value === "") {
-
     helpName.innerHTML = "This field is required";
-
-    displayErrorValidation(inputName, helpName)
-    
+    displayErrorValidation(inputName, helpName)    
     return(false);
 
-  }else if (inputName.value.length > 50) {
-
+  } else if (inputName.value.length > 50) {
     helpName.innerHTML = "Name too long";
-
     displayErrorValidation(inputName, helpName)
     return(false);
 
   } else if (!containsLetters(inputName)) {
   
     helpName.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
-
     displayErrorValidation(inputName, helpName)
     return(false);
 
   } else {
     
-      console.log(`name - I have passed through validation and my value is: ${inputName.value} and my length ${inputName.value.length}`)
-      inputName.classList.remove("is-invalid");
-      inputName.removeAttribute("aria-describedby", "name-help");
-      helpName.classList.add("my-invisible");
-      helpName.classList.remove("invalid-feedback");
-
-      return(true)
+    console.log(`name - I have passed through validation and my value is: ${inputName.value} and my length ${inputName.value.length}`)
+    removeErrorValidation(inputName, helpName)
+    return(true)
 
   };
   
@@ -223,21 +279,14 @@ function validateResultName() {
   if(selectGender.value === "Please choose from one of the options") {
 
     helpGender.innerHTML = "This field is required"
-    
-    selectGender.classList.add("is-invalid");
-    selectGender.setAttribute("aria-describedby", "gender-help");
-    helpGender.classList.remove("my-invisible");
-    helpGender.classList.add("invalid-feedback");
+    displayErrorValidation(selectGender, helpGender);
     return(false);
 
-    } else {
-    
-      console.log(`Gender - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
-      selectGender.classList.remove("is-invalid");
-      selectGender.removeAttribute("aria-describedby", "gender-help");
-      helpGender.classList.add("my-invisible");
-
-      return(true)
+  } else {
+  
+    console.log(`Gender - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
+    removeErrorValidation(selectGender, helpGender);
+    return(true)
 
   };
   
@@ -254,131 +303,91 @@ function validateResultName() {
   if (inputAge.value == 0) {
 
     helpAge.innerHTML = "This field is required"
-    
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
+    displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else if (inputAge.value === "") {
 
       helpAge.innerHTML = "This field is required"
-      
-      inputAge.classList.add("is-invalid");
-      inputAge.setAttribute("aria-describedby", "age-help");
-      helpAge.classList.remove("my-invisible");
-      helpAge.classList.add("invalid-feedback");
+      displayErrorValidation(inputAge, helpAge);
       return(false);
 
   } else if (inputAge.value < 19 && inputAge.value > 0) {
 
     helpAge.innerHTML = "Our calculator is only able to give results for adults";
-
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
+    displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else if (inputAge.value > 120) {
 
     helpAge.innerHTML = "Please enter your age correctly";
-
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
+    displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else if (inputAge.value < 0) {
 
     helpAge.innerHTML = "We do not accept minus values for age";
-
-    inputAge.classList.add("is-invalid");
-    inputAge.setAttribute("aria-describedby", "age-help");
-    helpAge.classList.remove("my-invisible");
-    helpAge.classList.add("invalid-feedback");
+    displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else {
     
-      console.log(`Age - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
-      inputAge.classList.remove("is-invalid");
-      inputAge.removeAttribute("aria-describedby", "age-help");
-      helpAge.classList.add("my-invisible");
-      helpAge.classList.remove("invalid-feedback");
-
-      return(true)
+    console.log(`Age - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
+    removeErrorValidation(inputAge, helpAge);
+    return(true)
 
   };
   
 };
 
-
 /**
- * Function to show the result of valiation on name input field
+ * Function to show the result of valiation on target date input field
+ * checks first if the radio button has been set to target date, than
  * Returns true or false, if false - changes the look of the input field 
- * and displays line of text with detailed information why it failed
+ * and displays line of text with detailed information why it failed validation
+ * 
  */
 
  function validateResultTargetDate() {
 
   if (radioTargetDate.checked) {
-  
+
     if (targetDate.value === "") {
 
       helpTargetDate.innerHTML = "This field is required"
-      
-      targetDate.classList.add("is-invalid");
-      targetDate.setAttribute("aria-describedby", "date-help");
-      helpTargetDate.classList.remove("my-invisible");
-      helpTargetDate.classList.add("invalid-feedback");
-
+      displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 
-    } else if (!afterToday(targetDate)) {
+    } else if (targetDate.value.length > 10) {
+      helpTargetDate.innerHTML = "Date contains too many digits, please check the date"
+      displayErrorValidation(targetDate, helpTargetDate);
+      return(false);
     
-      helpTargetDate.innerHTML = "The date can't be earlier than today";
-
-      targetDate.classList.add("is-invalid");
-      targetDate.setAttribute("aria-describedby", "date-help");
-      helpTargetDate.classList.remove("my-invisible");
-      helpTargetDate.classList.add("invalid-feedback");
-
-      return(false);      
-
-    } else if (!monthDifference(targetDate)) {
+    //  let dateString = targetDate.value.toString();
+    //  console.log(dateString);
+    } else if (!beforeToday()) {
+      console.log("failed validation on beforeToday")
+      return (false);
+    
+    } else if (!monthLater()) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
-
-      targetDate.classList.add("is-invalid");
-      targetDate.setAttribute("aria-describedby", "date-help");
-      helpTargetDate.classList.remove("my-invisible");
-      helpTargetDate.classList.add("invalid-feedback");
-
+      displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 
     } else {
       
-        console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
-        targetDate.classList.remove("is-invalid");
-        targetDate.removeAttribute("aria-describedby", "date-help");
-        helpTargetDate.classList.add("my-invisible");
-        helpTargetDate.classList.add("invalid-feedback");
-
-        return(true)
+      console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
+      removeErrorValidation(targetDate, helpTargetDate);
+      return(true);
 
     };
+
   } else {
     console.log(`target Date - the radio button for date is off, `)
-    targetDate.classList.remove("is-invalid");
-    targetDate.removeAttribute("aria-describedby", "date-help");
-    helpTargetDate.classList.add("my-invisible");
-    helpTargetDate.classList.remove("invalid-feedback");
-
-    return(true)
-  }
+    removeErrorValidation(targetDate, helpTargetDate);
+    return(true);
+  };
 };
 
 
@@ -388,25 +397,25 @@ function validateResultName() {
 
 function allValidationResults() {
   if (validateResultName() == false) {
-      console.log("name failed all validation results");
-      return(false);
+    console.log("name failed all validation results");
+    return(false);
   
   } else if (validateResultGender() == false) {
-      console.log("gender failed all validation results");
-      return(false);
+    console.log("gender failed all validation results");
+    return(false);
 
   } else if (validateResultAge() == false) {
-      console.log("age failed all validation results");
-      return(false);
+    console.log("age failed all validation results");
+    return(false);
       
  } else if (validateResultTargetDate() == false) {
-      console.log("target date failed all validation results");
-      return(false);
+    console.log("target date failed all validation results");
+    return(false);
       
   } else {
-      console.log("all fields passed all validation results");
-      return(true);
-      
+    console.log("all fields passed all validation results");
+    return(true);
+    
   };
 };
 
@@ -421,7 +430,7 @@ calulatorForm.addEventListener("submit", handleCalculatorSubmit);
  function handleCalculatorSubmit(event) {
   event.preventDefault();
   if (allValidationResults() == false) {
-      console.log("display whole form with highlited fields in red");
+      console.log("stay on the page calculator form");
 
   } else {
       console.log("all good to go");
@@ -429,3 +438,49 @@ calulatorForm.addEventListener("submit", handleCalculatorSubmit);
   };
 
 };
+
+
+// debounce and instant feedback on input copied from the below link
+//https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
+
+/**
+ * Function to delay response
+ * @param {*} fn 
+ * @param {*} delay 500
+ * @returns 
+ */
+
+ const debounce = (fn, delay = 500) => {
+  let timeoutId;
+  return (...args) => {
+      // cancel the previous timer
+      if (timeoutId) {
+          clearTimeout(timeoutId);
+      }
+      // setup a new timer
+      timeoutId = setTimeout(() => {
+          fn.apply(null, args)
+      }, delay);
+  };
+};
+
+/**
+* Gives instant feedback on input with the delay set above
+*/
+
+calulatorForm.addEventListener ('input', debounce(function (e) {
+  switch (e.target.id) {
+      case 'name':
+        validateResultName();
+          break;
+      case 'select-gender':
+        validateResultGender();
+          break;
+      case 'input-age':
+        validateResultAge();
+          break;
+      case 'target-date':
+        validateResultTargetDate();
+          break;
+  }
+}));

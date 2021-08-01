@@ -102,19 +102,40 @@ function beforeToday () {
  * @returns true or false
  */
 
-function monthLater () {
-  
-  var todayInMs = new Date();
-  var targetInMs = targetDate.valueAsNumber;
-  const monthInMs = 2629800000;
 
+function monthLater () {
+  let todayInMs = new Date().getTime();
+  let targetInMs = targetDate.valueAsNumber;
+  let monthInMs = 2629800000;
+  
   if ((targetInMs-todayInMs) < monthInMs) {
+    console.log(todayInMs)
     console.log(`target is closer than a month ahead of today ${targetInMs-todayInMs}`);
     return false;
   } else {
-    console.log(`target is futher than a mont ahead of today ${targetInMs-todayInMs}`);
+    console.log(`target is futher than a month ahead of today ${targetInMs-todayInMs}`);
+    console.log(todayInMs)
+    console.log(targetDate.valueAsNumber)
     return true;
 
+  };
+};
+/**
+ * function to check if the target year is less than a year from Today
+ * @returns 
+ */
+
+function lessThanAYear () {
+  let todayInMs = new Date().getTime();
+  let targetInMs = targetDate.valueAsNumber;
+  let monthInMs = 2629800000;
+
+  if ((targetInMs-todayInMs > (12 * monthInMs))) {
+    console.log("Date is further than a year from today");
+    return false;
+  } else {
+    console.log("Date is closer than a year from today");
+    return true;
   };
 };
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
@@ -199,7 +220,7 @@ function removeErrorValidation(targetNodeInput, targetNodeHelp) {
 function radioButtonSwap(visibleDiv, invisibleDiv) {
   removeClass("my-invisible", visibleDiv);
   addClass("my-invisible", invisibleDiv);
-}
+};
 
 /**
  * Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
@@ -228,6 +249,7 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
   } else if (event.target.matches("#metric")){
     radioButtonSwap(divAllMetric, divAllImperial);
   }
+
 });
 
   
@@ -363,8 +385,6 @@ function validateResultName() {
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
     
-    //  let dateString = targetDate.value.toString();
-    //  console.log(dateString);
     } else if (!beforeToday()) {
       console.log("failed validation on beforeToday")
       return (false);
@@ -372,6 +392,12 @@ function validateResultName() {
     } else if (!monthLater()) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
+      displayErrorValidation(targetDate, helpTargetDate);
+      return(false);
+
+    } else if (!lessThanAYear()) {
+    
+      helpTargetDate.innerHTML = "Please set your target within 12 months from today, it is good to plan short term goals and revise once they are acheved";
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 
@@ -390,6 +416,77 @@ function validateResultName() {
   };
 };
 
+////////////////////////////////////////////////////////////////////////////////
+/**
+ * Validate input on Target Weight Stone and target Weight Pounds
+ * 
+ */
+
+ function validateResultTargetWeightImperial() {
+
+  if (radioTargetWeight.checked && radioImperial.checked) {
+
+    if ((targetWeightStone.value === "") || (targetWeightPounds.value === "") ) {
+
+      helpTargetWeightStone.innerHTML = "Fill in at least one of those fields"
+      helpTargetWeightPounds.innerHTML = "Fill in at least one of those fields"
+      displayErrorValidation(targetWeightStone, helpTargetWeightStone);
+      displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+      return(false);
+ // add function to compare current weight and target weight imperial
+    } else {
+      
+      console.log(`Target Weight Stone and Pounds - I have passed through validation and my value is: ${targetWeightStone.value}}`)
+      removeErrorValidation(targetWeightStone, helpTargetWeightStone);
+      removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`target Weight Stone  - the radio button for Target weight and Imperial is off, `)
+    removeErrorValidation(targetWeightStone, helpTargetWeightStone);
+    removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+    return(true);
+  };
+};
+
+
+/**
+ * Validate input on Target Weight Kg
+ * 
+ * 
+ */
+function validateResultTargetWeightKg() {
+
+  if (radioTargetWeight.checked && radioMetric.checked) {
+
+    if (targetWeightKg.value === "") {
+
+      helpTargetWeightKg.innerHTML = "This field is required"
+      displayErrorValidation(targetWeightKg, helpTargetWeightKg);
+      return(false);
+
+    } else if (targetWeightKg.value <= currentWeightKg.value) {
+
+        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is higher than your current weight"
+        displayErrorValidation(targetWeightKg, helpTargetWeightKg);
+        return(false);
+ 
+    } else {
+      
+      console.log(`Target Weight Kg - I have passed through validation and my value is: ${targetWeightKg.value}`)
+      removeErrorValidation(targetWeightKg, helpTargetWeightKg);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`target Weight Kg  - the radio button for Target weight and Imperial is off, `)
+    removeErrorValidation(targetWeightKg, helpTargetWeightKg);
+    return(true);
+  };
+};
 
 /**
  * Function to check if each validation result, for each input field is false
@@ -411,6 +508,15 @@ function allValidationResults() {
  } else if (validateResultTargetDate() == false) {
     console.log("target date failed all validation results");
     return(false);
+
+  } else if (validateResultTargetWeightImperial() == false) {
+    console.log("target weight Imperial failed all validation results");
+    return(false); 
+
+  } else if (validateResultTargetWeightKg()  == false) {
+      console.log("target weight Kg failed all validation results");
+      return(false);
+     
       
   } else {
     console.log("all fields passed all validation results");
@@ -482,5 +588,14 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
       case 'target-date':
         validateResultTargetDate();
           break;
-  }
+      case 'target-weight-stone':
+        validateResultTargetWeightImperial();
+          break;
+      case 'target-weight-pounds':
+        validateResultTargetWeightImperial();
+          break;
+      case 'target-weight-kg':
+        validateResultTargetWeightKg();
+          break;
+}
 }));

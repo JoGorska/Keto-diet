@@ -12,7 +12,7 @@ const inputName = document.getElementById("name");
 const selectGender = document.getElementById("select-gender");
 const inputAge = document.getElementById("input-age");
 const targetDate = document.getElementById("target-date");
-const currentWeightStone = document.getElementById("current-wieght-stone");
+const currentWeightStone = document.getElementById("current-weight-stone");
 const currentWeightPounds = document.getElementById("current-weight-pounds");
 const targetWeightStone = document.getElementById("target-weight-stone");
 const targetWeightPounds = document.getElementById("target-weight-pounds");
@@ -31,7 +31,7 @@ const helpName = document.getElementById("name-help");
 const helpGender = document.getElementById("gender-help");
 const helpAge = document.getElementById("age-help");
 const helpTargetDate = document.getElementById("date-help");
-const helpCurrentWeightStone = document.getElementById("current-wieght-stone-help");
+const helpCurrentWeightStone = document.getElementById("current-weight-stone-help");
 const helpCurrentWeightPounds = document.getElementById("current-weight-pounds-help");
 const helpTargetWeightStone = document.getElementById("target-weight-stone-help");
 const helpTargetWeightPounds = document.getElementById("target-weight-pounds-help");
@@ -421,7 +421,7 @@ function validateResultCurrentWeightImperial() {
 
   if (radioImperial.checked) {
 
-    if ((currentWeightStone.value === "") || (currentWeightPounds.value === "") ) {
+    if ((currentWeightStone.value === "") && (currentWeightPounds.value === "")) {
 
       helpCurrentWeightStone.innerHTML = "Fill in at least one of those fields"
       helpCurrentWeightPounds.innerHTML = "Fill in at least one of those fields"
@@ -431,7 +431,7 @@ function validateResultCurrentWeightImperial() {
  
     } else {
       
-      console.log(`Current Weight Stone and Pounds - I have passed through validation and my value is: ${currentWeightStone.value}}`)
+      console.log(`Current Weight Stone and Pounds - I have passed through validation and my value is: ${currentWeightStone.value}`)
       removeErrorValidation(currentWeightStone, helpCurrentWeightStone);
       removeErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
       return(true);
@@ -439,7 +439,7 @@ function validateResultCurrentWeightImperial() {
     };
 
   } else {
-    console.log(`Current Weight Stone and Pounds - I have passed through validation and my value is: ${currentWeightStone.value}}`)
+    console.log(`Current Weight Stone and Pounds - I have passed through validation and my value is: ${currentWeightStone.value}`)
     removeErrorValidation(currentWeightStone, helpCurrentWeightStone);
     removeErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
     return(true);
@@ -457,7 +457,7 @@ function validateResultCurrentWeightImperial() {
 
   if (radioTargetWeight.checked && radioImperial.checked) {
 
-    if ((targetWeightStone.value === "") || (targetWeightPounds.value === "") ) {
+    if ((targetWeightStone.value === "") && (targetWeightPounds.value === "")) {
 
       helpTargetWeightStone.innerHTML = "Fill in at least one of those fields"
       helpTargetWeightPounds.innerHTML = "Fill in at least one of those fields"
@@ -467,10 +467,11 @@ function validateResultCurrentWeightImperial() {
  // add function to compare current weight and target weight imperial
     } else {
       
-      console.log(`Target Weight Stone and Pounds - I have passed through validation and my value is: ${targetWeightStone.value}}`)
+      console.log(`Target Weight Stone and Pounds - I have passed through validation and my value is: ${targetWeightStone.value}`)
       removeErrorValidation(targetWeightStone, helpTargetWeightStone);
       removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
       return(true);
+      
 
     };
 

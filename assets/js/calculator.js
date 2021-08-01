@@ -101,52 +101,23 @@ function beforeToday () {
     return true
   };
 };
-// gives incorrect results when the dates are end of year and beggining of year
-//function monthAhead () {
-//  if ((targetDate.value.replace(/-/g, '') - todayString) < 100) {
-//  return false
-//} else {
-// return true
-//}
-//}
-/**
- * Function testing if date input is month ahead the curent date
- * https://stackoverflow.com/questions/11344324/validate-if-date-is-before-date-of-current-date
- * ??? NOT WORKING
- * @returns 
- */
 
- //function monthDifference() {
- // pickedDate = targetDate.value;
- // console.log(pickedDate)
- // todaysDate = new Date();
- // todaysDate.setHours(0, 0, 0, 0);
- // dateDifference = Math.abs(Number(todaysDate) - pickedDate);
-  //30 Days=2592000000ms
- // if (dateDifference < 2592000000) {
- //   console.log("date is less than month difference from current date")  
- //   return false;
-      
- // } else {
- //     console.log("date is more than a month difference from current date")
- //     return true;
- // }
-//}
+
 
 // doesn't work as not able to convert html input to time without being given time
 // I need to convert both dates to same value 
-// in this attempt I try to convert to miliseconds from Unix timestamp is the time elapsed since the 1, Jan 1970 00:00:00 UTC,
+// in this attempt I try to convert to miliseconds 
+
+/**
+ * Function to test if the target date is further than a month ahead
+ * both dates: today and target date are converted to miliseconds from Unix timestamp is the time elapsed since the 1, Jan 1970 00:00:00 UTC,
+ * @returns true or false
+ */
 
 function monthLater () {
-  //today converts to miliseconds fine
+  
   var todayInMs = new Date();
-  todayInMs = todayInMs.getTime()
-  console.log(todayInMs)
-
   var targetInMs = targetDate.valueAsNumber
-  console.log(targetInMs)
-  console.log(targetInMs-todayInMs)
-
   const monthInMs = 2629800000
 
   if ((targetInMs-todayInMs) < monthInMs) {

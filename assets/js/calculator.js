@@ -53,24 +53,18 @@ const radioTargetDate = document.getElementById("radio-target-date");
 const radioImperial = document.getElementById("imperial");
 const radioMetric = document.getElementById("metric");
 
-
-
-//Regex 
-
 //Regex testing if the input field contains letters and a few chosen characters 
 
 const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 
-//functions testing if particular field is in line with Regex
-
 /**
  *  Function testing if name input field contains letters and chosen special characters
- * 
+ *  function testing if particular field is in line with Regex
  */
 
 function containsLetters(inputName) {
-  let valueLetters = inputName.value
-  console.log(valueLetters)
+  let valueLetters = inputName.value;
+  console.log(valueLetters);
   return regexLetters.test(valueLetters);
 };
 
@@ -95,18 +89,12 @@ function beforeToday () {
   console.log(targetString);
   if (targetDate.value <= todayDate) {
 
-    return false
+    return false;
 
   } else {
-    return true
+    return true;
   };
 };
-
-
-
-// doesn't work as not able to convert html input to time without being given time
-// I need to convert both dates to same value 
-// in this attempt I try to convert to miliseconds 
 
 /**
  * Function to test if the target date is further than a month ahead
@@ -117,18 +105,18 @@ function beforeToday () {
 function monthLater () {
   
   var todayInMs = new Date();
-  var targetInMs = targetDate.valueAsNumber
-  const monthInMs = 2629800000
+  var targetInMs = targetDate.valueAsNumber;
+  const monthInMs = 2629800000;
 
   if ((targetInMs-todayInMs) < monthInMs) {
-    console.log(`target is closer than a month ahead of today ${targetInMs-todayInMs}`)
-  return false
+    console.log(`target is closer than a month ahead of today ${targetInMs-todayInMs}`);
+    return false;
   } else {
-    console.log(`target is futher than a mont ahead of today ${targetInMs-todayInMs}`)
-    return true
+    console.log(`target is futher than a mont ahead of today ${targetInMs-todayInMs}`);
+    return true;
 
-  }
-}
+  };
+};
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
 
 /**
@@ -226,19 +214,19 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
   let divAllMetric = document.getElementById("div-all-metric");
   let divAllImperial = document.getElementById("div-all-imperial");
 
-    if(event.target.matches("#radio-target-date")) {
+  if(event.target.matches("#radio-target-date")) {
     radioButtonSwap(divTargetDate, divTargetMetric);
     addClass("my-invisible", divTargetImperial);
 
   } else if (event.target.matches("#radio-target-weight")){
     radioButtonSwap(divTargetMetric, divTargetDate);
-    removeClass("my-invisible", divTargetImperial)
+    removeClass("my-invisible", divTargetImperial);
     
   } else if (event.target.matches("#imperial")){
-    radioButtonSwap(divAllImperial, divAllMetric)
+    radioButtonSwap(divAllImperial, divAllMetric);
   
   } else if (event.target.matches("#metric")){
-    radioButtonSwap(divAllMetric, divAllImperial)
+    radioButtonSwap(divAllMetric, divAllImperial);
   }
 });
 
@@ -352,7 +340,6 @@ function validateResultName() {
   
 };
 
-
 /**
  * Function to show the result of valiation on target date input field
  * checks first if the radio button has been set to target date, than
@@ -381,7 +368,6 @@ function validateResultName() {
     } else if (!beforeToday()) {
       console.log("failed validation on beforeToday")
       return (false);
-
     
     } else if (!monthLater()) {
     
@@ -396,6 +382,7 @@ function validateResultName() {
       return(true);
 
     };
+
   } else {
     console.log(`target Date - the radio button for date is off, `)
     removeErrorValidation(targetDate, helpTargetDate);
@@ -410,25 +397,25 @@ function validateResultName() {
 
 function allValidationResults() {
   if (validateResultName() == false) {
-      console.log("name failed all validation results");
-      return(false);
+    console.log("name failed all validation results");
+    return(false);
   
   } else if (validateResultGender() == false) {
-      console.log("gender failed all validation results");
-      return(false);
+    console.log("gender failed all validation results");
+    return(false);
 
   } else if (validateResultAge() == false) {
-      console.log("age failed all validation results");
-      return(false);
+    console.log("age failed all validation results");
+    return(false);
       
  } else if (validateResultTargetDate() == false) {
-      console.log("target date failed all validation results");
-      return(false);
+    console.log("target date failed all validation results");
+    return(false);
       
   } else {
-      console.log("all fields passed all validation results");
-      return(true);
-      
+    console.log("all fields passed all validation results");
+    return(true);
+    
   };
 };
 

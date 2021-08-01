@@ -220,7 +220,7 @@ function removeErrorValidation(targetNodeInput, targetNodeHelp) {
 function radioButtonSwap(visibleDiv, invisibleDiv) {
   removeClass("my-invisible", visibleDiv);
   addClass("my-invisible", invisibleDiv);
-}
+};
 
 /**
  * Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
@@ -249,6 +249,7 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
   } else if (event.target.matches("#metric")){
     radioButtonSwap(divAllMetric, divAllImperial);
   }
+
 });
 
   
@@ -384,8 +385,6 @@ function validateResultName() {
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
     
-    //  let dateString = targetDate.value.toString();
-    //  console.log(dateString);
     } else if (!beforeToday()) {
       console.log("failed validation on beforeToday")
       return (false);
@@ -417,6 +416,43 @@ function validateResultName() {
   };
 };
 
+
+////////////////////////////////////////////////////////////////////////////////
+/**
+ * Validate input on Target Weight Kg
+ * 
+ * 
+ */
+function validateResultTargetWeightKg() {
+
+  if (radioTargetWeight.checked && radioMetric.checked) {
+
+    if (targetWeightKg.value === "") {
+
+      helpTargetWeightKg.innerHTML = "This field is required"
+      displayErrorValidation(targetWeightKg, helpTargetWeightKg);
+      return(false);
+
+    } else if (targetWeightKg.value <= currentWeightKg) {
+
+        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is higher than your current weight"
+        displayErrorValidation(targetWeightKg, helpTargetWeightKg);
+        return(false);
+ 
+    } else {
+      
+      console.log(`Target Weight Kg - I have passed through validation and my value is: ${targetWeightKg.value}`)
+      removeErrorValidation(targetWeightKg, helpTargetWeightKg);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`target Weight Kg  - the radio button for Target weight and Imperial is off, `)
+    removeErrorValidation(targetWeightKg, helpTargetWeightKg);
+    return(true);
+  };
+};
 
 /**
  * Function to check if each validation result, for each input field is false

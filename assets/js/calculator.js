@@ -134,17 +134,30 @@ function beforeToday () {
 //}
 
 // doesn't work as not able to convert html input to time without being given time
+// I need to convert both dates to same value 
+// in this attempt I try to convert to miliseconds from Unix timestamp is the time elapsed since the 1, Jan 1970 00:00:00 UTC,
 
-//function monthDifference () {
-//  var todayInMs = new Date();
-//  todayInMs = todayInMs.getTime()
-//  console.log(todayInMs)
-//  console.log(targetDate.value)
-//  var targetInMs = targetDate.value
-//  targetInMs = targetInMs.getTime()
-//  console.log(targetInMs)
-//}
+function monthLater () {
+  //today converts to miliseconds fine
+  var todayInMs = new Date();
+  todayInMs = todayInMs.getTime()
+  console.log(todayInMs)
 
+  var targetInMs = targetDate.valueAsNumber
+  console.log(targetInMs)
+  console.log(targetInMs-todayInMs)
+
+  const monthInMs = 2629800000
+
+  if ((targetInMs-todayInMs) < monthInMs) {
+    console.log(`target is closer than a month ahead of today ${targetInMs-todayInMs}`)
+  return false
+  } else {
+    console.log(`target is futher than a mont ahead of today ${targetInMs-todayInMs}`)
+    return true
+
+  }
+}
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
 
 /**
@@ -399,7 +412,7 @@ function validateResultName() {
       return (false);
 
     
-    } else if (!monthDifference()) {
+    } else if (!monthLater()) {
     
       helpTargetDate.innerHTML = "We can only calculate the results for dates further than month ahead";
       displayErrorValidation(targetDate, helpTargetDate);

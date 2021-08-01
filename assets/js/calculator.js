@@ -416,8 +416,42 @@ function validateResultName() {
   };
 };
 
-
 ////////////////////////////////////////////////////////////////////////////////
+/**
+ * Validate input on Target Weight Stone and target Weight Pounds
+ * 
+ */
+
+ function validateResultTargetWeightImperial() {
+
+  if (radioTargetWeight.checked && radioImperial.checked) {
+
+    if ((targetWeightStone.value === "") || (targetWeightPounds.value === "") ) {
+
+      helpTargetWeightStone.innerHTML = "Fill in at least one of those fields"
+      helpTargetWeightPounds.innerHTML = "Fill in at least one of those fields"
+      displayErrorValidation(targetWeightStone, helpTargetWeightStone);
+      displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+      return(false);
+ // add function to compare current weight and target weight imperial
+    } else {
+      
+      console.log(`Target Weight Stone and Pounds - I have passed through validation and my value is: ${targetWeightStone.value}}`)
+      removeErrorValidation(targetWeightStone, helpTargetWeightStone);
+      removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`target Weight Stone  - the radio button for Target weight and Imperial is off, `)
+    removeErrorValidation(targetWeightStone, helpTargetWeightStone);
+    removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+    return(true);
+  };
+};
+
+
 /**
  * Validate input on Target Weight Kg
  * 

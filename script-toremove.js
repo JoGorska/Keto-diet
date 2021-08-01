@@ -1,3 +1,15 @@
+Sean Murphy
+
+parse domain name
+function domainName(url){
+  return url.replace(/.+\/\/|www.|\..+/g, '');
+};
+
+function domainName(url){
+  return url.replace(/(?:.*\/\/)?(?:www\.)?(.+)\..*/i, (match,domain)=>domain);
+};
+
+
 ///////////////////////////////////// to be deleted
 
 

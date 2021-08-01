@@ -467,7 +467,7 @@ function validateResultTargetWeightKg() {
       displayErrorValidation(targetWeightKg, helpTargetWeightKg);
       return(false);
 
-    } else if (targetWeightKg.value <= currentWeightKg) {
+    } else if (targetWeightKg.value <= currentWeightKg.value) {
 
         helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is higher than your current weight"
         displayErrorValidation(targetWeightKg, helpTargetWeightKg);
@@ -508,6 +508,15 @@ function allValidationResults() {
  } else if (validateResultTargetDate() == false) {
     console.log("target date failed all validation results");
     return(false);
+
+  } else if (validateResultTargetWeightImperial() == false) {
+    console.log("target weight Imperial failed all validation results");
+    return(false); 
+
+  } else if (validateResultTargetWeightKg()  == false) {
+      console.log("target weight Kg failed all validation results");
+      return(false);
+     
       
   } else {
     console.log("all fields passed all validation results");
@@ -579,5 +588,14 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
       case 'target-date':
         validateResultTargetDate();
           break;
-  }
+      case 'target-weight-stone':
+        validateResultTargetWeightImperial();
+          break;
+      case 'target-weight-pounds':
+        validateResultTargetWeightImperial();
+          break;
+      case 'target-weight-kg':
+        validateResultTargetWeightKg();
+          break;
+}
 }));

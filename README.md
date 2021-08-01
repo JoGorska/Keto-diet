@@ -101,6 +101,20 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
     - I tired to change both dates to string of numbers without seperators, this was working fine, untill you try to compare the dates from the end and begginng of the following year. 
     - Different browsers will give me a different input on html date input field, so if I found solution to converting target Date it might not work on various browsers
     
+## Validation
+1. Imperial measures validation
+- add validation for those fields is so that one or both of the fields are filled.
+- add validation to compare value stone + pounds with current weight stone + pounds
+- stones input field 
+    - I can't validate it if it is empty, as some people might choose to put pounds only (in US it customary not to use Stone, just pounds)
+    - I'd rather not to validate maximum value as I hope the calculator to be inclusive
+    - I'd rather nto to validate minimum value for the same reason
+- pounds input field
+    - I can't validate it if it is empty, as someone might have exact weight in Stone
+    - I can't validate maximum value as 14 pounds (stone) as someone might choose to put their full weight in lbs instead of stone and lbs
+- feet and inches for height
+    - similarly as above I do not want to set maximum or minimum value
+
 
 ## Previous project (to be deleted)
 

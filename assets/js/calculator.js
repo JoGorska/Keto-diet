@@ -416,9 +416,40 @@ function validateResultName() {
   };
 };
 
-////////////////////////////////////////////////////////////////////////////////
+
+function validateResultCurrentWeightImperial() {
+
+  if (radioImperial.checked) {
+
+    if ((currentWeightStone.value === "") || (currentWeightPounds.value === "") ) {
+
+      helpCurrentWeightStone.innerHTML = "Fill in at least one of those fields"
+      helpCurrentWeightPounds.innerHTML = "Fill in at least one of those fields"
+      displayErrorValidation(currentWeightStone, helpCurrentWeightStone);
+      displayErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
+      return(false);
+ 
+    } else {
+      
+      console.log(`Current Weight Stone and Pounds - I have passed through validation and my value is: ${currentWeightStone.value}}`)
+      removeErrorValidation(currentWeightStone, helpCurrentWeightStone);
+      removeErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`Current Weight Stone and Pounds - I have passed through validation and my value is: ${currentWeightStone.value}}`)
+    removeErrorValidation(currentWeightStone, helpCurrentWeightStone);
+    removeErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
+    return(true);
+  };
+};
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////needs calculating whole weight stone + pounds to compare 
 /**
- * Validate input on Target Weight Stone and target Weight Pounds
+ * Validate User input on Target Weight Stone and target Weight Pounds
  * 
  */
 
@@ -453,7 +484,7 @@ function validateResultName() {
 
 
 /**
- * Validate input on Target Weight Kg
+ * Validate user input on Target Weight Kg
  * 
  * 
  */
@@ -508,6 +539,10 @@ function allValidationResults() {
  } else if (validateResultTargetDate() == false) {
     console.log("target date failed all validation results");
     return(false);
+
+  } else if (validateResultCurrentWeightImperial() == false) {
+    console.log("Current weight Imperial failed all validation results");
+    return(false); 
 
   } else if (validateResultTargetWeightImperial() == false) {
     console.log("target weight Imperial failed all validation results");
@@ -588,6 +623,13 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
       case 'target-date':
         validateResultTargetDate();
           break;
+      case 'current-weight-stone':
+        validateResultCurrentWeightImperial();
+          break;
+      case 'current-weight-pounds':
+        validateResultCurrentWeightImperial();
+          break;
+          
       case 'target-weight-stone':
         validateResultTargetWeightImperial();
           break;

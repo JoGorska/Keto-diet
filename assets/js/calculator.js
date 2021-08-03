@@ -617,19 +617,21 @@ function validateResultTargetWeightKg() {
 };
 
 /**
- * Function to check if the value of the field is empty for those fields that only require to be checked for user input
- * @param {*} nodeValue 
+ * universal function to test the input fields if they were left empty. This function is used for fields that do not require complex validation.
+ * @param {*} testedNode 
+ * @param {*} helpNode 
  * @returns 
  */
+
  function falseIfEmpty (testedNode, helpNode) {
   if (testedNode.value === "") {
 
-    console.log(`I am inside check if no empty function - node ${testedNode} is empty`)
     helpNode.innerHTML = "This field is required";
     displayErrorValidation(testedNode, helpNode)
-
     return false;
+
   } else {
+
     removeErrorValidation(testedNode, helpNode)
     return true;
   };
@@ -676,10 +678,17 @@ function allValidationResults() {
       console.log("target weight Kg failed all validation results");
       return(false);
 
-    } else if (falseIfEmpty(heightCm, helpHeightCm)  == true) {
-      console.log("height cm failed all validation results");
-      return(false);
-     
+  } else if (falseIfEmpty(heightCm, helpHeightCm)  == true) {
+    console.log("height cm failed all validation results");
+    return(false);
+
+  } else if (falseIfEmpty(excerciseHours, helpExcerciseHours)  == true) {
+    console.log("excercise hours failed all validation results");
+    return(false);
+   
+  } else if (falseIfEmpty(diet, helpDiet)  == true) {
+    console.log("diet failed all validation results");
+    return(false);
       
   } else {
     console.log("all fields passed all validation results");
@@ -781,5 +790,12 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
       case 'height-cm':
         falseIfEmpty(heightCm, helpHeightCm)
           break;
+      case 'excercise-hours':
+        falseIfEmpty(excerciseHours, helpExcerciseHours)
+          break;
+      case 'input-diet':
+        falseIfEmpty(diet, helpDiet)
+          break;
+
 }
 }));

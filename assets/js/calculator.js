@@ -138,6 +138,17 @@ function lessThanAYear () {
     return true;
   };
 };
+
+//Function to calculate total Imperial weght in pounds
+
+function totalImperialWeight (stone, pounds) {
+  console.log((stone * 14) + pounds);
+  return ((stone * 14) + pounds);
+  
+};
+
+
+
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
 
 /**
@@ -428,6 +439,14 @@ function validateResultCurrentWeightImperial() {
       displayErrorValidation(currentWeightStone, helpCurrentWeightStone);
       displayErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
       return(false);
+
+    } else if ((totalImperialWeight(currentWeightStone.value, currentWeightPounds.value)) <= (totalImperialWeight(targetWeightStone.value, targetWeightPounds.value))) {
+
+        helpCurrentWeightStone.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
+        helpCurrentWeightPounds.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
+        displayErrorValidation(targetWeightStone, helpTargetWeightStone);
+        displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+        return(false);
  
     } else {
       
@@ -464,7 +483,17 @@ function validateResultCurrentWeightImperial() {
       displayErrorValidation(targetWeightStone, helpTargetWeightStone);
       displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
       return(false);
- // add function to compare current weight and target weight imperial
+
+    } else if ((totalImperialWeight(currentWeightStone.value, currentWeightPounds.value)) <= (totalImperialWeight(targetWeightStone.value, targetWeightPounds.value))) {
+      console.log(totalImperialWeight(currentWeightStone.value, currentWeightPounds.value));
+      console.log(totalImperialWeight(targetWeightStone.value, targetWeightPounds.value));
+
+        helpTargetWeightStone.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
+        helpTargetWeightPounds.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
+        displayErrorValidation(targetWeightStone, helpTargetWeightStone);
+        displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+        return(false);
+ 
     } else {
       
       console.log(`Target Weight Stone and Pounds - I have passed through validation and my value is: ${targetWeightStone.value}`)

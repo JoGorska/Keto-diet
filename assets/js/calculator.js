@@ -499,9 +499,9 @@ function validateResultTargetWeightKg() {
       displayErrorValidation(targetWeightKg, helpTargetWeightKg);
       return(false);
 
-    } else if (targetWeightKg.value <= currentWeightKg.value) {
+    } else if (targetWeightKg.value >= currentWeightKg.value) {
 
-        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is higher than your current weight"
+        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your current weight"
         displayErrorValidation(targetWeightKg, helpTargetWeightKg);
         return(false);
  

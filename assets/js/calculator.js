@@ -45,7 +45,6 @@ const helpWaistCm = document.getElementById("waist-cm-help");
 const helpExcerciseHours = document.getElementById("excercise-hours-help");
 const helpDiet = document.getElementById("input-diet-help");
 
-
 // Radio button variables
 const radioTargetWeight = document.getElementById("radio-target-weight");
 const radioTargetDate = document.getElementById("radio-target-date");
@@ -53,19 +52,7 @@ const radioTargetDate = document.getElementById("radio-target-date");
 const radioImperial = document.getElementById("imperial");
 const radioMetric = document.getElementById("metric");
 
-/**
- * Function to check if the value of the field is empty
- * @param {*} nodeValue 
- * @returns 
- */
-function falseIfEmpty (nodeValue) {
-  if (nodeValue === "") {
-    console.log(`I am inside check if no empty function - node ${nodeValue} is empty`)
-    return false
-  } else {
-    return true
-  }
-}
+
 
 //Regex testing if the input field contains letters and a few chosen characters 
 
@@ -630,6 +617,25 @@ function validateResultTargetWeightKg() {
 };
 
 /**
+ * Function to check if the value of the field is empty for those fields that only require to be checked for user input
+ * @param {*} nodeValue 
+ * @returns 
+ */
+ function falseIfEmpty (testedNode, helpNode) {
+  if (testedNode.value === "") {
+
+    console.log(`I am inside check if no empty function - node ${testedNode} is empty`)
+    helpNode.innerHTML = "This field is required";
+    displayErrorValidation(testedNode, helpNode)
+
+    return false;
+  } else {
+    removeErrorValidation(testedNode, helpNode)
+    return true;
+  };
+};
+
+/**
  * Function to check if each validation result, for each input field is false
 */
 
@@ -658,12 +664,20 @@ function allValidationResults() {
     console.log("target weight Imperial failed all validation results");
     return(false); 
 
+  } else if (validateResultHeightImperial() == false) {
+    console.log("Height imperial failed all validation results");
+    return(false);   
+
   } else if (validateResultCurrentWeightKg()  == false) {
     console.log("current weight Kg failed all validation results");
     return(false);
 
   } else if (validateResultTargetWeightKg()  == false) {
       console.log("target weight Kg failed all validation results");
+      return(false);
+
+    } else if (falseIfEmpty(heightCm, helpHeightCm)  == true) {
+      console.log("height cm failed all validation results");
       return(false);
      
       
@@ -750,12 +764,22 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
       case 'target-weight-pounds':
         validateResultTargetWeightImperial();
           break;
+      case 'height-feet':
+        validateResultHeightImperial();
+          break;
+
+      case 'height-inches':
+        validateResultHeightImperial();
+          break;
 
       case 'current-weight-kg':
         validateResultCurrentWeightKg();
           break;
       case 'target-weight-kg':
         validateResultTargetWeightKg();
+          break;
+      case 'height-cm':
+        falseIfEmpty(heightCm, helpHeightCm)
           break;
 }
 }));

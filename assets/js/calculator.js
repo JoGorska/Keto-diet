@@ -53,6 +53,20 @@ const radioTargetDate = document.getElementById("radio-target-date");
 const radioImperial = document.getElementById("imperial");
 const radioMetric = document.getElementById("metric");
 
+/**
+ * Function to check if the value of the field is empty
+ * @param {*} nodeValue 
+ * @returns 
+ */
+function falseIfEmpty (nodeValue) {
+  if (nodeValue === "") {
+    console.log(`I am inside check if no empty function - node ${nodeValue} is empty`)
+    return false
+  } else {
+    return true
+  }
+}
+
 //Regex testing if the input field contains letters and a few chosen characters 
 
 const regexLetters = /[a-zA-Z \,'\.\-\']/g;
@@ -506,6 +520,37 @@ function validateResultCurrentWeightImperial() {
     console.log(`target Weight Stone  - the radio button for Target weight and Imperial is off, `)
     removeErrorValidation(targetWeightStone, helpTargetWeightStone);
     removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+    return(true);
+  };
+};
+
+
+
+function validateResultHeightImperial() {
+
+  if (radioImperial.checked) {
+
+    if ((heightFeet.value === "") && (heightInches.value === "")) {
+
+      helpHeightFeet.innerHTML = "Fill in at least one of those fields"
+      helpHeightInches.innerHTML = "Fill in at least one of those fields"
+      displayErrorValidation(heightFeet, helpHeightFeet);
+      displayErrorValidation(heightInches, helpHeightInches);
+      return(false);
+
+    } else {
+      
+      console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`)
+      removeErrorValidation(heightFeet, helpHeightFeet);
+      removeErrorValidation(heightInches, helpHeightInches);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`)
+    removeErrorValidation(heightFeet, helpHeightFeet);
+    removeErrorValidation(heightInches, helpHeightInches);
     return(true);
   };
 };

@@ -45,13 +45,14 @@ const helpWaistCm = document.getElementById("waist-cm-help");
 const helpExcerciseHours = document.getElementById("excercise-hours-help");
 const helpDiet = document.getElementById("input-diet-help");
 
-
 // Radio button variables
 const radioTargetWeight = document.getElementById("radio-target-weight");
 const radioTargetDate = document.getElementById("radio-target-date");
 
 const radioImperial = document.getElementById("imperial");
 const radioMetric = document.getElementById("metric");
+
+
 
 //Regex testing if the input field contains letters and a few chosen characters 
 
@@ -138,6 +139,17 @@ function lessThanAYear () {
     return true;
   };
 };
+
+//Function to calculate total Imperial weght in pounds
+
+function totalImperialWeight (stone, pounds) {
+  console.log((stone * 14) + pounds);
+  return ((stone * 14) + pounds);
+  
+};
+
+
+
 // functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
 
 /**
@@ -428,6 +440,14 @@ function validateResultCurrentWeightImperial() {
       displayErrorValidation(currentWeightStone, helpCurrentWeightStone);
       displayErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
       return(false);
+
+    } else if ((totalImperialWeight(currentWeightStone.value, currentWeightPounds.value)) <= (totalImperialWeight(targetWeightStone.value, targetWeightPounds.value))) {
+
+        helpCurrentWeightStone.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
+        helpCurrentWeightPounds.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
+        displayErrorValidation(targetWeightStone, helpTargetWeightStone);
+        displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+        return(false);
  
     } else {
       
@@ -446,8 +466,6 @@ function validateResultCurrentWeightImperial() {
   };
 };
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////needs calculating whole weight stone + pounds to compare 
 /**
  * Validate User input on Target Weight Stone and target Weight Pounds
  * 
@@ -464,7 +482,17 @@ function validateResultCurrentWeightImperial() {
       displayErrorValidation(targetWeightStone, helpTargetWeightStone);
       displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
       return(false);
- // add function to compare current weight and target weight imperial
+
+    } else if ((totalImperialWeight(currentWeightStone.value, currentWeightPounds.value)) <= (totalImperialWeight(targetWeightStone.value, targetWeightPounds.value))) {
+      console.log(totalImperialWeight(currentWeightStone.value, currentWeightPounds.value));
+      console.log(totalImperialWeight(targetWeightStone.value, targetWeightPounds.value));
+
+        helpTargetWeightStone.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
+        helpTargetWeightPounds.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
+        displayErrorValidation(targetWeightStone, helpTargetWeightStone);
+        displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+        return(false);
+ 
     } else {
       
       console.log(`Target Weight Stone and Pounds - I have passed through validation and my value is: ${targetWeightStone.value}`)
@@ -479,6 +507,74 @@ function validateResultCurrentWeightImperial() {
     console.log(`target Weight Stone  - the radio button for Target weight and Imperial is off, `)
     removeErrorValidation(targetWeightStone, helpTargetWeightStone);
     removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
+    return(true);
+  };
+};
+
+
+
+function validateResultHeightImperial() {
+
+  if (radioImperial.checked) {
+
+    if ((heightFeet.value === "") && (heightInches.value === "")) {
+
+      helpHeightFeet.innerHTML = "Fill in at least one of those fields"
+      helpHeightInches.innerHTML = "Fill in at least one of those fields"
+      displayErrorValidation(heightFeet, helpHeightFeet);
+      displayErrorValidation(heightInches, helpHeightInches);
+      return(false);
+
+    } else {
+      
+      console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`)
+      removeErrorValidation(heightFeet, helpHeightFeet);
+      removeErrorValidation(heightInches, helpHeightInches);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`)
+    removeErrorValidation(heightFeet, helpHeightFeet);
+    removeErrorValidation(heightInches, helpHeightInches);
+    return(true);
+  };
+};
+
+
+/**
+ * Validate user input on Current Weight Kg
+ * 
+ * 
+ */
+ function validateResultCurrentWeightKg() {
+
+  if (radioMetric.checked) {
+
+    if (currentWeightKg.value === "") {
+
+      helpCurrentWeightKg.innerHTML = "This field is required"
+      displayErrorValidation(currentWeightKg, helpCurrentWeightKg);
+      return(false);
+
+    } else if (targetWeightKg.value >= currentWeightKg.value) {
+
+        helpCurrentWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight"
+        displayErrorValidation(currentWeightKg, helpCurrentWeightKg);
+        return(false);
+ 
+    } else {
+      
+      console.log(`Current Weight Kg - I have passed through validation and my value is: ${currentWeightKg.value}`)
+      removeErrorValidation(currentWeightKg, helpCurrentWeightKg);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`Current Weight Kg  - the radio button for Target weight and Imperial is off, `)
+    removeErrorValidation(currentWeightKg, helpCurrentWeightKg);
     return(true);
   };
 };
@@ -501,7 +597,7 @@ function validateResultTargetWeightKg() {
 
     } else if (targetWeightKg.value >= currentWeightKg.value) {
 
-        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your current weight"
+        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight"
         displayErrorValidation(targetWeightKg, helpTargetWeightKg);
         return(false);
  
@@ -517,6 +613,27 @@ function validateResultTargetWeightKg() {
     console.log(`target Weight Kg  - the radio button for Target weight and Imperial is off, `)
     removeErrorValidation(targetWeightKg, helpTargetWeightKg);
     return(true);
+  };
+};
+
+/**
+ * universal function to test the input fields if they were left empty. This function is used for fields that do not require complex validation.
+ * @param {*} testedNode 
+ * @param {*} helpNode 
+ * @returns 
+ */
+
+ function falseIfEmpty (testedNode, helpNode) {
+  if (testedNode.value === "") {
+
+    helpNode.innerHTML = "This field is required";
+    displayErrorValidation(testedNode, helpNode)
+    return false;
+
+  } else {
+
+    removeErrorValidation(testedNode, helpNode)
+    return true;
   };
 };
 
@@ -549,10 +666,29 @@ function allValidationResults() {
     console.log("target weight Imperial failed all validation results");
     return(false); 
 
+  } else if (validateResultHeightImperial() == false) {
+    console.log("Height imperial failed all validation results");
+    return(false);   
+
+  } else if (validateResultCurrentWeightKg()  == false) {
+    console.log("current weight Kg failed all validation results");
+    return(false);
+
   } else if (validateResultTargetWeightKg()  == false) {
       console.log("target weight Kg failed all validation results");
       return(false);
-     
+
+  } else if (falseIfEmpty(heightCm, helpHeightCm)  == true) {
+    console.log("height cm failed all validation results");
+    return(false);
+
+  } else if (falseIfEmpty(excerciseHours, helpExcerciseHours)  == true) {
+    console.log("excercise hours failed all validation results");
+    return(false);
+   
+  } else if (falseIfEmpty(diet, helpDiet)  == true) {
+    console.log("diet failed all validation results");
+    return(false);
       
   } else {
     console.log("all fields passed all validation results");
@@ -637,8 +773,29 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
       case 'target-weight-pounds':
         validateResultTargetWeightImperial();
           break;
+      case 'height-feet':
+        validateResultHeightImperial();
+          break;
+
+      case 'height-inches':
+        validateResultHeightImperial();
+          break;
+
+      case 'current-weight-kg':
+        validateResultCurrentWeightKg();
+          break;
       case 'target-weight-kg':
         validateResultTargetWeightKg();
           break;
+      case 'height-cm':
+        falseIfEmpty(heightCm, helpHeightCm)
+          break;
+      case 'excercise-hours':
+        falseIfEmpty(excerciseHours, helpExcerciseHours)
+          break;
+      case 'input-diet':
+        falseIfEmpty(diet, helpDiet)
+          break;
+
 }
 }));

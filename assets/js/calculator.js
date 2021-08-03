@@ -465,8 +465,6 @@ function validateResultCurrentWeightImperial() {
   };
 };
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////needs calculating whole weight stone + pounds to compare 
 /**
  * Validate User input on Target Weight Stone and target Weight Pounds
  * 
@@ -514,6 +512,43 @@ function validateResultCurrentWeightImperial() {
 
 
 /**
+ * Validate user input on Current Weight Kg
+ * 
+ * 
+ */
+ function validateResultCurrentWeightKg() {
+
+  if (radioMetric.checked) {
+
+    if (currentWeightKg.value === "") {
+
+      helpCurrentWeightKg.innerHTML = "This field is required"
+      displayErrorValidation(currentWeightKg, helpCurrentWeightKg);
+      return(false);
+
+    } else if (targetWeightKg.value >= currentWeightKg.value) {
+
+        helpCurrentWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight"
+        displayErrorValidation(currentWeightKg, helpCurrentWeightKg);
+        return(false);
+ 
+    } else {
+      
+      console.log(`Current Weight Kg - I have passed through validation and my value is: ${currentWeightKg.value}`)
+      removeErrorValidation(currentWeightKg, helpCurrentWeightKg);
+      return(true);
+
+    };
+
+  } else {
+    console.log(`Current Weight Kg  - the radio button for Target weight and Imperial is off, `)
+    removeErrorValidation(currentWeightKg, helpCurrentWeightKg);
+    return(true);
+  };
+};
+
+
+/**
  * Validate user input on Target Weight Kg
  * 
  * 
@@ -530,7 +565,7 @@ function validateResultTargetWeightKg() {
 
     } else if (targetWeightKg.value >= currentWeightKg.value) {
 
-        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your current weight"
+        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight"
         displayErrorValidation(targetWeightKg, helpTargetWeightKg);
         return(false);
  
@@ -577,6 +612,10 @@ function allValidationResults() {
   } else if (validateResultTargetWeightImperial() == false) {
     console.log("target weight Imperial failed all validation results");
     return(false); 
+
+  } else if (validateResultCurrentWeightKg()  == false) {
+    console.log("current weight Kg failed all validation results");
+    return(false);
 
   } else if (validateResultTargetWeightKg()  == false) {
       console.log("target weight Kg failed all validation results");
@@ -665,6 +704,10 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
           break;
       case 'target-weight-pounds':
         validateResultTargetWeightImperial();
+          break;
+
+      case 'current-weight-kg':
+        validateResultCurrentWeightKg();
           break;
       case 'target-weight-kg':
         validateResultTargetWeightKg();

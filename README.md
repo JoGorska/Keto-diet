@@ -100,9 +100,10 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
     - I tried to convert both dates - today and target date to miliseconds from 1970 but the html input "targetDate" was not converting to miliseconds as it only displays date without time
     - I tired to change both dates to string of numbers without seperators, this was working fine, untill you try to compare the dates from the end and begginng of the following year. 
     - Different browsers will give me a different input on html date input field, so if I found solution to converting target Date it might not work on various browsers
+    - I managed to find two different functionalities that was converting both dates to miliseconds from 1.01.1970. This enabled me to compare values of current date and target date.
 
 7. Problem with varialbes current weight Stone and current weight stone help displaying as undefined. This was due to persistant typo wieght instead of weight in various parts of calculator.html and calculator.js. All typos found and corrected.
-   
+
 ## Validation
 1. Imperial measures validation
 - add validation for those fields is so that one or both of the fields are filled.

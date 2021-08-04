@@ -616,6 +616,21 @@ function validateResultTargetWeightKg() {
   };
 };
 
+
+function validateResultHeightMetric() {
+
+  if (radioMetric.checked) {
+
+    falseIfEmpty(heightCm, helpHeightCm)
+
+  } else {
+    console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`)
+    removeErrorValidation(heightFeet, helpHeightFeet);
+    removeErrorValidation(heightInches, helpHeightInches);
+    return(true);
+  };
+};
+
 /**
  * universal function to test the input fields if they were left empty. This function is used for fields that do not require complex validation.
  * @param {*} testedNode 
@@ -678,7 +693,7 @@ function allValidationResults() {
       console.log("target weight Kg failed all validation results");
       return(false);
 
-  } else if (falseIfEmpty(heightCm, helpHeightCm)  == false) {
+  } else if (validateResultHeightMetric() == false) {
     console.log("height cm failed all validation results");
     return(false);
 
@@ -788,7 +803,7 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
         validateResultTargetWeightKg();
           break;
       case 'height-cm':
-        falseIfEmpty(heightCm, helpHeightCm)
+        validateResultHeightMetric();
           break;
       case 'excercise-hours':
         falseIfEmpty(excerciseHours, helpExcerciseHours)

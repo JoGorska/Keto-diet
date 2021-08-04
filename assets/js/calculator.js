@@ -678,15 +678,15 @@ function allValidationResults() {
       console.log("target weight Kg failed all validation results");
       return(false);
 
-  } else if (falseIfEmpty(heightCm, helpHeightCm)  == true) {
+  } else if (falseIfEmpty(heightCm, helpHeightCm)  == false) {
     console.log("height cm failed all validation results");
     return(false);
 
-  } else if (falseIfEmpty(excerciseHours, helpExcerciseHours)  == true) {
+  } else if (falseIfEmpty(excerciseHours, helpExcerciseHours)  == false) {
     console.log("excercise hours failed all validation results");
     return(false);
    
-  } else if (falseIfEmpty(diet, helpDiet)  == true) {
+  } else if (falseIfEmpty(diet, helpDiet)  == false) {
     console.log("diet failed all validation results");
     return(false);
       

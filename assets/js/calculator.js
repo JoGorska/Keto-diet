@@ -8,7 +8,7 @@
 //declare variables for each input field and the contact Form itself
 const calulatorForm = document.getElementsByTagName("FORM")[0];
 
-const inputName = document.getElementById("name");
+const inputName = document.getElementById("input-name");
 const selectGender = document.getElementById("select-gender");
 const inputAge = document.getElementById("input-age");
 const targetDate = document.getElementById("target-date");
@@ -748,7 +748,7 @@ calulatorForm.addEventListener("submit", handleCalculatorSubmit);
 
 calulatorForm.addEventListener ('input', debounce(function (e) {
   switch (e.target.id) {
-      case 'name':
+      case 'input-name':
         validateResultName();
           break;
       case 'select-gender':

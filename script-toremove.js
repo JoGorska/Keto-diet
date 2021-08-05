@@ -1,13 +1,6 @@
-Sean Murphy
+//Contact Dietitiean to get personalised advice on your next steps. To give our dietitian all information about you, 
+//just copy URL from this page and paste it to "Your enquiry" field.
 
-parse domain name
-function domainName(url){
-  return url.replace(/.+\/\/|www.|\..+/g, '');
-};
-
-function domainName(url){
-  return url.replace(/(?:.*\/\/)?(?:www\.)?(.+)\..*/i, (match,domain)=>domain);
-};
 
 
 ///////////////////////////////////// to be deleted

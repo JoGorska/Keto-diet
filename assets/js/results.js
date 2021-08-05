@@ -36,11 +36,11 @@ function isImperial(stone, pounds) {
 if (isImperial(currentWeightStone, currentWeightPounds) === false) {
     document.getElementById("current-weight").innerHTML = allFormData["current-weight-kg"];
 } else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (currentWeightStone === "")) {
-    document.getElementById("current-weight").innerHTML = `Your current weight is ${allFormData["current-weight-pounds"]}lbs`
+    document.getElementById("current-weight").innerHTML = `${allFormData["current-weight-pounds"]}lbs`
 } else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (currentWeightPounds === "")) {
-    document.getElementById("current-weight").innerHTML = `Your current weight is ${allFormData["current-weight-stone"]}st`
+    document.getElementById("current-weight").innerHTML = `${allFormData["current-weight-stone"]}st`
 } else {
-    document.getElementById("current-weight").innerHTML = `Your current weight is ${allFormData["current-weight-stone"]}st ${allFormData["current-weight-pounds"]}lbs`
+    document.getElementById("current-weight").innerHTML = `${allFormData["current-weight-stone"]}st ${allFormData["current-weight-pounds"]}lbs`
 };
 
 

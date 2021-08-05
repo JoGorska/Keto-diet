@@ -14,12 +14,33 @@ console.log(allFormData);
 
 document.getElementById("input-name").innerHTML = allFormData["input-name"];
 
-// display current weight 
+// variables off the string
+var currentWeightStone = allFormData["current-weight-stone"];
+var currentWeightPounds = allFormData["current-weight-pounds"] 
 
-if (allFormData["current-weight-kg"] !== "") {
+//test if the data input is imperial or metric measure
+
+
+function isImperial(stone, pounds) {
+
+    if ((stone !== "") || (pounds !== "")) {
+        return true;
+    } else {
+        return false;
+    };
+};
+
+
+// display current weight for the user 
+
+if (isImperial(currentWeightStone, currentWeightPounds) === false) {
     document.getElementById("current-weight").innerHTML = allFormData["current-weight-kg"];
-} else if ((allFormData["current-weight-stone"] !== "") && (allFormData["current-weight-pounds"] !== "")) {
-    document.getElementById("current-weight").innerHTML = `Your current weight is ${allFormData["current-weight-stone"]}st ${allFormData["current-weight-pounds"]}`
-}
+} else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (currentWeightStone === "")) {
+    document.getElementById("current-weight").innerHTML = `Your current weight is ${allFormData["current-weight-pounds"]}lbs`
+} else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (currentWeightPounds === "")) {
+    document.getElementById("current-weight").innerHTML = `Your current weight is ${allFormData["current-weight-stone"]}st`
+} else {
+    document.getElementById("current-weight").innerHTML = `Your current weight is ${allFormData["current-weight-stone"]}st ${allFormData["current-weight-pounds"]}lbs`
+};
 
 

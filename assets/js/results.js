@@ -41,7 +41,26 @@ function isImperial(stone, pounds) {
     };
 };
 
+// functions to add or remove classes copied from Felipe Souza Alarcon_mentor, and explained on mentoring meeting 31.07.2021
 
+/**
+ * Function to add class
+ * @param {*} className 
+ * @param {*} targetNode 
+ */
+ function addClass(className, targetNode) {
+    targetNode.classList.add(className);
+  };
+  
+  /**
+   * Function to remove class
+   * @param {*} className 
+   * @param {*} targetNode 
+   */
+  
+  function removeClass(className, targetNode){
+    targetNode.classList.remove(className);
+  };
 
 
 
@@ -141,7 +160,19 @@ displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, curr
 
 //display target weight or target date
 
+function weightOrDate () {
+    if (targetDate === "") {
+        displayWeight(displayTargetWeight, targetWeightKg, targetWeightStone, targetWeightPounds);
+        addClass("my-invisible", displayTargetDate)
+        removeClass("my-invisible", displayTargetWeight)
+    } else {
+        displayTargetDate.innerHTML = targetDate;
+        addClass("my-invisible", displayTargetWeight)
+        removeClass("my-invisible", displayTargetDate)
+    }
+};
 
-displayWeight(displayTargetWeight, targetWeightKg, targetWeightStone, targetWeightPounds);
+weightOrDate()
 
-displayTargetDate.innerHTML = targetDate;
+
+

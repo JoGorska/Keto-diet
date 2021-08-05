@@ -166,7 +166,7 @@ function weightOrDate () {
         addClass("my-invisible", displayTargetDate)
         removeClass("my-invisible", displayTargetWeight)
     } else {
-        displayTargetDate.innerHTML = targetDate;
+        displayTargetDate.innerHTML = `${targetDate} <div class="d-inline text-body fw-normal">as a date to loose as much weight as you can.</div>`;
         addClass("my-invisible", displayTargetWeight)
         removeClass("my-invisible", displayTargetDate)
     }

@@ -43,9 +43,11 @@ var variableCurrentWeightIntoKg = weightIntoKg(currentWeightStone, currentWeight
 
 function weightIntoKg(stone, pounds, kg) {
     if (isImperial(stone, pounds)) {
+        console.log("I used weight in imperial measures")
         console.log((stone * 6.35029) + (pounds * 0.453592));
         return((stone * 6.35029) + (pounds * 0.453592));
     } else {
+        console.log("I used weight in kg")
         console.log(kg);
         return(kg);
     };
@@ -57,10 +59,12 @@ function weightIntoKg(stone, pounds, kg) {
 var variableHeightIntoMeters = lengthIntoMeters(heightFeet, heightInches, heightCm);
 
 function lengthIntoMeters(feet, inches, cm) {
+    console.log("I used height in imperial measures")
     if (isImperial(feet, inches)) {
-        console.log((feet * 30.48)+(inches * 2.54) / 100);
-        return((feet * 30.48) + (inches * 2.54) / 100);
+        console.log(((feet * 30.48)+(inches * 2.54)) / 100);
+        return(((feet * 30.48) + (inches * 2.54)) / 100);
     } else {
+        console.log("I used height in cm")
         console.log(cm / 100);
         return(cm / 100);
     };
@@ -70,8 +74,11 @@ function lengthIntoMeters(feet, inches, cm) {
 // function to calculate BMI
 
 function calculateBMI (kg, meters) {
+    console.log(kg)
+    console.log(meters)
     console.log(kg / Math.pow(meters, 2));
     console.log(Math.pow(meters, 2));
+
     let BMI = kg/Math.pow(meters, 2);
     parseInt(BMI)
     console.log(parseInt(BMI))
@@ -103,4 +110,9 @@ if (isImperial(currentWeightStone, currentWeightPounds) === false) {
 };
 
 // display BMI for the user
-document.getElementById("current-BMI").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);
+document.getElementById("display-current-BMI").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);
+document.getElementById("display-current-BMI2").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);
+
+// display user's target date or weight
+
+

@@ -34,13 +34,17 @@ function isImperial(stone, pounds) {
 // display current weight for the user 
 
 if (isImperial(currentWeightStone, currentWeightPounds) === false) {
-    document.getElementById("current-weight").innerHTML = allFormData["current-weight-kg"];
+    document.getElementById("display-current-weight").innerHTML = allFormData["current-weight-kg"];
+    document.getElementById("display-current-weight2").innerHTML = allFormData["current-weight-kg"];
 } else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (currentWeightStone === "")) {
-    document.getElementById("current-weight").innerHTML = `${allFormData["current-weight-pounds"]}lbs`
+    document.getElementById("display-current-weight").innerHTML = `${allFormData["current-weight-pounds"]}lbs`;
+    document.getElementById("display-current-weight2").innerHTML = `${allFormData["current-weight-pounds"]}lbs`;
 } else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (currentWeightPounds === "")) {
-    document.getElementById("current-weight").innerHTML = `${allFormData["current-weight-stone"]}st`
+    document.getElementById("display-current-weight").innerHTML = `${allFormData["current-weight-stone"]}st`;
+    document.getElementById("display-current-weight2").innerHTML = `${allFormData["current-weight-stone"]}st`;  
 } else {
-    document.getElementById("current-weight").innerHTML = `${allFormData["current-weight-stone"]}st ${allFormData["current-weight-pounds"]}lbs`
+    document.getElementById("display-current-weight").innerHTML = `${allFormData["current-weight-stone"]}st ${allFormData["current-weight-pounds"]}lbs`;
+    document.getElementById("display-current-weight2").innerHTML = `${allFormData["current-weight-stone"]}st ${allFormData["current-weight-pounds"]}lbs`;
 };
 
 

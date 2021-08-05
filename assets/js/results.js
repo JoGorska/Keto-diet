@@ -16,9 +16,18 @@ console.log(allFormData);
 var currentWeightStone = allFormData["current-weight-stone"];
 var currentWeightPounds = allFormData["current-weight-pounds"];
 var currentWeightKg = allFormData["current-weight-kg"];
+var targetWeightStone = allFormData["target-weight-stone"];
+var targetWeightPounds = allFormData["target-weight-pounds"];
+var targetWeightKg = allFormData["target-weight-kg"];
+var targetDate = allFormData["target-date"];
 var heightCm = allFormData["height-cm"];
 var heightFeet = allFormData["height-feet"];
 var heightInches = allFormData["height-inches"]
+
+const displayCurrentWeight = document.getElementById("display-current-weight")
+const displayCurrentWeightTwo = document.getElementById("display-current-weight2")
+const displayTargetWeight = document.getElementById("display-target-weight")
+const displayTargetDate = document.getElementById("display-target-date")
 
 //test if the data input is imperial or metric measure
 
@@ -84,6 +93,35 @@ function calculateBMI (kg, meters) {
     console.log(parseInt(BMI))
     return(parseInt(BMI));
 };
+/**
+ * Function to display the weight correctly including units (kg, stone or lbs) in each variant, whether the user input was metric or imperial
+ * The test for imperial is on current weight but it is correct test for any input, as user was required to input this value
+ * @param {*} displayNode 
+ * @param {*} userInputKg 
+ * @param {*} userInputStone 
+ * @param {*} userInputPounds 
+ */
+function displayWeight (displayNode, userInputKg, userInputStone, userInputPounds) {
+
+    if (isImperial((currentWeightStone, currentWeightPounds) === false) && (userInputKg !== "")){
+        console.log("test if imperial and if user input kg")
+        displayNode.innerHTML = `${userInputKg} kg`;
+
+    } else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (userInputStone === "")) {
+        console.log("test if imperial and if user input lbs")
+        displayNode.innerHTML = `${userInputPounds} lbs`;
+
+    } else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (userInputPounds === "")) {
+        displayNode.innerHTML = `${userInputStone} st`;
+
+    } else if ((userInputKg === "") && (userInputStone === "") && (userInputPounds === "")) {
+        displayNode.innerHTML = "";
+        displayNode.classList.add("my-invisible")
+        
+    } else {
+        displayNode.innerHTML = `${userInputStone} st ${userInputPounds} lbs`;
+    };
+};
 
 // display user name in results.html
 
@@ -92,27 +130,18 @@ document.getElementById("input-name2").innerHTML = allFormData["input-name"];
 
 // display current weight for the user 
 
-if (isImperial(currentWeightStone, currentWeightPounds) === false) {
-    document.getElementById("display-current-weight").innerHTML = `${allFormData["current-weight-kg"]} kg`;
-    document.getElementById("display-current-weight2").innerHTML = `${allFormData["current-weight-kg"]} kg`;
-
-} else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (currentWeightStone === "")) {
-    document.getElementById("display-current-weight").innerHTML = `${allFormData["current-weight-pounds"]} lbs`;
-    document.getElementById("display-current-weight2").innerHTML = `${allFormData["current-weight-pounds"]} lbs`;
-
-} else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (currentWeightPounds === "")) {
-    document.getElementById("display-current-weight").innerHTML = `${allFormData["current-weight-stone"]} st`;
-    document.getElementById("display-current-weight2").innerHTML = `${allFormData["current-weight-stone"]} st`;  
-
-} else {
-    document.getElementById("display-current-weight").innerHTML = `${allFormData["current-weight-stone"]} st ${allFormData["current-weight-pounds"]} lbs`;
-    document.getElementById("display-current-weight2").innerHTML = `${allFormData["current-weight-stone"]} st ${allFormData["current-weight-pounds"]} lbs`;
-};
 
 // display BMI for the user
 document.getElementById("display-current-BMI").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);
 document.getElementById("display-current-BMI2").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);
 
-// display user's target date or weight
+// display current weight
+displayWeight(displayCurrentWeight, currentWeightKg, currentWeightStone, currentWeightPounds)
+displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, currentWeightPounds)
+
+//display target weight or target date
 
 
+displayWeight(displayTargetWeight, targetWeightKg, targetWeightStone, targetWeightPounds);
+
+displayTargetDate.innerHTML = targetDate;

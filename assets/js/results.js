@@ -38,29 +38,31 @@ function isImperial(stone, pounds) {
 
 
 // get values in kg
-var kg = weightInKg()
-function weightInKg() {
-    if (isImperial(currentWeightStone, currentWeightPounds)) {
-        console.log((currentWeightStone * 6.35029) + (currentWeightPounds * 0.453592))
-        return((currentWeightStone * 6.35029) + (currentWeightPounds * 0.453592))
+var variableCurrentWeightIntoKg = weightIntoKg(currentWeightStone, currentWeightPounds, currentWeightKg);
+// var variableTargetWeightIntoKg = weightIntoKg(targetWeightStone, targetWeightPounds, targetWeightKg);
+
+function weightIntoKg(stone, pounds, kg) {
+    if (isImperial(stone, pounds)) {
+        console.log((stone * 6.35029) + (pounds * 0.453592));
+        return((stone * 6.35029) + (pounds * 0.453592));
     } else {
-        console.log(currentWeightKg);
-        return(currentWeightKg);
+        console.log(kg);
+        return(kg);
     };
 };
 
 
 
 // get values in meters
-var meters = heightInMeters();
+var variableHeightIntoMeters = lengthIntoMeters(heightFeet, heightInches, heightCm);
 
-function heightInMeters() {
-    if (isImperial(heightFeet, heightInches)) {
-        console.log((heightFeet * 30.48)+(heightInches * 2.54) / 100);
-        return((heightFeet * 30.48) + (heightInches * 2.54) / 100);
+function lengthIntoMeters(feet, inches, cm) {
+    if (isImperial(feet, inches)) {
+        console.log((feet * 30.48)+(inches * 2.54) / 100);
+        return((feet * 30.48) + (inches * 2.54) / 100);
     } else {
-        console.log(heightCm / 100);
-        return(heightCm / 100);
+        console.log(cm / 100);
+        return(cm / 100);
     };
     
 };
@@ -101,4 +103,4 @@ if (isImperial(currentWeightStone, currentWeightPounds) === false) {
 };
 
 // display BMI for the user
-document.getElementById("current-BMI").innerHTML = calculateBMI(kg, meters);
+document.getElementById("current-BMI").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);

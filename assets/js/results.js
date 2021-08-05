@@ -174,5 +174,12 @@ function weightOrDate () {
 
 weightOrDate()
 
+// change which cards are displayed depending on current BMI and user input
 
+function displayCards() {
+    if ((calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters)) < 25) {
+        removeClass("my-invisible", document.getElementById("good-news"));
+        addClass("my-invisible", document.getElementById("card-target"));
+    }
+}
 

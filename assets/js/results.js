@@ -141,7 +141,16 @@ function displayWeight (displayNode, userInputKg, userInputStone, userInputPound
 
 //////////////////////////////////////////////////////////////// calculating Targets
 
+const dayInMs = 86400000
+const minLossKgPerDay = 0.056164384
+const maxLossKgPerDay = 0.129597714
 
+function howManyDays (current, target, LossKgPerDay) {
+    console.log(current - target);
+    console.log(LossKgPerDay);
+    console.log((current - target) / LossKgPerDay);
+    return((current - target) / LossKgPerDay);
+}
 
 
 

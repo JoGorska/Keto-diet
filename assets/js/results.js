@@ -64,7 +64,7 @@ function isImperial(stone, pounds) {
 
 // get values in kg
 var variableCurrentWeightIntoKg = weightIntoKg(currentWeightStone, currentWeightPounds, currentWeightKg);
-// var variableTargetWeightIntoKg = weightIntoKg(targetWeightStone, targetWeightPounds, targetWeightKg);
+var variableTargetWeightIntoKg = weightIntoKg(targetWeightStone, targetWeightPounds, targetWeightKg);
 
 function weightIntoKg(stone, pounds, kg) {
     if (isImperial(stone, pounds)) {
@@ -119,15 +119,15 @@ function calculateBMI (kg, meters) {
  */
 function displayWeight (displayNode, userInputKg, userInputStone, userInputPounds) {
 
-    if (isImperial((currentWeightStone, currentWeightPounds) === false) && (userInputKg !== "")){
+    if (isImperial((userInputStone, userInputPounds) === false) && (userInputKg !== "")){
         console.log("test if imperial and if user input kg")
         displayNode.innerHTML = `${userInputKg} kg`;
 
-    } else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (userInputStone === "")) {
+    } else if ((isImperial(userInputStone, userInputPounds) === true) && (userInputStone === "")) {
         console.log("test if imperial and if user input lbs")
         displayNode.innerHTML = `${userInputPounds} lbs`;
 
-    } else if ((isImperial(currentWeightStone, currentWeightPounds) === true) && (userInputPounds === "")) {
+    } else if ((isImperial(userInputStone, userInputPounds) === true) && (userInputPounds === "")) {
         displayNode.innerHTML = `${userInputStone} st`;
 
     } else if ((userInputKg === "") && (userInputStone === "") && (userInputPounds === "")) {
@@ -178,13 +178,15 @@ function dateWhenAcheved (current, target, lossKgPerDay) {
 
 // change date in ms to actual javascript date
 
-var variableDateWhenAcheved = dateWhenAcheved(current, target, lossKgPerDay);
+var variableDateWhenAcheved = dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay);
+console.log(variableDateWhenAcheved)
+variableDateWhenAcheved = variableDateWhenAcheved.toString()
+console.log(variableDateWhenAcheved)
 
-console.log(variableDateWhenAcheved.getDay());
 
-console.log(variableDateWhenAcheved.getDate());
-console.log(variableDateWhenAcheved.getMonth());
-console.log(variableDateWhenAcheved.getFullYear());
+//console.log(variableDateWhenAcheved.getDate());
+//console.log(variableDateWhenAcheved.getMonth());
+//console.log(variableDateWhenAcheved.getFullYear());
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
@@ -193,7 +195,7 @@ console.log(variableDateWhenAcheved.getFullYear());
 document.getElementById("input-name").innerHTML = allFormData["input-name"];
 document.getElementById("input-name2").innerHTML = allFormData["input-name"];
 
-// display current weight for the user 
+
 
 
 // display BMI for the user
@@ -204,11 +206,14 @@ document.getElementById("display-current-BMI2").innerHTML = calculateBMI(variabl
 displayWeight(displayCurrentWeight, currentWeightKg, currentWeightStone, currentWeightPounds)
 displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, currentWeightPounds)
 
+
+
 //display target weight or target date
 
-function weightOrDate () {
+function displayWeightOrDate () {
     if (targetDate === "") {
         displayWeight(displayTargetWeight, targetWeightKg, targetWeightStone, targetWeightPounds);
+        
         addClass("my-invisible", displayTargetDate)
         removeClass("my-invisible", displayTargetWeight)
     } else {
@@ -218,7 +223,9 @@ function weightOrDate () {
     }
 };
 
-weightOrDate()
+// call function
+
+displayWeightOrDate()
 
 // change which cards are displayed depending on current BMI and gender
 

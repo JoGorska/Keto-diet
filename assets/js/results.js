@@ -187,6 +187,7 @@ document.addEventListener("DOMContentLoaded",  function() {
     let cardExcercise = document.getElementById("card-excercise")
     let cardFemale = document.getElementById("card-female")
     let cardCalories = document.getElementById("card-calories")
+    let inputGender = allFormData["gender"];
 
     if ( testBMI < 25) {
         console.log(calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters))
@@ -199,8 +200,8 @@ document.addEventListener("DOMContentLoaded",  function() {
         addClass("my-invisible", cardFemale);       
         addClass("my-invisible", cardCalories);
 
- //   } else if (testBMI >= 25) && {
- //       addClass("my-invisible", cardGoodNews);
+    } else if ((testBMI >= 25) && ((inputGender === "Female") || (inputGender === "female"))) {
+        removeClassClass("my-invisible", cardFemale);
 
 
     } else {

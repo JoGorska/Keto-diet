@@ -144,15 +144,47 @@ function displayWeight (displayNode, userInputKg, userInputStone, userInputPound
 const dayInMs = 86400000
 const minLossKgPerDay = 0.056164384
 const maxLossKgPerDay = 0.129597714
-
-function howManyDays (current, target, LossKgPerDay) {
+/**
+ * Function to calclate how many days it takes to loose the given amount of weight
+ *
+ * @param {*} current 
+ * @param {*} target 
+ * @param {*} LossKgPerDay 
+ * @returns 
+ */
+function howManyDays (current, target, lossKgPerDay) {
     console.log(current - target);
-    console.log(LossKgPerDay);
-    console.log((current - target) / LossKgPerDay);
-    return((current - target) / LossKgPerDay);
+    console.log(lossKgPerDay);
+    console.log((current - target) / lossKgPerDay);
+    return((current - target) / lossKgPerDay);
+};
+
+/**
+ * Function to calculate the date when the target weight will be acheved
+ * 
+ * @param {*} current 
+ * @param {*} target 
+ * @param {*} lossKgPerDay 
+ * @returns 
+ */
+
+function dateWhenAcheved (current, target, lossKgPerDay) {
+    let today = new Date().getTime();
+
+    console.log(today);
+    console.log(today + howManyDays(current, target, lossKgPerDay));
+    return(today + howManyDays(current, target, lossKgPerDay));
 }
 
+// change date in ms to actual javascript date
 
+var variableDateWhenAcheved = dateWhenAcheved(current, target, lossKgPerDay);
+
+console.log(variableDateWhenAcheved.getDay());
+
+console.log(variableDateWhenAcheved.getDate());
+console.log(variableDateWhenAcheved.getMonth());
+console.log(variableDateWhenAcheved.getFullYear());
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards

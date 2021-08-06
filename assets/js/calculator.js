@@ -9,7 +9,7 @@
 const calulatorForm = document.getElementsByTagName("FORM")[0];
 
 const inputName = document.getElementById("input-name");
-const selectGender = document.getElementById("select-gender");
+const selectGender = document.getElementById("gender");
 const inputAge = document.getElementById("input-age");
 const targetDate = document.getElementById("target-date");
 const currentWeightStone = document.getElementById("current-weight-stone");
@@ -766,7 +766,7 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
       case 'input-name':
         validateResultName();
           break;
-      case 'select-gender':
+      case 'gender':
         validateResultGender();
           break;
       case 'input-age':

@@ -80,18 +80,17 @@
         </div>
 
         <!--Gender-->
-        <div class="mb-3">
-            <label for="select-gender" class="form-label">Gender</label>
-            <select class="form-select" aria-label="select-gender" id="select-gender" aria-describedby="gender-help">
-                <option selected>Please choose from one of the options</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-                <option value="Preffer not to say">Preffer not to say</option>
-            </select>
-            <div id="gender-help" class="form-text">However we aim to be inclusive, some parts of the results will depend on male or female gender.</div>
-        </div>
 
+        <div class="mb-5">
+            <label class="form-label" for="gender">Gender</label>
+            <input class="form-control mb-3" type="text" name="gender" id="gender" list="gender-list" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" aria-describedby="gender-help">
+            <div id="gender-help" class="form-text">However we aim to be inclusive, some parts of the results will depend on male or female gender.</div>
+            <datalist id="gender-list">
+                <option>Male</option>
+                <option>Female</option>
+            </datalist>
+        </div>  
+        
         <!--Age-->
         <div class="mb-3">
             <label for="input-age" class="form-label">Age</label>
@@ -188,7 +187,7 @@
                 <!--Target weight for metric-->
                 <div id="div-target-metric" class="mb-3">
                     <label for="target-weight-kg" class="form-label">Target Weight</label>
-                    <input type="number" class="form-control" id="target-weight-kg" name="targetWeightKg" placeholder="kg">
+                    <input type="number" class="form-control" id="target-weight-kg" name="target-weight-kg" placeholder="kg">
                     <div id="target-weight-kg-help" class="form-text my-invisible"></div>
                 </div>
                 <!--height for metric-->
@@ -230,7 +229,7 @@
                 <option>Weight Watchers</option>
                 <option>Slimming World</option>
                 <option>Low Fat</option>
-                <option>My Own Diet</option>
+                <option value="My Own Diet">My Own Diet</option>
 
             </datalist>
         </div>  

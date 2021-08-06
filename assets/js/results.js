@@ -62,9 +62,6 @@ function isImperial(stone, pounds) {
     targetNode.classList.remove(className);
   };
 
-
-
-
 // get values in kg
 var variableCurrentWeightIntoKg = weightIntoKg(currentWeightStone, currentWeightPounds, currentWeightKg);
 // var variableTargetWeightIntoKg = weightIntoKg(targetWeightStone, targetWeightPounds, targetWeightKg);
@@ -142,6 +139,14 @@ function displayWeight (displayNode, userInputKg, userInputStone, userInputPound
     };
 };
 
+//////////////////////////////////////////////////////////////// calculating Targets
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
 // display user name in results.html
 
 document.getElementById("input-name").innerHTML = allFormData["input-name"];
@@ -174,7 +179,7 @@ function weightOrDate () {
 
 weightOrDate()
 
-// change which cards are displayed depending on current BMI and user input
+// change which cards are displayed depending on current BMI and gender
 
 document.addEventListener("DOMContentLoaded",  function() {
     let testBMI = (calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters))

@@ -104,7 +104,7 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 
 7. Problem with varialbes current weight Stone and current weight stone help displaying as undefined. This was due to persistant typo wieght instead of weight in various parts of calculator.html and calculator.js. All typos found and corrected.
 
-8. Problem with function showing and hiding cards depending on user's BMI didn't seem to work. The "my-invisible" clas was applied to wrong div, assigned ID to correct div, which rectified the problem
+8. Problem with function showing and hiding cards depending on user's BMI didn't seem to work. The "my-invisible" class was applied to wrong div, assigned ID to correct div, which rectified the problem
 
 ## Validation
 1. Imperial measures validation

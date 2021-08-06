@@ -178,13 +178,34 @@ weightOrDate()
 
 document.addEventListener("DOMContentLoaded",  function() {
     let testBMI = (calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters))
+
+    let cardGoodNews = document.getElementById("good-news")
+    let cardTarget = document.getElementById("card-target")
+    let cardSpeed = document.getElementById("card-speed")
+    let cardIF = document.getElementById("card-if")
+    let cardWaist = document.getElementById("card-waist")
+    let cardExcercise = document.getElementById("card-excercise")
+    let cardFemale = document.getElementById("card-female")
+    let cardCalories = document.getElementById("card-calories")
+
     if ( testBMI < 25) {
         console.log(calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters))
-        removeClass("my-invisible", document.getElementById("good-news"));
-        addClass("my-invisible", document.getElementById("card-target"));
+        removeClass("my-invisible", cardGoodNews);
+        addClass("my-invisible", cardTarget);
+        addClass("my-invisible", cardSpeed);
+        addClass("my-invisible", cardIF);
+        addClass("my-invisible", cardWaist);
+        addClass("my-invisible", cardExcercise);
+        addClass("my-invisible", cardFemale);       
+        addClass("my-invisible", cardCalories);
+
+ //   } else if (testBMI >= 25) && {
+ //       addClass("my-invisible", cardGoodNews);
+
+
     } else {
-        addClass("my-invisible", document.getElementById("good-news"));
-        removeClass("my-invisible", document.getElementById("card-target"));
+        addClass("my-invisible", cardGoodNews);
+
     }
 })
 

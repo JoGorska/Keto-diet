@@ -172,6 +172,7 @@ console.log(variableDateWhenAcheved)
 variableDateWhenAcheved = variableDateWhenAcheved.toString()
 console.log(variableDateWhenAcheved)
 
+// changing the result into a string
 var stringDateWhenAcheved = variableDateWhenAcheved.toString()
 
 console.log(stringDateWhenAcheved)
@@ -182,12 +183,12 @@ function showMeDate(dateString) {
 
     if (thisDate.includes("0")) {
         thisDate = thisDate[1];
-    }
+    };
     let thisMonth = "";
     thisMonth = dateString[4] + dateString[5] + dateString[6];
 
     let thisYear = "";
-    thisYear = dateString[11] + dateString[12] + dateString[13] + dateString[14]
+    thisYear = dateString[11] + dateString[12] + dateString[13] + dateString[14];
     
     console.log(`${thisDate} ${thisMonth} ${thisYear}`);
 }

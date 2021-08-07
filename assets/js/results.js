@@ -31,7 +31,6 @@ const displayTargetDate = document.getElementById("display-target-date")
 
 //test if the data input is imperial or metric measure
 
-
 function isImperial(stone, pounds) {
 
     if ((stone !== "") || (pounds !== "")) {
@@ -45,18 +44,14 @@ function isImperial(stone, pounds) {
 
 /**
  * Function to add class
- * @param {*} className 
- * @param {*} targetNode 
  */
  function addClass(className, targetNode) {
     targetNode.classList.add(className);
   };
   
-  /**
-   * Function to remove class
-   * @param {*} className 
-   * @param {*} targetNode 
-   */
+/**
+ * Function to remove class
+ */
   
   function removeClass(className, targetNode){
     targetNode.classList.remove(className);
@@ -74,6 +69,31 @@ function weightIntoKg(stone, pounds, kg) {
 
         return(kg);
     };
+};
+
+//////////////////////////////////////////////// I need function to get stone and pounds from kg/////////////////////// display string
+var variableKgIntoImperial = ""
+
+function KgIntoImperial (kg, stone, pounds) {
+    // calculate how many pounds and how many stones are in the given value of Kg
+    allPounds = kg * 2.2046;
+    allStone = kg * 0.1574;
+    // the user wants to see how many stones and pounds are in the result value
+    stone = parseInt(allStone);
+    pounds = (stone * 14) - allPounds;
+    // if the result is exact stones only, user doesn't want to see the abbreviation lb at the end
+
+    function displayCorrectly(pounds, stone) {
+        var variableKgIntoImperial = ""
+        if (pounds === 0) {
+            variableKGIntoImperial = stone + "st";
+        } else {
+            variableKgIntoImperial = stone + "st" + pounds + "lb";
+        };
+    };
+
+
+    return(displayCorrectly);
 };
 
 

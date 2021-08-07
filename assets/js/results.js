@@ -161,16 +161,15 @@ function dateWhenAcheved (current, target, lossKgPerDay) {
     let today = new Date().getTime();
 
     console.log(today);
-    console.log(today + howManyDays(current, target, lossKgPerDay));
-    return(today + howManyDays(current, target, lossKgPerDay));
+    console.log(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
+    return(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
 }
 
 // change date in miliseconds to actual javascript date
 
 var variableDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay));
-console.log(variableDateWhenAcheved)
 variableDateWhenAcheved = variableDateWhenAcheved.toString()
-console.log(variableDateWhenAcheved)
+
 
 // changing the result into a string
 var stringDateWhenAcheved = variableDateWhenAcheved.toString()

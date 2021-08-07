@@ -150,11 +150,6 @@ function howManyDays (current, target, lossKgPerDay) {
 
 /**
  * Function to calculate the date when the target weight will be acheved
- * 
- * @param {*} current 
- * @param {*} target 
- * @param {*} lossKgPerDay 
- * @returns 
  */
 
 function dateWhenAcheved (current, target, lossKgPerDay) {
@@ -165,16 +160,17 @@ function dateWhenAcheved (current, target, lossKgPerDay) {
     return(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
 }
 
-// change date in miliseconds to actual javascript date
+// change date in miliseconds to something that looks like a javascript date
 
-var variableDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay));
-variableDateWhenAcheved = variableDateWhenAcheved.toString()
+var variableMinDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay));
+var variableMaxDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, maxLossKgPerDay));
 
 
 // changing the result into a string
-var stringDateWhenAcheved = variableDateWhenAcheved.toString()
+var stringMinDateWhenAcheved = variableMinDateWhenAcheved.toString()
+var stringMaxDateWhenAcheved = variableMaxDateWhenAcheved.toString()
 
-console.log(stringDateWhenAcheved)
+console.log(stringMinDateWhenAcheved)
 
 function showMeDate(dateString) {
     let thisDate = "";
@@ -236,8 +232,8 @@ displayWeightOrDate()
 
 // Display Date when the target weight will be acheved
 
-document.getElementById("min-date-acheved").innerHTML = showMeDate(stringDateWhenAcheved);
-
+document.getElementById("min-date-acheved").innerHTML = showMeDate(stringMinDateWhenAcheved);
+document.getElementById("max-date-acheved").innerHTML = showMeDate(stringMaxDateWhenAcheved);
 // change which cards are displayed depending on current BMI and gender
 
 document.addEventListener("DOMContentLoaded",  function() {

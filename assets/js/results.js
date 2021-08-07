@@ -190,10 +190,12 @@ function showMeDate(dateString) {
     let thisYear = "";
     thisYear = dateString[11] + dateString[12] + dateString[13] + dateString[14];
     
+    completeDate = thisDate + " " + thisMonth + " " + thisYear
     console.log(`${thisDate} ${thisMonth} ${thisYear}`);
+    console.log(completeDate)
+    return(completeDate)
 }
 
-showMeDate(stringDateWhenAcheved);
 
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
 // display user name in results.html
@@ -232,6 +234,10 @@ function displayWeightOrDate () {
 // call function
 
 displayWeightOrDate()
+
+// Display Date when the target weight will be acheved
+
+document.getElementById("min-date-acheved").innerHTML = showMeDate(stringDateWhenAcheved);
 
 // change which cards are displayed depending on current BMI and gender
 

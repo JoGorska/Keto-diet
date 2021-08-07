@@ -177,18 +177,22 @@ var stringDateWhenAcheved = variableDateWhenAcheved.toString()
 console.log(stringDateWhenAcheved)
 
 function showMeDate(dateString) {
-    let thisDate = ""
-    thisDate += dateString[8];
-    thisDate += dateString[9];
+    let thisDate = "";
+    thisDate = dateString[8] + dateString[9];
 
     if (thisDate.includes("0")) {
-        thisDate = thisDate[1]
+        thisDate = thisDate[1];
     }
-    let thisMonth = dateString[4]
-    console.log(`${thisDate} ${thisMonth}`)
+    let thisMonth = "";
+    thisMonth = dateString[4] + dateString[5] + dateString[6];
+
+    let thisYear = "";
+    thisYear = dateString[11] + dateString[12] + dateString[13] + dateString[14]
+    
+    console.log(`${thisDate} ${thisMonth} ${thisYear}`);
 }
 
-showMeDate(stringDateWhenAcheved)
+showMeDate(stringDateWhenAcheved);
 
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
 // display user name in results.html

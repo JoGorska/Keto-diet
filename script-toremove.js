@@ -1,3 +1,8 @@
+// https://stackoverflow.com/questions/52389569/redirect-to-another-page-and-pass-parameter-via-javascript
+const url = new URL(window.location.href);
+console.log(url.searchParams.get("id"));
+
+
 //Contact Dietitiean to get personalised advice on your next steps. To give our dietitian all information about you, 
 //just copy URL from this page and paste it to "Your enquiry" field.
 

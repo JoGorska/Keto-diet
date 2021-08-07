@@ -167,15 +167,15 @@ function dateWhenAcheved (current, target, lossKgPerDay) {
 
 // change date in miliseconds to actual javascript date
 
-var variableDateWhenAcheved = dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay);
+var variableDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay));
 console.log(variableDateWhenAcheved)
 variableDateWhenAcheved = variableDateWhenAcheved.toString()
 console.log(variableDateWhenAcheved)
 
+var thisDate = variableDateWhenAcheved.getDate()
+var thisMonth = variableDateWhenAcheved.getMonth()
+var thisYear = variableDateWhenAcheved.getFullYear()
 
-//console.log(variableDateWhenAcheved.getDate());
-//console.log(variableDateWhenAcheved.getMonth());
-//console.log(variableDateWhenAcheved.getFullYear());
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards

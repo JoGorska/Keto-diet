@@ -106,6 +106,8 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 
 8. Problem with function showing and hiding cards depending on user's BMI didn't seem to work. The "my-invisible" class was applied to wrong div, assigned ID to correct div, which rectified the problem
 
+9. After managed to calculate the date when the target weight can be acheved I had a date in miliseconds. After converting it into something resembling javascript date, I could not use getDate(), getMont() or getYear() as it was returning taht getDate() is not a function. I suspect that the result of the calculation was not actual javascript date, so I changed the result of calculation to a string and I got the date, month and year off the string.
+
 ## Validation
 1. Imperial measures validation
 - add validation for those fields is so that one or both of the fields are filled.

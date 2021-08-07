@@ -72,7 +72,10 @@ function weightIntoKg(stone, pounds, kg) {
 };
 
 //////////////////////////////////////////////// I need function to get stone and pounds from kg/////////////////////// display string
-var variableKgIntoImperial = ""
+/**
+ * function to get stone and pounds from the given value in Kg
+ * returs the value in stones and pounds as a string
+ */
 
 function KgIntoImperial (kg, stone, pounds) {
     // calculate how many pounds and how many stones are in the given value of Kg
@@ -91,7 +94,6 @@ function KgIntoImperial (kg, stone, pounds) {
             variableKgIntoImperial = stone + "st" + pounds + "lb";
         };
     };
-
 
     return(displayCorrectly);
 };

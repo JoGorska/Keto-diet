@@ -31,7 +31,6 @@ const displayTargetDate = document.getElementById("display-target-date")
 
 //test if the data input is imperial or metric measure
 
-
 function isImperial(stone, pounds) {
 
     if ((stone !== "") || (pounds !== "")) {
@@ -45,18 +44,14 @@ function isImperial(stone, pounds) {
 
 /**
  * Function to add class
- * @param {*} className 
- * @param {*} targetNode 
  */
  function addClass(className, targetNode) {
     targetNode.classList.add(className);
   };
   
-  /**
-   * Function to remove class
-   * @param {*} className 
-   * @param {*} targetNode 
-   */
+/**
+ * Function to remove class
+ */
   
   function removeClass(className, targetNode){
     targetNode.classList.remove(className);
@@ -74,6 +69,33 @@ function weightIntoKg(stone, pounds, kg) {
 
         return(kg);
     };
+};
+
+//////////////////////////////////////////////// I need function to get stone and pounds from kg/////////////////////// display string
+/**
+ * function to get stone and pounds from the given value in Kg
+ * returs the value in stones and pounds as a string
+ */
+
+function KgIntoImperial (kg, stone, pounds) {
+    // calculate how many pounds and how many stones are in the given value of Kg
+    allPounds = kg * 2.2046;
+    allStone = kg * 0.1574;
+    // the user wants to see how many stones and pounds are in the result value
+    stone = parseInt(allStone);
+    pounds = (stone * 14) - allPounds;
+    // if the result is exact stones only, user doesn't want to see the abbreviation lb at the end
+
+    function displayCorrectly(pounds, stone) {
+        var variableKgIntoImperial = ""
+        if (pounds === 0) {
+            variableKGIntoImperial = stone + "st";
+        } else {
+            variableKgIntoImperial = stone + "st" + pounds + "lb";
+        };
+    };
+
+    return(displayCorrectly);
 };
 
 
@@ -103,10 +125,6 @@ function calculateBMI (kg, meters) {
 /**
  * Function to display the weight correctly including units (kg, stone or lbs) in each variant, whether the user input was metric or imperial
  * The test for imperial is on current weight but it is correct test for any input, as user was required to input this value
- * @param {*} displayNode 
- * @param {*} userInputKg 
- * @param {*} userInputStone 
- * @param {*} userInputPounds 
  */
 function displayWeight (displayNode, userInputKg, userInputStone, userInputPounds) {
 
@@ -130,16 +148,14 @@ function displayWeight (displayNode, userInputKg, userInputStone, userInputPound
 
 //////////////////////////////////////////////////////////////// calculating Targets
 
+
 const dayInMs = 86400000
 const minLossKgPerDay = 0.056164384
 const maxLossKgPerDay = 0.129597714
+
 /**
  * Function to calclate how many days it takes to loose the given amount of weight
  *
- * @param {*} current 
- * @param {*} target 
- * @param {*} LossKgPerDay 
- * @returns 
  */
 function howManyDays (current, target, lossKgPerDay) {
     console.log(current - target);
@@ -150,31 +166,37 @@ function howManyDays (current, target, lossKgPerDay) {
 
 /**
  * Function to calculate the date when the target weight will be acheved
- * 
- * @param {*} current 
- * @param {*} target 
- * @param {*} lossKgPerDay 
- * @returns 
+ * returns the date value in miliseconds
  */
 
 function dateWhenAcheved (current, target, lossKgPerDay) {
-    let today = new Date().getTime();
-
     console.log(today);
     console.log(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
     return(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
-}
+};
 
-// change date in miliseconds to actual javascript date
+// dates in miliseconds 
+const today = new Date().getTime();
+const targetDateInMs = targetDate.valueAsNumber;
+console.log(today)
+console.log(`this is a target date in miliseconds ${targetDateInMs}`)
 
-var variableDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay));
-variableDateWhenAcheved = variableDateWhenAcheved.toString()
+// dates looking like JavaScript
+//for minimum date and maximum date - for minimum speed of weight loss and maximum speed weight loss respectively
 
+var variableMinDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay));
+var variableMaxDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, maxLossKgPerDay));
 
-// changing the result into a string
-var stringDateWhenAcheved = variableDateWhenAcheved.toString()
+// today in Javascript format
+var todayJS = new Date();
+// target Date in format resembling JavaScript date
+var targetDateJS = new Date(targetDateInMs)
+console.log(`this is a target date looking like JavaScript date ${targetDateJS}`)
 
-console.log(stringDateWhenAcheved)
+// changing the date from format looking like Javascript date into a string
+var stringMinDateWhenAcheved = variableMinDateWhenAcheved.toString()
+var stringMaxDateWhenAcheved = variableMaxDateWhenAcheved.toString()
+var todayJSString = todayJS.toString()
 
 function showMeDate(dateString) {
     let thisDate = "";
@@ -191,9 +213,9 @@ function showMeDate(dateString) {
     
     completeDate = thisDate + " " + thisMonth + " " + thisYear
     console.log(`${thisDate} ${thisMonth} ${thisYear}`);
-    console.log(completeDate)
-    return(completeDate)
-}
+    console.log(completeDate);
+    return(completeDate);
+};
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
@@ -236,8 +258,8 @@ displayWeightOrDate()
 
 // Display Date when the target weight will be acheved
 
-document.getElementById("min-date-acheved").innerHTML = showMeDate(stringDateWhenAcheved);
-
+document.getElementById("min-date-acheved").innerHTML = showMeDate(stringMinDateWhenAcheved);
+document.getElementById("max-date-acheved").innerHTML = showMeDate(stringMaxDateWhenAcheved);
 // change which cards are displayed depending on current BMI and gender
 
 document.addEventListener("DOMContentLoaded",  function() {
@@ -266,6 +288,7 @@ document.addEventListener("DOMContentLoaded",  function() {
 
     } else if ((testBMI >= 25) && ((inputGender === "Female") || (inputGender === "female"))) {
         removeClassClass("my-invisible", cardFemale);
+        addClass("my-invisible", cardGoodNews);
 
 
     } else {

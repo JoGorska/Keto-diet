@@ -75,8 +75,6 @@ function containsLetters(inputName) {
  * function testing if the target date has been set for a day in the past or for today
  * https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript?rq=1
  * 
- * 
- * @returns 
  */
 
  var todayDate = new Date().toISOString().slice(0, 10);

@@ -125,10 +125,6 @@ function calculateBMI (kg, meters) {
 /**
  * Function to display the weight correctly including units (kg, stone or lbs) in each variant, whether the user input was metric or imperial
  * The test for imperial is on current weight but it is correct test for any input, as user was required to input this value
- * @param {*} displayNode 
- * @param {*} userInputKg 
- * @param {*} userInputStone 
- * @param {*} userInputPounds 
  */
 function displayWeight (displayNode, userInputKg, userInputStone, userInputPounds) {
 
@@ -152,16 +148,14 @@ function displayWeight (displayNode, userInputKg, userInputStone, userInputPound
 
 //////////////////////////////////////////////////////////////// calculating Targets
 
+
 const dayInMs = 86400000
 const minLossKgPerDay = 0.056164384
 const maxLossKgPerDay = 0.129597714
+
 /**
  * Function to calclate how many days it takes to loose the given amount of weight
  *
- * @param {*} current 
- * @param {*} target 
- * @param {*} LossKgPerDay 
- * @returns 
  */
 function howManyDays (current, target, lossKgPerDay) {
     console.log(current - target);
@@ -172,27 +166,37 @@ function howManyDays (current, target, lossKgPerDay) {
 
 /**
  * Function to calculate the date when the target weight will be acheved
+ * returns the date value in miliseconds
  */
 
 function dateWhenAcheved (current, target, lossKgPerDay) {
-    let today = new Date().getTime();
-
     console.log(today);
     console.log(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
     return(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
-}
+};
 
-// change date in miliseconds to something that looks like a javascript date
+// dates in miliseconds 
+const today = new Date().getTime();
+const targetDateInMs = targetDate.valueAsNumber;
+console.log(today)
+console.log(`this is a target date in miliseconds ${targetDateInMs}`)
+
+// dates looking like JavaScript
+//for minimum date and maximum date - for minimum speed of weight loss and maximum speed weight loss respectively
 
 var variableMinDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay));
 var variableMaxDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, maxLossKgPerDay));
 
+// today in Javascript format
+var todayJS = new Date();
+// target Date in format resembling JavaScript date
+var targetDateJS = new Date(targetDateInMs)
+console.log(`this is a target date looking like JavaScript date ${targetDateJS}`)
 
-// changing the result into a string
+// changing the date from format looking like Javascript date into a string
 var stringMinDateWhenAcheved = variableMinDateWhenAcheved.toString()
 var stringMaxDateWhenAcheved = variableMaxDateWhenAcheved.toString()
-
-console.log(stringMinDateWhenAcheved)
+var todayJSString = todayJS.toString()
 
 function showMeDate(dateString) {
     let thisDate = "";
@@ -209,9 +213,9 @@ function showMeDate(dateString) {
     
     completeDate = thisDate + " " + thisMonth + " " + thisYear
     console.log(`${thisDate} ${thisMonth} ${thisYear}`);
-    console.log(completeDate)
-    return(completeDate)
-}
+    console.log(completeDate);
+    return(completeDate);
+};
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards

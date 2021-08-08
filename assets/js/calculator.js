@@ -105,6 +105,8 @@ function beforeToday () {
 function monthLater () {
   let todayInMs = new Date().getTime();
   let targetInMs = targetDate.valueAsNumber;
+  console.log(targetDate.value)
+  console.log(targetInMs)
   let monthInMs = 2629800000;
   
   if ((targetInMs-todayInMs) < monthInMs) {

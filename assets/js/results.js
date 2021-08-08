@@ -177,7 +177,7 @@ function dateWhenAcheved (current, target, lossKgPerDay) {
 
 // dates in miliseconds 
 const today = new Date().getTime();
-const targetDateInMs = targetDate.valueAsNumber;
+const targetDateInMs = new Date(targetDate).getTime()
 console.log(today)
 console.log(`this is a target date in miliseconds ${targetDateInMs}`)
 
@@ -190,7 +190,8 @@ var variableMaxDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightI
 // today in Javascript format
 var todayJS = new Date();
 // target Date in format resembling JavaScript date
-var targetDateJS = new Date(targetDateInMs)
+var targetDateJS = new Date(targetDate)
+
 console.log(`this is a target date looking like JavaScript date ${targetDateJS}`)
 
 // changing the date from format looking like Javascript date into a string

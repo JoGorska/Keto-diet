@@ -158,9 +158,6 @@ const maxLossKgPerDay = 0.129597714
  *
  */
 function howManyDays (current, target, lossKgPerDay) {
-    console.log(current - target);
-    console.log(lossKgPerDay);
-    console.log((current - target) / lossKgPerDay);
     return((current - target) / lossKgPerDay);
 };
 
@@ -170,15 +167,13 @@ function howManyDays (current, target, lossKgPerDay) {
  */
 
 function dateWhenAcheved (current, target, lossKgPerDay) {
-    console.log(today);
-    console.log(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
-    return(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
+    return(todayInMs + (86400000 * howManyDays(current, target, lossKgPerDay)));
 };
 
 // dates in miliseconds 
-const today = new Date().getTime();
+const todayInMs = new Date().getTime();
 const targetDateInMs = new Date(targetDate).getTime()
-console.log(today)
+console.log(todayInMs)
 console.log(`this is a target date in miliseconds ${targetDateInMs}`)
 
 // dates looking like JavaScript
@@ -191,8 +186,9 @@ var variableMaxDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightI
 var todayJS = new Date();
 // target Date in format resembling JavaScript date
 var targetDateJS = new Date(targetDate)
+var targetDateJSString = targetDateJS.toString()
 
-console.log(`this is a target date looking like JavaScript date ${targetDateJS}`)
+console.log(`this is a target date looking like JavaScript date ${targetDateJS.toString()}`)
 
 // changing the date from format looking like Javascript date into a string
 var stringMinDateWhenAcheved = variableMinDateWhenAcheved.toString()
@@ -203,7 +199,7 @@ function showMeDate(dateString) {
     let thisDate = "";
     thisDate = dateString[8] + dateString[9];
 
-    if (thisDate.includes("0")) {
+    if (thisDate[0] === "0") {
         thisDate = thisDate[1];
     };
     let thisMonth = "";
@@ -218,14 +214,35 @@ function showMeDate(dateString) {
     return(completeDate);
 };
 
+//////////////////////////////////////calculate weight on target date 
+/**
+ * Function to calculate how many days from today to the target date
+ * Time in miliseconds - target date minus today, gives numbers of days
+ */
+function daysBetweenTargetAndToday(tomorrow, today) {
+    console.log(`days between target date and today ${parseInt((tomorrow - today) / dayInMs)}`)
+    return(parseInt((tomorrow - today) / dayInMs));
+};
 
+
+function whatWeightLossAcheved(days, lossPerDay) {
+    console.log(`weight loss in kg depending on the speed ${(days * lossPerDay)} the speed per day ${lossPerDay} number of days ${days}`)
+    return(days * lossPerDay);
+};
+
+function whatFinalWeightAcheved(current, weightLoss) {
+    console.log(`final result of weight ${current} minus ${weightLoss} equals ${parseInt(current - weightLoss)}`);
+    return(parseInt(current - weightLoss));
+};
+
+var minimalResult = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), minLossKgPerDay))
+
+var maximumResult = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), maxLossKgPerDay))
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
 // display user name in results.html
 
 document.getElementById("input-name").innerHTML = allFormData["input-name"];
 document.getElementById("input-name2").innerHTML = allFormData["input-name"];
-
-
 
 
 // display BMI for the user
@@ -237,7 +254,6 @@ displayWeight(displayCurrentWeight, currentWeightKg, currentWeightStone, current
 displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, currentWeightPounds)
 
 
-
 //display target weight or target date
 
 function displayWeightOrDate () {
@@ -247,7 +263,7 @@ function displayWeightOrDate () {
         addClass("my-invisible", displayTargetDate)
         removeClass("my-invisible", displayTargetWeight)
     } else {
-        displayTargetDate.innerHTML = `${targetDate} <div class="d-inline text-body fw-normal">as a date to loose as much weight as you can.</div>`;
+        displayTargetDate.innerHTML = `${showMeDate(targetDateJSString)} <div class="d-inline text-body fw-normal">as a date to loose as much weight as you can.</div>`;
         addClass("my-invisible", displayTargetWeight)
         removeClass("my-invisible", displayTargetDate)
     }

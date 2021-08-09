@@ -65,7 +65,6 @@ const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 
 function containsLetters(inputName) {
   let valueLetters = inputName.value;
-  console.log(valueLetters);
   return regexLetters.test(valueLetters);
 };
 
@@ -81,11 +80,9 @@ function containsLetters(inputName) {
  var d = (new Date()).toString().split(' ').splice(1,3).join(' ');
  var todayString = todayDate.replace(/-/g, '');
  var targetString = targetDate.value.replace(/-/g, '');
+
 function beforeToday () {
   
-  console.log (targetDate.value.replace(/-/g, '') - todayString);
-  console.log(todayString);
-  console.log(targetString);
   if (targetDate.value <= todayDate) {
 
     return false;
@@ -105,18 +102,11 @@ function beforeToday () {
 function monthLater () {
   let todayInMs = new Date().getTime();
   let targetInMs = targetDate.valueAsNumber;
-  console.log(targetDate.value)
-  console.log(targetInMs)
   let monthInMs = 2629800000;
   
   if ((targetInMs-todayInMs) < monthInMs) {
-    console.log(todayInMs)
-    console.log(`target is closer than a month ahead of today ${targetInMs-todayInMs}`);
     return false;
   } else {
-    console.log(`target is futher than a month ahead of today ${targetInMs-todayInMs}`);
-    console.log(todayInMs)
-    console.log(targetDate.valueAsNumber)
     return true;
 
   };
@@ -132,10 +122,9 @@ function lessThanAYear () {
   let monthInMs = 2629800000;
 
   if ((targetInMs-todayInMs > (12 * monthInMs))) {
-    console.log("Date is further than a year from today");
     return false;
+
   } else {
-    console.log("Date is closer than a year from today");
     return true;
   };
 };
@@ -143,7 +132,6 @@ function lessThanAYear () {
 //Function to calculate total Imperial weght in pounds
 
 function totalImperialWeight (stone, pounds) {
-  console.log((stone * 14) + pounds);
   return ((stone * 14) + pounds);
   
 };
@@ -293,7 +281,6 @@ function validateResultName() {
 
   } else {
     
-    console.log(`name - I have passed through validation and my value is: ${inputName.value} and my length ${inputName.value.length}`)
     removeErrorValidation(inputName, helpName)
     return(true)
 
@@ -318,7 +305,7 @@ function validateResultName() {
 
   } else {
   
-    console.log(`Gender - I have passed through validation and my value is: ${selectGender.value} and my length ${selectGender.value.length}`)
+ 
     removeErrorValidation(selectGender, helpGender);
     return(true)
 
@@ -366,7 +353,7 @@ function validateResultName() {
 
   } else {
     
-    console.log(`Age - I have passed through validation and my value is: ${inputAge.value} and my length ${inputAge.value.length}`)
+
     removeErrorValidation(inputAge, helpAge);
     return(true)
 
@@ -398,7 +385,7 @@ function validateResultName() {
       return(false);
     
     } else if (!beforeToday()) {
-      console.log("failed validation on beforeToday")
+
       return (false);
     
     } else if (!monthLater()) {
@@ -415,14 +402,14 @@ function validateResultName() {
 
     } else {
       
-      console.log(`target Date - I have passed through validation and my value is: ${targetDate.value} and my length ${targetDate.value.length}`)
+
       removeErrorValidation(targetDate, helpTargetDate);
       return(true);
 
     };
 
   } else {
-    console.log(`target Date - the radio button for date is off, `)
+
     removeErrorValidation(targetDate, helpTargetDate);
     return(true);
   };
@@ -451,7 +438,7 @@ function validateResultCurrentWeightImperial() {
  
     } else {
       
-      console.log(`Current Weight Stone and Pounds - I have passed through validation and my value is: ${currentWeightStone.value}`)
+
       removeErrorValidation(currentWeightStone, helpCurrentWeightStone);
       removeErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
       return(true);
@@ -459,7 +446,7 @@ function validateResultCurrentWeightImperial() {
     };
 
   } else {
-    console.log(`Current Weight Stone and Pounds - I have passed through validation and my value is: ${currentWeightStone.value}`)
+
     removeErrorValidation(currentWeightStone, helpCurrentWeightStone);
     removeErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
     return(true);
@@ -484,8 +471,6 @@ function validateResultCurrentWeightImperial() {
       return(false);
 
     } else if ((totalImperialWeight(currentWeightStone.value, currentWeightPounds.value)) <= (totalImperialWeight(targetWeightStone.value, targetWeightPounds.value))) {
-      console.log(totalImperialWeight(currentWeightStone.value, currentWeightPounds.value));
-      console.log(totalImperialWeight(targetWeightStone.value, targetWeightPounds.value));
 
         helpTargetWeightStone.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
         helpTargetWeightPounds.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
@@ -495,7 +480,6 @@ function validateResultCurrentWeightImperial() {
  
     } else {
       
-      console.log(`Target Weight Stone and Pounds - I have passed through validation and my value is: ${targetWeightStone.value}`)
       removeErrorValidation(targetWeightStone, helpTargetWeightStone);
       removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
       return(true);
@@ -504,7 +488,7 @@ function validateResultCurrentWeightImperial() {
     };
 
   } else {
-    console.log(`target Weight Stone  - the radio button for Target weight and Imperial is off, `)
+
     removeErrorValidation(targetWeightStone, helpTargetWeightStone);
     removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
     return(true);
@@ -526,8 +510,6 @@ function validateResultHeightImperial() {
       return(false);
 
     } else {
-      
-      console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`)
       removeErrorValidation(heightFeet, helpHeightFeet);
       removeErrorValidation(heightInches, helpHeightInches);
       return(true);
@@ -535,7 +517,6 @@ function validateResultHeightImperial() {
     };
 
   } else {
-    console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`)
     removeErrorValidation(heightFeet, helpHeightFeet);
     removeErrorValidation(heightInches, helpHeightInches);
     return(true);
@@ -558,8 +539,9 @@ function validateResultHeightImperial() {
       displayErrorValidation(currentWeightKg, helpCurrentWeightKg);
       return(false);
 
-    } else if (targetWeightKg.value >= currentWeightKg.value) {
-
+    } else if (parseInt(targetWeightKg.value) >= parseInt(currentWeightKg.value)) {
+      
+      console.log(`my target weight ${targetWeightKg.value} and the current weight ${currentWeightKg.value}`)
         helpCurrentWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight"
         displayErrorValidation(currentWeightKg, helpCurrentWeightKg);
         return(false);
@@ -595,7 +577,7 @@ function validateResultTargetWeightKg() {
       displayErrorValidation(targetWeightKg, helpTargetWeightKg);
       return(false);
 
-    } else if (targetWeightKg.value >= currentWeightKg.value) {
+    } else if (parseInt(targetWeightKg.value) >= parseInt(currentWeightKg.value)) {
 
         helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight"
         displayErrorValidation(targetWeightKg, helpTargetWeightKg);

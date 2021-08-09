@@ -428,7 +428,7 @@ function validateResultCurrentWeightImperial() {
       displayErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
       return(false);
 
-    } else if ((totalImperialWeight(currentWeightStone.value, currentWeightPounds.value)) <= (totalImperialWeight(targetWeightStone.value, targetWeightPounds.value))) {
+    } else if ((totalImperialWeight(parseInt(currentWeightStone.value), parseInt(currentWeightPounds.value)) <= (totalImperialWeight(parseInt(targetWeightStone.value)), parseInt(targetWeightPounds.value)))) {
 
         helpCurrentWeightStone.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
         helpCurrentWeightPounds.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
@@ -470,7 +470,7 @@ function validateResultCurrentWeightImperial() {
       displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
       return(false);
 
-    } else if ((totalImperialWeight(currentWeightStone.value, currentWeightPounds.value)) <= (totalImperialWeight(targetWeightStone.value, targetWeightPounds.value))) {
+    } else if ((totalImperialWeight(parseInt(currentWeightStone.value), parseInt(currentWeightPounds.value))) <= (totalImperialWeight(parseInt(targetWeightStone.value), parseInt(targetWeightPounds.value)))) {
 
         helpTargetWeightStone.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";
         helpTargetWeightPounds.innerHTML = "Your total target weight must be smaller than total current weight (Stone + lbs)";

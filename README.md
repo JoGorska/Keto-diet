@@ -108,6 +108,8 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 
 9. After managed to calculate the date when the target weight can be acheved I had a date in miliseconds. After converting it into something resembling javascript date, I could not use getDate(), getMont() or getYear() as it was returning taht getDate() is not a function. I suspect that the result of the calculation was not actual javascript date, so I changed the result of calculation to a string and I got the date, month and year off the string.
 
+10. Bug not allowing the user input more than 100 kg for current weight resolved by passing integer when comparing the value of current weight and target weight. Similar but respectively found in imperial measures - resolved by parseInt().
+
 ## Validation
 1. Imperial measures validation
 - add validation for those fields is so that one or both of the fields are filled.

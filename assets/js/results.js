@@ -76,8 +76,10 @@ function weightIntoKg(stone, pounds, kg) {
  * function to get stone and pounds from the given value in Kg
  * returs the value in stones and pounds as a string
  */
+var stone
+var pounds
 
- function kgIntoImperial (kg, stone, pounds) {
+ function displayWeightCorrectly (kg) {
     // calculate how many pounds and how many stones are in the given value of Kg
     allPounds = kg * 2.2046;
     allStone = kg * 0.1574;
@@ -85,18 +87,23 @@ function weightIntoKg(stone, pounds, kg) {
     stone = parseInt(allStone);
     pounds = (stone * 14) - allPounds;
 
-    // if the result is exact stones only, user doesn't want to see the abbreviation lb at the end
+    // if the result is exact stones only, user doesn't want to see the abbreviation lb at the end, 
+    //if the results are in kg user wants to see abbreviation kg at the end
 
-    function displayCorrectly(pounds, stone) {
-        var stringKgIntoImperial = ""
+    function displayStringForWeight (kg, stone, pounds) {
+        var stringKgIntoImperialOrKg = ""
         if (pounds === 0) {
-            stringKgIntoImperial = stone + "st";
+            stringKgIntoImperialOrKg = stone + " st";
+
+        } else if(stone === 0 && pounds === 0) {
+            stringKgIntoImperialOrKg = kg + " kg"
+
         } else {
-            stringKgIntoImperial = stone + "st" + pounds + "lb";
+            stringKgIntoImperialOrKg = stone + " st" + pounds + " lb";
         };
     };
 
-    return(displayCorrectly);
+    return(displayStringForWeight);
 };
 
 

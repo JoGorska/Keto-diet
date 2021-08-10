@@ -31,9 +31,9 @@ const displayTargetDate = document.getElementById("display-target-date")
 
 //test if the data input is imperial or metric measure
 
-function isImperial(stone, pounds) {
+function isImperial(stoneTest, poundsTest) {
 
-    if ((stone !== "") || (pounds !== "")) {
+    if ((stoneTest !== "") || (poundsTest !== "")) {
         return true;
     } else {
         return false;
@@ -78,6 +78,7 @@ function weightIntoKg(stone, pounds, kg) {
  */
 var stone
 var pounds
+var stringKgIntoImperialOrKg = ""
 
  function displayWeightCorrectly (kg) {
     // calculate how many pounds and how many stones are in the given value of Kg
@@ -91,12 +92,12 @@ var pounds
     //if the results are in kg user wants to see abbreviation kg at the end
 
     function displayStringForWeight (kg, stone, pounds) {
-        var stringKgIntoImperialOrKg = ""
-        if (pounds === 0) {
-            stringKgIntoImperialOrKg = stone + " st";
-
-        } else if(stone === 0 && pounds === 0) {
+        
+        if ((isImperial(currentWeightStone, currentWeightPounds) == false) && targetDate === "") {
             stringKgIntoImperialOrKg = kg + " kg"
+
+        } else if (pounds === 0) {
+            stringKgIntoImperialOrKg = stone + " st";
 
         } else {
             stringKgIntoImperialOrKg = stone + " st" + pounds + " lb";

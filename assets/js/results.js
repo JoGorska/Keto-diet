@@ -23,17 +23,25 @@ var targetDate = allFormData["target-date"];
 var heightCm = allFormData["height-cm"];
 var heightFeet = allFormData["height-feet"];
 var heightInches = allFormData["height-inches"]
+var waistCm = allFormData["waist-cm"]
+var waistInches = allFormData["waist-inches"]
+var inputGender = allFormData["gender"];
+var excerciseHours = allFormData["excercise-hours"]
+
+// variables for the divs that will have content input by this javascript
 
 const displayCurrentWeight = document.getElementById("display-current-weight")
 const displayCurrentWeightTwo = document.getElementById("display-current-weight2")
 const displayTargetWeight = document.getElementById("display-target-weight")
 const displayTargetDate = document.getElementById("display-target-date")
+const divDisplayWaistLine = document.getElementById("waist-line")
+const divDisplayExcerciseHours = document.getElementById("input-excercise")
 
 //test if the data input is imperial or metric measure
 
-function isImperial(stone, pounds) {
+function isImperial(stoneTest, poundsTest) {
 
-    if ((stone !== "") || (pounds !== "")) {
+    if ((stoneTest !== "") || (poundsTest !== "")) {
         return true;
     } else {
         return false;
@@ -76,26 +84,40 @@ function weightIntoKg(stone, pounds, kg) {
  * function to get stone and pounds from the given value in Kg
  * returs the value in stones and pounds as a string
  */
+var stone
+var pounds
+var stringKgIntoImperialOrKg = ""
 
-function KgIntoImperial (kg, stone, pounds) {
+ function functionKgIntoImperialOrKg (kg) {
     // calculate how many pounds and how many stones are in the given value of Kg
     allPounds = kg * 2.2046;
     allStone = kg * 0.1574;
     // the user wants to see how many stones and pounds are in the result value
     stone = parseInt(allStone);
     pounds = (stone * 14) - allPounds;
-    // if the result is exact stones only, user doesn't want to see the abbreviation lb at the end
 
-    function displayCorrectly(pounds, stone) {
-        var variableKgIntoImperial = ""
-        if (pounds === 0) {
-            variableKGIntoImperial = stone + "st";
+    // if the result is exact stones only, user doesn't want to see the abbreviation lb at the end, 
+    //if the results are in kg user wants to see abbreviation kg at the end
+
+    function displayStringForWeight (kg, stone, pounds) {
+        // if the user input on current weight was not in stone or pounds, function will display string showing weight in kg
+        if (isImperial(currentWeightStone, currentWeightPounds) == false) {
+            stringKgIntoImperialOrKg = kg + " kg"
+        
+        // function will calculate from kg to imperial and check if the result was in full stones and if so, function will display string showing weight in stones 
+        } else if (pounds === 0) {
+            stringKgIntoImperialOrKg = stone + " st";
+         
+        // function will display string showing weight in stones and pounds
         } else {
-            variableKgIntoImperial = stone + "st" + pounds + "lb";
+            stringKgIntoImperialOrKg = stone + " st" + pounds + " lb";
+        
         };
+
+        return(stringKgIntoImperialOrKg)
     };
 
-    return(displayCorrectly);
+    return(displayStringForWeight(kg, stone, pounds));
 };
 
 
@@ -158,9 +180,6 @@ const maxLossKgPerDay = 0.129597714
  *
  */
 function howManyDays (current, target, lossKgPerDay) {
-    console.log(current - target);
-    console.log(lossKgPerDay);
-    console.log((current - target) / lossKgPerDay);
     return((current - target) / lossKgPerDay);
 };
 
@@ -170,15 +189,13 @@ function howManyDays (current, target, lossKgPerDay) {
  */
 
 function dateWhenAcheved (current, target, lossKgPerDay) {
-    console.log(today);
-    console.log(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
-    return(today + (86400000 * howManyDays(current, target, lossKgPerDay)));
+    return(todayInMs + (86400000 * howManyDays(current, target, lossKgPerDay)));
 };
 
 // dates in miliseconds 
-const today = new Date().getTime();
-const targetDateInMs = targetDate.valueAsNumber;
-console.log(today)
+const todayInMs = new Date().getTime();
+const targetDateInMs = new Date(targetDate).getTime()
+console.log(todayInMs)
 console.log(`this is a target date in miliseconds ${targetDateInMs}`)
 
 // dates looking like JavaScript
@@ -190,8 +207,10 @@ var variableMaxDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightI
 // today in Javascript format
 var todayJS = new Date();
 // target Date in format resembling JavaScript date
-var targetDateJS = new Date(targetDateInMs)
-console.log(`this is a target date looking like JavaScript date ${targetDateJS}`)
+var targetDateJS = new Date(targetDate)
+var targetDateJSString = targetDateJS.toString()
+
+console.log(`this is a target date looking like JavaScript date ${targetDateJS.toString()}`)
 
 // changing the date from format looking like Javascript date into a string
 var stringMinDateWhenAcheved = variableMinDateWhenAcheved.toString()
@@ -202,7 +221,7 @@ function showMeDate(dateString) {
     let thisDate = "";
     thisDate = dateString[8] + dateString[9];
 
-    if (thisDate.includes("0")) {
+    if (thisDate[0] === "0") {
         thisDate = thisDate[1];
     };
     let thisMonth = "";
@@ -217,15 +236,40 @@ function showMeDate(dateString) {
     return(completeDate);
 };
 
+//////////////////////////////////////calculate weight on target date 
+/**
+ * Function to calculate how many days from today to the target date
+ * Time in miliseconds - target date minus today, gives numbers of days
+ */
+function daysBetweenTargetAndToday(tomorrow, today) {
+    console.log(`days between target date and today ${parseInt((tomorrow - today) / dayInMs)}`)
+    return(parseInt((tomorrow - today) / dayInMs));
+};
 
+
+function whatWeightLossAcheved(days, lossPerDay) {
+    console.log(`weight loss in kg depending on the speed ${(days * lossPerDay)} the speed per day ${lossPerDay} number of days ${days}`)
+    return(days * lossPerDay);
+};
+
+function whatFinalWeightAcheved(current, weightLoss) {
+    console.log(`final result of weight ${current} minus ${weightLoss} equals ${parseInt(current - weightLoss)}`);
+    return(parseInt(current - weightLoss));
+};
+
+var minlResultInKg = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), minLossKgPerDay))
+
+var maxResultInKg = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), maxLossKgPerDay))
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
-// display user name in results.html
-
-document.getElementById("input-name").innerHTML = allFormData["input-name"];
-document.getElementById("input-name2").innerHTML = allFormData["input-name"];
 
 
+// display name where it is needed in the cards
 
+let allNameDivs = document.getElementsByClassName("input-name");
+
+for (nameDiv of allNameDivs) {
+    nameDiv.innerHTML = allFormData["input-name"];
+};
 
 // display BMI for the user
 document.getElementById("display-current-BMI").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);
@@ -235,34 +279,86 @@ document.getElementById("display-current-BMI2").innerHTML = calculateBMI(variabl
 displayWeight(displayCurrentWeight, currentWeightKg, currentWeightStone, currentWeightPounds)
 displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, currentWeightPounds)
 
-
-
-//display target weight or target date
+//cards display different content in cards depeneding if user opted for target weight or target date
 
 function displayWeightOrDate () {
     if (targetDate === "") {
+        // display this in cards when the user chose option target weight
+        // card - target
         displayWeight(displayTargetWeight, targetWeightKg, targetWeightStone, targetWeightPounds);
-        
         addClass("my-invisible", displayTargetDate)
         removeClass("my-invisible", displayTargetWeight)
+
+        // card - speed
+        document.getElementById("div-min-acheved").innerHTML = 
+        `<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
+        <div class="d-inline text-success fw-bold">${showMeDate(stringMinDateWhenAcheved)}</div`;
+    
+        document.getElementById("div-max-acheved").innerHTML = 
+        `<div  class="d-inline">Going all in and starting Keto Diet you can acheve this goal on </div>
+        <div class="d-inline text-success fw-bold">${showMeDate(stringMaxDateWhenAcheved)}</div`;
+
     } else {
-        displayTargetDate.innerHTML = `${targetDate} <div class="d-inline text-body fw-normal">as a date to loose as much weight as you can.</div>`;
+        // display this in cards when user chose option target date
+        // card - target
+        displayTargetDate.innerHTML = `${showMeDate(targetDateJSString)} <div class="d-inline text-body fw-normal">as a date to loose as much weight as you can.</div>`;
         addClass("my-invisible", displayTargetWeight)
         removeClass("my-invisible", displayTargetDate)
-    }
+
+        // card - speed
+        document.getElementById("div-min-acheved").innerHTML = 
+        `<div  class="d-inline"> Going for low carb diet you can acheve </div>
+        <div class="d-inline text-success fw-bold">${functionKgIntoImperialOrKg(minlResultInKg)}</div><div>on ${showMeDate(targetDateJSString)}.</div>`;
+    
+        document.getElementById("div-max-acheved").innerHTML = 
+        `<div  class="d-inline">Going all in and starting Keto Diet your weight can go as low as</div>
+        <div class="d-inline text-success fw-bold">${functionKgIntoImperialOrKg(maxResultInKg)}.</div`;
+
+
+    };
 };
 
-// call function
+// display excercise time
+console.log(divDisplayExcerciseHours)
+divDisplayExcerciseHours.innerHTML = excerciseHours;
 
-displayWeightOrDate()
 
-// Display Date when the target weight will be acheved
+// display waist line
+// Why waist also matters source: https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/
 
-document.getElementById("min-date-acheved").innerHTML = showMeDate(stringMinDateWhenAcheved);
-document.getElementById("max-date-acheved").innerHTML = showMeDate(stringMaxDateWhenAcheved);
+/**
+ * function to display the content of the div with the value and description of having too bigh waist line
+ * if the user has not input any waist, the parseInt value of waist is zero therefore the div will not display
+ */
+ function displayWaistLine() {
+    // check if user has input waist line value at all
+        // if the user is a female
+        if ((inputGender === "Female") || (inputGender === "female")) {
+            console.log("I am female")
+            if ((waistInches === "") && (parseInt(waistCm) >= 80)) {
+                divDisplayWaistLine.innerHTML = `Your current is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            } else if ((waistInches !== "") && ((parseInt(waistInches)) > 31)) {
+                divDisplayWaistLine.innerHTML = `${waistInches} in. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            };
+        // if the user is other gender, male or other written in input field
+        } else {
+            console.log("I ma male")
+            if ((waistInches === "") && (parseInt(waistCm) >= 94)) {
+                divDisplayWaistLine.innerHTML = `Your current waist is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            } else if ((waistInches !== "") && ((parseInt(waistInches)) >= 37)) {
+                divDisplayWaistLine.innerHTML = `${waistInches} in. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            };
+        };
+  };
+
 // change which cards are displayed depending on current BMI and gender
 
 document.addEventListener("DOMContentLoaded",  function() {
+
     let testBMI = (calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters))
 
     let cardGoodNews = document.getElementById("good-news")
@@ -273,9 +369,10 @@ document.addEventListener("DOMContentLoaded",  function() {
     let cardExcercise = document.getElementById("card-excercise")
     let cardFemale = document.getElementById("card-female")
     let cardCalories = document.getElementById("card-calories")
-    let inputGender = allFormData["gender"];
+ 
 
     if ( testBMI < 25) {
+        
         console.log(calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters))
         removeClass("my-invisible", cardGoodNews);
         addClass("my-invisible", cardTarget);
@@ -287,11 +384,19 @@ document.addEventListener("DOMContentLoaded",  function() {
         addClass("my-invisible", cardCalories);
 
     } else if ((testBMI >= 25) && ((inputGender === "Female") || (inputGender === "female"))) {
-        removeClassClass("my-invisible", cardFemale);
+        // call function to display Waist line if Waist Line tests are met
+        displayWaistLine()
+        // display target in for the user, returns target date or target  weight
+        displayWeightOrDate()
+        removeClass("my-invisible", cardFemale);
         addClass("my-invisible", cardGoodNews);
 
 
     } else {
+        // call function to display Waist line if Waist Line tests are met
+        displayWaistLine()
+        // display target in for the user, returns target date or target  weight
+        displayWeightOrDate()
         addClass("my-invisible", cardGoodNews);
 
     }

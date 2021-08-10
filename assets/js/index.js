@@ -35,9 +35,33 @@
               // opens new window asking the user to be honest
               //https://www.w3schools.com/jsref/met_win_settimeout.asp
               var myWindow = window.open("", "", "width=300, height=300");
-              myWindow.document.write("<p>You need to be honest with me!</p>");
+              myWindow.document.write(
+                `<!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <head>
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <meta name="description" content="">
+                        <meta name="description" content="Change your fuel - website aiming to encourage people to change to keto diet">
+                        <meta name="keywords" content="weight loss, keto, keto diet, diet, target weight, ">
+                        <meta name="author" content="JoGorska">
+                        <!--my stylesheet link-->
+                        <link rel="stylesheet" href="assets/css/style.css">
+                    <title>Be Honest!</title>
+                </head>
+                <body>
+                <div class="">
+                    <div class="center example1 rounded-corners my-text-center">
+                        <p>I need you to be honest with me!</p>
+                
+                        
+                    </div>
+                </div>
+                </body>
+                </html>`);
               setTimeout(function(){ myWindow.close() }, 3000);
-              
+
               // moves window from the corner
               // https://www.w3schools.com/jsref/met_win_moveto.asp
               function moveWin() {
@@ -73,9 +97,43 @@
                   if (this.innerHTML === "Yes") {
                     console.log("I clicked Yes, to calorie count");
   
-                    //Alert message to review your answer
-                    alert("I need you to be Honest with me!")
-                
+                    // opens new window asking the user to be honest
+                    //https://www.w3schools.com/jsref/met_win_settimeout.asp
+                    var myWindow = window.open("", "", "width=300, height=300");
+                    myWindow.document.write(
+                    `<!DOCTYPE html>
+                    <html lang="en">
+                    <head>
+                        <head>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1">
+                            <meta name="description" content="">
+                            <meta name="description" content="Change your fuel - website aiming to encourage people to change to keto diet">
+                            <meta name="keywords" content="weight loss, keto, keto diet, diet, target weight, ">
+                            <meta name="author" content="JoGorska">
+                            <!--my stylesheet link-->
+                            <link rel="stylesheet" href="assets/css/style.css">
+                        <title>Be Honest!</title>
+                    </head>
+                    <body>
+                    <div class="">
+                        <div class="center example1 rounded-corners my-text-center">
+                            <p>I need you to be honest with me!</p>
+                    
+                            
+                        </div>
+                    </div>
+                    </body>
+                    </html>`);
+                    setTimeout(function(){ myWindow.close() }, 3000);
+                    
+                    // moves window from the corner
+                    // https://www.w3schools.com/jsref/met_win_moveto.asp
+                    function moveWin() {
+                      myWindow.moveTo(500, 200);                                  // Moves the new window   
+                      myWindow.focus();                                           // Sets focus to the new window
+                    }
+                    moveWin()
   
                   } else if (this.innerHTML === "No") {
                     console.log("I clicked No to calorie count");

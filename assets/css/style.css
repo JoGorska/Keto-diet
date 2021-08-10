@@ -10,17 +10,45 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
 /* styling for index.html*/
 
-#background-img-scale {
+.background-img-scale {
   background:
   #f0f5fa
-  url('/workspace/Keto-diet/assets/css/style.css')
+  url('../images/neonbrand-5ddH9Y2accI-unsplash.jpg')
   center/cover
-  no-repeat
-  fixed
-  !important;
-
+  no-repeat;
 }
 
+.background-img-tape-short {
+  background:
+  #f0f5fa
+  url('../images/annie-spratt-Pa2EMnpJGVk-unsplash.jpg')
+  center/cover
+  no-repeat;
+}
+
+.background-img-tape-long {
+  background:
+  #f0f5fa
+  url('../images/siora-photography-cixohzDpNIo-unsplash\ \(1\).jpg')
+  center/cover
+  no-repeat;
+}
+
+.background-img-tape-hand {
+  background:
+  #f0f5fa
+  url('../images/jennifer-burk-ECXB0YAZ_zU-unsplash\ \(1\).jpg')
+  bottom/cover
+  no-repeat;
+}
+
+#main-container {
+
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.99));
+    box-shadow: black;
+    border-radius: 5%;
+    color: white;
+}
 
 
 .my-box-shadow {  
@@ -28,6 +56,29 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
 }
 
+/*My classess to be used to hide elements when the page first load*/
+
+
+.my-invisible {
+  visibility: hidden;
+  position: absolute;
+}
+
+/* Classes for fonts*/
+
+.my-heading-font {
+font-family: 'Baumans', cursive;
+}
+
+.my-plain-text-font {
+font-family: 'Kodchasan', sans-serif;
+}
+
+/* class for font weight bold*/
+.my-fw-bold {
+font-weight: bold
+!important;
+}
 /*
 Here starts styling for honest.html
 */
@@ -64,22 +115,4 @@ https://www.w3schools.com/css/css_align.asp */
 
 .rounded-corners {
   border-radius: 25px;
-}
-/*My classess to be used to hide elements when the page first load*/
-
-
-.my-invisible {
-    visibility: hidden;
-    position: absolute;
-  }
-.my-heading-font {
-  font-family: 'Baumans', cursive;
-}
-
-.my-plain-text-font {
-  font-family: 'Kodchasan', sans-serif;
-}
-
-.my-fw-bold {
-  font-weight: bold;
 }

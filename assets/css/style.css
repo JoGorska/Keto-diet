@@ -53,4 +53,14 @@ https://www.w3schools.com/css/css_align.asp */
     visibility: hidden;
     position: absolute;
   }
+.my-heading-font {
+  font-family: 'Baumans', cursive;
+}
 
+.my-plain-text-font {
+  font-family: 'Kodchasan', sans-serif;
+}
+
+.my-fw-bold {
+  font-weight: bold;
+}

@@ -46,12 +46,18 @@
                         <meta name="description" content="Change your fuel - website aiming to encourage people to change to keto diet">
                         <meta name="keywords" content="weight loss, keto, keto diet, diet, target weight, ">
                         <meta name="author" content="JoGorska">
+
+                        <!--google fonts-->
+                        <link rel="preconnect" href="https://fonts.googleapis.com">
+                        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                        <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Kodchasan:wght@200&display=swap" rel="stylesheet">
+
                         <!--my stylesheet link-->
                         <link rel="stylesheet" href="assets/css/style.css">
                     <title>Be Honest!</title>
                 </head>
                 <body>
-                <div class="">
+                <div class="my-heading-font my-text-shadow">
                     <div class="center example1 rounded-corners my-text-center">
                         <p>I need you to be honest with me!</p>
                 
@@ -111,12 +117,18 @@
                             <meta name="description" content="Change your fuel - website aiming to encourage people to change to keto diet">
                             <meta name="keywords" content="weight loss, keto, keto diet, diet, target weight, ">
                             <meta name="author" content="JoGorska">
+
+                            <!--google fonts-->
+                            <link rel="preconnect" href="https://fonts.googleapis.com">
+                            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                            <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Kodchasan:wght@200&display=swap" rel="stylesheet">
+
                             <!--my stylesheet link-->
                             <link rel="stylesheet" href="assets/css/style.css">
                         <title>Be Honest!</title>
                     </head>
                     <body>
-                    <div class="">
+                    <div class="my-heading-font my-text-shadow">
                         <div class="center example1 rounded-corners my-text-center">
                             <p>I need you to be honest with me!</p>
                     

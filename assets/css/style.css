@@ -7,10 +7,29 @@
 
 /* to be experimented with
 https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
+.my-container {
+  text-align: center;
+}
 
-#example1 {
-        box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
-      }
+.example1 {
+  margin: auto;
+  box-shadow: 0 0 5rem black;
+  width: 50vw;
+  height: 50vh;
+ 
+  
+
+}
+/* position verticaly alignedy copied from
+https://www.w3schools.com/css/css_align.asp */
+
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 /*My classess to be used to hide elements when the page first load*/
 

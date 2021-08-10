@@ -25,11 +25,13 @@ var heightFeet = allFormData["height-feet"];
 var heightInches = allFormData["height-inches"]
 var waistCm = allFormData["waist-cm"]
 var waistInches = allFormData["waist-inches"]
+var inputGender = allFormData["gender"];
 
 const displayCurrentWeight = document.getElementById("display-current-weight")
 const displayCurrentWeightTwo = document.getElementById("display-current-weight2")
 const displayTargetWeight = document.getElementById("display-target-weight")
 const displayTargetDate = document.getElementById("display-target-date")
+const divDisplayWaistLine = document.getElementById("waist-line")
 
 //test if the data input is imperial or metric measure
 
@@ -276,26 +278,39 @@ displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, curr
 // display waist line
 // Why waist also matters source: https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/
 
+
 function displayWaistLine() {
     // if the user is a female
-    if (((inputGender === "Female") || (inputGender === "female"))) {
-        if ((waistInches === "") && (parseInt(waistCm) >= 80)) {
-            document.getElementById("waist-line").innerHTML = `Your current is ${waistCm} cm`;
-            removeClass("my-invisible", document.getElementById("waist-line"))
-        } else if ((waistInches !== "") && ((parseInt(waistInches)) > 31)) {
-            document.getElementById("waist-line").innerHTML = `${waistInches} in`;
-            removeClass("my-invisible", document.getElementById("waist-line"))
-        };
+    if (
+        (inputGender === "Female") || (inputGender === "female")
+        && (waistInches === "")
+        && (parseInt(waistCm) >= 80)
+        ) {
+            console.log(` this is waistline ${waistCm}`)
+            console.log(`Integer of the waist ${parseInt(waistCm)}`)
+            divDisplayWaistLine.innerHTML = `Your current is ${waistCm} cm. Measuring your waist is a good way to check you're not carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+            removeClass("my-invisible", divDisplayWaistLine)
+            
+    } else if (
+        (inputGender === "Female") || (inputGender === "female")
+        && (waistInches !== "")
+        && (parseInt(waistInches) > 31)
+        ) {
+            divDisplayWaistLine.innerHTML = `${waistInches} in`;
+            removeClass("my-invisible", divDisplayWaistLine);
+
+        
     // if the user is other gender, male or other written in input field
     } else {
-        if ((waistInches === "") && (parseInt(waistCm) >= 80)) {
-            document.getElementById("waist-line").innerHTML = `Your current waist is ${waistCm} cm`;
-            removeClass("my-invisible", document.getElementById("waist-line"))
-        } else if ((waistInches !== "") && ((parseInt(waistInches)) > 31)) {
-            document.getElementById("waist-line").innerHTML = `${waistInches} in`;
-            removeClass("my-invisible", document.getElementById("waist-line"))
+        console.log("I ma male")
+        if ((waistInches === "") && (parseInt(waistCm) >= 94)) {
+            divDisplayWaistLine.innerHTML = `Your current waist is ${waistCm} cm`;
+            removeClass("my-invisible", divDisplayWaistLine)
+        } else if ((waistInches !== "") && ((parseInt(waistInches)) >= 37)) {
+            divDisplayWaistLine.innerHTML = `${waistInches} in`;
+            removeClass("my-invisible", divDisplayWaistLine)
         };
-    }
+    };
 };
 
 
@@ -346,6 +361,7 @@ displayWeightOrDate()
 // change which cards are displayed depending on current BMI and gender
 
 document.addEventListener("DOMContentLoaded",  function() {
+
     let testBMI = (calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters))
 
     let cardGoodNews = document.getElementById("good-news")
@@ -356,9 +372,10 @@ document.addEventListener("DOMContentLoaded",  function() {
     let cardExcercise = document.getElementById("card-excercise")
     let cardFemale = document.getElementById("card-female")
     let cardCalories = document.getElementById("card-calories")
-    let inputGender = allFormData["gender"];
+ 
 
     if ( testBMI < 25) {
+        
         console.log(calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters))
         removeClass("my-invisible", cardGoodNews);
         addClass("my-invisible", cardTarget);
@@ -370,6 +387,7 @@ document.addEventListener("DOMContentLoaded",  function() {
         addClass("my-invisible", cardCalories);
 
     } else if ((testBMI >= 25) && ((inputGender === "Female") || (inputGender === "female"))) {
+        displayWaistLine()
         removeClass("my-invisible", cardFemale);
         addClass("my-invisible", cardGoodNews);
 

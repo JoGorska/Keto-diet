@@ -42,18 +42,19 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   no-repeat;
 }
 
-#main-container {
 
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.99));
-    box-shadow: black;
-    border-radius: 5%;
-    color: white;
+
+.my-gradient-background {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.99));
 }
-
 
 .my-box-shadow {  
     box-shadow: inset 0 0 5rem rgb(0 0 0 / 50%);
 
+}
+
+.my-border-radius {
+  border-radius: 5%;
 }
 
 /*My classess to be used to hide elements when the page first load*/
@@ -76,9 +77,24 @@ font-family: 'Kodchasan', sans-serif;
 
 /* class for font weight bold*/
 .my-fw-bold {
-font-weight: bold
+  font-weight: bold
 !important;
 }
+
+/* styling for index html 
+need to target container by ID as javascript injects content to this container and need to maintain the same styling */
+
+#main-container {
+  color: white !important;
+  font-weight: bold;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.99));
+  border-radius: 5%;
+  
+}
+
+
+
+
 /*
 Here starts styling for honest.html
 */

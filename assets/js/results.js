@@ -298,12 +298,12 @@ function displayWeightOrDate () {
 
         // card - speed
         document.getElementById("div-min-acheved").innerHTML = 
-        `<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
-        <div class="d-inline text-success fw-bold">${functionKgIntoImperialOrKg(minlResultInKg)}</div`;
+        `<div  class="d-inline"> Going for low carb diet you can acheve </div>
+        <div class="d-inline text-success fw-bold">${functionKgIntoImperialOrKg(minlResultInKg)}</div><div>on ${showMeDate(targetDateJSString)}.</div>`;
     
         document.getElementById("div-max-acheved").innerHTML = 
-        `<div  class="d-inline">Going all in and starting Keto Diet you can acheve this goal on </div>
-        <div class="d-inline text-success fw-bold">${functionKgIntoImperialOrKg(maxResultInKg)}</div`;
+        `<div  class="d-inline">Going all in and starting Keto Diet your weight can go as low as</div>
+        <div class="d-inline text-success fw-bold">${functionKgIntoImperialOrKg(maxResultInKg)}.</div`;
 
 
     };

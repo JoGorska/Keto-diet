@@ -13,7 +13,6 @@
     mainContainer.innerHTML = `
   
       <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto mb-4" src="assets/images/keto-logo.png" alt="little logo" width="90" height="auto">
         <h1 id="excercise-question" class="display-5 fw-bold">Do you want to excercise More?</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4"></p>
@@ -84,8 +83,7 @@
               //Calorie Question 
               mainContainer.innerHTML = `
                 <div class="px-4 py-5 my-5 text-center">
-                  <img class="d-block mx-auto mb-4" src="assets/images/charles-deluvio-GlavtG-umzE-unsplash.jpg" alt="little logo" width="280" height="auto">
-                  <h1 id="calorie-question" class="display-5 fw-bold">Do you want to calculate Every calorie?</h1>
+                   <h1 id="calorie-question" class="display-5 fw-bold">Do you want to calculate Every calorie?</h1>
                   <div class="col-lg-6 mx-auto">
                     <p class="lead mb-4"></p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
@@ -155,7 +153,6 @@
                     mainContainer.innerHTML = `
                   
                       <div class="px-4 py-5 my-5 text-center">
-                        <img class="d-block mx-auto mb-4" src="#" alt="little logo" width="72" height="57">
                         <h1 id="calorie-question" class="display-5 fw-bold">Predicted Result Calculator</h1>
                         <div class="col-lg-6 mx-auto">
                           <p class="lead mb-4">See what you can acheve by changing your fuel from carbohydrates to fat (yes FAT)</p>

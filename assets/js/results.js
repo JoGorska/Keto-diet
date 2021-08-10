@@ -28,11 +28,14 @@ var waistInches = allFormData["waist-inches"]
 var inputGender = allFormData["gender"];
 var excerciseHours = allFormData["excercise-hours"]
 
+// variables for the divs that will have content input by this javascript
+
 const displayCurrentWeight = document.getElementById("display-current-weight")
 const displayCurrentWeightTwo = document.getElementById("display-current-weight2")
 const displayTargetWeight = document.getElementById("display-target-weight")
 const displayTargetDate = document.getElementById("display-target-date")
 const divDisplayWaistLine = document.getElementById("waist-line")
+const divDisplayExcerciseHours = document.getElementById("input-excercise")
 
 //test if the data input is imperial or metric measure
 
@@ -316,7 +319,8 @@ function displayWeightOrDate () {
 };
 
 // display excercise time
-
+console.log(divDisplayExcerciseHours)
+divDisplayExcerciseHours.innerHTML = excerciseHours;
 
 
 // display waist line

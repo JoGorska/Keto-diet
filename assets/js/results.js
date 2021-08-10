@@ -23,6 +23,8 @@ var targetDate = allFormData["target-date"];
 var heightCm = allFormData["height-cm"];
 var heightFeet = allFormData["height-feet"];
 var heightInches = allFormData["height-inches"]
+var waistCm = allFormData["waist-cm"]
+var waistInches = allFormData["waist-inches"]
 
 const displayCurrentWeight = document.getElementById("display-current-weight")
 const displayCurrentWeightTwo = document.getElementById("display-current-weight2")
@@ -263,10 +265,6 @@ for (nameDiv of allNameDivs) {
     nameDiv.innerHTML = allFormData["input-name"];
 };
 
-//document.getElementById("input-name").innerHTML = allFormData["input-name"];
-//document.getElementById("input-name2").innerHTML = allFormData["input-name"];
-
-
 // display BMI for the user
 document.getElementById("display-current-BMI").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);
 document.getElementById("display-current-BMI2").innerHTML = calculateBMI(variableCurrentWeightIntoKg, variableHeightIntoMeters);
@@ -274,6 +272,31 @@ document.getElementById("display-current-BMI2").innerHTML = calculateBMI(variabl
 // display current weight
 displayWeight(displayCurrentWeight, currentWeightKg, currentWeightStone, currentWeightPounds)
 displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, currentWeightPounds)
+
+// display waist line
+// Why waist also matters source: https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/
+
+function displayWaistLine() {
+    // if the user is a female
+    if (((inputGender === "Female") || (inputGender === "female"))) {
+        if ((waistInches === "") && (parseInt(waistCm) >= 80)) {
+            document.getElementById("waist-line").innerHTML = `Your current is ${waistCm} cm`;
+            removeClass("my-invisible", document.getElementById("waist-line"))
+        } else if ((waistInches !== "") && ((parseInt(waistInches)) > 31)) {
+            document.getElementById("waist-line").innerHTML = `${waistInches} in`;
+            removeClass("my-invisible", document.getElementById("waist-line"))
+        };
+    // if the user is other gender, male or other written in input field
+    } else {
+        if ((waistInches === "") && (parseInt(waistCm) >= 80)) {
+            document.getElementById("waist-line").innerHTML = `Your current waist is ${waistCm} cm`;
+            removeClass("my-invisible", document.getElementById("waist-line"))
+        } else if ((waistInches !== "") && ((parseInt(waistInches)) > 31)) {
+            document.getElementById("waist-line").innerHTML = `${waistInches} in`;
+            removeClass("my-invisible", document.getElementById("waist-line"))
+        };
+    }
+};
 
 
 //cards display different content in cards depeneding if user opted for target weight or target date

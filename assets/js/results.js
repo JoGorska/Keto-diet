@@ -26,6 +26,7 @@ var heightInches = allFormData["height-inches"]
 var waistCm = allFormData["waist-cm"]
 var waistInches = allFormData["waist-inches"]
 var inputGender = allFormData["gender"];
+var excerciseHours = allFormData["excercise-hours"]
 
 const displayCurrentWeight = document.getElementById("display-current-weight")
 const displayCurrentWeightTwo = document.getElementById("display-current-weight2")
@@ -275,38 +276,6 @@ document.getElementById("display-current-BMI2").innerHTML = calculateBMI(variabl
 displayWeight(displayCurrentWeight, currentWeightKg, currentWeightStone, currentWeightPounds)
 displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, currentWeightPounds)
 
-// display waist line
-// Why waist also matters source: https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/
-
-/**
- * function to display the content of the div with the value and description of having too bigh waist line
- * if the user has not input any waist, the parseInt value of waist is zero therefore the div will not display
- */
-function displayWaistLine() {
-    // check if user has input waist line value at all
-        // if the user is a female
-        if ((inputGender === "Female") || (inputGender === "female")) {
-            console.log("I am female")
-            if ((waistInches === "") && (parseInt(waistCm) >= 80)) {
-                divDisplayWaistLine.innerHTML = `Your current is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
-                removeClass("my-invisible", divDisplayWaistLine)
-            } else if ((waistInches !== "") && ((parseInt(waistInches)) > 31)) {
-                divDisplayWaistLine.innerHTML = `${waistInches} in. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
-                removeClass("my-invisible", divDisplayWaistLine)
-            };
-        // if the user is other gender, male or other written in input field
-        } else {
-            console.log("I ma male")
-            if ((waistInches === "") && (parseInt(waistCm) >= 94)) {
-                divDisplayWaistLine.innerHTML = `Your current waist is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
-                removeClass("my-invisible", divDisplayWaistLine)
-            } else if ((waistInches !== "") && ((parseInt(waistInches)) >= 37)) {
-                divDisplayWaistLine.innerHTML = `${waistInches} in. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
-                removeClass("my-invisible", divDisplayWaistLine)
-            };
-        };
-  };
-
 //cards display different content in cards depeneding if user opted for target weight or target date
 
 function displayWeightOrDate () {
@@ -346,10 +315,41 @@ function displayWeightOrDate () {
     };
 };
 
-// call function
+// display excercise time
 
 
 
+// display waist line
+// Why waist also matters source: https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/
+
+/**
+ * function to display the content of the div with the value and description of having too bigh waist line
+ * if the user has not input any waist, the parseInt value of waist is zero therefore the div will not display
+ */
+ function displayWaistLine() {
+    // check if user has input waist line value at all
+        // if the user is a female
+        if ((inputGender === "Female") || (inputGender === "female")) {
+            console.log("I am female")
+            if ((waistInches === "") && (parseInt(waistCm) >= 80)) {
+                divDisplayWaistLine.innerHTML = `Your current is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            } else if ((waistInches !== "") && ((parseInt(waistInches)) > 31)) {
+                divDisplayWaistLine.innerHTML = `${waistInches} in. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            };
+        // if the user is other gender, male or other written in input field
+        } else {
+            console.log("I ma male")
+            if ((waistInches === "") && (parseInt(waistCm) >= 94)) {
+                divDisplayWaistLine.innerHTML = `Your current waist is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            } else if ((waistInches !== "") && ((parseInt(waistInches)) >= 37)) {
+                divDisplayWaistLine.innerHTML = `${waistInches} in. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            };
+        };
+  };
 
 // change which cards are displayed depending on current BMI and gender
 

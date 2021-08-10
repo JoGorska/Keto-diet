@@ -255,10 +255,16 @@ var maxResultInKg = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeig
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
 
 
-// card - your target first part
+// display name where it is needed in the cards
 
-document.getElementById("input-name").innerHTML = allFormData["input-name"];
-document.getElementById("input-name2").innerHTML = allFormData["input-name"];
+let allNameDivs = document.getElementsByClassName("input-name");
+
+for (nameDiv of allNameDivs) {
+    nameDiv.innerHTML = allFormData["input-name"];
+};
+
+//document.getElementById("input-name").innerHTML = allFormData["input-name"];
+//document.getElementById("input-name2").innerHTML = allFormData["input-name"];
 
 
 // display BMI for the user

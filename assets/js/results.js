@@ -275,8 +275,14 @@ displayWeightOrDate()
 
 // Display Date when the target weight will be acheved
 
-document.getElementById("min-date-acheved").innerHTML = showMeDate(stringMinDateWhenAcheved);
-document.getElementById("max-date-acheved").innerHTML = showMeDate(stringMaxDateWhenAcheved);
+document.getElementById("div-min-acheved").innerHTML = 
+    `<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
+    <div class="d-inline text-success fw-bold">${showMeDate(stringMinDateWhenAcheved)}</div`
+;
+document.getElementById("div-max-acheved").innerHTML = 
+`<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
+<div class="d-inline text-success fw-bold">${showMeDate(stringMaxDateWhenAcheved)}</div`
+
 // change which cards are displayed depending on current BMI and gender
 
 document.addEventListener("DOMContentLoaded",  function() {

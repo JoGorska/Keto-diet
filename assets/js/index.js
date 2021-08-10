@@ -1,27 +1,5 @@
 //Welcome Questions - interactions with the user
  
-document.getElementById('main-container').addEventListener("click", function(event){
-    if(event.target.matches("#targetDate")) {
-      console.log("make target date invisible and make target weight apear")
-  
-      
-    } else if (event.target.matches("#targetWeight")){
-      console.log("make target weight invisible and make target date apear")
-  
-      
-    } else if (event.target.matches("#imperial")){
-      console.log("I will change form to Metric")
-      
-    
-    } else if (event.target.matches("#metric")){
-      console.log("I will change form to Imperial")
-      
-    
-    } else {
-      console.log("radio button unknown")
-      
-    }
-  });
   
   document.getElementById('learn-more').addEventListener("click", function() {
     let mainContainer = document.getElementById("main-container");

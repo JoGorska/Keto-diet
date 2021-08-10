@@ -80,7 +80,7 @@ var stone
 var pounds
 var stringKgIntoImperialOrKg = ""
 
- function displayWeightCorrectly (kg) {
+ function functionKgIntoImperialOrKg (kg) {
     // calculate how many pounds and how many stones are in the given value of Kg
     allPounds = kg * 2.2046;
     allStone = kg * 0.1574;
@@ -93,14 +93,17 @@ var stringKgIntoImperialOrKg = ""
 
     function displayStringForWeight (kg, stone, pounds) {
         
-        if ((isImperial(currentWeightStone, currentWeightPounds) == false) && targetDate === "") {
+        if (isImperial(currentWeightStone, currentWeightPounds) == false) {
             stringKgIntoImperialOrKg = kg + " kg"
+            return(stringKgIntoImperialOrKg)
 
         } else if (pounds === 0) {
             stringKgIntoImperialOrKg = stone + " st";
+            return(stringKgIntoImperialOrKg)
 
         } else {
             stringKgIntoImperialOrKg = stone + " st" + pounds + " lb";
+            return(stringKgIntoImperialOrKg)
         };
     };
 
@@ -244,9 +247,9 @@ function whatFinalWeightAcheved(current, weightLoss) {
     return(parseInt(current - weightLoss));
 };
 
-var minimalResult = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), minLossKgPerDay))
+var minlResultInKg = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), minLossKgPerDay))
 
-var maximumResult = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), maxLossKgPerDay))
+var maxResultInKg = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), maxLossKgPerDay))
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
 
 
@@ -294,11 +297,11 @@ function displayWeightOrDate () {
         // card - speed
         document.getElementById("div-min-acheved").innerHTML = 
         `<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
-        <div class="d-inline text-success fw-bold">${showMeDate(stringMinDateWhenAcheved)}</div`;
+        <div class="d-inline text-success fw-bold">${functionKgIntoImperialOrKg(minlResultInKg)}</div`;
     
         document.getElementById("div-max-acheved").innerHTML = 
         `<div  class="d-inline">Going all in and starting Keto Diet you can acheve this goal on </div>
-        <div class="d-inline text-success fw-bold">${showMeDate(stringMaxDateWhenAcheved)}</div`;
+        <div class="d-inline text-success fw-bold">${functionKgIntoImperialOrKg(maxResultInKg)}</div`;
 
 
     };

@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded",  function() {
         addClass("my-invisible", cardCalories);
 
     } else if ((testBMI >= 25) && ((inputGender === "Female") || (inputGender === "female"))) {
-        removeClassClass("my-invisible", cardFemale);
+        removeClass("my-invisible", cardFemale);
         addClass("my-invisible", cardGoodNews);
 
 

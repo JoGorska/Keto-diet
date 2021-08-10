@@ -54,7 +54,7 @@ document.getElementById('main-container').addEventListener("click", function(eve
           } else if (this.innerHTML === "No") {
               console.log("I clicked No");
   
-              let mainContainer =document.getElementById("main-container");
+              let mainContainer = document.getElementById("main-container");
   
               //Calorie Question 
               mainContainer.innerHTML = `

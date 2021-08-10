@@ -21,28 +21,20 @@ The general style of the website is light and airy, images used are light and co
 2. Bootswatch - Morph - modified Bootstrap's style, adding those big buttons with a shadow.
 3. following the style of those buttons I created nav bar
 4. Fonts 
-    - headers I have chosen a few fonts to test. I wanted them to reflect the style of the buttons that I have from Bootswatch Morph.  
-    - plain text - simple font easy to read
+    - headers I have chosen a few fonts to test on the live website. I wanted them to reflect the style of the buttons that I have from Bootswatch Morph.  The fonts are rounded and 
+        * font-family: 'Aclonica', sans-serif;
+        * font-family: 'Baumans', cursive;
+        * font-family: 'Gochi Hand', cursive;
+        * font-family: 'Knewave', cursive;
+        * font-family: 'Kodchasan', sans-serif;
+        * font-family: 'Nova Mono', monospace;
+        * font-family: 'Permanent Marker', cursive;
+        * font-family: 'Rock Salt', cursive;
+        * font-family: 'Ruslan Display', cursive;
 
-To be used later - choose later
+    - My final decision is to go for Baumans for Heading and any big lettering
+    - Plain text will be Kodchasan font as it is clearer when is used for small fonts
 
-Initial prefference: Baumans,  Nova Mono, Kodchasan
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Baumans&family=Gochi+Hand&family=Knewave&family=Kodchasan:wght@200&family=Nova+Mono&family=Permanent+Marker&family=Rock+Salt&family=Ruslan+Display&display=swap" rel="stylesheet">
-CSS rules to specify families
-
-font-family: 'Aclonica', sans-serif;
-font-family: 'Baumans', cursive;
-font-family: 'Gochi Hand', cursive;
-font-family: 'Knewave', cursive;
-font-family: 'Kodchasan', sans-serif;
-font-family: 'Nova Mono', monospace;
-font-family: 'Permanent Marker', cursive;
-font-family: 'Rock Salt', cursive;
-font-family: 'Ruslan Display', cursive;
 
 ## Bugs
 1. Problem with editing Calculator Form

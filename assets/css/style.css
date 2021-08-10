@@ -8,10 +8,44 @@
 /* to be experimented with
 https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
-#example1 {
-        box-shadow: 5px 5px blue, 10px 10px red, 15px 15px green;
-      }
 
+/*
+Here starts styling for honest.html
+*/
+.my-container {
+  text-align: center;
+}
+
+.example1 {
+
+  box-shadow: 0 0 5rem black;
+  width: 100px;
+
+  margin: auto;
+ 
+}
+/* position verticaly alignedy copied from
+https://www.w3schools.com/css/css_align.asp */
+
+.center {
+  margin-top: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+
+}
+
+.my-inline-block {
+  display: inline-block;
+}
+.my-text-center {
+  text-align: center;
+}
+
+.rounded-corners {
+  border-radius: 25px;
+}
 /*My classess to be used to hide elements when the page first load*/
 
 
@@ -19,3 +53,4 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
     visibility: hidden;
     position: absolute;
   }
+

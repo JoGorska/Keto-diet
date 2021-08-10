@@ -278,41 +278,34 @@ displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, curr
 // display waist line
 // Why waist also matters source: https://www.nhs.uk/live-well/healthy-weight/bmi-calculator/
 
-
+/**
+ * function to display the content of the div with the value and description of having too bigh waist line
+ * if the user has not input any waist, the parseInt value of waist is zero therefore the div will not display
+ */
 function displayWaistLine() {
-    // if the user is a female
-    if (
-        (inputGender === "Female") || (inputGender === "female")
-        && (waistInches === "")
-        && (parseInt(waistCm) >= 80)
-        ) {
-            console.log(` this is waistline ${waistCm}`)
-            console.log(`Integer of the waist ${parseInt(waistCm)}`)
-            divDisplayWaistLine.innerHTML = `Your current is ${waistCm} cm. Measuring your waist is a good way to check you're not carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
-            removeClass("my-invisible", divDisplayWaistLine)
-            
-    } else if (
-        (inputGender === "Female") || (inputGender === "female")
-        && (waistInches !== "")
-        && (parseInt(waistInches) > 31)
-        ) {
-            divDisplayWaistLine.innerHTML = `${waistInches} in`;
-            removeClass("my-invisible", divDisplayWaistLine);
-
-        
-    // if the user is other gender, male or other written in input field
-    } else {
-        console.log("I ma male")
-        if ((waistInches === "") && (parseInt(waistCm) >= 94)) {
-            divDisplayWaistLine.innerHTML = `Your current waist is ${waistCm} cm`;
-            removeClass("my-invisible", divDisplayWaistLine)
-        } else if ((waistInches !== "") && ((parseInt(waistInches)) >= 37)) {
-            divDisplayWaistLine.innerHTML = `${waistInches} in`;
-            removeClass("my-invisible", divDisplayWaistLine)
+    // check if user has input waist line value at all
+        // if the user is a female
+        if ((inputGender === "Female") || (inputGender === "female")) {
+            console.log("I am female")
+            if ((waistInches === "") && (parseInt(waistCm) >= 80)) {
+                divDisplayWaistLine.innerHTML = `Your current is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            } else if ((waistInches !== "") && ((parseInt(waistInches)) > 31)) {
+                divDisplayWaistLine.innerHTML = `${waistInches} in. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            };
+        // if the user is other gender, male or other written in input field
+        } else {
+            console.log("I ma male")
+            if ((waistInches === "") && (parseInt(waistCm) >= 94)) {
+                divDisplayWaistLine.innerHTML = `Your current waist is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            } else if ((waistInches !== "") && ((parseInt(waistInches)) >= 37)) {
+                divDisplayWaistLine.innerHTML = `${waistInches} in. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
+                removeClass("my-invisible", divDisplayWaistLine)
+            };
         };
-    };
-};
-
+  };
 
 //cards display different content in cards depeneding if user opted for target weight or target date
 
@@ -355,7 +348,7 @@ function displayWeightOrDate () {
 
 // call function
 
-displayWeightOrDate()
+
 
 
 // change which cards are displayed depending on current BMI and gender
@@ -387,12 +380,19 @@ document.addEventListener("DOMContentLoaded",  function() {
         addClass("my-invisible", cardCalories);
 
     } else if ((testBMI >= 25) && ((inputGender === "Female") || (inputGender === "female"))) {
+        // call function to display Waist line if Waist Line tests are met
         displayWaistLine()
+        // display target in for the user, returns target date or target  weight
+        displayWeightOrDate()
         removeClass("my-invisible", cardFemale);
         addClass("my-invisible", cardGoodNews);
 
 
     } else {
+        // call function to display Waist line if Waist Line tests are met
+        displayWaistLine()
+        // display target in for the user, returns target date or target  weight
+        displayWeightOrDate()
         addClass("my-invisible", cardGoodNews);
 
     }

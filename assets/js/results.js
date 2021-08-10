@@ -77,21 +77,20 @@ function weightIntoKg(stone, pounds, kg) {
  * returs the value in stones and pounds as a string
  */
 
-function KgIntoImperial (kg, stone, pounds) {
-    // calculate how many pounds and how many stones are in the given value of Kg
-    allPounds = kg * 2.2046;
-    allStone = kg * 0.1574;
-    // the user wants to see how many stones and pounds are in the result value
-    stone = parseInt(allStone);
-    pounds = (stone * 14) - allPounds;
-    // if the result is exact stones only, user doesn't want to see the abbreviation lb at the end
+    function kgIntoImperial (kg, stone, pounds) {
+            // calculate how many pounds and how many stones are in the given value of Kg
+        let allPounds = kg * 2.2046;
+        let allStone = kg * 0.1574;
+        // the user wants to see how many stones and pounds are in the result value
+        stone = parseInt(allStone);
+        pounds = (stone * 14) - allPounds;
+        // if the result is exact stones only, user doesn't want to see the abbreviation lb at the end
+        var stringKgIntoImperial = ""
 
-    function displayCorrectly(pounds, stone) {
-        var variableKgIntoImperial = ""
         if (pounds === 0) {
-            variableKGIntoImperial = stone + "st";
+            stringKgIntoImperial = stone + "st";
         } else {
-            variableKgIntoImperial = stone + "st" + pounds + "lb";
+            stringKgIntoImperial = stone + "st" + pounds + "lb";
         };
     };
 
@@ -239,7 +238,9 @@ var minimalResult = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeig
 
 var maximumResult = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeightLossAcheved(daysBetweenTargetAndToday(targetDateInMs, todayInMs), maxLossKgPerDay))
 //////////////////////////////////////////////////////////////////////////////////////////////here starts displaying things in cards
-// display user name in results.html
+
+
+// card - your target first part
 
 document.getElementById("input-name").innerHTML = allFormData["input-name"];
 document.getElementById("input-name2").innerHTML = allFormData["input-name"];
@@ -254,34 +255,49 @@ displayWeight(displayCurrentWeight, currentWeightKg, currentWeightStone, current
 displayWeight(displayCurrentWeightTwo, currentWeightKg, currentWeightStone, currentWeightPounds)
 
 
-//display target weight or target date
+//cards display different content in cards depeneding if user opted for target weight or target date
 
 function displayWeightOrDate () {
     if (targetDate === "") {
+        // display this in cards when the user chose option target weight
+        // card - target
         displayWeight(displayTargetWeight, targetWeightKg, targetWeightStone, targetWeightPounds);
-        
         addClass("my-invisible", displayTargetDate)
         removeClass("my-invisible", displayTargetWeight)
+
+        // card - speed
+        document.getElementById("div-min-acheved").innerHTML = 
+        `<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
+        <div class="d-inline text-success fw-bold">${showMeDate(stringMinDateWhenAcheved)}</div`;
+    
+        document.getElementById("div-max-acheved").innerHTML = 
+        `<div  class="d-inline">Going all in and starting Keto Diet you can acheve this goal on </div>
+        <div class="d-inline text-success fw-bold">${showMeDate(stringMaxDateWhenAcheved)}</div`;
+
     } else {
+        // display this in cards when user chose option target date
+        // card - target
         displayTargetDate.innerHTML = `${showMeDate(targetDateJSString)} <div class="d-inline text-body fw-normal">as a date to loose as much weight as you can.</div>`;
         addClass("my-invisible", displayTargetWeight)
         removeClass("my-invisible", displayTargetDate)
-    }
+
+        // card - speed
+        document.getElementById("div-min-acheved").innerHTML = 
+        `<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
+        <div class="d-inline text-success fw-bold">${showMeDate(stringMinDateWhenAcheved)}</div`;
+    
+        document.getElementById("div-max-acheved").innerHTML = 
+        `<div  class="d-inline">Going all in and starting Keto Diet you can acheve this goal on </div>
+        <div class="d-inline text-success fw-bold">${showMeDate(stringMaxDateWhenAcheved)}</div`;
+
+
+    };
 };
 
 // call function
 
 displayWeightOrDate()
 
-// Display Date when the target weight will be acheved
-
-document.getElementById("div-min-acheved").innerHTML = 
-    `<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
-    <div class="d-inline text-success fw-bold">${showMeDate(stringMinDateWhenAcheved)}</div`
-;
-document.getElementById("div-max-acheved").innerHTML = 
-`<div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
-<div class="d-inline text-success fw-bold">${showMeDate(stringMaxDateWhenAcheved)}</div`
 
 // change which cards are displayed depending on current BMI and gender
 

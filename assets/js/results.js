@@ -92,22 +92,24 @@ var stringKgIntoImperialOrKg = ""
     //if the results are in kg user wants to see abbreviation kg at the end
 
     function displayStringForWeight (kg, stone, pounds) {
-        
+        // if the user input on current weight was not in stone or pounds, function will display string showing weight in kg
         if (isImperial(currentWeightStone, currentWeightPounds) == false) {
             stringKgIntoImperialOrKg = kg + " kg"
-            return(stringKgIntoImperialOrKg)
-
+        
+        // function will calculate from kg to imperial and check if the result was in full stones and if so, function will display string showing weight in stones 
         } else if (pounds === 0) {
             stringKgIntoImperialOrKg = stone + " st";
-            return(stringKgIntoImperialOrKg)
-
+         
+        // function will display string showing weight in stones and pounds
         } else {
             stringKgIntoImperialOrKg = stone + " st" + pounds + " lb";
-            return(stringKgIntoImperialOrKg)
+        
         };
+
+        return(stringKgIntoImperialOrKg)
     };
 
-    return(displayStringForWeight);
+    return(displayStringForWeight(kg, stone, pounds));
 };
 
 

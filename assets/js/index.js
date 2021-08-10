@@ -1,5 +1,10 @@
+// timeout window if answered yes
+
+
+
+
+
 //Welcome Questions - interactions with the user
- 
   
   document.getElementById('learn-more').addEventListener("click", function() {
     let mainContainer = document.getElementById("main-container");
@@ -26,9 +31,21 @@
         button.addEventListener("click", function() {
           if (this.innerHTML === "Yes") {
               console.log("I clicked Yes")
-              //Alert message to review your answer
-              alert("I need you to be Honest with me!")
-                      
+
+              // opens new window asking the user to be honest
+              //https://www.w3schools.com/jsref/met_win_settimeout.asp
+              var myWindow = window.open("", "", "width=300, height=300");
+              myWindow.document.write("<p>You need to be honest with me!</p>");
+              setTimeout(function(){ myWindow.close() }, 3000);
+              
+              // moves window from the corner
+              // https://www.w3schools.com/jsref/met_win_moveto.asp
+              function moveWin() {
+                myWindow.moveTo(500, 200);                                  // Moves the new window   
+                myWindow.focus();                                           // Sets focus to the new window
+              }
+              moveWin()
+                    
           } else if (this.innerHTML === "No") {
               console.log("I clicked No");
   

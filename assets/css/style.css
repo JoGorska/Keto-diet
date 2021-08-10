@@ -92,6 +92,23 @@ need to target container by ID as javascript injects content to this container a
   
 }
 
+#main-container h1 {
+  color: white !important;
+  font-family: 'Baumans', cursive;
+}
+
+#main-container h2 {
+  color: white !important;
+  font-family: 'Baumans', cursive;
+}
+
+
+#main-container button {
+  color: black;
+  box-shadow: inset 0 0 5rem rgb(0 0 0 / 50%);
+  border-
+
+}
 
 
 

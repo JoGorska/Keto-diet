@@ -172,6 +172,9 @@ Downloaded from Bootstrap examples. Authors Mark Otto, Jacob Thornton, and Boots
 // code from code pen, explained by Sean Young on Webinar 22/07/2021
 //https://codepen.io/seanyoung247/pen/qBmbZQK
 3. Webinar for git hub
+4. Unsplash for images
+5. Youtube for embeded videos
+6. Formspree for form dump
 4. Brian and David for advice during hackaton on branches and pull requests
 3. Mentor
 

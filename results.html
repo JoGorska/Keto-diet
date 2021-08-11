@@ -32,29 +32,37 @@
     <title>Change your Fuel</title>
 </head>
 <!--Main header-->
-<body class="background-img-tape-fixed text-light">
+<body class="clear-shadow d-flex background-img-tape-fixed my-plain-text-font text-dark fw-bold">
     <!--Nav bar  - ??? need do place it correctly check if nav bar goes below header in html should header be in the header-->
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column shadow-lg m-4">
+<div class="d-flex w-100 h-100 p-3 mx-auto flex-column m-4">
     
-    <div>
-        <h3 class="float-md-start mb-0"><a class="text-decoration-none" href="index.html">Change your fuel</a></h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end text-dark">
-            <a class="text-success nav-link active" href="index.html">Home</a>
-            <a class="fw-bold text-decoration-underline text-success nav-link" aria-current="page" href="calculator.html">Calculator</a>
-            <a class="text-success nav-link" href="contact.html">Contact</a>
+  <div id="nav-container" class="container mt-5">
+    <!--Nav bar-->
+    <header class="mb-auto text-center">
+      <div>
+        <a class="navbar-brand text-center" href="index.html">
+          <img src="/assets/images/keto-logo.png" alt="logo - three sugar cubes with prohibition sign" width="50" height="50" class=" d-inline-block align-text-top float-md-start mb-auto text-center">
+          <h1 class="float-md-start mb-0 text-dark my-heading-font fw-bold">Change your fuel</h1>
+      </a>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="text-dark my-heading-font nav-link" href="index.html">Home</a>
+          <a class="fw-bold text-dark my-heading-font nav-link my-active" aria-current="page" href="calculator.html">Calculator</a>
+          <a class="text-dark my-heading-font nav-link" href="contact.html">Contact</a>
         </nav>
-    </div>
+      </div>
+    </header>
+  </div>
     
-</div>
+
 <!--hero code  for each card copied from bootstrap examples-->
 
 <!--First Card - Good news you don't have to loose weight-->
 <div  class="b-example-divider"></div>
 
-  <div id="good-news" class="container my-5 my-gradient-to-left my-border-radius-bigger">
+  <div id="good-news" class="container my-5 my-white-gradient-to-left my-border-radius-bigger">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1 text-light">Good News!</h1>
+        <h1 class="display-4 fw-bold lh-1 text-dark my-heading-font">Good News!</h1>
         <p class="lead">
           <div class="input-name text-success d-inline fw-bold">Empty</div>
           <div class="d-inline">, You have told us your current weight is</div>
@@ -83,10 +91,10 @@
 <!--Second Card Target-->
 <div class="b-example-divider"></div>
 
-  <div id="card-target" class="container my-5 my-gradient-to-left my-border-radius-bigger">
+  <div id="card-target" class="container my-5 my-white-gradient-to-left my-border-radius-bigger">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1 text-light">Your Target</h1>
+        <h1 class="display-4 fw-bold lh-1 text-dark my-heading-font">Your Target</h1>
         <p class="lead">
           <div class="input-name text-success d-inline fw-bold">Empty</div>
           <div class="d-inline">, You have told us your current weight is</div>
@@ -106,7 +114,7 @@
       </div>
       <div class="col-lg-6 offset-lg-1 pb-5 overflow-hidden text-center">
         <!-- 16 by 9  aspect ratio embeded video you tube-->
-          <div class="embed-responsive embed-responsive-1by1" >
+          <div class="ratio ratio-16x9" >
             <iframe class="embed-responsive-item shadow-lg" src="https://www.youtube.com/embed/j91eC2z9Om4" title="Video - Keto diet full tutorial"></iframe>
           </div>
       </div>
@@ -116,11 +124,11 @@
 <!--Third Card - Explain speed of weight loss -->
 <div class="b-example-divider"></div>
 
-  <div id="card-speed"  class="container my-5 my-gradient-to-left my-border-radius-bigger">
+  <div id="card-speed"  class="container my-5 my-white-gradient-to-left my-border-radius-bigger">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1 text-light">The speed</h1>
-        <h1 class="display-6 fw-bold h-4 text-light">of weight loss</h1>
+        <h1 class="display-4 fw-bold lh-1 text-dark my-heading-font">The speed</h1>
+        <h1 class="display-6 fw-bold h-4 text-dark my-heading-font">of weight loss</h1>
         <p class="lead">
           <div id="div-min-acheved" class="mb-3">          
             <div  class="d-inline"> Going for low carb diet you can acheve this goal on </div>
@@ -148,10 +156,10 @@
 <!--Fourth card Intermediete fasting -->
 <div class="b-example-divider"></div>
 
-  <div id="card-if" class="container my-5 my-gradient-to-left my-border-radius-bigger">
+  <div id="card-if" class="container my-5 my-white-gradient-to-left my-border-radius-bigger">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
-        <h1 class="display-4 fw-bold lh-1 text-light">Intermediete Fasting</h1>
+        <h1 class="display-4 fw-bold lh-1 text-dark my-heading-font">Intermediete Fasting</h1>
         <p class="lead">
           <div class="mb-5">Keto meals are very fulfiling. Watch the video to learn more how Keto combined with Intermediete Fasting can help you loose weight.</div>
         </p>
@@ -173,10 +181,10 @@
 <!--Fifth Waist-->
 <div  class="b-example-divider"></div>
 
-<div id="card-waist" class="container my-5 my-gradient-to-left my-border-radius-bigger">
+<div id="card-waist" class="container my-5 my-white-gradient-to-left my-border-radius-bigger">
   <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
     <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
-      <h1 class="display-4 fw-bold lh-1 text-light">Waist line</h1>
+      <h1 class="display-4 fw-bold lh-1 text-dark my-heading-font">Waist line</h1>
       <p class="lead">
         <div id="waist-line" class="my-invisible">Empty</div>
         <div>It is important to understand what might be the root cause of your weight gain. Watch the video to learn more about different body types.</div>
@@ -198,10 +206,10 @@
 <!--Sixth excercise-->
 <div class="b-example-divider"></div>
 
-<div id="card-excercise" class="container my-5 my-gradient-to-left my-border-radius-bigger">
+<div id="card-excercise" class="container my-5 my-white-gradient-to-left my-border-radius-bigger">
   <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
     <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
-      <h1 class="display-4 fw-bold lh-1 text-light">Excercise</h1>
+      <h1 class="display-4 fw-bold lh-1 text-dark my-heading-font">Excercise</h1>
       <p class="lead">
         <div class="d-inline">
           You are currently excercising
@@ -227,10 +235,10 @@
 <!--Seventh Card female only -->
 <div class="b-example-divider"></div>
 
-<div id="card-female" class="container my-5 my-invisible my-gradient-to-left my-border-radius-bigger">
+<div id="card-female" class="container my-5 my-invisible my-white-gradient-to-left my-border-radius-bigger">
   <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
     <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
-      <h1 class="display-4 fw-bold lh-1 text-light">Female hormones</h1>
+      <h1 class="display-4 fw-bold lh-1 text-dark my-heading-font">Female hormones</h1>
       <p class="lead">
         <div>Weight loss for wemen is not a straight path. This video reffers to Intermediete Fasting, but expalins very well how the hormones will affect your weight loss.</div>
         </p>
@@ -251,10 +259,10 @@
 <!--Eight card Calories-->
 <div class="b-example-divider"></div>
 
-<div id="card-calories" class="container my-5 my-gradient-to-left my-border-radius-bigger">
+<div id="card-calories" class="container my-5 my-white-gradient-to-left my-border-radius-bigger">
   <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
     <div class="col-lg-5 p-3 p-lg-5 pt-lg-3">
-      <h1 class="display-4 fw-bold lh-1 text-light">Calories</h1>
+      <h1 class="display-4 fw-bold lh-1 text-dark my-heading-font">Calories</h1>
       <p class="lead">
         
         <div class="input-name text-success fw-bold d-inline">Empty</div>
@@ -274,7 +282,10 @@
     </div>
   </div>
 </div>
-
+<footer class="mt-auto text-success text-center">
+  <p class="fw-bold text-dark my-heading-font" >Copyright 2021 JoGorska <a class="fw-bold text-dark my-heading-font" href="https://github.com/JoGorska">Gitpod</a> and <a class="fw-bold text-dark my-heading-font" href="https://uk.linkedin.com" class="text-white">Linked in</a>.</p>
+</footer>
+</div>
 
 
   <!--Bootstrap JavaScript-->

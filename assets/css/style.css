@@ -8,7 +8,7 @@
   }
   
   .my-plain-text-font {
-  font-family: 'Kodchasan', sans-serif;
+  font-family: 'Kodchasan', sans-serif !important;
   }
   
   /* class for font weight bold*/
@@ -22,6 +22,10 @@
 
 .my-text-danger {
   color: red;
+}
+
+.my-text-info {
+  color: #7b8ab8;
 }
 
 /* to be experimented with
@@ -68,7 +72,7 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
       transform: scale(1);
   }
   to{
-      transform: scale(2);
+      transform: scale(1.7);
   }
 }
 
@@ -78,8 +82,9 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   background:
   #f0f5fa
   url('../images/mariana-beltran-Z2zmQlZL_3U-unsplash\ \(1\).jpg')
-  center/cover
-  no-repeat;
+ center/cover
+  no-repeat
+  fixed;
 }
 
 /* gradinet copied from Felipe Souza Alarcon on mentoring session 10.08.2021*/
@@ -89,6 +94,10 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
 .my-gradient-to-left {
   background: linear-gradient(to left, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.90));
+}
+
+.my-white-gradient-to-left {
+  background: linear-gradient(to left, rgba(0,0,0,0.4), rgba(255, 255, 255, 0.9));
 }
 
 .my-box-shadow {  
@@ -163,7 +172,7 @@ Here starts styling for honest.html
 https://www.w3schools.com/css/css_align.asp */
 
 .center {
-  margin-top: 30vh;
+  margin-top: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,4 +189,27 @@ https://www.w3schools.com/css/css_align.asp */
 
 .rounded-corners {
   border-radius: 25px;
+}
+
+/* styling for page 404.html */
+.center-true {
+  margin-top: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+
+}
+
+
+.my-display-block {
+  display: block;
+}
+
+.my-text-decoration {
+  text-decoration: none;
+}
+
+.my-color-success {
+  color:green;
 }

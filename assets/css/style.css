@@ -53,6 +53,15 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   no-repeat;
 }
 
+.background-img-tape-fixed {
+  background:
+  #f0f5fa
+  url('../images/siora-photography-cixohzDpNIo-unsplash\ \(1\).jpg')
+  top
+  no-repeat
+  fixed;
+}
+
 .background-img-yellow-tape {
   background:
   #f0f5fa
@@ -90,6 +99,10 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.99));
 }
 
+.my-gradient-to-left {
+  background: linear-gradient(to left, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.90));
+}
+
 .my-box-shadow {  
     box-shadow: inset 0 0 5rem rgb(0 0 0 / 50%);
 
@@ -97,6 +110,10 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
 .my-border-radius {
   border-radius: 5%;
+}
+
+.my-border-radius-bigger {
+  border-radius: 30px;
 }
 
 /*My classess to be used to hide elements when the page first load*/

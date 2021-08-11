@@ -1,4 +1,10 @@
 # Keto Diet
+## Screenshot ???
+
+link to live page [here](https://jogorska.github.io/Keto-diet/calculator.html)
+
+
+
 ## Aim of the website
 I hope to explain what Keto diet is about and show how effective and pleasurable it can be. I aim to encourage more people to try it. I am not a dietitian, but I have read a lot about Keto. I am on Keto 7 months and I want to share me experience. 
 
@@ -11,6 +17,8 @@ I hope to explain what Keto diet is about and show how effective and pleasurable
     - imperial measures
     - kg / m 
 4. Contact page to request contact with dietitian
+
+5. Wireframes ???
 
 ## Styling
 The general style of the website is light and airy, images used are light and colors are chosen in light spectrum. As a contrast for user interactions I use green as refference to avocado and red as a warning or as a sign of negative reaction. Since I used Bootstrap's classess to style the whole page my intervention in css was not needed in most places. It would also be very difficult to over ride Boootstrap's classess as they use !Important. I have decided to have minimal intervenction in the styling due to this difficulty. 

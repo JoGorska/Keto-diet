@@ -1,107 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Change your fuel - website aiming to encourage people to change to keto diet">
-    <meta name="keywords" content="weight loss, keto, keto diet, diet, target weight, ">
-    <meta name="author" content="JoGorska">
+<!doctype html>
+  <html lang="en" class="h-100">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="description" content="Change your fuel - website aiming to encourage people to change to keto diet">
+      <meta name="keywords" content="weight loss, keto, keto diet, diet, target weight, ">
+      <meta name="author" content="JoGorska">
+      
+      <!--Bootstrap 5 css-->
+
+      <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-grid.css">
+      <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-reboot.css">
+      <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-utilities.css">
+      
+      <!--the below link is to debug console out of error, solution from https://stackoverflow.com/questions/30693021/chrome-developer-tools-shows-favicon-404-error-in-brackets-livepreview-->
+      <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+      
+      <!--link to Bootswatch file to replace Bootstrap's css-->
+      <link rel="stylesheet" href="assets/css/bootstrap.css"> 
     
-    <!--Bootstrap 5 css-->
+      <!-- Custom styles for this template -->
+      <link href="assets/css/bootstrap/cover.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-grid.css">
-    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-reboot.css">
-    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-utilities.css">
+      <!--google fonts-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Kodchasan:wght@200&display=swap" rel="stylesheet">
 
-    <!--the below link is to debug console out of error, solution from https://stackoverflow.com/questions/30693021/chrome-developer-tools-shows-favicon-404-error-in-brackets-livepreview-->
-    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+      <!--my stylesheet link-->
+      <link rel="stylesheet" href="assets/css/style.css">
 
-    <!--link to Bootswatch file to replace Bootstrap's css-->
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-
-    <!-- Custom styles for template cover used in index.html and all pages for nav bar-->
-    <link href="assets/css/bootstrap/cover.css" rel="stylesheet">
-
-    <!--google fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Kodchasan:wght@200&display=swap" rel="stylesheet">
-
-    <!--my stylesheet link-->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Change your Fuel</title>
+      <title>Change your Fuel</title>  
   </head>
+  <body class="d-flex h-100 text-center background-img-tape-fixed my-plain-text-font fw-bold">
 
-  <body class="d-flex h-100 background-img-tape-fixed my-plain-text-font">
-      <!--Nav bar  - ??? need do place it correctly check if nav bar goes below header in html should header be in the header-->
-    
+    <!--Nav bar-->
+
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <!--Nav bar-->
       <header class="mb-auto">
-        <div class="container">
-            <h3 class="float-md-start mb-0">
-              <a class="text-decoration-none" href="index.html">Change your fuel</a>
-            </h3>
-            <nav class="nav nav-masthead justify-content-center float-md-end text-dark">
-                <a class="text-success nav-link " href="index.html">Home</a>
-                <a class="text-success nav-link" href="calculator.html">Calculator</a>
-                <a class="text-success fw-bold active nav-link" aria-current="page" href="contact.html">Contact</a>
-            </nav>
+        <div>
+          <h3 class="float-md-start mb-0"><a href="index.html">Change your fuel</a></h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end text-dark">
+            <a class="text-success nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="text-success nav-link active" href="results.html">REmove-me</a>
+            <a id="calculator" class="text-success nav-link" href="calculator.html">Calculator</a>
+            <a class="text-success nav-link" href="contact.html">Contact</a>
+          </nav>
         </div>
       </header>
+
+      <!--Main-->
     <!--Header-->
 
-        <div class="container">
+    <div class="container">
             
-            <div class="p-5 pb-md-4 mx-auto text-center">
-                <h1 class="display-4 p-5 font-family-header text-dark fw-bold">Contact</h1>
-                <p class="fs-5 text-dark p-3 my-plain-text-font fw-bold my-white-gradient-to-left my-border-radius-bigger">Fill in the details below and we will get back to you.</p>
-            </div>
-
+        <div class="p-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 p-5 font-family-header text-dark fw-bold">Contact</h1>
+            <p class="fs-5 text-dark p-3 my-plain-text-font fw-bold my-white-gradient-to-left my-border-radius-bigger">Fill in the details below and we will get back to you.</p>
         </div>
 
-
-
-  <!--contact form-->
-
-  <div class="container mt-5 p-5 mb-5 my-white-gradient-to-left my-border-radius-bigger text-dark">
-
-      <form action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
-    
-          <label class="form-label mt-5" for="contact-name">Name</label>
-          <input class="form-control mb-3" type="text" name="contact-name" id="contact-name" title="Please write your name without any numbers or special characters">
-          <div id="contact-name-help" class="invalid-feedback my-invisible fw-bold">Please use only letters and special characters in the Name field</div>
-          
-          <label class="form-label" for="email">Email address</label>
-          <input class="form-control mb-3" type="email" id="email" name="email" title="Please enter a valid email address for example example@domain.uk">
-          <div id="email-help" class="invalid-feedback my-invisible">Please enter a valid email address for example example@domain.uk</div>
-          
-          <label class="form-label" for="telephone">Telephone</label>
-          <input class="form-control mb-3" type="number" id="telephone" name="telephone" title="Please enter a valid UK phone number (11 digits)">
-          <div id="telephone-help" class="invalid-feedback my-invisible">Please put valid UK phone number (11 digits)</div>
-          
-          <label class="form-label" for="enquiry">Your enquiry</label>
-          <textarea class="form-control mb-3" type="text" id="enquiry" name="enquiry" rows="3"></textarea>
-          <div id="enquiry-help" class="invalid-feedback my-invisible">Please use only letters and special characters in the Enquiry field</div>
-          
-    
-          <div class="container text-center p-5">
-            <div class="row">
-              <div class="col p-3">      
-                <button type="submit" class="btn btn-success text-dark">Send</button>
-              </div>
-              <div class="col p-3">
-                <button type="reset" class="btn btn-danger text-dark">Reset</button>
-              </div>  
-            </div>
-          </div>    
-        </form>
     </div>
-  </div>
-  <!--Bootstrap JavaScript-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  <!--my javascript link-->
-  <script src="assets/js/contact.js"></script>
+
+
+<!--contact form-->
+<main>
+<div class="container mt-5 p-5 mb-5 my-white-gradient-to-left my-border-radius-bigger text-dark">
+
+  <form action="https://formdump.codeinstitute.net/" method="POST" target="_blank">
+
+      <label class="form-label mt-5" for="contact-name">Name</label>
+      <input class="form-control mb-3" type="text" name="contact-name" id="contact-name" title="Please write your name without any numbers or special characters">
+      <div id="contact-name-help" class="invalid-feedback my-invisible fw-bold">Please use only letters and special characters in the Name field</div>
+      
+      <label class="form-label" for="email">Email address</label>
+      <input class="form-control mb-3" type="email" id="email" name="email" title="Please enter a valid email address for example example@domain.uk">
+      <div id="email-help" class="invalid-feedback my-invisible">Please enter a valid email address for example example@domain.uk</div>
+      
+      <label class="form-label" for="telephone">Telephone</label>
+      <input class="form-control mb-3" type="number" id="telephone" name="telephone" title="Please enter a valid UK phone number (11 digits)">
+      <div id="telephone-help" class="invalid-feedback my-invisible">Please put valid UK phone number (11 digits)</div>
+      
+      <label class="form-label" for="enquiry">Your enquiry</label>
+      <textarea class="form-control mb-3" type="text" id="enquiry" name="enquiry" rows="3"></textarea>
+      <div id="enquiry-help" class="invalid-feedback my-invisible">Please use only letters and special characters in the Enquiry field</div>
+      
+
+      <div class="container text-center p-5">
+        <div class="row">
+          <div class="col p-3">      
+            <button type="submit" class="btn btn-success text-dark">Send</button>
+          </div>
+          <div class="col p-3">
+            <button type="reset" class="btn btn-danger text-dark">Reset</button>
+          </div>  
+        </div>
+      </div>    
+    </form>
+</div>
+</main>
+
+
+
+
+
+
+
+      <!--Footer-->
+
+      <!--have a think what you want in footer, repo link added, need linked in, anything else?-->
+
+      <footer class="mt-auto text-success text-center">
+        <p>Copyright 2021 JoGorska <a class="text-success" href="https://github.com/JoGorska?tab=repositories">Gitpod</a> and <a class="text-success" href="https://twitter.com/mdo" class="text-white">Linked in</a>.</p>
+      </footer>
+    </div>
+
+    <!--Bootstrap JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        
+    <!--my javascript link-->
+    <script src="assets/js/contact.js"></script>
+    
   </body>
 </html>

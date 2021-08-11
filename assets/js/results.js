@@ -401,4 +401,151 @@ document.addEventListener("DOMContentLoaded",  function() {
 
     }
 })
+// event listener on the button Dietitian. 
+// Allows the user to send the query including fragment of URL containing data.
 
+let buttons = document.getElementsByTagName("button");
+      for(let button of buttons) {
+        button.addEventListener("click", function() {
+          if (this.innerHTML === "Dietitian") {
+              console.log("I clicked for dietititan now")
+                var myWindow = window.open("", "", "width=700, height=700");
+              myWindow.document.write(
+                `<!doctype html>
+                <html lang="en" class="h-100">
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta name="description" content="">
+                    <meta name="description" content="Change your fuel - website aiming to encourage people to change to keto diet">
+                    <meta name="keywords" content="weight loss, keto, keto diet, diet, target weight, ">
+                    <meta name="author" content="JoGorska">
+                    
+                    <!--Bootstrap 5 css-->
+              
+                    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-grid.css">
+                    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-reboot.css">
+                    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-utilities.css">
+                    
+                    <!--the below link is to debug console out of error, solution from https://stackoverflow.com/questions/30693021/chrome-developer-tools-shows-favicon-404-error-in-brackets-livepreview-->
+                    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+                    
+                    <!--link to Bootswatch file to replace Bootstrap's css-->
+                    <link rel="stylesheet" href="assets/css/bootstrap.css"> 
+                  
+                    <!-- Custom styles for this template -->
+                    <link href="assets/css/bootstrap/cover.css" rel="stylesheet">
+              
+                    <!--google fonts-->
+                    <link rel="preconnect" href="https://fonts.googleapis.com">
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                    <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Kodchasan:wght@200&display=swap" rel="stylesheet">
+              
+                    <!--my stylesheet link-->
+                    <link rel="stylesheet" href="assets/css/style.css">
+              
+                    <title>Change your Fuel</title>  
+                </head>
+                <body class="clear-shadow d-flex background-img-tape-fixed my-plain-text-font fw-bold">
+              
+                  <!--Nav bar-->
+              
+                  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+              
+                    <!--Nav bar-->
+                    <header class="mb-auto">
+                      <div class="container mt-5 text-center">
+                        <a class="navbar-brand text-center" href="index.html">
+                          <img src="/assets/images/keto-logo.png" alt="logo - three sugar cubes with prohibition sign" width="50" height="50" class=" d-inline-block align-text-top float-md-start mb-auto text-center">
+                          <h1 class="float-md-start mb-0 text-dark my-heading-font fw-bold">Change your fuel</h1>
+                      </a>
+                        <nav class="nav nav-masthead justify-content-center float-md-end">
+                          <a class="text-dark my-heading-font nav-link" href="index.html">Home</a>
+                          <a class="text-dark my-heading-font nav-link" href="calculator.html">Calculator</a>
+                          <a class="fw-bold text-dark my-heading-font nav-link my-active" aria-current="page" href="contact.html">Contact</a>
+                        </nav>
+                      </div>
+                    </header>
+              
+                    <!--Main-->
+                  <!--Header-->
+              
+                  <div class="container">
+                          
+                      <div class="pb-md-4 mx-auto text-center">
+                          <h1 class="display-4 mt-3 mb-3 font-family-header text-dark fw-bold">Contact</h1>
+                          <p class="fs-5 text-dark p-1 my-plain-text-font fw-bold my-white-gradient-to-left my-border-radius-bigger">Fill in the details below and we will get back to you.</p>
+                      </div>
+              
+                  </div>
+              
+                  <!--contact form-->
+                  <main>
+                    <div class="container mt-5 p-5 mb-5 my-white-gradient-to-left my-border-radius-bigger text-dark">
+                      <!--Add formspre form dump to an assigned email-->
+                      <form action="https://formspree.io/f/mqkwgzoe" method="POST" target="_blank">
+              
+                        <label class="form-label mt-5" for="contact-name">Name</label>
+                        <input class="form-control mb-3" type="text" name="contact-name" id="contact-name" title="Please write your name without any numbers or special characters">
+                        <div id="contact-name-help" class="invalid-feedback my-invisible fw-bold">Please use only letters and special characters in the Name field</div>
+                        
+                        <label class="form-label" for="email">Email address</label>
+                        <input class="form-control mb-3" type="email" id="email" name="email" title="Please enter a valid email address for example example@domain.uk">
+                        <div id="email-help" class="invalid-feedback my-invisible">Please enter a valid email address for example example@domain.uk</div>
+                        
+                        <label class="form-label" for="telephone">Telephone</label>
+                        <input class="form-control mb-3" type="number" id="telephone" name="telephone" title="Please enter a valid UK phone number (11 digits)">
+                        <div id="telephone-help" class="invalid-feedback my-invisible">Please put valid UK phone number (11 digits)</div>
+                        
+                        <label class="form-label" for="enquiry">Your enquiry</label>
+                        <textarea class="form-control mb-3" type="text" id="enquiry" name="enquiry" rows="3">${search}</textarea>
+                        <div id="enquiry-help">We have copied fragment of your results URL containing the data that dietitian will need when speaking with you</div>
+                        
+              
+                        <div class="container text-center p-5">
+                          <div class="row">
+                            <div class="col p-3">      
+                              <button type="submit" class="btn btn-success text-dark">Send</button>
+                            </div>
+                            <div class="col p-3">
+                              <button type="reset" class="btn btn-danger text-dark">Reset</button>
+                            </div>  
+                          </div>
+                        </div>    
+                      </form>
+                    </div>
+                  </main>
+              
+                    <!--Footer-->
+              
+                    <!--have a think what you want in footer, repo link added, need linked in, anything else?-->
+              
+                    <footer class="mt-auto text-success text-center">
+                      <p class="fw-bold text-dark my-heading-font" >Copyright 2021 JoGorska <a class="fw-bold text-dark my-heading-font" href="https://github.com/JoGorska">Gitpod</a> and <a class="fw-bold text-dark my-heading-font" href="https://uk.linkedin.com" class="text-white">Linked in</a>.</p>
+                    </footer>
+                  </div>
+              
+                  <!--Bootstrap JavaScript-->
+                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                      
+                  <!--my javascript link-->
+                  <script src="assets/js/contact.js"></script>
+                  
+                </body>
+              </html>
+              
+                
+                
+                `);
+              
+
+              // moves window from the corner
+              // https://www.w3schools.com/jsref/met_win_moveto.asp
+              function moveWin() {
+                myWindow.moveTo(500, 200);                                  // Moves the new window   
+                myWindow.focus();                                           // Sets focus to the new window
+              }
+              moveWin()
+            }
+        })
+    }

@@ -20,6 +20,25 @@ I hope to explain what Keto diet is about and show how effective and pleasurable
 
 5. Wireframes ???
 
+## Features
+
+1. On loading the page user is given a few questions to interact with and spark curiosity
+2. Next user is given the calculator form to fill in
+3. The user is given the option:
+    * ask when he can acheve the target weight
+    * how much weight he can loose until his chosen target date
+4. The caluclator form allows typing in gender by hand, for inclusivenes.
+5. The calculator allows to choose between using imperial mesures and metric
+6. Once the form is filled in the user is taken to results page. This page displays in simple cards each aspect of the data we have colected
+    * calculates current BMI
+    * if current weight BMI is within normal range - the user is adviced that he doesn't need to loose weight
+    * otherwise user is given a few cards to familiarise with keto, intermediate fasting, calorie couting and excercise
+7. Each card gives user link to contact dietitian, to be let through keto diet by proffesional
+    * the button dietitian opens additional window, the query is pre - filled with the data coming from URL of the user's result
+    * user can add more comments or just upload the form as it is.
+8. The contact form (both from contact form link and from button click from results) are uploaded to Formspree and go directly to my email.
+
+
 ## Styling
 The general style of the website is light and airy, images used are light and colors are chosen in light spectrum. As a contrast for user interactions I use green as refference to avocado and red as a warning or as a sign of negative reaction. Since I used Bootstrap's classess to style the whole page my intervention in css was not needed in most places. It would also be very difficult to over ride Boootstrap's classess as they use !Important. I have decided to have minimal intervenction in the styling due to this difficulty. 
 
@@ -156,10 +175,17 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 ## User stories
 1. I know the target weight I want to acheve. I want to know how quickly I can loose weight. 
 2. I have a very important event to attend in a few months. I want to know how much weight I can loose untill than.
+    Both of those points are accomodated by adding radio button in calculator form, to add target weight or target date.
+
 3. As a returning user I want to be able to access the calculator from the main page.
+    This is accomodated by nav bar that is on the home page. The user can interact with the questions to get to calculator link or go directly using nav bar.
+
 4. As a user I want to know if the calculations are reliable. How did you come up with the numbers.
-5. As a user I want to know if I can sustain this weight loss.
-6. I'm not yet convinced to go Keto, but I want to learn more about sugar content and how to choose products with lower sugar content. 
+    This is accomodated by embeding various videos on keto. One of the videos explains exactly where the numbers come from.
+
+5. As a user if I want to contact dietitian, I don't want to input all my data again.
+    This is accomodated by creating a window and making javascript inject user's URL to the contact form. 
+
 
 ## Technologies used
 - bootstrap 5 

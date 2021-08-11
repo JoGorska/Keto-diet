@@ -56,13 +56,17 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 .background-img-yellow-tape {
   background:
   #f0f5fa
-  url('../images/diana-polekhina-OpB7gkQY9oc-unsplash.jpg')
+  url('../images/elisa-michelet-b4EsL48DIK0-unsplash.jpg')
   center/cover
   no-repeat;
 }
 
 .background-img-yellow-fork {
-
+  background:
+  #f0f5fa
+  url('../images/diana-polekhina-OpB7gkQY9oc-unsplash.jpg')
+  center/cover
+  no-repeat;
 }
 
 .background-img-tape-hand {
@@ -129,7 +133,8 @@ need to target container by ID as javascript injects content to this container a
 
 #main-container button {
   color: black;
-
+  background-color: whitesmoke;
+  box-shadow: 0 0 5rem black;
 }
 
 

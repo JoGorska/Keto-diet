@@ -1,30 +1,35 @@
 
-/*My classess created be applied where needed to override Bootstrap's styling*/
+/* My classess created be applied where needed to override Bootstrap's styling*/
+
+/* Classes for fonts*/
+
+.my-heading-font {
+  font-family: 'Baumans', cursive;
+  }
+  
+  .my-plain-text-font {
+  font-family: 'Kodchasan', sans-serif;
+  }
+  
+  /* class for font weight bold*/
+  .my-fw-bold {
+    font-weight: bold !important;
+  }
 
 .my-text-shadow {
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5) !important;
+  }
+
+.my-text-danger {
+  color: red;
 }
 
 /* to be experimented with
 https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
-/* styling for index.html*/
+/* classess with images used on various pages*/
 
-.background-img-scale {
-  background:
-  #f0f5fa
-  url('../images/neonbrand-5ddH9Y2accI-unsplash.jpg')
-  center/cover
-  no-repeat;
-}
 
-.background-img-tape-short {
-  background:
-  #f0f5fa
-  url('../images/annie-spratt-Pa2EMnpJGVk-unsplash.jpg')
-  center/cover
-  no-repeat;
-}
 
 .background-img-tape-long {
   background:
@@ -34,18 +39,56 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   no-repeat;
 }
 
-.background-img-tape-hand {
+.background-img-tape-fixed {
   background:
   #f0f5fa
-  url('../images/jennifer-burk-ECXB0YAZ_zU-unsplash\ \(1\).jpg')
-  bottom/cover
+  url('../images/siora-photography-cixohzDpNIo-unsplash\ \(1\).jpg')
+  top
+  no-repeat
+  fixed;
+}
+/* code copied from love-running project with Code Institute*/
+.background-tape-animated {
+  height: 600px;
+  width: 100%;
+  background:
+  #f0f5fa
+  url('../images/siora-photography-cixohzDpNIo-unsplash\ \(1\).jpg')
+  center/cover
   no-repeat;
+  animation-name: background-zoom;
+  animation-duration: 3s; 
+  animation-fill-mode: forwards;
+}
+
+
+/* creates the level of zoom for background*/
+@keyframes background-zoom {
+  from{
+      transform: scale(1);
+  }
+  to{
+      transform: scale(2);
+  }
 }
 
 
 
+.background-img-empty-plate {
+  background:
+  #f0f5fa
+  url('../images/mariana-beltran-Z2zmQlZL_3U-unsplash\ \(1\).jpg')
+  center/cover
+  no-repeat;
+}
+
+/* gradinet copied from Felipe Souza Alarcon on mentoring session 10.08.2021*/
 .my-gradient-background {
   background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.99));
+}
+
+.my-gradient-to-left {
+  background: linear-gradient(to left, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.90));
 }
 
 .my-box-shadow {  
@@ -57,6 +100,10 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   border-radius: 5%;
 }
 
+.my-border-radius-bigger {
+  border-radius: 30px;
+}
+
 /*My classess to be used to hide elements when the page first load*/
 
 
@@ -65,21 +112,7 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   position: absolute;
 }
 
-/* Classes for fonts*/
 
-.my-heading-font {
-font-family: 'Baumans', cursive;
-}
-
-.my-plain-text-font {
-font-family: 'Kodchasan', sans-serif;
-}
-
-/* class for font weight bold*/
-.my-fw-bold {
-  font-weight: bold
-!important;
-}
 
 /* styling for index html 
 need to target container by ID as javascript injects content to this container and need to maintain the same styling */
@@ -105,9 +138,8 @@ need to target container by ID as javascript injects content to this container a
 
 #main-container button {
   color: black;
-  box-shadow: inset 0 0 5rem rgb(0 0 0 / 50%);
-  border-
-
+  background-color: whitesmoke;
+  box-shadow: 0 0 5rem black;
 }
 
 
@@ -119,7 +151,7 @@ Here starts styling for honest.html
   text-align: center;
 }
 
-.example1 {
+.my-box {
 
   box-shadow: 0 0 5rem black;
   width: 100px;

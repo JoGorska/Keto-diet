@@ -1,14 +1,33 @@
 
-/*My classess created be applied where needed to override Bootstrap's styling*/
+/* My classess created be applied where needed to override Bootstrap's styling*/
+
+/* Classes for fonts*/
+
+.my-heading-font {
+  font-family: 'Baumans', cursive;
+  }
+  
+  .my-plain-text-font {
+  font-family: 'Kodchasan', sans-serif;
+  }
+  
+  /* class for font weight bold*/
+  .my-fw-bold {
+    font-weight: bold !important;
+  }
 
 .my-text-shadow {
     text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5) !important;
+  }
+
+.my-text-danger {
+  color: red;
 }
 
 /* to be experimented with
 https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
 
-/* styling for index.html*/
+/* classess with images used on various pages*/
 
 .background-img-scale {
   background:
@@ -34,6 +53,18 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   no-repeat;
 }
 
+.background-img-yellow-tape {
+  background:
+  #f0f5fa
+  url('../images/diana-polekhina-OpB7gkQY9oc-unsplash.jpg')
+  center/cover
+  no-repeat;
+}
+
+.background-img-yellow-fork {
+
+}
+
 .background-img-tape-hand {
   background:
   #f0f5fa
@@ -42,8 +73,15 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   no-repeat;
 }
 
+.background-img-empty-plate {
+  background:
+  #f0f5fa
+  url('../images/mariana-beltran-Z2zmQlZL_3U-unsplash\ \(1\).jpg')
+  center/cover
+  no-repeat;
+}
 
-
+/* gradinet copied from Felipe Souza Alarcon on mentoring session 10.08.2021*/
 .my-gradient-background {
   background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0, 0, 0, 0.99));
 }
@@ -65,21 +103,7 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   position: absolute;
 }
 
-/* Classes for fonts*/
 
-.my-heading-font {
-font-family: 'Baumans', cursive;
-}
-
-.my-plain-text-font {
-font-family: 'Kodchasan', sans-serif;
-}
-
-/* class for font weight bold*/
-.my-fw-bold {
-  font-weight: bold
-!important;
-}
 
 /* styling for index html 
 need to target container by ID as javascript injects content to this container and need to maintain the same styling */
@@ -105,8 +129,6 @@ need to target container by ID as javascript injects content to this container a
 
 #main-container button {
   color: black;
-  box-shadow: inset 0 0 5rem rgb(0 0 0 / 50%);
-  border-
 
 }
 
@@ -119,7 +141,7 @@ Here starts styling for honest.html
   text-align: center;
 }
 
-.example1 {
+.my-box {
 
   box-shadow: 0 0 5rem black;
   width: 100px;

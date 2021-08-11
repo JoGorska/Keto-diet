@@ -33,7 +33,7 @@
 
               // opens new window asking the user to be honest
               //https://www.w3schools.com/jsref/met_win_settimeout.asp
-              var myWindow = window.open("", "", "width=300, height=300");
+              var myWindow = window.open("", "", "width=700, height=700");
               myWindow.document.write(
                 `<!DOCTYPE html>
                 <html lang="en">
@@ -56,8 +56,8 @@
                     <title>Be Honest!</title>
                 </head>
                 <body>
-                <div class="my-heading-font my-text-shadow">
-                    <div class="center example1 rounded-corners my-text-center">
+                <div class="my-heading-font my-text-shadow my-text-danger">
+                    <div class="center my-box rounded-corners my-text-center">
                         <p>I need you to be honest with me!</p>
                 
                         
@@ -127,7 +127,7 @@
                     </head>
                     <body>
                     <div class="my-heading-font my-text-shadow">
-                        <div class="center example1 rounded-corners my-text-center">
+                        <div class="center my-box rounded-corners my-text-center">
                             <p>I need you to be honest with me!</p>
                     
                             

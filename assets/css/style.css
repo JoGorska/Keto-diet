@@ -214,3 +214,9 @@ https://www.w3schools.com/css/css_align.asp */
 .my-color-success {
   color:green;
 }
+
+/* styling for calculator html */
+
+#nav-container {
+  max-width: 42em;
+}

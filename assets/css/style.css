@@ -82,8 +82,9 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   background:
   #f0f5fa
   url('../images/mariana-beltran-Z2zmQlZL_3U-unsplash\ \(1\).jpg')
-  center/cover
-  no-repeat;
+ center/cover
+  no-repeat
+  fixed;
 }
 
 /* gradinet copied from Felipe Souza Alarcon on mentoring session 10.08.2021*/
@@ -188,4 +189,27 @@ https://www.w3schools.com/css/css_align.asp */
 
 .rounded-corners {
   border-radius: 25px;
+}
+
+/* styling for page 404.html */
+.center-true {
+  margin-top: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+
+}
+
+
+.my-display-block {
+  display: block;
+}
+
+.my-text-decoration {
+  text-decoration: none;
+}
+
+.my-color-success {
+  color:green;
 }

@@ -127,7 +127,7 @@
                     </head>
                     <body class="background-tape-animated">
                     <div class="my-heading-font">
-                        <div class="center my-box rounded-corners my-text-center my-text-danger">
+                        <div class="center my-box rounded-corners my-text-center my-text-danger my-text-shadow my-fw-bold">
                             <p>I need you to be honest with me!</p>
                     
                             

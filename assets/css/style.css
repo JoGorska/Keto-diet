@@ -8,7 +8,7 @@
   }
   
   .my-plain-text-font {
-  font-family: 'Kodchasan', sans-serif;
+  font-family: 'Kodchasan', sans-serif !important;
   }
   
   /* class for font weight bold*/
@@ -22,6 +22,10 @@
 
 .my-text-danger {
   color: red;
+}
+
+.my-text-info {
+  color: #7b8ab8;
 }
 
 /* to be experimented with
@@ -68,7 +72,7 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
       transform: scale(1);
   }
   to{
-      transform: scale(2);
+      transform: scale(1.7);
   }
 }
 
@@ -163,7 +167,7 @@ Here starts styling for honest.html
 https://www.w3schools.com/css/css_align.asp */
 
 .center {
-  margin-top: 30vh;
+  margin-top: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -47,6 +47,30 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   no-repeat
   fixed;
 }
+/* code copied from love-running project with Code Institute*/
+.background-tape-animated {
+  height: 600px;
+  width: 100%;
+  background:
+  #f0f5fa
+  url('../images/siora-photography-cixohzDpNIo-unsplash\ \(1\).jpg')
+  center/cover
+  no-repeat;
+  animation-name: background-zoom;
+  animation-duration: 3s; 
+  animation-fill-mode: forwards;
+}
+
+
+/* creates the level of zoom for background*/
+@keyframes background-zoom {
+  from{
+      transform: scale(1);
+  }
+  to{
+      transform: scale(2);
+  }
+}
 
 
 

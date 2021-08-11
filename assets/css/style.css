@@ -47,10 +47,11 @@ https://www.w3schools.com/cssref/css3_pr_box-shadow.asp*/
   background:
   #f0f5fa
   url('../images/siora-photography-cixohzDpNIo-unsplash\ \(1\).jpg')
-  top
+  top/cover
   no-repeat
   fixed;
 }
+
 /* code copied from love-running project with Code Institute*/
 .background-tape-animated {
   height: 600px;

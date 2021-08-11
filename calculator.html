@@ -9,9 +9,7 @@
     <meta name="author" content="JoGorska">
     
     <!--Bootstrap 5 css-->
-    <!--
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    -->
+    
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-grid.css">
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-reboot.css">
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap-utilities.css">
@@ -20,6 +18,9 @@
 
     <!--link to Bootswatch file to replace Bootstrap's css-->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <!-- Custom styles for template cover used in index.html and all pages for nav bar-->
+    <link href="assets/css/bootstrap/cover.css" rel="stylesheet">
 
     <!--google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,21 +32,25 @@
     <title>Change your Fuel</title>
 </head>
 <!--Main header-->
-<body class="background-img-tape-fixed text-light">
+<body class="d-flex background-img-tape-fixed my-plain-text-font fw-bold">
     <!--Nav bar  - ??? need do place it correctly check if nav bar goes below header in html should header be in the header-->
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column shadow-lg m-4">
-    
-    <div>
-        <h3 class="float-md-start mb-0"><a class="text-decoration-none" href="index.html">Change your fuel</a></h3>
-        <nav class="nav nav-masthead justify-content-center float-md-end text-dark">
-            <a class="text-success nav-link active" href="index.html">Home</a>
-            <a class="text-success nav-link active" href="results.html">REmove-me</a>
-            <a class="fw-bold text-decoration-underline text-success nav-link" aria-current="page" href="calculator.html">Calculator</a>
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <div id="nav-container" class="container mt-5">
+      <!--Nav bar-->
+      <header class="mb-auto">
+        <div>
+          <h3 class="text-center float-md-start mb-0 fw-bold"><a href="index.html" class="text-decoration-none text-dark">Change your fuel</a></h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end text-dark">
+            <a class="text-success nav-link" href="index.html">Home</a>
+            <a id="calculator" class="text-success nav-link active" aria-current="page"href="calculator.html">Calculator</a>
             <a class="text-success nav-link" href="contact.html">Contact</a>
-        </nav>
+          </nav>
+        </div>
+      </header>
     </div>
     
-</div>
+
 
 <!--Header-->
 <header class="mb-auto">
@@ -253,7 +258,7 @@
 
     </div>
   </form>
-
+</div>
 <!--Bootstrap JavaScript-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

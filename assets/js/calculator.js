@@ -229,7 +229,7 @@ function radioButtonSwap(visibleDiv, invisibleDiv) {
  * and similary on imperial and metric measures
  */
 function clearFormRadio (inputNode) {
-  inputNode.innerHTML = "";
+  inputNode.value = "";
 }
 
 /**
@@ -248,13 +248,14 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
   if(event.target.matches("#radio-target-date")) {
     radioButtonSwap(divTargetDate, divTargetMetric);
     addClass("my-invisible", divTargetImperial);
-    clearFormRadio(divTargetImperial);
-    clearFormRadio(divTargetMetric);
+    clearFormRadio(targetWeightPounds);
+    clearFormRadio(targetWeightStone);
+    clearFormRadio(targetWeightKg)
 
   } else if (event.target.matches("#radio-target-weight")){
     radioButtonSwap(divTargetMetric, divTargetDate);
     removeClass("my-invisible", divTargetImperial);
-    clearFormRadio(divTargetDate);
+    clearFormRadio(targetDate);
     
   } else if (event.target.matches("#imperial")){
     radioButtonSwap(divAllImperial, divAllMetric);

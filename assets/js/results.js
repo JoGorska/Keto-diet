@@ -86,12 +86,16 @@ function weightIntoKg(stone, pounds, kg) {
  */
 var stone;
 var pounds;
+var kg;
 var stringKgIntoImperialOrKg = "";
+// calculate how many pounds and how many stones are in the given value of Kg
+var allPounds = kg * 2.2046;
+var allStone = kg * 0.1574;
 
  function functionKgIntoImperialOrKg (kg) {
-    // calculate how many pounds and how many stones are in the given value of Kg
-    allPounds = kg * 2.2046;
-    allStone = kg * 0.1574;
+// calculate how many pounds and how many stones are in the given value of Kg
+  allPounds = kg * 2.2046;
+  allStone = kg * 0.1574;
     // the user wants to see how many stones and pounds are in the result value
     stone = parseInt(allStone);
     pounds = (stone * 14) - allPounds;
@@ -204,8 +208,7 @@ console.log(`this is a target date in miliseconds ${targetDateInMs}`);
 var variableMinDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, minLossKgPerDay));
 var variableMaxDateWhenAcheved = new Date(dateWhenAcheved(variableCurrentWeightIntoKg, variableTargetWeightIntoKg, maxLossKgPerDay));
 
-// today in Javascript format
-var todayJS = new Date();
+
 // target Date in format resembling JavaScript date
 var targetDateJS = new Date(targetDate);
 var targetDateJSString = targetDateJS.toString();
@@ -215,7 +218,7 @@ console.log(`this is a target date looking like JavaScript date ${targetDateJS.t
 // changing the date from format looking like Javascript date into a string
 var stringMinDateWhenAcheved = variableMinDateWhenAcheved.toString();
 var stringMaxDateWhenAcheved = variableMaxDateWhenAcheved.toString();
-var todayJSString = todayJS.toString();
+
 
 function showMeDate(dateString) {
     let thisDate = "";
@@ -229,7 +232,7 @@ function showMeDate(dateString) {
 
     let thisYear = "";
     thisYear = dateString[11] + dateString[12] + dateString[13] + dateString[14];
-    
+    let completeDate;
     completeDate = thisDate + " " + thisMonth + " " + thisYear;
     console.log(`${thisDate} ${thisMonth} ${thisYear}`);
     console.log(completeDate);
@@ -541,11 +544,13 @@ let buttons = document.getElementsByTagName("button");
 
               // moves window from the corner
               // https://www.w3schools.com/jsref/met_win_moveto.asp
-              function moveWin() {
-                myWindow.moveTo(500, 200);                                  // Moves the new window   
-                myWindow.focus();                                           // Sets focus to the new window
-              }
+
               moveWin();
             }
         });
     }
+var MyWindow;
+function moveWin() {
+  myWindow.moveTo(500, 200);                                  // Moves the new window   
+  myWindow.focus();                                           // Sets focus to the new window
+}

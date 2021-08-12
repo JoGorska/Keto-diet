@@ -8,7 +8,7 @@
 const calulatorForm = document.getElementsByTagName("FORM")[0];
 
 const inputName = document.getElementById("input-name");
-const selectGender = document.getElementById("gender");
+const selectGender = document.getElementById("input-gender");
 const inputAge = document.getElementById("input-age");
 const targetDate = document.getElementById("target-date");
 const currentWeightStone = document.getElementById("current-weight-stone");

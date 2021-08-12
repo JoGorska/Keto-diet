@@ -25,7 +25,7 @@ var heightFeet = allFormData["height-feet"];
 var heightInches = allFormData["height-inches"];
 var waistCm = allFormData["waist-cm"];
 var waistInches = allFormData["waist-inches"];
-var inputGender = allFormData["gender"];
+var inputGender = allFormData["input-gender"];
 var excerciseHours = allFormData["excercise-hours"];
 
 // variables for the divs that will have content input by this javascript
@@ -266,7 +266,7 @@ var maxResultInKg = whatFinalWeightAcheved(variableCurrentWeightIntoKg, whatWeig
 // display name where it is needed in the cards
 
 let allNameDivs = document.getElementsByClassName("input-name");
-
+let nameDiv;
 for (nameDiv of allNameDivs) {
     nameDiv.innerHTML = allFormData["input-name"];
 }
@@ -344,7 +344,7 @@ divDisplayExcerciseHours.innerHTML = excerciseHours;
             }
         // if the user is other gender, male or other written in input field
         } else {
-            console.log("I ma male");
+            console.log("I male");
             if ((waistInches === "") && (parseInt(waistCm) >= 94)) {
                 divDisplayWaistLine.innerHTML = `Your current waist is ${waistCm} cm. This means that you are carrying too much fat around your stomach, which can raise your risk of heart disease, type 2 diabetes and stroke.`;
                 removeClass("my-invisible", divDisplayWaistLine);

@@ -223,6 +223,16 @@ function radioButtonSwap(visibleDiv, invisibleDiv) {
 };
 
 /**
+ * Function to clear the content of the input field when Radio button is used
+ * Need to clear the input on the target weight if target date option is chosen
+ * Need to clear the input on the target date if the input weight is choosen
+ * and similary on imperial and metric measures
+ */
+function clearFormRadio (inputNode) {
+  inputNode.value = "";
+}
+
+/**
  * Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
  * code from code pen, explained by Sean Young on Webinar 22/07/2021
  * https://codepen.io/seanyoung247/pen/qBmbZQK
@@ -238,17 +248,32 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
   if(event.target.matches("#radio-target-date")) {
     radioButtonSwap(divTargetDate, divTargetMetric);
     addClass("my-invisible", divTargetImperial);
+    clearFormRadio(targetWeightPounds);
+    clearFormRadio(targetWeightStone);
+    clearFormRadio(targetWeightKg);
 
   } else if (event.target.matches("#radio-target-weight")){
     radioButtonSwap(divTargetMetric, divTargetDate);
     removeClass("my-invisible", divTargetImperial);
+    clearFormRadio(targetDate);
     
   } else if (event.target.matches("#imperial")){
     radioButtonSwap(divAllImperial, divAllMetric);
+    clearFormRadio(targetWeightKg);
+    clearFormRadio(currentWeightKg);
+    clearFormRadio(heightCm);
+    clearFormRadio(waistCm);
   
   } else if (event.target.matches("#metric")){
     radioButtonSwap(divAllMetric, divAllImperial);
-  }
+    clearFormRadio(targetWeightStone);
+    clearFormRadio(targetWeightPounds);
+    clearFormRadio(currentWeightStone);
+    clearFormRadio(currentWeightPounds);
+    clearFormRadio(heightFeet);
+    clearFormRadio(heightInches);
+    clearFormRadio(waistInches);
+  };
 
 });
 

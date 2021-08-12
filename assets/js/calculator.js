@@ -1,6 +1,5 @@
 
 
-
 //guidance to handle submit and validation javascripttutorial.net/javascript-dom/javascript-form-validation/
 //I followed logic created in contact.js and adjusted them to the needs of calculator form
 
@@ -9,7 +8,7 @@
 const calulatorForm = document.getElementsByTagName("FORM")[0];
 
 const inputName = document.getElementById("input-name");
-const selectGender = document.getElementById("gender");
+const selectGender = document.getElementById("input-gender");
 const inputAge = document.getElementById("input-age");
 const targetDate = document.getElementById("target-date");
 const currentWeightStone = document.getElementById("current-weight-stone");
@@ -37,11 +36,9 @@ const helpTargetWeightStone = document.getElementById("target-weight-stone-help"
 const helpTargetWeightPounds = document.getElementById("target-weight-pounds-help");
 const helpHeightFeet = document.getElementById("height-feet-help");
 const helpHeightInches = document.getElementById("height-inches-help");
-const helpWaistInches = document.getElementById("waist-inches-help");
 const helpCurrentWeightKg = document.getElementById("current-weight-kg-help");
 const helpTargetWeightKg = document.getElementById("target-weight-kg-help");
 const helpHeightCm = document.getElementById("height-cm-help");
-const helpWaistCm = document.getElementById("waist-cm-help");
 const helpExcerciseHours = document.getElementById("excercise-hours-help");
 const helpDiet = document.getElementById("input-diet-help");
 
@@ -66,7 +63,7 @@ const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 function containsLetters(inputName) {
   let valueLetters = inputName.value;
   return regexLetters.test(valueLetters);
-};
+}
 
 /**
 
@@ -77,9 +74,6 @@ function containsLetters(inputName) {
  */
 
  var todayDate = new Date().toISOString().slice(0, 10);
- var d = (new Date()).toString().split(' ').splice(1,3).join(' ');
- var todayString = todayDate.replace(/-/g, '');
- var targetString = targetDate.value.replace(/-/g, '');
 
 function beforeToday () {
   
@@ -89,8 +83,8 @@ function beforeToday () {
 
   } else {
     return true;
-  };
-};
+  }
+}
 
 /**
  * Function to test if the target date is further than a month ahead
@@ -109,8 +103,8 @@ function monthLater () {
   } else {
     return true;
 
-  };
-};
+  }
+}
 /**
  * function to check if the target year is less than a year from Today
  * @returns 
@@ -126,15 +120,15 @@ function lessThanAYear () {
 
   } else {
     return true;
-  };
-};
+  }
+}
 
 //Function to calculate total Imperial weght in pounds
 
 function totalImperialWeight (stone, pounds) {
   return ((stone * 14) + pounds);
   
-};
+}
 
 
 
@@ -147,7 +141,7 @@ function totalImperialWeight (stone, pounds) {
  */
 function addClass(className, targetNode) {
   targetNode.classList.add(className);
-};
+}
 
 /**
  * Function to remove class
@@ -157,7 +151,7 @@ function addClass(className, targetNode) {
 
 function removeClass(className, targetNode){
   targetNode.classList.remove(className);
-};
+}
 
 /**
  * Function to set attribute
@@ -167,7 +161,7 @@ function removeClass(className, targetNode){
 
 function setAtribute(atributeName, atributeValue, targetNode) {
   targetNode.setAttribute(atributeName, atributeValue);
-};
+}
 /**
  * Function to remove attribute
  * @param {*} atributeName 
@@ -176,7 +170,7 @@ function setAtribute(atributeName, atributeValue, targetNode) {
  */
 function removeAtribute(atributeName, atributeValue, targetNode) {
   targetNode.removeAttribute(atributeName, atributeValue);
-};
+}
 
 /**
  * Function to display Error after validation has been failed
@@ -192,7 +186,7 @@ function displayErrorValidation(targetNodeInput, targetNodeHelp) {
   removeClass("my-invisible", targetNodeHelp);
   addClass("invalid-feedback", targetNodeHelp);
 
-};
+}
 
 /**
  * Function to remove display Error after validation has been passed
@@ -207,7 +201,7 @@ function removeErrorValidation(targetNodeInput, targetNodeHelp) {
   removeAtribute("aria-describedby", "name-help", targetNodeInput);
   addClass("my-invisible", targetNodeHelp);
   removeClass("invalid-feedback", targetNodeHelp);
-};
+}
 
 
 /**
@@ -220,7 +214,7 @@ function removeErrorValidation(targetNodeInput, targetNodeHelp) {
 function radioButtonSwap(visibleDiv, invisibleDiv) {
   removeClass("my-invisible", visibleDiv);
   addClass("my-invisible", invisibleDiv);
-};
+}
 
 /**
  * Function to clear the content of the input field when Radio button is used
@@ -273,7 +267,7 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
     clearFormRadio(heightFeet);
     clearFormRadio(heightInches);
     clearFormRadio(waistInches);
-  };
+  }
 
 });
 
@@ -290,28 +284,28 @@ function validateResultName() {
   
   if(inputName.value === "") {
     helpName.innerHTML = "This field is required";
-    displayErrorValidation(inputName, helpName)    
+    displayErrorValidation(inputName, helpName);
     return(false);
 
   } else if (inputName.value.length > 50) {
     helpName.innerHTML = "Name too long";
-    displayErrorValidation(inputName, helpName)
+    displayErrorValidation(inputName, helpName);
     return(false);
 
   } else if (!containsLetters(inputName)) {
   
     helpName.innerHTML = 'The name can contain letters and some special characters such as "-", "`" "." ';
-    displayErrorValidation(inputName, helpName)
+    displayErrorValidation(inputName, helpName);
     return(false);
 
   } else {
     
-    removeErrorValidation(inputName, helpName)
-    return(true)
+    removeErrorValidation(inputName, helpName);
+    return(true);
 
-  };
+  }
   
-};
+}
 
 
 /**
@@ -324,7 +318,7 @@ function validateResultName() {
   
   if(selectGender.value === "Please choose from one of the options") {
 
-    helpGender.innerHTML = "This field is required"
+    helpGender.innerHTML = "This field is required";
     displayErrorValidation(selectGender, helpGender);
     return(false);
 
@@ -332,11 +326,11 @@ function validateResultName() {
   
  
     removeErrorValidation(selectGender, helpGender);
-    return(true)
+    return(true);
 
-  };
+  }
   
-};
+}
 
 /**
  * Function to show the result of valiation on Age
@@ -348,13 +342,13 @@ function validateResultName() {
   
   if (inputAge.value == 0) {
 
-    helpAge.innerHTML = "This field is required"
+    helpAge.innerHTML = "This field is required";
     displayErrorValidation(inputAge, helpAge);
     return(false);
 
   } else if (inputAge.value === "") {
 
-      helpAge.innerHTML = "This field is required"
+      helpAge.innerHTML = "This field is required";
       displayErrorValidation(inputAge, helpAge);
       return(false);
 
@@ -380,11 +374,11 @@ function validateResultName() {
     
 
     removeErrorValidation(inputAge, helpAge);
-    return(true)
+    return(true);
 
-  };
+  }
   
-};
+}
 
 /**
  * Function to show the result of valiation on target date input field
@@ -400,12 +394,12 @@ function validateResultName() {
 
     if (targetDate.value === "") {
 
-      helpTargetDate.innerHTML = "This field is required"
+      helpTargetDate.innerHTML = "This field is required";
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
 
     } else if (targetDate.value.length > 10) {
-      helpTargetDate.innerHTML = "Date contains too many digits, please check the date"
+      helpTargetDate.innerHTML = "Date contains too many digits, please check the date";
       displayErrorValidation(targetDate, helpTargetDate);
       return(false);
     
@@ -431,14 +425,14 @@ function validateResultName() {
       removeErrorValidation(targetDate, helpTargetDate);
       return(true);
 
-    };
+    }
 
   } else {
 
     removeErrorValidation(targetDate, helpTargetDate);
     return(true);
-  };
-};
+  }
+}
 
 
 function validateResultCurrentWeightImperial() {
@@ -447,8 +441,8 @@ function validateResultCurrentWeightImperial() {
 
     if ((currentWeightStone.value === "") && (currentWeightPounds.value === "")) {
 
-      helpCurrentWeightStone.innerHTML = "Fill in at least one of those fields"
-      helpCurrentWeightPounds.innerHTML = "Fill in at least one of those fields"
+      helpCurrentWeightStone.innerHTML = "Fill in at least one of those fields";
+      helpCurrentWeightPounds.innerHTML = "Fill in at least one of those fields";
       displayErrorValidation(currentWeightStone, helpCurrentWeightStone);
       displayErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
       return(false);
@@ -468,15 +462,15 @@ function validateResultCurrentWeightImperial() {
       removeErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
       return(true);
 
-    };
+    }
 
   } else {
 
     removeErrorValidation(currentWeightStone, helpCurrentWeightStone);
     removeErrorValidation(currentWeightPounds, helpCurrentWeightPounds);
     return(true);
-  };
-};
+  }
+}
 
 /**
  * Validate User input on Target Weight Stone and target Weight Pounds
@@ -489,8 +483,8 @@ function validateResultCurrentWeightImperial() {
 
     if ((targetWeightStone.value === "") && (targetWeightPounds.value === "")) {
 
-      helpTargetWeightStone.innerHTML = "Fill in at least one of those fields"
-      helpTargetWeightPounds.innerHTML = "Fill in at least one of those fields"
+      helpTargetWeightStone.innerHTML = "Fill in at least one of those fields";
+      helpTargetWeightPounds.innerHTML = "Fill in at least one of those fields";
       displayErrorValidation(targetWeightStone, helpTargetWeightStone);
       displayErrorValidation(targetWeightPounds, helpTargetWeightPounds);
       return(false);
@@ -510,15 +504,15 @@ function validateResultCurrentWeightImperial() {
       return(true);
       
 
-    };
+    }
 
   } else {
 
     removeErrorValidation(targetWeightStone, helpTargetWeightStone);
     removeErrorValidation(targetWeightPounds, helpTargetWeightPounds);
     return(true);
-  };
-};
+  }
+}
 
 
 
@@ -528,8 +522,8 @@ function validateResultHeightImperial() {
 
     if ((heightFeet.value === "") && (heightInches.value === "")) {
 
-      helpHeightFeet.innerHTML = "Fill in at least one of those fields"
-      helpHeightInches.innerHTML = "Fill in at least one of those fields"
+      helpHeightFeet.innerHTML = "Fill in at least one of those fields";
+      helpHeightInches.innerHTML = "Fill in at least one of those fields";
       displayErrorValidation(heightFeet, helpHeightFeet);
       displayErrorValidation(heightInches, helpHeightInches);
       return(false);
@@ -539,14 +533,14 @@ function validateResultHeightImperial() {
       removeErrorValidation(heightInches, helpHeightInches);
       return(true);
 
-    };
+    }
 
   } else {
     removeErrorValidation(heightFeet, helpHeightFeet);
     removeErrorValidation(heightInches, helpHeightInches);
     return(true);
-  };
-};
+  }
+}
 
 
 /**
@@ -560,31 +554,31 @@ function validateResultHeightImperial() {
 
     if (currentWeightKg.value === "") {
 
-      helpCurrentWeightKg.innerHTML = "This field is required"
+      helpCurrentWeightKg.innerHTML = "This field is required";
       displayErrorValidation(currentWeightKg, helpCurrentWeightKg);
       return(false);
 
     } else if (parseInt(targetWeightKg.value) >= parseInt(currentWeightKg.value)) {
       
-      console.log(`my target weight ${targetWeightKg.value} and the current weight ${currentWeightKg.value}`)
-        helpCurrentWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight"
+      console.log(`my target weight ${targetWeightKg.value} and the current weight ${currentWeightKg.value}`);
+        helpCurrentWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight";
         displayErrorValidation(currentWeightKg, helpCurrentWeightKg);
         return(false);
  
     } else {
       
-      console.log(`Current Weight Kg - I have passed through validation and my value is: ${currentWeightKg.value}`)
+      console.log(`Current Weight Kg - I have passed through validation and my value is: ${currentWeightKg.value}`);
       removeErrorValidation(currentWeightKg, helpCurrentWeightKg);
       return(true);
 
-    };
+    }
 
   } else {
-    console.log(`Current Weight Kg  - the radio button for Target weight and Imperial is off, `)
+    console.log(`Current Weight Kg  - the radio button for Target weight and Imperial is off, `);
     removeErrorValidation(currentWeightKg, helpCurrentWeightKg);
     return(true);
-  };
-};
+  }
+}
 
 
 /**
@@ -598,45 +592,45 @@ function validateResultTargetWeightKg() {
 
     if (targetWeightKg.value === "") {
 
-      helpTargetWeightKg.innerHTML = "This field is required"
+      helpTargetWeightKg.innerHTML = "This field is required";
       displayErrorValidation(targetWeightKg, helpTargetWeightKg);
       return(false);
 
     } else if (parseInt(targetWeightKg.value) >= parseInt(currentWeightKg.value)) {
 
-        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight"
+        helpTargetWeightKg.innerHTML = "Please set correct Target Weight, that is lower than your Current Weight";
         displayErrorValidation(targetWeightKg, helpTargetWeightKg);
         return(false);
  
     } else {
       
-      console.log(`Target Weight Kg - I have passed through validation and my value is: ${targetWeightKg.value}`)
+      console.log(`Target Weight Kg - I have passed through validation and my value is: ${targetWeightKg.value}`);
       removeErrorValidation(targetWeightKg, helpTargetWeightKg);
       return(true);
 
-    };
+    }
 
   } else {
-    console.log(`target Weight Kg  - the radio button for Target weight and Imperial is off, `)
+    console.log(`target Weight Kg  - the radio button for Target weight and Imperial is off, `);
     removeErrorValidation(targetWeightKg, helpTargetWeightKg);
     return(true);
-  };
-};
+  }
+}
 
 
 function validateResultHeightMetric() {
 
   if (radioMetric.checked) {
 
-    falseIfEmpty(heightCm, helpHeightCm)
+    falseIfEmpty(heightCm, helpHeightCm);
 
   } else {
-    console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`)
+    console.log(`Height Feet and Inches - I have passed through validation and my value is: ${heightFeet.value}`);
     removeErrorValidation(heightFeet, helpHeightFeet);
     removeErrorValidation(heightInches, helpHeightInches);
     return(true);
-  };
-};
+  }
+}
 
 /**
  * universal function to test the input fields if they were left empty. This function is used for fields that do not require complex validation.
@@ -649,15 +643,15 @@ function validateResultHeightMetric() {
   if (testedNode.value === "") {
 
     helpNode.innerHTML = "This field is required";
-    displayErrorValidation(testedNode, helpNode)
+    displayErrorValidation(testedNode, helpNode);
     return false;
 
   } else {
 
-    removeErrorValidation(testedNode, helpNode)
+    removeErrorValidation(testedNode, helpNode);
     return true;
-  };
-};
+  }
+}
 
 /**
  * Function to check if each validation result, for each input field is false
@@ -716,8 +710,8 @@ function allValidationResults() {
     console.log("all fields passed all validation results");
     return(true);
     
-  };
-};
+  }
+}
 
 //event listener for "submit"
 
@@ -735,9 +729,9 @@ calulatorForm.addEventListener("submit", handleCalculatorSubmit);
   } else {
       console.log("all good to go");
       calulatorForm.submit();
-  };
+  }
 
-};
+}
 
 
 // debounce and instant feedback on input copied from the below link
@@ -759,7 +753,7 @@ calulatorForm.addEventListener("submit", handleCalculatorSubmit);
       }
       // setup a new timer
       timeoutId = setTimeout(() => {
-          fn.apply(null, args)
+          fn.apply(null, args);
       }, delay);
   };
 };
@@ -813,10 +807,10 @@ calulatorForm.addEventListener ('input', debounce(function (e) {
         validateResultHeightMetric();
           break;
       case 'excercise-hours':
-        falseIfEmpty(excerciseHours, helpExcerciseHours)
+        falseIfEmpty(excerciseHours, helpExcerciseHours);
           break;
       case 'input-diet':
-        falseIfEmpty(diet, helpDiet)
+        falseIfEmpty(diet, helpDiet);
           break;
 
 }

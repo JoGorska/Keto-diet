@@ -36,236 +36,231 @@
     <!--Nav bar  - ??? need do place it correctly check if nav bar goes below header in html should header be in the header-->
     <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-    <div id="nav-container" class="container mt-5">
-      <!--Nav bar-->
-      <header class="mb-auto text-center">
-        <div>
-            <a class="navbar-brand text-center" href="index.html">
-                <img src="assets/images/keto-logo.png" alt="logo - three sugar cubes with prohibition sign" width="50" height="50" class=" d-inline-block align-text-top float-md-start mb-auto text-center">
-                <h1 class="float-md-start mb-0 text-dark my-heading-font fw-bold">Change your fuel</h1>
-            </a>  
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="text-dark my-heading-font nav-link" href="index.html">Home</a>
-                <a class="fw-bold text-dark my-heading-font nav-link my-active" aria-current="page" href="calculator.html">Calculator</a>
-                <a class="text-dark my-heading-font nav-link" href="contact.html">Contact</a>
-          </nav>
+        <div id="nav-container" class="container mt-5">
+            <!--Nav bar-->
+            <header class="mb-auto text-center">
+                <div>
+                    <a class="navbar-brand text-center" href="index.html">
+                        <img src="assets/images/keto-logo.png" alt="logo - three sugar cubes with prohibition sign" width="50" height="50" class=" d-inline-block align-text-top float-md-start mb-auto text-center">
+                        <h1 class="float-md-start mb-0 text-dark my-heading-font fw-bold">Change your fuel</h1>
+                    </a>  
+                    <nav class="nav nav-masthead justify-content-center float-md-end">
+                        <a class="text-dark my-heading-font nav-link" href="index.html">Home</a>
+                        <a class="fw-bold text-dark my-heading-font nav-link my-active" aria-current="page" href="calculator.html">Calculator</a>
+                        <a class="text-dark my-heading-font nav-link" href="contact.html">Contact</a>
+                    </nav>
+                </div>
+            </header>
         </div>
-      </header>
-    </div>
     
-
-
-<!--Header-->
-<header class="mb-auto">
-    <div class="container">
-        
-        <div class="pb-md-4 mx-auto text-center my-plain-text-font">
-            <h1 class="display-4 fw-normal border-top mt-3 mb-3 font-family-header text-dark fw-bold my-heading-font">Calculator</h1>
-            <p class="fs-5 p-1 text-dark fw-bold my-white-gradient-to-left my-border-radius-bigger my-heading-font">Choose from one of the options below to calculate how long will it take you to acheve the target weight or how much weight you can loose untill your target date</p>
-        </div>
-
-    </div>
-</header>
-
-<!--Main content - Calculator Form-->
-<form action="results.html" method="GET" target="_blank">
-    <div class="container p-3 mb-3 my-white-gradient-to-left my-plain-text-font text-dark my-border-radius-bigger">
-        
-        <!--
-        Choose Target Weight or Target Date
-        Button group copied from Bootswatch and applied bootsstrap and bootstwatch styling
-        -->
-
-        <div class="text-center bs-component mb-3 mt-5">
-            <div class="btn-group" role="group" aria-label="Target Weight or Target Date radio button">
-              <input type="radio" class="btn-check" name="target" id="radio-target-weight" autocomplete="off" checked required>
-              <label class="btn btn-outline-success" for="radio-target-weight">Target Weight</label>
-              <input type="radio" class="btn-check" name="target" id="radio-target-date" autocomplete="off">
-              <label class="btn btn-outline-success" for="radio-target-date">Target Date</label>
-            </div>
-        </div>
-
-        <!--Name-->
-        <div id="div-name" class="mb-3">
-            <label for="input-name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="input-name" name="input-name">
-            <div id="name-help" class="form-text my-invisible"></div>
-        </div>
-
-        <!--Gender-->
-
-        <div class="mb-3">
-            <label class="form-label" for="gender">Gender</label>
-            <input class="form-control mb-3" type="text" name="gender" id="gender" list="gender-list" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" aria-describedby="gender-help">
-            <div id="gender-help" class="form-text fw-bold text-dark">However we aim to be inclusive, some parts of the results will depend on male or female gender.</div>
-            <datalist id="gender-list">
-                <option>Male</option>
-                <option>Female</option>
-            </datalist>
-        </div>  
-        
-        <!--Age-->
-        <div class="mb-3">
-            <label for="input-age" class="form-label">Age</label>
-            <input type="number" class="form-control" id="input-age" name="input-age" pattern="\d+" title="Please enter a number without decimal places" aria-describedby="age-help">
-            <div id="age-help" class="form-text fw-bold text-dark">We'll never share your age with anyone else.</div>
-        </div>
-
-        <!--Target Date - made invisible when it first loads-->
-        <div id="div-target-date" class="my-invisible mb-3">
-            <label for="target-date" class="form-label">Target Date</label>
-            <input type="date" class="form-control" id="target-date" name="target-date" aria-describedby="date-help">
-            <div id="date-help" class="form-text fw-bold text-dark">We can estimate the results only for dates further than a month from today</div>
-        </div>
-
-        <!--
-        Choose
-        Imperial Measures or Metric
-        button group copied from Bootswatch and applied bootsstrap and bootstwatch styling
-        preselected metric when it first loads
-        -->
-        <fieldset>
-            <legend class="text-center mb-5">Choose between Imperial Units and Metric</legend>
-                        
-            <!--Radio button group code copied from bootswatch and applied styling from bootswatch and bootstrap-->
-     
-            <div class="text-center bs-component mb-3">
-                <div class="btn-group" role="group" aria-label="Units of measures radio button">
-                    <input type="radio" class="btn-check" name="units-of-measure" id="imperial" autocomplete="off">
-                    <label class="btn btn-outline-success" for="imperial">Imperial Units</label>
-
-                    <input type="radio" class="btn-check" name="units-of-measure" id="metric" autocomplete="off" checked="" required>
-                    <label class="btn btn-outline-success" for="metric">Metric</label>
-                </div>
-            </div>
+        <div class="container">
             
-            <!--imperial measures input fields - made invisible when it first loads-->
-            <div id="div-all-imperial" class="my-invisible container">
-                <!--Current weight imperial-->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="current-weight-stone" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="current-weight-stone" name="current-weight-stone" placeholder="Stone">
-                        <div id="current-weight-stone-help" class="form-text my-invisible"></div>
-                    </div>
-                    <div class="col">
-                        <label for="current-weight-pounds" class="form-label">Current Weight</label>
-                        <input type="number" class="form-control" id="current-weight-pounds" name="current-weight-pounds" placeholder="lbs">
-                        <div id="current-weight-pounds-help" class="form-text my-invisible"></div>
-                    </div>
-                </div>
-                <!--Target weight imperial-->
-                <div id="div-target-imperial" class="row mb-3">
-                    <div class="col">
-                        <label for="target-weight-stone" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="target-weight-stone" name="target-weight-stone" placeholder="Stone">
-                        <div id="target-weight-stone-help" class="form-text my-invisible"></div>
-                    </div>
-                    <div class="col">
-                        <label for="target-weight-pounds" class="form-label">Target Weight</label>
-                        <input type="number" class="form-control" id="target-weight-pounds" name="target-weight-pounds" placeholder="lbs">
-                        <div id="target-weight-pounds-help" class="form-text my-invisible"></div>
-                    </div>
-                </div>
-                <!--Height imperial-->
-                <div class="row mb-3">
-                    <div class="col">
-                        <label for="height-feet" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="height-feet" name="height-feet" placeholder="Feet">
-                        <div id="height-feet-help" class="form-text my-invisible"></div>
-                    </div>
-                    <div class="col">
-                        <label for="height-inches" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="height-inches" name="height-inches" placeholder="Inches">
-                        <div id="height-inches-help" class="form-text my-invisible"></div>
-                    </div>
-                </div>
-                        <!--Waist line imperial-->
-                <div class="mb-3">
-                    <label for="waist-inches" class="form-label">Waist</label>
-                    <input type="number" class="form-control" id="waist-inches" name="waist-inches" aria-describedby="waist-inches-help" placeholder="Inches (this field is not required)">
-                    <div id="waist-inches-help" class="form-text fw-bold text-dark">Find the bottom of your ribs and the top of your hips. Wrap a tape measure around your waist midway between these points. Breathe out naturally before taking the measurement.</div>
-                </div>
+            <div class="pb-md-4 mx-auto text-center my-plain-text-font">
+                <h1 class="display-4 fw-normal border-top mt-3 mb-3 font-family-header text-dark fw-bold my-heading-font">Calculator</h1>
+                <p class="fs-5 p-1 text-dark fw-bold my-white-gradient-to-left my-border-radius-bigger my-heading-font">Choose from one of the options below to calculate how long will it take you to acheve the target weight or how much weight you can loose untill your target date</p>
             </div>
 
-            <!--metric measures input fields - made invisible when radio button selects imperial-->
-
-            <div id="div-all-metric" class="container">
-                <!--Current weight for metric measures-->
-                <div class="mb-3">
-                    <label for="current-weight-kg" class="form-label">Current Weight</label>
-                    <input type="number" class="form-control" id="current-weight-kg" name="current-weight-kg" placeholder="kg">
-                    <div id="current-weight-kg-help" class="form-text my-invisible"></div>
-                </div>
-                <!--Target weight for metric-->
-                <div id="div-target-metric" class="mb-3">
-                    <label for="target-weight-kg" class="form-label">Target Weight</label>
-                    <input type="number" class="form-control" id="target-weight-kg" name="target-weight-kg" placeholder="kg">
-                    <div id="target-weight-kg-help" class="form-text my-invisible"></div>
-                </div>
-                <!--height for metric-->
-                <div class="mb-3">
-                    <label for="height-cm" class="form-label">Height</label>
-                    <input type="number" class="form-control" id="height-cm" name="height-cm" placeholder="cm">
-                    <div id="height-cm-help" class="form-text my-invisible"></div>
-                </div>
-                <!--Waist line metric-->
-                <div class="mb-3">
-                    <label for="waist-cm" class="form-label">Waist</label>
-                    <input type="number" class="form-control" id="waist-cm" name="waist-cm" aria-describedby="waist-cm-help" placeholder="cm (this field is not required)">
-                    <div id="waist-cm-help" class="form-text text-dark fw-bold">Find the bottom of your ribs and the top of your hips. Wrap a tape measure around your waist midway between these points. Breathe out naturally before taking the measurement.</div>
-                </div>
-            </div>
-
-        </fieldset>
-   
-        <!--Hours of excercise per week-->
-        <div class="mb-3">
-            <label for="excercise-hours" class="form-label">Hours of excercise per week</label>
-            <input type="number" class="form-control" id="excercise-hours" name="excercise-hours">
-            <div id="excercise-hours-help" class="form-text my-invisible"></div>
         </div>
-        <div class="mb-5">
-            <label class="form-label" for="input-diet">Your current Diet</label>
-            <input class="form-control mb-3" type="text" name="diet" id="input-diet" list="diet-list" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160">
-            <div id="input-diet-help" class="form-text my-invisible"></div>
-            <datalist id="diet-list">
-                <option>None</option>
-                <option>Keto</option>
-                <option>Low Carb</option>
-                <option>High Protein</option>
-                <option>Eat Less</option>
-                <option>Zryj Mniej</option>
-                <option>Noom</option>
-                <option>NHS program</option>
-                <option>Cabbage Soup Diet</option>
-                <option>Weight Watchers</option>
-                <option>Slimming World</option>
-                <option>Low Fat</option>
-                <option value="My Own Diet">My Own Diet</option>
 
-            </datalist>
-        </div>  
+
+        <!--Main content - Calculator Form-->
+        <form action="results.html" method="GET" target="_blank">
+            <div class="container p-3 mb-3 my-white-gradient-to-left my-plain-text-font text-dark my-border-radius-bigger">
+                
+            <!--
+            Choose Target Weight or Target Date
+            Button group copied from Bootswatch and applied bootsstrap and bootstwatch styling
+            -->
+
+            <div class="text-center bs-component mb-3 mt-5">
+                <div class="btn-group" role="group" aria-label="Target Weight or Target Date radio button">
+                <input type="radio" class="btn-check" name="target" id="radio-target-weight" checked required>
+                <label class="btn btn-outline-success" for="radio-target-weight">Target Weight</label>
+                <input type="radio" class="btn-check" name="target" id="radio-target-date">
+                <label class="btn btn-outline-success" for="radio-target-date">Target Date</label>
+                </div>
+            </div>
+
+            <!--Name-->
+            <div id="div-name" class="mb-3">
+                <label for="input-name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="input-name" name="input-name">
+                <div id="name-help" class="form-text my-invisible"></div>
+            </div>
+
+            <!--Gender-->
+
+            <div class="mb-3">
+                <label class="form-label" for="input-gender">Gender</label>
+                <input class="form-control mb-3" type="text" name="input-gender" id="input-gender" list="gender-list" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160" aria-describedby="gender-help">
+                <div id="gender-help" class="form-text fw-bold text-dark">However we aim to be inclusive, some parts of the results will depend on male or female gender.</div>
+                <datalist id="gender-list">
+                    <option>Male</option>
+                    <option>Female</option>
+                </datalist>
+            </div>  
+            
+            <!--Age-->
+            <div class="mb-3">
+                <label for="input-age" class="form-label">Age</label>
+                <input type="number" class="form-control" id="input-age" name="input-age" title="Please enter a number without decimal places" aria-describedby="age-help">
+                <div id="age-help" class="form-text fw-bold text-dark">We'll never share your age with anyone else.</div>
+            </div>
+
+            <!--Target Date - made invisible when it first loads-->
+            <div id="div-target-date" class="my-invisible mb-3">
+                <label for="target-date" class="form-label">Target Date</label>
+                <input type="date" class="form-control" id="target-date" name="target-date" aria-describedby="date-help">
+                <div id="date-help" class="form-text fw-bold text-dark">We can estimate the results only for dates further than a month from today</div>
+            </div>
+
+            <!--
+            Choose
+            Imperial Measures or Metric
+            button group copied from Bootswatch and applied bootsstrap and bootstwatch styling
+            preselected metric when it first loads
+            -->
+            <fieldset>
+                <legend class="text-center mb-5">Choose between Imperial Units and Metric</legend>
+                            
+                <!--Radio button group code copied from bootswatch and applied styling from bootswatch and bootstrap-->
         
-        <!--Buttons at the end of the page-->
-        <div class="container-fluid text-center mt-5 mb-5">
-            <div class="row">
-               <div class="col p-3">
-                    <button type="submit" class="btn btn-success">Submit</button>
-               </div>
-               <div class="col p-3">
-                <button type="reset" class="btn btn-danger">Reset</button>
-               </div> 
-            </div>
-        </div>
+                <div class="text-center bs-component mb-3">
+                    <div class="btn-group" role="group" aria-label="Units of measures radio button">
+                        <input type="radio" class="btn-check" name="units-of-measure" id="imperial">
+                        <label class="btn btn-outline-success" for="imperial">Imperial Units</label>
 
+                        <input type="radio" class="btn-check" name="units-of-measure" id="metric" checked="" required>
+                        <label class="btn btn-outline-success" for="metric">Metric</label>
+                    </div>
+                </div>
+                
+                <!--imperial measures input fields - made invisible when it first loads-->
+                <div id="div-all-imperial" class="my-invisible container">
+                    <!--Current weight imperial-->
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="current-weight-stone" class="form-label">Current Weight</label>
+                            <input type="number" class="form-control" id="current-weight-stone" name="current-weight-stone" placeholder="Stone">
+                            <div id="current-weight-stone-help" class="form-text my-invisible"></div>
+                        </div>
+                        <div class="col">
+                            <label for="current-weight-pounds" class="form-label">Current Weight</label>
+                            <input type="number" class="form-control" id="current-weight-pounds" name="current-weight-pounds" placeholder="lbs">
+                            <div id="current-weight-pounds-help" class="form-text my-invisible"></div>
+                        </div>
+                    </div>
+                    <!--Target weight imperial-->
+                    <div id="div-target-imperial" class="row mb-3">
+                        <div class="col">
+                            <label for="target-weight-stone" class="form-label">Target Weight</label>
+                            <input type="number" class="form-control" id="target-weight-stone" name="target-weight-stone" placeholder="Stone">
+                            <div id="target-weight-stone-help" class="form-text my-invisible"></div>
+                        </div>
+                        <div class="col">
+                            <label for="target-weight-pounds" class="form-label">Target Weight</label>
+                            <input type="number" class="form-control" id="target-weight-pounds" name="target-weight-pounds" placeholder="lbs">
+                            <div id="target-weight-pounds-help" class="form-text my-invisible"></div>
+                        </div>
+                    </div>
+                    <!--Height imperial-->
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="height-feet" class="form-label">Height</label>
+                            <input type="number" class="form-control" id="height-feet" name="height-feet" placeholder="Feet">
+                            <div id="height-feet-help" class="form-text my-invisible"></div>
+                        </div>
+                        <div class="col">
+                            <label for="height-inches" class="form-label">Height</label>
+                            <input type="number" class="form-control" id="height-inches" name="height-inches" placeholder="Inches">
+                            <div id="height-inches-help" class="form-text my-invisible"></div>
+                        </div>
+                    </div>
+                            <!--Waist line imperial-->
+                    <div class="mb-3">
+                        <label for="waist-inches" class="form-label">Waist</label>
+                        <input type="number" class="form-control" id="waist-inches" name="waist-inches" aria-describedby="waist-inches-help" placeholder="Inches (this field is not required)">
+                        <div id="waist-inches-help" class="form-text fw-bold text-dark">Find the bottom of your ribs and the top of your hips. Wrap a tape measure around your waist midway between these points. Breathe out naturally before taking the measurement.</div>
+                    </div>
+                </div>
+
+                <!--metric measures input fields - made invisible when radio button selects imperial-->
+
+                <div id="div-all-metric" class="container">
+                    <!--Current weight for metric measures-->
+                    <div class="mb-3">
+                        <label for="current-weight-kg" class="form-label">Current Weight</label>
+                        <input type="number" class="form-control" id="current-weight-kg" name="current-weight-kg" placeholder="kg">
+                        <div id="current-weight-kg-help" class="form-text my-invisible"></div>
+                    </div>
+                    <!--Target weight for metric-->
+                    <div id="div-target-metric" class="mb-3">
+                        <label for="target-weight-kg" class="form-label">Target Weight</label>
+                        <input type="number" class="form-control" id="target-weight-kg" name="target-weight-kg" placeholder="kg">
+                        <div id="target-weight-kg-help" class="form-text my-invisible"></div>
+                    </div>
+                    <!--height for metric-->
+                    <div class="mb-3">
+                        <label for="height-cm" class="form-label">Height</label>
+                        <input type="number" class="form-control" id="height-cm" name="height-cm" placeholder="cm">
+                        <div id="height-cm-help" class="form-text my-invisible"></div>
+                    </div>
+                    <!--Waist line metric-->
+                    <div class="mb-3">
+                        <label for="waist-cm" class="form-label">Waist</label>
+                        <input type="number" class="form-control" id="waist-cm" name="waist-cm" aria-describedby="waist-cm-help" placeholder="cm (this field is not required)">
+                        <div id="waist-cm-help" class="form-text text-dark fw-bold">Find the bottom of your ribs and the top of your hips. Wrap a tape measure around your waist midway between these points. Breathe out naturally before taking the measurement.</div>
+                    </div>
+                </div>
+
+                </fieldset>
+        
+                <!--Hours of excercise per week-->
+                <div class="mb-3">
+                    <label for="excercise-hours" class="form-label">Hours of excercise per week</label>
+                    <input type="number" class="form-control" id="excercise-hours" name="excercise-hours">
+                    <div id="excercise-hours-help" class="form-text my-invisible"></div>
+                </div>
+                <div class="mb-5">
+                    <label class="form-label" for="input-diet">Your current Diet</label>
+                    <input class="form-control mb-3" type="text" name="diet" id="input-diet" list="diet-list" placeholder="Please write here or choose from drop down list" minlength="2" maxlength="160">
+                    <div id="input-diet-help" class="form-text my-invisible"></div>
+                    <datalist id="diet-list">
+                        <option>None</option>
+                        <option>Keto</option>
+                        <option>Low Carb</option>
+                        <option>High Protein</option>
+                        <option>Eat Less</option>
+                        <option>Zryj Mniej</option>
+                        <option>Noom</option>
+                        <option>NHS program</option>
+                        <option>Cabbage Soup Diet</option>
+                        <option>Weight Watchers</option>
+                        <option>Slimming World</option>
+                        <option>Low Fat</option>
+                        <option value="My Own Diet">My Own Diet</option>
+
+                    </datalist>
+                </div>  
+            
+            <!--Buttons at the end of the page-->
+                <div class="container-fluid text-center mt-5 mb-5">
+                    <div class="row">
+                    <div class="col p-3">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                    <div class="col p-3">
+                        <button type="reset" class="btn btn-danger">Reset</button>
+                    </div> 
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <footer class="mt-auto text-success text-center">
+            <p class="fw-bold text-dark my-heading-font" >Copyright 2021 JoGorska <a class="fw-bold text-dark my-heading-font" href="https://github.com/JoGorska">Gitpod</a> and <a class="fw-bold text-dark my-heading-font" href="https://uk.linkedin.com">Linked in</a>.</p>
+        </footer>
     </div>
-  </form>
-  <footer class="mt-auto text-success text-center">
-    <p class="fw-bold text-dark my-heading-font" >Copyright 2021 JoGorska <a class="fw-bold text-dark my-heading-font" href="https://github.com/JoGorska">Gitpod</a> and <a class="fw-bold text-dark my-heading-font" href="https://uk.linkedin.com" class="text-white">Linked in</a>.</p>
-  </footer>
-</div>
 <!--Bootstrap JavaScript-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

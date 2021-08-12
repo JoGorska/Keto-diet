@@ -1,8 +1,11 @@
-// timeout window if answered yes
+//function to move window
 
 
 
-
+function moveWin(myWindow) {
+  myWindow.moveTo(500, 200);                                  // Moves the new window   
+  myWindow.focus();                                           // Sets focus to the new window
+}
 
 //Welcome Questions - interactions with the user
   
@@ -21,7 +24,7 @@
             <button type="button" class="btn btn-success btn-lg px-4">No</button>
           </div>
         </div>
-      </div>`
+      </div>`;
       
     //Loop through all buttons responding to yes and no, loop inside loop once HTML was replaced.  
   
@@ -29,7 +32,7 @@
       for(let button of buttons) {
         button.addEventListener("click", function() {
           if (this.innerHTML === "Yes") {
-              console.log("I clicked Yes")
+              console.log("I clicked Yes");
 
               // opens new window asking the user to be honest
               //https://www.w3schools.com/jsref/met_win_settimeout.asp
@@ -65,15 +68,12 @@
                 </div>
                 </body>
                 </html>`);
-              setTimeout(function(){ myWindow.close() }, 3000);
+              setTimeout(function(){ myWindow.close(); }, 3000);
 
               // moves window from the corner
               // https://www.w3schools.com/jsref/met_win_moveto.asp
-              function moveWin() {
-                myWindow.moveTo(500, 200);                                  // Moves the new window   
-                myWindow.focus();                                           // Sets focus to the new window
-              }
-              moveWin()
+              
+              moveWin(myWindow);
                     
           } else if (this.innerHTML === "No") {
               console.log("I clicked No");
@@ -91,7 +91,7 @@
                       <button type="button" class="btn btn-success btn-lg px-4">No</button>
                     </div>
                   </div>
-                </div>` 
+                </div>`;
   
               //new loop for buttons after HTML has been changed
               let buttons = document.getElementsByTagName("button");
@@ -135,15 +135,12 @@
                     </div>
                     </body>
                     </html>`);
-                    setTimeout(function(){ myWindow.close() }, 3000);
+                    setTimeout(function(){ myWindow.close(); }, 3000);
                     
                     // moves window from the corner
                     // https://www.w3schools.com/jsref/met_win_moveto.asp
-                    function moveWin() {
-                      myWindow.moveTo(500, 200);                                  // Moves the new window   
-                      myWindow.focus();                                           // Sets focus to the new window
-                    }
-                    moveWin()
+
+                    moveWin(myWindow);
   
                   } else if (this.innerHTML === "No") {
                     console.log("I clicked No to calorie count");
@@ -161,16 +158,16 @@
                             
                           </div>
                         </div>
-                      </div>`
+                      </div>`;
                   } else {
-                      console.log("button unnknown")
-                  };
+                      console.log("button unnknown");
+                  }
                 });
               } 
           } else {
-            console.log("button unnknown")
+            console.log("button unnknown");
           }
   
-        })
-      };
+        });
+      }
   });

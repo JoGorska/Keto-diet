@@ -7,7 +7,7 @@
 //declare variables for each input field and the contact Form itself
 
 const contactForm = document.getElementsByTagName("FORM")[0];
-const contactName = document.getElementById("contact-name")
+const contactName = document.getElementById("contact-name");
 const email = document.getElementById("email");
 const telephone = document.getElementById("telephone");
 const enquiry = document.getElementById("enquiry");
@@ -17,7 +17,7 @@ const enquiry = document.getElementById("enquiry");
 
 //variables creating tests for test function, edited and designed in https://regexr.com/ enabling names with a dash, space or apostrophe, dot or a coma and a space. 
 
-const regexLetters = /[a-zA-Z \,'\.\-\']/g
+const regexLetters = /[a-zA-Z \,'\.\-\']/g;
 
 // regex email copied from javascripttutorial.net/javascript-dom/javascript-form-validation
 
@@ -48,9 +48,9 @@ function isEmpty(contactName) {
         return true;
     } else {
         return false;
-    };
+    }
 
-};
+}
 
 
 
@@ -60,17 +60,7 @@ function isEmpty(contactName) {
  * @param {3, 50} 
  * @returns true
  */
-function minMax300() {
-    let mylength = this.value.length;
 
-    if (mylength < min) {
-        return false;
-     } else if (mylength > maxLength300) {
-        return false;
-     } else {
-        return true;
-     };
-};
 
 /**
  * Universal function to test the length between 3 and 50 input field value
@@ -88,9 +78,9 @@ function minMax50(contactName) {
         return false;
      } else {
         return true;
-     };
+     }
      
-};
+}
 
 /**
  *  functions testing particular field if they are in line with Regex
@@ -98,22 +88,22 @@ function minMax50(contactName) {
  */
 
  function containsLetters(contactName) {
-    let value = contactName.value
-    console.log(value)
+    let value = contactName.value;
+    console.log(value);
     return regexLetters.test(value);
-};
+}
 
 function correctEmail(email) {
-    let value = email.value
-    console.log(value)
+    let value = email.value;
+    console.log(value);
     return regexEmail.test(value);
-};
+}
 
 function correctTelephone(telephone) {
-    let value = telephone.value
-    console.log(value)
+    let value = telephone.value;
+    console.log(value);
     return regexTelephone.test(value);
-};
+}
 /**
  * Universal function to highlight errors in a form, once the field failed validation on submit
  * and it doesn't work!!!
@@ -169,15 +159,15 @@ function correctTelephone(telephone) {
 
     } else {
       
-        console.log(`name input field passed validation and name value is: ${contactName.value}`)
+        console.log(`name input field passed validation and name value is: ${contactName.value}`);
         console.log(contactName.value.length);
         contactName.classList.remove("is-invalid");
         contactName.removeAttribute("aria-describedby", "contact-name-help");
         divContactNameHelp.classList.add("my-invisible");
         return(true);
-    };
+    }
     
-};
+}
 
 /**
  * Function to validate email.
@@ -194,7 +184,7 @@ function correctTelephone(telephone) {
         console.log("email - failed validation on input required ");
         email.classList.add("is-invalid");
         email.setAttribute("aria-describedby", "email-help");
-        divEmailHelp.innerHTML = "This field is required"
+        divEmailHelp.innerHTML = "This field is required";
         divEmailHelp.classList.remove("my-invisible");
         return(false);
 
@@ -202,7 +192,7 @@ function correctTelephone(telephone) {
         console.log("email - failed individual validation on min or max Length");
         email.classList.add("is-invalid");
         email.setAttribute("aria-describedby", "email-help");
-        divEmailHelp.innerHTML = "Email too short"
+        divEmailHelp.innerHTML = "Email too short";
         divEmailHelp.classList.remove("my-invisible");
         return(false);
      
@@ -229,18 +219,18 @@ function correctTelephone(telephone) {
 
     } else {
       
-        console.log(`email - I have passed through validation and my value is: ${email.value} and my length ${email.value.length}`)
+        console.log(`email - I have passed through validation and my value is: ${email.value} and my length ${email.value.length}`);
         email.classList.remove("is-invalid");
         email.removeAttribute("aria-describedby", "email-help");
         divEmailHelp.classList.add("my-invisible");
 
-        return(true)
+        return(true);
 
 
 
-    };
+    }
     
-};
+}
 
 
 
@@ -303,9 +293,9 @@ function correctTelephone(telephone) {
 
 
 
-    };
+    }
     
-};
+}
 
 
 /**
@@ -323,28 +313,28 @@ function correctTelephone(telephone) {
     if(enquiry.value === "") {
         enquiry.classList.add("is-invalid");
         enquiry.setAttribute("aria-describedby", "enquiry-help");
-        divEnquiryHelp.innerHTML = "This field is required"
+        divEnquiryHelp.innerHTML = "This field is required";
         divEnquiryHelp.classList.remove("my-invisible");
         return(false);
 
     } else if (enquiry.value.length < 3) {
         enquiry.classList.add("is-invalid");
         enquiry.setAttribute("aria-describedby", "enquiry-help");
-        divEnquiryHelp.innerHTML = "Message too short"
+        divEnquiryHelp.innerHTML = "Message too short";
         divEnquiryHelp.classList.remove("my-invisible");
         return(false);
      
     } else {
       
-        console.log(`enquiry - I have passed through validation and my value is: ${enquiry.value} and my length ${enquiry.value.length}`)
+        console.log(`enquiry - I have passed through validation and my value is: ${enquiry.value} and my length ${enquiry.value.length}`);
         enquiry.classList.remove("is-invalid");
         enquiry.removeAttribute("aria-describedby", "enquiry-help");
         divEnquiryHelp.classList.add("my-invisible");
-        return(true)
+        return(true);
 
-    };
+    }
     
-};
+}
 
 
 
@@ -393,9 +383,9 @@ function handleContactSubmit(event) {
     } else {
         console.log("all good to go");
         document.getElementsByTagName("FORM")[0].submit();
-    };
+    }
 
-};
+}
 
 // debounce and instant feedback on input copied from the below link
 //https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
@@ -416,7 +406,7 @@ const debounce = (fn, delay = 500) => {
         }
         // setup a new timer
         timeoutId = setTimeout(() => {
-            fn.apply(null, args)
+            fn.apply(null, args);
         }, delay);
     };
 };

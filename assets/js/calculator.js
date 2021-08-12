@@ -250,7 +250,7 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
     addClass("my-invisible", divTargetImperial);
     clearFormRadio(targetWeightPounds);
     clearFormRadio(targetWeightStone);
-    clearFormRadio(targetWeightKg)
+    clearFormRadio(targetWeightKg);
 
   } else if (event.target.matches("#radio-target-weight")){
     radioButtonSwap(divTargetMetric, divTargetDate);
@@ -259,11 +259,21 @@ document.getElementsByTagName("FORM")[0].addEventListener("change", function(eve
     
   } else if (event.target.matches("#imperial")){
     radioButtonSwap(divAllImperial, divAllMetric);
-    
+    clearFormRadio(targetWeightKg);
+    clearFormRadio(currentWeightKg);
+    clearFormRadio(heightCm);
+    clearFormRadio(waistCm);
   
   } else if (event.target.matches("#metric")){
     radioButtonSwap(divAllMetric, divAllImperial);
-  }
+    clearFormRadio(targetWeightStone);
+    clearFormRadio(targetWeightPounds);
+    clearFormRadio(currentWeightStone);
+    clearFormRadio(currentWeightPounds);
+    clearFormRadio(heightFeet);
+    clearFormRadio(heightInches);
+    clearFormRadio(waistInches);
+  };
 
 });
 

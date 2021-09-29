@@ -92,8 +92,8 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 4. Validation on input
 
     - initial idea taken from [this page](https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/), unfortunately it was validating any field, not the field with said id. I could not get it to work correctly. This code was written when the html structure of the page was different, therefore it reffers to id that no longer exists.
-
-        `document.getElementById("main-container").addEventListener("input", function(event){
+```
+        document.getElementById("main-container").addEventListener("input", function(event){
         if(event.target.matches("#inputName")) {
             console.log(`${event.target.value}`)
             let inputName = event.target.value
@@ -113,8 +113,8 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
             return false;
         };
 
-        });`
-  
+        });
+```
 5. When validating contact form using bootstrap's classess to display error message, for some reason error message was showing under each field, even if only one field failed validation. Resolved problem by adding my-invisible class to each field and removing aria-describedby. This way the div would be invisible for screen readers, this would only apear after error occurs. Failing validation removes my-invisible class and adds aria-describedby. 
 
 6. Problem with validating if the date is month ahead of today. 

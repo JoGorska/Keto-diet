@@ -152,17 +152,6 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
     - similarly as above I do not want to set maximum or minimum value
 
 
-## Previous project (to be deleted)
-
-1. Results, what I have acheved being on Keto Diet
-2. How it works - Recipe for success
-3. Authorities - people that speak about Keto
-4. How to start on Keto
-5. Keto flu
-6. Am I in Keto - how to measure if you are in Ketosis
-7. Suplements
-8. Contact page - leave your contact details for dietitian to get back to you
-
 ## Further developement the website
 
 1. Add your Keto recipe - form for users to add their recipe

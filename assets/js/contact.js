@@ -89,29 +89,19 @@ function minMax50(contactName) {
 
  function containsLetters(contactName) {
     let value = contactName.value;
-    console.log(value);
     return regexLetters.test(value);
 }
 
 function correctEmail(email) {
     let value = email.value;
-    console.log(value);
     return regexEmail.test(value);
 }
 
 function correctTelephone(telephone) {
     let value = telephone.value;
-    console.log(value);
     return regexTelephone.test(value);
 }
-/**
- * Universal function to highlight errors in a form, once the field failed validation on submit
- * and it doesn't work!!!
- */
- //function highlightErrors() {
-//    console.log("I will add or remove classess")
-//    this.classList.add("bg-danger")
-//}
+
 
 //functions to display result of the validation of each particular field, returns true or highlights the input field red
 

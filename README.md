@@ -20,7 +20,7 @@ I hope to explain what Keto diet is about and show how effective and pleasurable
     - kg / m 
 4. Contact page to request contact with dietitian
 
-5. Wireframes ???
+5. Initial wireframes can be found [here](assets/images/Wireframe2.pdf) The general design followed the wireframes, though content has been modified from initial version. 
 
 ## Features
 
@@ -195,17 +195,15 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 ## Thanks to
 1. Cover design used for index.html
 Downloaded from Bootstrap examples. Authors Mark Otto, Jacob Thornton, and Bootstrap contributors. 
-2. Webinar ??? for javascript
-//Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
-// code from code pen, explained by Sean Young on Webinar 22/07/2021
-//https://codepen.io/seanyoung247/pen/qBmbZQK
+2. Webinar for javascript - Sean Young, 22/07/2021
+Radio Buttons event listener and functions to make divs disapear, to display requested content in the form
+code from [code pen](https://codepen.io/seanyoung247/pen/qBmbZQK), explained by Sean Young
 3. Webinar for git hub
 4. Unsplash for images
 5. Youtube for embeded videos
 6. Formspree for form dump
 4. Brian and David for advice during hackaton on branches and pull requests
-3. Mentor
+3. Mentor Felipe Souza
 
-## Joanna - remember to find all ??? signs in all files (readme as well)
 
         

@@ -190,7 +190,12 @@ I corrected all ID to follow kebab-casing convention mentioned in [this article]
 
 
 ## Technologies used
-- bootstrap 5 
+- HTML
+- CSS
+- JavaScript
+- Bootstrap 5
+- Bootswatch
+
 
 ## Thanks to
 1. Cover design used for index.html

@@ -1,5 +1,7 @@
 # Keto Diet
-## Screenshot ???
+## Screenshot
+
+![index page screenshot](assets/images/index-screenshot.png)
 
 link to live page [here](https://jogorska.github.io/Keto-diet/calculator.html)
 
